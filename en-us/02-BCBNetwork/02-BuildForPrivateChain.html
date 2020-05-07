@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>Private Chain Building Guide</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/Site Map.html'>Site Map</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBBasic</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/01-BCBIntro.html'>BCBIntro</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/02-BCBNode.html'>BCBNode</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBNetwork</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/01-MainnetAndTestnet.html'>MainnetAndTestnet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/02-BuildForPrivateChain.html'>BuildForPrivateChain</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBSideChain</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/01-SideChainRegistration.html'>SideChainRegistration</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/02-SideChainCreation.html'>SideChainCreation</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/03-SideChainGovernance.html'>SideChainGovernance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/04-CrossChainTransaction.html'>CrossChainTransaction</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBTools</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractDev</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/02-ProgrammingExample.html'>ProgrammingExample</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/03-DeeperUnderstanding.html'>DeeperUnderstanding</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevSmartContract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/01-DevelopmentEnvironment.html'>DevelopmentEnvironment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/02-FirstSmartContract.html'>FirstSmartContract</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/01-BVM-EVM-diff.html'>BVM-EVM-diff</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/02-Smart-Contract-Dev.html'>Smart-Contract-Dev</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/03-Contract-deployment-call.html'>Contract-deployment-call</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeIntegrationGuide</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/01-IntroductionOfIntegrationScheme.html'>IntroductionOfIntegrationScheme</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/02-InstallationDeployment.html'>InstallationDeployment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/03-CommandDetails.html'>CommandDetails</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevelopmentReference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-ModelDescription.html'>ModelDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-AlgorithmDescription.html'>AlgorithmDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/04-TransactionFormatv1.html'>TransactionFormatv1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/05-TransactionFormatv2.html'>TransactionFormatv2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>MainChainAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/01-Protocol.html'>Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/02-NetworkInterface.html'>NetworkInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/04-TransactionInterface.html'>TransactionInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/05-GlobalInterface.html'>GlobalInterface</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/01-CommunicationProtocol.html'>CommunicationProtocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/02-WalletInterface.html'>WalletInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='b903b997'><span class='bd-content-title'>Private Chain Building Guide<a class='anchorjs-link ' href='#b903b997' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='add54c0d'><span class='bd-content-title'>1. Environment<a class='anchorjs-link ' href='#add54c0d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>As for node programs downloading and installation environment configuration, please refer to the BCB Node section.</p>
+<h2 id='a12f1b43'><span class='bd-content-title'>2. Build A Single Node<a class='anchorjs-link ' href='#a12f1b43' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>The IP of the default single node when installs is <code>127.0.0.1</code> , if you want to use a real IP when deploy, please modify the genesis node profile in the installation directory:</p>
+<p class='with-space'> <code>install-tmcore/pieces/local/v2/local-nodes.json</code> </p>
+<p class='with-space'>Execute the following commands, and in the interactive state, select the chain id, note type in turn, and then wait for about 10s to finish the installation of the test chain consensus engine, once installed successfully, the consensus engine will automatically start the service.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='cd install-tmcore
+./install.sh'>Copy</button><pre><code class='shell' lang='shell'>cd install-tmcore
+./install.sh
+</code></pre>
+</figure>
+<p class='with-space'>You can see the following screen output:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Select which CHAINID to install
+1) local
+#? 1
+You selected CHAINID=local
+
+Start copying files ...
+End of copy files.
+
+Select which role that the node will run
+1) VALIDATOR -- be sure all the validator nodes are installing at the same time
+2) UNOFFICIAL FOLLOWER
+#? 1
+You selected VALIDATOR node
+
+Initializing all genesis node...
+Listen @ :46656
+notifiedMap: map[node1:true]
+doneSent: map[127.0.0.1:true]
+all finished ,gracefully quit
+10..9..sendResult: node1:{pub:true,pri:true,},
+8..7..sendResult: node1:{pub:true,pri:true,},
+6..sendResult: node1:{pub:true,pri:true,},
+5..sendResult: node1:{pub:true,pri:true,},
+4..3..sendResult: node1:{pub:true,pri:true,},
+2..sendResult: node1:{pub:true,pri:true,},
+1..
+
+Congratulation !!! TENDERMINT is successfully installed with version 2.0.1.13780.'>Copy</button><pre><code class='shell' lang='shell'>Select which CHAINID to install
+1) local
+#? 1
+You selected CHAINID=local
+
+Start copying files ...
+End of copy files.
+
+Select which role that the node will run
+1) VALIDATOR -- be sure all the validator nodes are installing at the same time
+2) UNOFFICIAL FOLLOWER
+#? 1
+You selected VALIDATOR node
+
+Initializing all genesis node...
+Listen @ :46656
+notifiedMap: map[node1:true]
+doneSent: map[127.0.0.1:true]
+all finished ,gracefully quit
+10..9..sendResult: node1:{pub:true,pri:true,},
+8..7..sendResult: node1:{pub:true,pri:true,},
+6..sendResult: node1:{pub:true,pri:true,},
+5..sendResult: node1:{pub:true,pri:true,},
+4..3..sendResult: node1:{pub:true,pri:true,},
+2..sendResult: node1:{pub:true,pri:true,},
+1..
+
+Congratulation !!! TENDERMINT is successfully installed with version 2.0.1.13780.
+</code></pre>
+</figure>
+<p class='with-space'>If the test chain has been built, you just need to upgrade the node program, execute the following commands, follow the interactive prompt to complete the upgrade:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='cd install-tmcore
+./update.sh'>Copy</button><pre><code class='shell' lang='shell'>cd install-tmcore
+./update.sh
+</code></pre>
+</figure>
+<p class='with-space'>You can see the following screen output:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! TENDERMINT is successfully updated from 2.0.1.13780 to version 2.0.1.13780.'>Copy</button><pre><code class='shell' lang='shell'>Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! TENDERMINT is successfully updated from 2.0.1.13780 to version 2.0.1.13780.
+</code></pre>
+</figure>
+<p class='with-space'>After installing or upgrading the service, BCBChain&#39;s service <code>tmcore</code> will start automatically. Run the following command to start or stop it：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='systemctl start tmcore
+systemctl stop tmcore'>Copy</button><pre><code class='shell' lang='shell'>systemctl start tmcore
+systemctl stop tmcore
+</code></pre>
+</figure>
+<p class='with-space'>Execute the following commands to finish the build of the test chain business engine bcchain installation directory.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='mkdir install-bcchain
+mkdir install-bcchain/pieces
+mkdir install-bcchain/pieces/local
+mkdir install-bcchain/pieces/local/.config
+cp -r bcbchain/bundle/setup/linux/bcchain/* install-bcchain/
+cp -r bcbchain/bundle/.config/local/* install-bcchain/pieces/local/.config
+cp bcbchain/bin/bcchain install-bcchain/pieces/
+cp bcbchain/version install-bcchain/pieces/
+cp sdk/version install-bcchain/pieces/version_sdk
+cp thirdparty/version install-bcchain/pieces/version_thirdparty
+version=$(cat sdk/version | tr -d &quot;\r&quot;)
+tar cvfz install-bcchain/pieces/sdk_${version}.tar.gz sdk
+version=$(cat thirdparty/version | tr -d &quot;\r&quot;)
+tar cvfz install-bcchain/pieces/thirdparty_${version}.tar.gz thirdparty'>Copy</button><pre><code class='shell' lang='shell'>mkdir install-bcchain
+mkdir install-bcchain/pieces
+mkdir install-bcchain/pieces/local
+mkdir install-bcchain/pieces/local/.config
+cp -r bcbchain/bundle/setup/linux/bcchain/* install-bcchain/
+cp -r bcbchain/bundle/.config/local/* install-bcchain/pieces/local/.config
+cp bcbchain/bin/bcchain install-bcchain/pieces/
+cp bcbchain/version install-bcchain/pieces/
+cp sdk/version install-bcchain/pieces/version_sdk
+cp thirdparty/version install-bcchain/pieces/version_thirdparty
+version=$(cat sdk/version | tr -d &quot;\r&quot;)
+tar cvfz install-bcchain/pieces/sdk_${version}.tar.gz sdk
+version=$(cat thirdparty/version | tr -d &quot;\r&quot;)
+tar cvfz install-bcchain/pieces/thirdparty_${version}.tar.gz thirdparty
+</code></pre>
+</figure>
+<p class='with-space'>Execute the following commands, and in the interactive state, select the chain id: <code>local</code> , then you can finish the installation of the test chain business engine, and once it&#39;s installed successfully, the business engine bccchain will automatically start the service.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='cd install-bcchain
+./install.sh'>Copy</button><pre><code class='shell' lang='shell'>cd install-bcchain
+./install.sh
+</code></pre>
+</figure>
+<p class='with-space'>You can see the following screen output:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Select which CHAINID to install
+1) local
+#? 1
+You selected CHAINID=local
+
+Start copying files ...
+install sdk with version 2.0.1.13774
+install thirdparty packages with version 2.0.1.12318
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully installed with version 2.0.1.13780.'>Copy</button><pre><code class='shell' lang='shell'>Select which CHAINID to install
+1) local
+#? 1
+You selected CHAINID=local
+
+Start copying files ...
+install sdk with version 2.0.1.13774
+install thirdparty packages with version 2.0.1.12318
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully installed with version 2.0.1.13780.
+</code></pre>
+</figure>
+<p class='with-space'>If the test chain has been built, you just need to upgrade the node program, execute the following commands, follow the interactive prompt to complete the upgrade:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='cd install-bcchain
+./update.sh'>Copy</button><pre><code class='shell' lang='shell'>cd install-bcchain
+./update.sh
+</code></pre>
+</figure>
+<p class='with-space'>You can see the following screen output:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully updated from 2.0.1.13780 to version 2.0.1.13780.'>Copy</button><pre><code class='shell' lang='shell'>Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully updated from 2.0.1.13780 to version 2.0.1.13780.
+</code></pre>
+</figure>
+<p class='with-space'>After installing or upgrading the service <code>bcchain</code> , it will start automatically. Run the following command to start or stop it：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='systemctl start bcchain
+systemctl stop bcchain'>Copy</button><pre><code class='shell' lang='shell'>systemctl start bcchain
+systemctl stop bcchain
+</code></pre>
+</figure>
+<p class='with-space'>After installation, wait for genesis block creation to complete(this will cost some minutes), execute the following command to check whether the test chain is working properly.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='curl http://127.0.0.1:46657/health'>Copy</button><pre><code class='shell' lang='shell'>curl http://127.0.0.1:46657/health
+</code></pre>
+</figure>
+<p class='with-space'>You can see the following screen output:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;&quot;,
+  &quot;result&quot;: {
+    &quot;chain_id&quot;: &quot;local&quot;,
+    &quot;version&quot;: &quot;2.0.1.13780&quot;,
+    &quot;chain_version&quot;: 2,
+    &quot;last_block_height&quot;: 1,
+    &quot;validator_count&quot;: 1
+  }
+}'>Copy</button><pre><code class='shell' lang='shell'>{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;&quot;,
+  &quot;result&quot;: {
+    &quot;chain_id&quot;: &quot;local&quot;,
+    &quot;version&quot;: &quot;2.0.1.13780&quot;,
+    &quot;chain_version&quot;: 2,
+    &quot;last_block_height&quot;: 1,
+    &quot;validator_count&quot;: 1
+  }
+}
+</code></pre>
+</figure>
+<h2 id='d1975d7b'><span class='bd-content-title'>3. Build Four-Nodes Test chain<a class='anchorjs-link ' href='#d1975d7b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>BCBChain&#39;s open source code comes with a full set of creation parameters to build a four-node test chain, and noce the source code is compiled, executing the following commands to finish the build of the installation directory of the consensus engine <code>tendermint</code> .</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='mkdir install-tmcore install-tmcore/pieces install-tmcore/pieces/test
+cp -r bcbchain/bundle/setup/linux/tmcore/* install-tmcore/
+cp -r bcbchain/bundle/genesis/test/v2 install-tmcore/pieces/test/v2
+cp bcbchain/bundle/.config/test/tendermint-forks.* install-tmcore/pieces/test/v2
+cp bcbchain/bin/tendermint install-tmcore/pieces/
+cp bcbchain/bin/p2p_ping install-tmcore/pieces/
+cp bcbchain/version install-tmcore/pieces/'>Copy</button><pre><code class='shell' lang='shell'>mkdir install-tmcore install-tmcore/pieces install-tmcore/pieces/test
+cp -r bcbchain/bundle/setup/linux/tmcore/* install-tmcore/
+cp -r bcbchain/bundle/genesis/test/v2 install-tmcore/pieces/test/v2
+cp bcbchain/bundle/.config/test/tendermint-forks.* install-tmcore/pieces/test/v2
+cp bcbchain/bin/tendermint install-tmcore/pieces/
+cp bcbchain/bin/p2p_ping install-tmcore/pieces/
+cp bcbchain/version install-tmcore/pieces/
+</code></pre>
+</figure>
+<p class='with-space'>Notice: The default node IPs of the four-node test chain with open source code are:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='192.168.1.101,
+192.168.1.102、
+192.168.1.103、
+192.168.1.104'>Copy</button><pre><code class='html' lang='html'>192.168.1.101,
+192.168.1.102、
+192.168.1.103、
+192.168.1.104
+</code></pre>
+</figure>
+<p class='with-space'>If you want to use a real IP when deploy, please modify the genesis node profile in the installation directory:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='install-tmcore/pieces/test/v2/test-nodes.json'>Copy</button><pre><code class='shell' lang='shell'>install-tmcore/pieces/test/v2/test-nodes.json
+</code></pre>
+</figure>
+<p class='with-space'>Copy the installation directory to the planned node, execute the following commands, and in the interactive state, select the chain id: <code>test</code> , note type: VALIDATOR in turn, and then wait for about 10s to finish the installation of the test chain consensus engine, once installed successfully, the consensus engine will automatically start the service <code>tmcore</code> .</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='cd install-tmcore
+./install.sh'>Copy</button><pre><code class='shell' lang='shell'>cd install-tmcore
+./install.sh
+</code></pre>
+</figure>
+<p class='with-space'>You can see the following screen output:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Select which CHAINID to install
+1) test
+#? 1
+You selected CHAINID=test
+
+Start copying files ...
+End of copy files.
+
+Select which role that the node will run
+1) VALIDATOR -- be sure all the validator nodes are installing at the same time
+2) UNOFFICIAL FOLLOWER
+#? 1
+You selected VALIDATOR node
+
+Initializing all genesis node...
+Listen @ :46656
+notifiedMap: map[node3:true node4:true node1:true node2:true]
+doneSent: map[192.168.1.101:true 192.168.1.102:true 192.168.1.103:true 192.168.1.104:true]
+all finished ,gracefully quit
+10..sendResult: node1:{pub:true,pri:true,}, node2:{pub:true,pri:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+9..8..sendResult: node1:{pub:true,pri:true,}, node2:{pub:true,pri:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+7..sendResult: node1:{pub:true,pri:true,}, node2:{pri:true,pub:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+6..5..sendResult: node1:{pub:true,pri:true,}, node2:{pub:true,pri:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+4..sendResult: node1:{pub:true,pri:true,}, node2:{pub:true,pri:true,}, node3:{pri:true,pub:true,}, node4:{pub:true,pri:true,},
+3..2..sendResult: node1:{pri:true,pub:true,}, node2:{pub:true,pri:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+1..sendResult: node1:{pub:true,pri:true,}, node2:{pub:true,pri:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+
+Congratulation !!! TENDERMINT is successfully installed with version 2.0.1.13780.'>Copy</button><pre><code class='shell' lang='shell'>Select which CHAINID to install
+1) test
+#? 1
+You selected CHAINID=test
+
+Start copying files ...
+End of copy files.
+
+Select which role that the node will run
+1) VALIDATOR -- be sure all the validator nodes are installing at the same time
+2) UNOFFICIAL FOLLOWER
+#? 1
+You selected VALIDATOR node
+
+Initializing all genesis node...
+Listen @ :46656
+notifiedMap: map[node3:true node4:true node1:true node2:true]
+doneSent: map[192.168.1.101:true 192.168.1.102:true 192.168.1.103:true 192.168.1.104:true]
+all finished ,gracefully quit
+10..sendResult: node1:{pub:true,pri:true,}, node2:{pub:true,pri:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+9..8..sendResult: node1:{pub:true,pri:true,}, node2:{pub:true,pri:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+7..sendResult: node1:{pub:true,pri:true,}, node2:{pri:true,pub:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+6..5..sendResult: node1:{pub:true,pri:true,}, node2:{pub:true,pri:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+4..sendResult: node1:{pub:true,pri:true,}, node2:{pub:true,pri:true,}, node3:{pri:true,pub:true,}, node4:{pub:true,pri:true,},
+3..2..sendResult: node1:{pri:true,pub:true,}, node2:{pub:true,pri:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+1..sendResult: node1:{pub:true,pri:true,}, node2:{pub:true,pri:true,}, node3:{pub:true,pri:true,}, node4:{pub:true,pri:true,},
+
+Congratulation !!! TENDERMINT is successfully installed with version 2.0.1.13780.
+</code></pre>
+</figure>
+<p class='with-space'>If the test chain has been built, you just need to upgrade the node program, execute the following commands, follow the interactive prompt to complete the upgrade:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='cd install-tmcore
+./update.sh'>Copy</button><pre><code class='shell' lang='shell'>cd install-tmcore
+./update.sh
+</code></pre>
+</figure>
+<p class='with-space'>You can see the following screen output:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! TENDERMINT is successfully updated from 2.0.1.13780 to version 2.0.1.13780.'>Copy</button><pre><code class='shell' lang='shell'>Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! TENDERMINT is successfully updated from 2.0.1.13780 to version 2.0.1.13780.
+</code></pre>
+</figure>
+<p class='with-space'>After installing or upgrading the service, BCBChain&#39;s service <code>tmcore</code> will start automatically. Run the following command to start or stop it：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='systemctl start tmcore
+systemctl stop tmcore'>Copy</button><pre><code class='shell' lang='shell'>systemctl start tmcore
+systemctl stop tmcore
+</code></pre>
+</figure>
+<p class='with-space'>Execute the following commands to finish the build of the test chain business engine <code>bcchain</code> installation directory.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='mkdir install-bcchain
+mkdir install-bcchain/pieces
+mkdir install-bcchain/pieces/test
+mkdir install-bcchain/pieces/test/.config
+cp -r bcbchain/bundle/setup/linux/bcchain/* install-bcchain/
+cp -r bcbchain/bundle/.config/test/* install-bcchain/pieces/test/.config
+cp bcbchain/bin/bcchain install-bcchain/pieces/
+cp bcbchain/version install-bcchain/pieces/
+cp sdk/version install-bcchain/pieces/version_sdk
+cp thirdparty/version install-bcchain/pieces/version_thirdparty
+version=$(cat sdk/version | tr -d &quot;\r&quot;)
+tar cvfz install-bcchain/pieces/sdk_${version}.tar.gz sdk
+version=$(cat thirdparty/version | tr -d &quot;\r&quot;)
+tar cvfz install-bcchain/pieces/thirdparty_${version}.tar.gz thirdparty'>Copy</button><pre><code class='shell' lang='shell'>mkdir install-bcchain
+mkdir install-bcchain/pieces
+mkdir install-bcchain/pieces/test
+mkdir install-bcchain/pieces/test/.config
+cp -r bcbchain/bundle/setup/linux/bcchain/* install-bcchain/
+cp -r bcbchain/bundle/.config/test/* install-bcchain/pieces/test/.config
+cp bcbchain/bin/bcchain install-bcchain/pieces/
+cp bcbchain/version install-bcchain/pieces/
+cp sdk/version install-bcchain/pieces/version_sdk
+cp thirdparty/version install-bcchain/pieces/version_thirdparty
+version=$(cat sdk/version | tr -d &quot;\r&quot;)
+tar cvfz install-bcchain/pieces/sdk_${version}.tar.gz sdk
+version=$(cat thirdparty/version | tr -d &quot;\r&quot;)
+tar cvfz install-bcchain/pieces/thirdparty_${version}.tar.gz thirdparty
+</code></pre>
+</figure>
+<p class='with-space'>Copy the installation directory to the planned node, execute the following commands, and in the interactive state, select the chain id: <code>test</code> , then you can finish the installation of the test chain business engine, and once it&#39;s installed successfully, the business engine bccchain will automatically start the service.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='cd install-bcchain
+./install.sh'>Copy</button><pre><code class='shell' lang='shell'>cd install-bcchain
+./install.sh
+</code></pre>
+</figure>
+<p class='with-space'>You can see the following screen output:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Select which CHAINID to install
+1) test
+#? 1
+You selected CHAINID=test
+
+Start copying files ...
+install sdk with version 2.0.1.13774
+install thirdparty packages with version 2.0.1.12318
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully installed with version 2.0.1.13780.'>Copy</button><pre><code class='shell' lang='shell'>Select which CHAINID to install
+1) test
+#? 1
+You selected CHAINID=test
+
+Start copying files ...
+install sdk with version 2.0.1.13774
+install thirdparty packages with version 2.0.1.12318
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully installed with version 2.0.1.13780.
+</code></pre>
+</figure>
+<p class='with-space'>If the test chain has been built, you just need to upgrade the node program, execute the following commands, follow the interactive prompt to complete the upgrade:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='cd install-bcchain
+./update.sh'>Copy</button><pre><code class='shell' lang='shell'>cd install-bcchain
+./update.sh
+</code></pre>
+</figure>
+<p class='with-space'>You can see the following screen output:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully updated from 2.0.1.13780 to version 2.0.1.13780.'>Copy</button><pre><code class='`shell' lang='`shell'>Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully updated from 2.0.1.13780 to version 2.0.1.13780.
+</code></pre>
+</figure>
+<p class='with-space'>After installing or upgrading the service <code>bcchain</code> , it will start automatically. Run the following command to start or stop it：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='systemctl start bcchain
+systemctl stop bcchain'>Copy</button><pre><code class='shell' lang='shell'>systemctl start bcchain
+systemctl stop bcchain
+</code></pre>
+</figure>
+<p class='with-space'>After installation, wait for genesis block creation to complete(this will cost some minutes), execute the following command to check whether the test chain is working properly.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='curl http://192.168.1.101:46657/health'>Copy</button><pre><code class='shell' lang='shell'>curl http://192.168.1.101:46657/health
+</code></pre>
+</figure>
+<p class='with-space'>You can see the following screen output:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;&quot;,
+  &quot;result&quot;: {
+    &quot;chain_id&quot;: &quot;test&quot;,
+    &quot;version&quot;: &quot;2.0.1.13780&quot;,
+    &quot;chain_version&quot;: 2,
+    &quot;last_block_height&quot;: 1,
+    &quot;validator_count&quot;: 4
+  }
+}'>Copy</button><pre><code class='shell' lang='shell'>{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;&quot;,
+  &quot;result&quot;: {
+    &quot;chain_id&quot;: &quot;test&quot;,
+    &quot;version&quot;: &quot;2.0.1.13780&quot;,
+    &quot;chain_version&quot;: 2,
+    &quot;last_block_height&quot;: 1,
+    &quot;validator_count&quot;: 4
+  }
+}
+</code></pre>
+</figure>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/en-us/02-BCBNetwork\02-BuildForPrivateChain.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#b903b997'>Private Chain Building Guide</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#add54c0d'>1. Environment</a>
+<a class='ml-0 my-1 nav-link' href='#a12f1b43'>2. Build A Single Node</a>
+<a class='ml-0 my-1 nav-link' href='#d1975d7b'>3. Build Four-Nodes Test chain</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>Cross-Chain Transfer</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/Site Map.html'>Site Map</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBBasic</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/01-BCBIntro.html'>BCBIntro</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/02-BCBNode.html'>BCBNode</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBNetwork</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/01-MainnetAndTestnet.html'>MainnetAndTestnet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/02-BuildForPrivateChain.html'>BuildForPrivateChain</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBSideChain</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/01-SideChainRegistration.html'>SideChainRegistration</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/02-SideChainCreation.html'>SideChainCreation</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/03-SideChainGovernance.html'>SideChainGovernance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/04-CrossChainTransaction.html'>CrossChainTransaction</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBTools</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractDev</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/02-ProgrammingExample.html'>ProgrammingExample</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/03-DeeperUnderstanding.html'>DeeperUnderstanding</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevSmartContract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/01-DevelopmentEnvironment.html'>DevelopmentEnvironment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/02-FirstSmartContract.html'>FirstSmartContract</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/01-BVM-EVM-diff.html'>BVM-EVM-diff</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/02-Smart-Contract-Dev.html'>Smart-Contract-Dev</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/03-Contract-deployment-call.html'>Contract-deployment-call</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeIntegrationGuide</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/01-IntroductionOfIntegrationScheme.html'>IntroductionOfIntegrationScheme</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/02-InstallationDeployment.html'>InstallationDeployment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/03-CommandDetails.html'>CommandDetails</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevelopmentReference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-ModelDescription.html'>ModelDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-AlgorithmDescription.html'>AlgorithmDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/04-TransactionFormatv1.html'>TransactionFormatv1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/05-TransactionFormatv2.html'>TransactionFormatv2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>MainChainAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/01-Protocol.html'>Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/02-NetworkInterface.html'>NetworkInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/04-TransactionInterface.html'>TransactionInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/05-GlobalInterface.html'>GlobalInterface</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/01-CommunicationProtocol.html'>CommunicationProtocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/02-WalletInterface.html'>WalletInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='fb8afcde'><span class='bd-content-title'>Cross-Chain Transfer<a class='anchorjs-link ' href='#fb8afcde' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>In this section, we will experience how to achieve cross-chain transfer based on the built side chain <code>SmartCity</code> and EShop .</p>
+<p class='with-space'>BCB chain supports three modes of cross-chain transfer, they are main chain to side chain, side chain to main chain, and side chain to side chain, respectively.</p>
+</blockquote>
+<h2 id='a7bd74fa'><span class='bd-content-title'>1. Preparation<a class='anchorjs-link ' href='#a7bd74fa' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='e2da87d1'><span class='bd-content-title'>1.1 Prepare account<a class='anchorjs-link ' href='#e2da87d1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Prepare a transfer account for the side chain, we assume that the account user name created is scAccount , the password is <code>Ab1@Cd3$</code> , an account address on the side chain SmartCity is <code>local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG</code> ,another account address on the side chain EShop is <code>local[EShop]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG</code> .</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>Learn how to create an account, please refer to <a href='../../03-BCBTools\02-bcw.html'> BCBTools-bcwTool</a> </p>
+</blockquote>
+<h2 id='ac0c98e5'><span class='bd-content-title'>2. Token cross-chain transfer<a class='anchorjs-link ' href='#ac0c98e5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='b53b7db4'><span class='bd-content-title'>2.1 Transfer from the main chain to the side chain<a class='anchorjs-link ' href='#b53b7db4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>As for the transfer of the main chain to the side chain, we use the owner account on the main chain to transfer to the account <code>local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG</code> on the side chain SmartCity which prepares in step one. Before transferring, we query the account balance on the side chain <code>SmartCity</code> , we take the token is LOC on the main chain as an example to show how to query the account balance:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc balance --accAddress=&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local[SmartCity]
+
+Expected return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;local[SmartCity]AJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;0&quot;
+  }
+]'>Copy</button><pre><code class='shell' lang='shell'>./bcc balance --accAddress=&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local[SmartCity]
+
+Expected return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;local[SmartCity]AJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;0&quot;
+  }
+]
+</code></pre>
+</figure>
+<p class='with-space'>We can see the token balance of the new account is 0.</p>
+<p class='with-space'>We take the token is <code>LOC</code> as an example to show how to execute transfer operation from the account owner on the main chain to the account <code>scAccount</code> on the side chain:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc transfer --name owner --password Ab1@Cd3$ --token LOC --gasLimit 100000  --to local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG --value 100 --chainid local
+
+Expected return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 5000000,
+  &quot;txHash&quot;: &quot;0x6C8C4A3324C87ECE2EC85F03D25D3994AB5BE31183AED6F7D8044CA2CCC0F25F&quot;,
+  &quot;height&quot;: 25974
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc transfer --name owner --password Ab1@Cd3$ --token LOC --gasLimit 100000  --to local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG --value 100 --chainid local
+
+Expected return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 5000000,
+  &quot;txHash&quot;: &quot;0x6C8C4A3324C87ECE2EC85F03D25D3994AB5BE31183AED6F7D8044CA2CCC0F25F&quot;,
+  &quot;height&quot;: 25974
+}
+</code></pre>
+</figure>
+<p class='with-space'>The value of <code>to</code> is the account scAccount on the side chain, <code>value</code> is the transfer amount in LOC .</p>
+<p class='with-space'>Waiting for abount 5s, we query the account balance of the account <code>local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG</code> on the side chain:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc balance --accAddress=&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local[SmartCity]
+
+Expected return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;local[SmartCity]AJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;100000000000&quot;
+  }
+]'>Copy</button><pre><code class='shell' lang='shell'>./bcc balance --accAddress=&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local[SmartCity]
+
+Expected return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;local[SmartCity]AJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;100000000000&quot;
+  }
+]
+</code></pre>
+</figure>
+<p class='with-space'>Because the showing balance is in <code>cong</code> , so it needs to be multiplied by the 9th power of 10 on the basis on the value of 100 . If the account balance is not in the account(maybe transaction is still on pending), you can query this cross-chain transaction by getting <code>transaction Hash</code> on the target chain(refer to the section 2, Cross-Chain Creation). If the cross-chain transaction status is shown to have been completed, but the query balance is still not in the account, you can query the failure reason according to the section 2, Cross-Chain Creation.</p>
+<h3 id='d87bc805'><span class='bd-content-title'>2.2 Transfer from the side chain to the main chain<a class='anchorjs-link ' href='#d87bc805' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>We transfer 100 <code>LOC</code> to the account scAccount on the side chain, now if we want to transfer the funds back to the main chain, we can do it by the transfer of the side chain to the main chain, at first, we query the balance of the account address <code>localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG</code> on the main chain:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc balance --accAddress=&quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local
+
+Return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;localAJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;0&quot;
+  }
+]'>Copy</button><pre><code class='shell' lang='shell'>./bcc balance --accAddress=&quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local
+
+Return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;localAJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;0&quot;
+  }
+]
+</code></pre>
+</figure>
+<p class='with-space'>Then use the following command to transfer:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc transfer --name scAccount --password Ab1@Cd3$ --token LOC --gasLimit 100000  --to localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG --value 10 --chainid local[SmartCity]
+
+Expected return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 10000000,
+  &quot;txHash&quot;: &quot;0x20B5238E777BDA4D7F883C0698C608C30874A080DCB2FAAAFD1C8EF4FBD98098&quot;,
+  &quot;height&quot;: 6225
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc transfer --name scAccount --password Ab1@Cd3$ --token LOC --gasLimit 100000  --to localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG --value 10 --chainid local[SmartCity]
+
+Expected return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 10000000,
+  &quot;txHash&quot;: &quot;0x20B5238E777BDA4D7F883C0698C608C30874A080DCB2FAAAFD1C8EF4FBD98098&quot;,
+  &quot;height&quot;: 6225
+}
+</code></pre>
+</figure>
+<p class='with-space'>Check the account balance at the receipt address:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc balance --accAddress=&quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;localAJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;10000000000&quot;
+  }
+]'>Copy</button><pre><code class='shell' lang='shell'>./bcc balance --accAddress=&quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;localAJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;10000000000&quot;
+  }
+]
+</code></pre>
+</figure>
+<p class='with-space'>We can see the funds is transferred from the side chain to the main chain successfully, confirm the success of cross-chain transfer. If the account balance is not in the account(maybe transaction is still on pending), you can query this cross-chain transaction by getting <code>transaction Hash</code> on the target chain(refer to the section 2, Cross-Chain Creation). If the cross-chain transaction status is shown to have been completed, but the query balance is still not in the account, you can query the failure reason according to the section 2, Cross-Chain Creation.</p>
+<h3 id='a484c874'><span class='bd-content-title'>2.3 Transfer from the side chain to the side chain<a class='anchorjs-link ' href='#a484c874' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>If we want to transfer from one side chain to the another side chain, what should we do?</p>
+<p class='with-space'>At first, we prepare another side chain <code>EShop</code> , refer to <a href='01-SideChainRegistration.html'> Side Chain Registration</a> and <a href='02-SideChainCreation.html'> Side Chain Creation</a> </p>
+<p class='with-space'>Then we query the balance of the account address <code>local[EShop]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG</code> on the side chain <code>EShop</code> :</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc balance --accAddress=&quot;local[EShop]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local[EShop]
+
+Expected return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;local[EShop]AJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;0&quot;
+  }
+]'>Copy</button><pre><code class='shell' lang='shell'>./bcc balance --accAddress=&quot;local[EShop]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local[EShop]
+
+Expected return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;local[EShop]AJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;0&quot;
+  }
+]
+</code></pre>
+</figure>
+<p class='with-space'>Next, we start to transfer from the side chain <code>SmartCity</code> to the side chain EShop :</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc transfer --name scAccount --password Aa1@Cd3$ --token LOC --gasLimit 100000  --to local[EShop]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG --value 10 --chainid local[SmartCity]
+
+Expected return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 10000000,
+  &quot;txHash&quot;: &quot;0x25FEA54305EDE927A7FDC47AE28FE3B2D29A8FB54A85080CBD7C738A7B0FB7C8&quot;,
+  &quot;height&quot;: 6559
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc transfer --name scAccount --password Aa1@Cd3$ --token LOC --gasLimit 100000  --to local[EShop]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG --value 10 --chainid local[SmartCity]
+
+Expected return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 10000000,
+  &quot;txHash&quot;: &quot;0x25FEA54305EDE927A7FDC47AE28FE3B2D29A8FB54A85080CBD7C738A7B0FB7C8&quot;,
+  &quot;height&quot;: 6559
+}
+</code></pre>
+</figure>
+<p class='with-space'>Query the balance of the account address <code>local[EShop]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG</code> on the side chain EShop again:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc balance --accAddress=&quot;local[EShop]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local[EShop]
+
+Expected return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;local[EShop]AJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;10000000000&quot;
+  }
+]'>Copy</button><pre><code class='shell' lang='shell'>./bcc balance --accAddress=&quot;local[EShop]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local[EShop]
+
+Expected return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;local[EShop]AJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;10000000000&quot;
+  }
+]
+</code></pre>
+</figure>
+<p class='with-space'>we can confirm the success of cross-chain transfer from above infomation. If the account balance is not in the account(maybe transaction is still on pending), you can query this cross-chain transaction by getting <code>transaction Hash</code> on the target chain(refer to the section 2, Cross-Chain Creation). If the cross-chain transaction status is shown to have been completed, but the query balance is still not in the account, you can query the failure reason according to the section 2, Cross-Chain Creation.</p>
+<h3 id='b4e2aa0f'><span class='bd-content-title'>2.4 Token activation<a class='anchorjs-link ' href='#b4e2aa0f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>If we want our side chain to support some type of standard tokens, we can use token activation function; We take the activation of token <code>TST</code> on the side chain SmartCity as an example to show how to activate token on the side chain:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc call --contract token-issue --method Activate --splitBy @ --params &quot;TST&quot;@&quot;SmartCity&quot; --gasLimit 100000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local
+
+Expected return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 131000000,
+  &quot;txHash&quot;: &quot;0x177CE19688464BCCC35F78288B28E1D0E766ACF302A7A3E994D86100F7D2CAAE&quot;,
+  &quot;height&quot;: 47177
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc call --contract token-issue --method Activate --splitBy @ --params &quot;TST&quot;@&quot;SmartCity&quot; --gasLimit 100000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local
+
+Expected return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 131000000,
+  &quot;txHash&quot;: &quot;0x177CE19688464BCCC35F78288B28E1D0E766ACF302A7A3E994D86100F7D2CAAE&quot;,
+  &quot;height&quot;: 47177
+}
+</code></pre>
+</figure>
+<p class='with-space'>We can check on the side chain whether to generate the information corresponding to the token.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text=' ./bcc query -k &quot;/token/name/TST&quot; --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /token/name/TST
+  Value: &quot;local[SmartCity]8GPJL6ipTyYRNr5xTyGWWFayd2k1EoLYu&quot;'>Copy</button><pre><code class='shell' lang='shell'> ./bcc query -k &quot;/token/name/TST&quot; --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /token/name/TST
+  Value: &quot;local[SmartCity]8GPJL6ipTyYRNr5xTyGWWFayd2k1EoLYu&quot;
+</code></pre>
+</figure>
+<p class='with-space'>We can get token address from above, we also can use following command to query the token information:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc query -k &quot;/token/local[SmartCity]8GPJL6ipTyYRNr5xTyGWWFayd2k1EoLYu&quot; --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /token/local[SmartCity]8GPJL6ipTyYRNr5xTyGWWFayd2k1EoLYu
+  Value: {&quot;address&quot;:&quot;local[SmartCity]8GPJL6ipTyYRNr5xTyGWWFayd2k1EoLYu&quot;,&quot;owner&quot;:&quot;local[SmartCity]ETK7Zh9hNSPrEKdmCgnHDtFPatcs9WwVL&quot;,&quot;name&quot;:&quot;TST&quot;,&quot;symbol&quot;:&quot;TST&quot;,&quot;totalSupply&quot;:0,&quot;addSupplyEnabled&quot;:false,&quot;burnEnabled&quot;:false,&quot;gasprice&quot;:2500}'>Copy</button><pre><code class='shell' lang='shell'>./bcc query -k &quot;/token/local[SmartCity]8GPJL6ipTyYRNr5xTyGWWFayd2k1EoLYu&quot; --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /token/local[SmartCity]8GPJL6ipTyYRNr5xTyGWWFayd2k1EoLYu
+  Value: {&quot;address&quot;:&quot;local[SmartCity]8GPJL6ipTyYRNr5xTyGWWFayd2k1EoLYu&quot;,&quot;owner&quot;:&quot;local[SmartCity]ETK7Zh9hNSPrEKdmCgnHDtFPatcs9WwVL&quot;,&quot;name&quot;:&quot;TST&quot;,&quot;symbol&quot;:&quot;TST&quot;,&quot;totalSupply&quot;:0,&quot;addSupplyEnabled&quot;:false,&quot;burnEnabled&quot;:false,&quot;gasprice&quot;:2500}
+</code></pre>
+</figure>
+<p class='with-space'>Now, we have finished the activation of the token <code>Diamond Coin</code> , so we can use the following command to try to transfer:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc transfer --name owner --password Ab1@Cd3$ --token &quot;TST&quot; --gasLimit 100000  --to local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG --value 100 --chainid local
+
+Return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 5250000,
+  &quot;txHash&quot;: &quot;0xE1B35FF40EFA83A972C2E1260E2677937025842BCA87B5C61F515CEA2B1BFB40&quot;,
+  &quot;height&quot;: 48518
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc transfer --name owner --password Ab1@Cd3$ --token &quot;TST&quot; --gasLimit 100000  --to local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG --value 100 --chainid local
+
+Return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 5250000,
+  &quot;txHash&quot;: &quot;0xE1B35FF40EFA83A972C2E1260E2677937025842BCA87B5C61F515CEA2B1BFB40&quot;,
+  &quot;height&quot;: 48518
+}
+</code></pre>
+</figure>
+<p class='with-space'>We can complete the cross-chain transfer of the token <code>Diamond Coin</code> by the above command, then we try to check if the transaction is successful:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc balance --accAddress=&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;Diamond Coin&quot; --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;local[SmartCity]8GPJL6ipTyYRNr5xTyGWWFayd2k1EoLYu&quot;,
+    &quot;tokenName&quot;: &quot;TST&quot;,
+    &quot;balance&quot;: &quot;100000000000&quot;
+  }
+]'>Copy</button><pre><code class='shell' lang='shell'>./bcc balance --accAddress=&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;Diamond Coin&quot; --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;local[SmartCity]8GPJL6ipTyYRNr5xTyGWWFayd2k1EoLYu&quot;,
+    &quot;tokenName&quot;: &quot;TST&quot;,
+    &quot;balance&quot;: &quot;100000000000&quot;
+  }
+]
+</code></pre>
+</figure>
+<p class='with-space'>we can confirm the token <code>TST</code> successful to account. If the account balance is not in the account, you can query this cross-chain transaction by getting transaction Hash on the target chain(refer to the section 2, Cross-Chain Creation).</p>
+<h2 id='a4bf98d9'><span class='bd-content-title'>3. Cross-Chain Transaction<a class='anchorjs-link ' href='#a4bf98d9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='f63dda60'><span class='bd-content-title'>3.1 Cross-Chain Transaction Hash<a class='anchorjs-link ' href='#f63dda60' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Cross-Chain Transaction Hash, that is <code>ibcHash</code> , we can get the status and information of cross-chain transaction throught it.</p>
+<p class='with-space'>We take the transfer from main chain to side chain in 2.1 as an example, we get the transaction height is 25974, we get <code>ibcHash</code> by the following command:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc block -t 25974
+OK
+Response: {
+  &quot;blockHeight&quot;: 25974,
+  &quot;blockHash&quot;: &quot;0xf8f381cd2c5bae781aebd8524edad20af4654158&quot;,
+  &quot;parentHash&quot;: &quot;0xf838ca7c49b12e8cd3839fe7ce3d0f8d2ee72bd8&quot;,
+  &quot;chainID&quot;: &quot;local&quot;,
+  &quot;validatorHash&quot;: &quot;0xf2c0a2f00f78c4b8cef2c7e56dd62e191ab7d0b7&quot;,
+  &quot;consensusHash&quot;: &quot;0xf66ef1df8ba6dac7a1ecce40cc84e54a1cebc6a5&quot;,
+  &quot;blockTime&quot;: &quot;2019-11-28 07:27:33.528200078 +0000 UTC&quot;,
+  &quot;blockSize&quot;: 1039,
+  &quot;proposerAddress&quot;: &quot;localMp5Xi3o2rnXjzbCuzo5R4m6qv7fbfNgkW&quot;,
+  &quot;txs&quot;: [
+    {
+      &quot;txHash&quot;: &quot;0x6c8c4a3324c87ece2ec85f03d25d3994ab5be31183aed6f7d8044ca2ccc0f25f&quot;,
+      &quot;txTime&quot;: &quot;2019-11-28 07:27:33.528200078 +0000 UTC&quot;,
+      &quot;code&quot;: 200,
+      &quot;log&quot;: &quot;&quot;,
+      &quot;blockHash&quot;: &quot;0xf8f381cd2c5bae781aebd8524edad20af4654158&quot;,
+      &quot;blockHeight&quot;: 25974,
+      &quot;from&quot;: &quot;localETK7Zh9hNSPrEKdmCgnHDtFPatcs9WwVL&quot;,
+      &quot;nonce&quot;: 61,
+      &quot;gasLimit&quot;: 100000,
+      &quot;fee&quot;: 5000000,
+      &quot;note&quot;: &quot;&quot;,
+      &quot;messages&quot;: [
+        ......
+      ],
+      &quot;tags&quot;: {
+        ......,
+        &quot;/0/4/ibc::packet/local-&gt;local[SmartCity]&quot;: {
+          &quot;Name&quot;: &quot;ibc::packet/local-&gt;local[SmartCity]&quot;,
+          &quot;ContractAddr&quot;: &quot;&quot;,
+          &quot;ReceiptBytes&quot;: &quot;eyJmcm9tQ2hhaW5JRCI6ImxvY2FsIiwidG9DaGFpbklEIjoibG9jYWxbeXldIiwicXVldWVJRCI6ImxvY2FsLT5sb2NhbFt5eV0iLCJzZXEiOjUsIm9yZ0lEIjoib3JnSmdhR0NvblV5SzgxemlibnRVQmpRMzNQS2N0cGsxSzFHIiwiY29udHJhY3ROYW1lIjoidG9rZW4tYmFzaWMiLCJpYmNIYXNoIjoiMUJBMTNCOTU1OUVGQzlBMkI2RTBGRDU4OUVENThBNUREODI5QkFEOTY5MDk4NkYzMzE5RDYwRUE3MENGMTM5NyIsInR5cGUiOiJ0Y2N0eCIsInN0YXRlIjp7InN0YXR1cyI6Ik5vQWNrV2FudGVkIiwidGFnIjoiUmVjYXN0UGVuZGluZyIsImxvZyI6IiJ9LCJyZWNlaXB0cyI6W3sia2V5IjoiTHpBdmMzUmtPanAwY21GdWMyWmxjZz09IiwidmFsdWUiOiJleUp1WVcxbElqb2ljM1JrT2pwMGNtRnVjMlpsY2lJc0ltTnZiblJ5WVdOMFFXUmtjbVZ6Y3lJNklteHZZMkZzU0V4RWFIRjViMG94ZGxKMWJ6aHlaVGxIZUVaQlJsVXlRbXR6ZHpKclRuVndJaXdpY21WalpXbHdkRUo1ZEdWeklqb2laWGxLTUdJeWRHeGlhVWsyU1cxNGRsa3lSbk5SVlhCNVdXMXpNbFl5VW0xT01WSkVXVzVXZFdOc2FGbFZlbFp5VXpOYWFWWXhXbnBsYldoRVRWWlNRa2xwZDJsYWJrcDJZbE5KTmtsdGVIWlpNa1p6VWxaU1RFNHhjRzlQVjJoUFZURkNlVkpWZEd0aVZVNXVZbXRvUldSRldsRlpXRkpxWTNwc1dHUXhXazFKYVhkcFpFYzRhVTlwU25OaU1rNW9Za1JOZWsxclNubFBSWFJNWTFSV2JrNUVaR2hoTTA1aFpHMHhNVkV3VGpOT2Frb3hZakJOZWxOR1RtbE9hVWx6U1c1YWFHSklWbXhKYW05NFRVUkJkMDFFUVhkTlJFRjNUVVJCYzBsdE5YWmtSMVZwVDJsS2MySXlUbkpQYVVvNUlpd2ljbVZqWldsd2RFaGhjMmdpT2lJeVFUSkdNREpCTXpVNE56UkJNRGN5UVVZNFJqQTVNakpFTlRjNE5qUTVSVFJCT0VSRFFqa3pRalEwUlVVNE9EUkdOMFU1T1VSQ01qUTFPREV6TVRNNEluMD0ifSx7ImtleSI6Ikx6RXZkRzlyWlc1aVlYTnBZeTVCYzNObGRFTm9ZVzVuWlE9PSIsInZhbHVlIjoiZXlKdVlXMWxJam9pZEc5clpXNWlZWE5wWXk1QmMzTmxkRU5vWVc1blpTSXNJbU52Ym5SeVlXTjBRV1JrY21WemN5STZJbXh2WTJGc1NFeEVhSEY1YjBveGRsSjFiemh5WlRsSGVFWkJSbFV5UW10emR6SnJUblZ3SWl3aWNtVmpaV2x3ZEVKNWRHVnpJam9pWlhsS01scFlTbnBoVnpsMVNXcHZhVTFwTkhoSmFYZHBaRWhzZDFwVFNUWkpiWGgyV1RKemFVeERTakJpTW5Sc1ltbEpOa2x0ZUhaWk1rWnpVVlZ3ZVZsdGN6SldNbEp0VGpGU1JGbHVWblZqYkdoWlZYcFdjbE16V21sV01WcDZaVzFvUkUxV1VrSkphWGRwV201S2RtSlRTVFpKYlhoMldUSkdjMUpXVWt4T01YQnZUMWRvVDFVeFFubFNWWFJyWWxWT2JtSnJhRVZrUlZwUldWaFNhbU42YkZoa01WcE5TV2wzYVdSSE9HbFBhVXB6WWpKT2FHSkdkRFZsVmpGSlZGaENWR1ZZVVhsVGJYTXhVVzFzUjJGV1NYbGhhbEV4WW10a1NHRnNVblpTYW14MFlWWldWMWxWWTJsTVEwb3lXVmQ0TVZwVFNUWk5WRUYzVFVSQmQwMUVRWGROUkVGM1RFTktjRmx0VGtsWldFNXZTV3B2YVUxVlNrSk5WRTVEVDFSVk1VOVZWa2RSZW14Q1RXdEpNbEpVUWtkU1JGVTBUMVZXUlU1VWFFSk9WVkpGVDBSSk5WRnJSa1ZQVkZrMVRVUnJORTVyV1hwTmVrVTFVa1JaZDFKVlJUTk5SVTVIVFZSTk5VNTVTWE5KYlU1dldWYzFibHBWYkRCYVZ6RjZTV3B3WW1WNVNrUmhSMFp3WW10c1JVbHFiMmxpUnpscVdWZDNhVXhEU2tKYVIxSjVXbGhPZWtscWIybGlSemxxV1ZkM2VrMTZTa05qYW1oTVV6TkZNVnA2VVROWlYzUjZWMjVhZEdSVlRrUmtlbGw1WkZjNVJFMHdhRlJaYWxscFRFTktVVnBYVm5sUk1taG9ZVmMxU2xKRFNUWkpiWGgyV1RKR2MxY3piRFZZVTBselNXeENiRnBZU2tSaFIwWndZbXRLYUdKSFJuVlpNbFZwVDJwSmQwMUVRWGROUkVGM1RVUkJkMlpXTVRraUxDSnlaV05sYVhCMFNHRnphQ0k2SWtWR09UazRRalZDUmpSQ1JEUTNPVEl4UXpnMVF6QXhORU5FTlVNNE56UXlOelUzT0VNeE9FUXpNMEUzTlVRNVFqazRSa1kwTmtaQk5qWTBSVVpETjBNaWZRPT0ifV19&quot;,
+          &quot;ReceiptHash&quot;: &quot;0x075860DF0B94E3A2D346150DD1E17F99D4B171F1B689A87C39CA0977AFBA8D40&quot;,
+          &quot;Receipt&quot;: {
+            &quot;contractName&quot;: &quot;token-basic&quot;,
+            &quot;fromChainID&quot;: &quot;local&quot;,
+            &quot;ibcHash&quot;: &quot;1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397&quot;,
+            &quot;orgID&quot;: &quot;orgJgaGConUyK81zibntUBjQ33PKctpk1K1G&quot;,
+            &quot;queueID&quot;: &quot;local-&gt;local[SmartCity]&quot;,
+            &quot;receipts&quot;: [
+              {
+                &quot;key&quot;: &quot;LzAvc3RkOjp0cmFuc2Zlcg==&quot;,
+                &quot;value&quot;: &quot;eyJuYW1lIjoic3RkOjp0cmFuc2ZlciIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMGIydGxiaUk2SW14dlkyRnNRVXB5WW1zMlYyUm1OMVJEWW5WdWNsaFlVelZyUzNaaVYxWnplbWhETVZSQklpd2labkp2YlNJNklteHZZMkZzUlZSTE4xcG9PV2hPVTFCeVJVdGtiVU5uYmtoRWRFWlFZWFJqY3psWGQxWk1JaXdpZEc4aU9pSnNiMk5oYkRNek1rSnlPRXRMY1RWbk5EZGhhM05hZG0xMVEwTjNOakoxYjBNelNGTmlOaUlzSW5aaGJIVmxJam94TURBd01EQXdNREF3TURBc0ltNXZkR1VpT2lKc2IyTnJPaUo5IiwicmVjZWlwdEhhc2giOiIyQTJGMDJBMzU4NzRBMDcyQUY4RjA5MjJENTc4NjQ5RTRBOERDQjkzQjQ0RUU4ODRGN0U5OURCMjQ1ODEzMTM4In0=&quot;
+              },
+              {
+                &quot;key&quot;: &quot;LzEvdG9rZW5iYXNpYy5Bc3NldENoYW5nZQ==&quot;,
+                &quot;value&quot;: &quot;eyJuYW1lIjoidG9rZW5iYXNpYy5Bc3NldENoYW5nZSIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMlpYSnphVzl1SWpvaU1pNHhJaXdpZEhsd1pTSTZJbXh2WTJzaUxDSjBiMnRsYmlJNklteHZZMkZzUVVweVltczJWMlJtTjFSRFluVnVjbGhZVXpWclMzWmlWMVp6ZW1oRE1WUkJJaXdpWm5KdmJTSTZJbXh2WTJGc1JWUkxOMXBvT1doT1UxQnlSVXRrYlVObmJraEVkRVpRWVhSamN6bFhkMVpNSWl3aWRHOGlPaUpzYjJOaGJGdDVlVjFJVFhCVGVYUXlTbXMxUW1sR2FWSXlhalExYmtkSGFsUnZSamx0YVZWV1lVY2lMQ0oyWVd4MVpTSTZNVEF3TURBd01EQXdNREF3TENKcFltTklZWE5vSWpvaU1VSkJNVE5DT1RVMU9VVkdRemxCTWtJMlJUQkdSRFU0T1VWRU5UaEJOVVJFT0RJNVFrRkVPVFk1TURrNE5rWXpNekU1UkRZd1JVRTNNRU5HTVRNNU55SXNJbU5vWVc1blpVbDBaVzF6SWpwYmV5SkRhR0ZwYmtsRUlqb2liRzlqWVd3aUxDSkJaR1J5WlhOeklqb2liRzlqWVd3ek16SkNjamhMUzNFMVp6UTNZV3R6V25adGRVTkRkell5ZFc5RE0waFRZallpTENKUVpXVnlRMmhoYVc1SlJDSTZJbXh2WTJGc1czbDVYU0lzSWxCbFpYSkRhR0ZwYmtKaGJHRnVZMlVpT2pJd01EQXdNREF3TURBd2ZWMTkiLCJyZWNlaXB0SGFzaCI6IkVGOTk4QjVCRjRCRDQ3OTIxQzg1QzAxNENENUM4NzQyNzU3OEMxOEQzM0E3NUQ5Qjk4RkY0NkZBNjY0RUZDN0MifQ==&quot;
+              }
+            ],
+            &quot;seq&quot;: 5,
+            &quot;state&quot;: {
+              &quot;log&quot;: &quot;&quot;,
+              &quot;status&quot;: &quot;NoAckWanted&quot;,
+              &quot;tag&quot;: &quot;RecastPending&quot;
+            },
+            &quot;toChainID&quot;: &quot;local[SmartCity]&quot;,
+            &quot;type&quot;: &quot;tcctx&quot;
+          }
+        },
+        ......
+                 }
+    }
+  ]
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc block -t 25974
+OK
+Response: {
+  &quot;blockHeight&quot;: 25974,
+  &quot;blockHash&quot;: &quot;0xf8f381cd2c5bae781aebd8524edad20af4654158&quot;,
+  &quot;parentHash&quot;: &quot;0xf838ca7c49b12e8cd3839fe7ce3d0f8d2ee72bd8&quot;,
+  &quot;chainID&quot;: &quot;local&quot;,
+  &quot;validatorHash&quot;: &quot;0xf2c0a2f00f78c4b8cef2c7e56dd62e191ab7d0b7&quot;,
+  &quot;consensusHash&quot;: &quot;0xf66ef1df8ba6dac7a1ecce40cc84e54a1cebc6a5&quot;,
+  &quot;blockTime&quot;: &quot;2019-11-28 07:27:33.528200078 +0000 UTC&quot;,
+  &quot;blockSize&quot;: 1039,
+  &quot;proposerAddress&quot;: &quot;localMp5Xi3o2rnXjzbCuzo5R4m6qv7fbfNgkW&quot;,
+  &quot;txs&quot;: [
+    {
+      &quot;txHash&quot;: &quot;0x6c8c4a3324c87ece2ec85f03d25d3994ab5be31183aed6f7d8044ca2ccc0f25f&quot;,
+      &quot;txTime&quot;: &quot;2019-11-28 07:27:33.528200078 +0000 UTC&quot;,
+      &quot;code&quot;: 200,
+      &quot;log&quot;: &quot;&quot;,
+      &quot;blockHash&quot;: &quot;0xf8f381cd2c5bae781aebd8524edad20af4654158&quot;,
+      &quot;blockHeight&quot;: 25974,
+      &quot;from&quot;: &quot;localETK7Zh9hNSPrEKdmCgnHDtFPatcs9WwVL&quot;,
+      &quot;nonce&quot;: 61,
+      &quot;gasLimit&quot;: 100000,
+      &quot;fee&quot;: 5000000,
+      &quot;note&quot;: &quot;&quot;,
+      &quot;messages&quot;: [
+        ......
+      ],
+      &quot;tags&quot;: {
+        ......,
+        &quot;/0/4/ibc::packet/local-&gt;local[SmartCity]&quot;: {
+          &quot;Name&quot;: &quot;ibc::packet/local-&gt;local[SmartCity]&quot;,
+          &quot;ContractAddr&quot;: &quot;&quot;,
+          &quot;ReceiptBytes&quot;: &quot;eyJmcm9tQ2hhaW5JRCI6ImxvY2FsIiwidG9DaGFpbklEIjoibG9jYWxbeXldIiwicXVldWVJRCI6ImxvY2FsLT5sb2NhbFt5eV0iLCJzZXEiOjUsIm9yZ0lEIjoib3JnSmdhR0NvblV5SzgxemlibnRVQmpRMzNQS2N0cGsxSzFHIiwiY29udHJhY3ROYW1lIjoidG9rZW4tYmFzaWMiLCJpYmNIYXNoIjoiMUJBMTNCOTU1OUVGQzlBMkI2RTBGRDU4OUVENThBNUREODI5QkFEOTY5MDk4NkYzMzE5RDYwRUE3MENGMTM5NyIsInR5cGUiOiJ0Y2N0eCIsInN0YXRlIjp7InN0YXR1cyI6Ik5vQWNrV2FudGVkIiwidGFnIjoiUmVjYXN0UGVuZGluZyIsImxvZyI6IiJ9LCJyZWNlaXB0cyI6W3sia2V5IjoiTHpBdmMzUmtPanAwY21GdWMyWmxjZz09IiwidmFsdWUiOiJleUp1WVcxbElqb2ljM1JrT2pwMGNtRnVjMlpsY2lJc0ltTnZiblJ5WVdOMFFXUmtjbVZ6Y3lJNklteHZZMkZzU0V4RWFIRjViMG94ZGxKMWJ6aHlaVGxIZUVaQlJsVXlRbXR6ZHpKclRuVndJaXdpY21WalpXbHdkRUo1ZEdWeklqb2laWGxLTUdJeWRHeGlhVWsyU1cxNGRsa3lSbk5SVlhCNVdXMXpNbFl5VW0xT01WSkVXVzVXZFdOc2FGbFZlbFp5VXpOYWFWWXhXbnBsYldoRVRWWlNRa2xwZDJsYWJrcDJZbE5KTmtsdGVIWlpNa1p6VWxaU1RFNHhjRzlQVjJoUFZURkNlVkpWZEd0aVZVNXVZbXRvUldSRldsRlpXRkpxWTNwc1dHUXhXazFKYVhkcFpFYzRhVTlwU25OaU1rNW9Za1JOZWsxclNubFBSWFJNWTFSV2JrNUVaR2hoTTA1aFpHMHhNVkV3VGpOT2Frb3hZakJOZWxOR1RtbE9hVWx6U1c1YWFHSklWbXhKYW05NFRVUkJkMDFFUVhkTlJFRjNUVVJCYzBsdE5YWmtSMVZwVDJsS2MySXlUbkpQYVVvNUlpd2ljbVZqWldsd2RFaGhjMmdpT2lJeVFUSkdNREpCTXpVNE56UkJNRGN5UVVZNFJqQTVNakpFTlRjNE5qUTVSVFJCT0VSRFFqa3pRalEwUlVVNE9EUkdOMFU1T1VSQ01qUTFPREV6TVRNNEluMD0ifSx7ImtleSI6Ikx6RXZkRzlyWlc1aVlYTnBZeTVCYzNObGRFTm9ZVzVuWlE9PSIsInZhbHVlIjoiZXlKdVlXMWxJam9pZEc5clpXNWlZWE5wWXk1QmMzTmxkRU5vWVc1blpTSXNJbU52Ym5SeVlXTjBRV1JrY21WemN5STZJbXh2WTJGc1NFeEVhSEY1YjBveGRsSjFiemh5WlRsSGVFWkJSbFV5UW10emR6SnJUblZ3SWl3aWNtVmpaV2x3ZEVKNWRHVnpJam9pWlhsS01scFlTbnBoVnpsMVNXcHZhVTFwTkhoSmFYZHBaRWhzZDFwVFNUWkpiWGgyV1RKemFVeERTakJpTW5Sc1ltbEpOa2x0ZUhaWk1rWnpVVlZ3ZVZsdGN6SldNbEp0VGpGU1JGbHVWblZqYkdoWlZYcFdjbE16V21sV01WcDZaVzFvUkUxV1VrSkphWGRwV201S2RtSlRTVFpKYlhoMldUSkdjMUpXVWt4T01YQnZUMWRvVDFVeFFubFNWWFJyWWxWT2JtSnJhRVZrUlZwUldWaFNhbU42YkZoa01WcE5TV2wzYVdSSE9HbFBhVXB6WWpKT2FHSkdkRFZsVmpGSlZGaENWR1ZZVVhsVGJYTXhVVzFzUjJGV1NYbGhhbEV4WW10a1NHRnNVblpTYW14MFlWWldWMWxWWTJsTVEwb3lXVmQ0TVZwVFNUWk5WRUYzVFVSQmQwMUVRWGROUkVGM1RFTktjRmx0VGtsWldFNXZTV3B2YVUxVlNrSk5WRTVEVDFSVk1VOVZWa2RSZW14Q1RXdEpNbEpVUWtkU1JGVTBUMVZXUlU1VWFFSk9WVkpGVDBSSk5WRnJSa1ZQVkZrMVRVUnJORTVyV1hwTmVrVTFVa1JaZDFKVlJUTk5SVTVIVFZSTk5VNTVTWE5KYlU1dldWYzFibHBWYkRCYVZ6RjZTV3B3WW1WNVNrUmhSMFp3WW10c1JVbHFiMmxpUnpscVdWZDNhVXhEU2tKYVIxSjVXbGhPZWtscWIybGlSemxxV1ZkM2VrMTZTa05qYW1oTVV6TkZNVnA2VVROWlYzUjZWMjVhZEdSVlRrUmtlbGw1WkZjNVJFMHdhRlJaYWxscFRFTktVVnBYVm5sUk1taG9ZVmMxU2xKRFNUWkpiWGgyV1RKR2MxY3piRFZZVTBselNXeENiRnBZU2tSaFIwWndZbXRLYUdKSFJuVlpNbFZwVDJwSmQwMUVRWGROUkVGM1RVUkJkMlpXTVRraUxDSnlaV05sYVhCMFNHRnphQ0k2SWtWR09UazRRalZDUmpSQ1JEUTNPVEl4UXpnMVF6QXhORU5FTlVNNE56UXlOelUzT0VNeE9FUXpNMEUzTlVRNVFqazRSa1kwTmtaQk5qWTBSVVpETjBNaWZRPT0ifV19&quot;,
+          &quot;ReceiptHash&quot;: &quot;0x075860DF0B94E3A2D346150DD1E17F99D4B171F1B689A87C39CA0977AFBA8D40&quot;,
+          &quot;Receipt&quot;: {
+            &quot;contractName&quot;: &quot;token-basic&quot;,
+            &quot;fromChainID&quot;: &quot;local&quot;,
+            &quot;ibcHash&quot;: &quot;1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397&quot;,
+            &quot;orgID&quot;: &quot;orgJgaGConUyK81zibntUBjQ33PKctpk1K1G&quot;,
+            &quot;queueID&quot;: &quot;local-&gt;local[SmartCity]&quot;,
+            &quot;receipts&quot;: [
+              {
+                &quot;key&quot;: &quot;LzAvc3RkOjp0cmFuc2Zlcg==&quot;,
+                &quot;value&quot;: &quot;eyJuYW1lIjoic3RkOjp0cmFuc2ZlciIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMGIydGxiaUk2SW14dlkyRnNRVXB5WW1zMlYyUm1OMVJEWW5WdWNsaFlVelZyUzNaaVYxWnplbWhETVZSQklpd2labkp2YlNJNklteHZZMkZzUlZSTE4xcG9PV2hPVTFCeVJVdGtiVU5uYmtoRWRFWlFZWFJqY3psWGQxWk1JaXdpZEc4aU9pSnNiMk5oYkRNek1rSnlPRXRMY1RWbk5EZGhhM05hZG0xMVEwTjNOakoxYjBNelNGTmlOaUlzSW5aaGJIVmxJam94TURBd01EQXdNREF3TURBc0ltNXZkR1VpT2lKc2IyTnJPaUo5IiwicmVjZWlwdEhhc2giOiIyQTJGMDJBMzU4NzRBMDcyQUY4RjA5MjJENTc4NjQ5RTRBOERDQjkzQjQ0RUU4ODRGN0U5OURCMjQ1ODEzMTM4In0=&quot;
+              },
+              {
+                &quot;key&quot;: &quot;LzEvdG9rZW5iYXNpYy5Bc3NldENoYW5nZQ==&quot;,
+                &quot;value&quot;: &quot;eyJuYW1lIjoidG9rZW5iYXNpYy5Bc3NldENoYW5nZSIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMlpYSnphVzl1SWpvaU1pNHhJaXdpZEhsd1pTSTZJbXh2WTJzaUxDSjBiMnRsYmlJNklteHZZMkZzUVVweVltczJWMlJtTjFSRFluVnVjbGhZVXpWclMzWmlWMVp6ZW1oRE1WUkJJaXdpWm5KdmJTSTZJbXh2WTJGc1JWUkxOMXBvT1doT1UxQnlSVXRrYlVObmJraEVkRVpRWVhSamN6bFhkMVpNSWl3aWRHOGlPaUpzYjJOaGJGdDVlVjFJVFhCVGVYUXlTbXMxUW1sR2FWSXlhalExYmtkSGFsUnZSamx0YVZWV1lVY2lMQ0oyWVd4MVpTSTZNVEF3TURBd01EQXdNREF3TENKcFltTklZWE5vSWpvaU1VSkJNVE5DT1RVMU9VVkdRemxCTWtJMlJUQkdSRFU0T1VWRU5UaEJOVVJFT0RJNVFrRkVPVFk1TURrNE5rWXpNekU1UkRZd1JVRTNNRU5HTVRNNU55SXNJbU5vWVc1blpVbDBaVzF6SWpwYmV5SkRhR0ZwYmtsRUlqb2liRzlqWVd3aUxDSkJaR1J5WlhOeklqb2liRzlqWVd3ek16SkNjamhMUzNFMVp6UTNZV3R6V25adGRVTkRkell5ZFc5RE0waFRZallpTENKUVpXVnlRMmhoYVc1SlJDSTZJbXh2WTJGc1czbDVYU0lzSWxCbFpYSkRhR0ZwYmtKaGJHRnVZMlVpT2pJd01EQXdNREF3TURBd2ZWMTkiLCJyZWNlaXB0SGFzaCI6IkVGOTk4QjVCRjRCRDQ3OTIxQzg1QzAxNENENUM4NzQyNzU3OEMxOEQzM0E3NUQ5Qjk4RkY0NkZBNjY0RUZDN0MifQ==&quot;
+              }
+            ],
+            &quot;seq&quot;: 5,
+            &quot;state&quot;: {
+              &quot;log&quot;: &quot;&quot;,
+              &quot;status&quot;: &quot;NoAckWanted&quot;,
+              &quot;tag&quot;: &quot;RecastPending&quot;
+            },
+            &quot;toChainID&quot;: &quot;local[SmartCity]&quot;,
+            &quot;type&quot;: &quot;tcctx&quot;
+          }
+        },
+        ......
+                 }
+    }
+  ]
+}
+</code></pre>
+</figure>
+<p class='with-space'>Find the receipt name containing <code>ibc::packet</code> and get ibcHash in the structure of <code>Receipt</code> .</p>
+<h3 id='b641b513'><span class='bd-content-title'>3.2 Cross-Chain Transaction Data<a class='anchorjs-link ' href='#b641b513' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>You can query to get <code>ibcHash</code> : 1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397 from above, and then we use following command to get cross-chain transaction data:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc query -k /ibc/1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397/packets
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397/packets
+ Value: [
+ ......,{
+  &quot;fromChainID&quot;: &quot;local&quot;,
+  &quot;toChainID&quot;: &quot;local[SmartCity]&quot;,
+  &quot;queueID&quot;: &quot;&quot;,
+  &quot;seq&quot;: 0,
+  &quot;orgID&quot;: &quot;orgJgaGConUyK81zibntUBjQ33PKctpk1K1G&quot;,
+  &quot;contractName&quot;: &quot;token-basic&quot;,
+  &quot;ibcHash&quot;: &quot;1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397&quot;,
+  &quot;type&quot;: &quot;tcctx&quot;,
+  &quot;state&quot;: {
+    &quot;status&quot;: &quot;NoAck&quot;,
+    &quot;tag&quot;: &quot;Confirmed&quot;,
+    &quot;log&quot;: &quot;&quot;},
+  &quot;receipts&quot;: [{
+    &quot;key&quot;: &quot;LzAvc3RkOjp0cmFuc2Zlcg==&quot;,
+    &quot;value&quot;: &quot;eyJuYW1lIjoic3RkOjp0cmFuc2ZlciIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMGIydGxiaUk2SW14dlkyRnNRVXB5WW1zMlYyUm1OMVJEWW5WdWNsaFlVelZyUzNaaVYxWnplbWhETVZSQklpd2labkp2YlNJNklteHZZMkZzUlZSTE4xcG9PV2hPVTFCeVJVdGtiVU5uYmtoRWRFWlFZWFJqY3psWGQxWk1JaXdpZEc4aU9pSnNiMk5oYkRNek1rSnlPRXRMY1RWbk5EZGhhM05hZG0xMVEwTjNOakoxYjBNelNGTmlOaUlzSW5aaGJIVmxJam94TURBd01EQXdNREF3TURBc0ltNXZkR1VpT2lKc2IyTnJPaUo5IiwicmVjZWlwdEhhc2giOiIyQTJGMDJBMzU4NzRBMDcyQUY4RjA5MjJENTc4NjQ5RTRBOERDQjkzQjQ0RUU4ODRGN0U5OURCMjQ1ODEzMTM4In0=&quot;
+    }, {
+    &quot;key&quot;: &quot;LzEvdG9rZW5iYXNpYy5Bc3NldENoYW5nZQ==&quot;,
+    &quot;value&quot;: &quot;eyJuYW1lIjoidG9rZW5iYXNpYy5Bc3NldENoYW5nZSIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMlpYSnphVzl1SWpvaU1pNHhJaXdpZEhsd1pTSTZJbXh2WTJzaUxDSjBiMnRsYmlJNklteHZZMkZzUVVweVltczJWMlJtTjFSRFluVnVjbGhZVXpWclMzWmlWMVp6ZW1oRE1WUkJJaXdpWm5KdmJTSTZJbXh2WTJGc1JWUkxOMXBvT1doT1UxQnlSVXRrYlVObmJraEVkRVpRWVhSamN6bFhkMVpNSWl3aWRHOGlPaUpzYjJOaGJGdDVlVjFJVFhCVGVYUXlTbXMxUW1sR2FWSXlhalExYmtkSGFsUnZSamx0YVZWV1lVY2lMQ0oyWVd4MVpTSTZNVEF3TURBd01EQXdNREF3TENKcFltTklZWE5vSWpvaU1VSkJNVE5DT1RVMU9VVkdRemxCTWtJMlJUQkdSRFU0T1VWRU5UaEJOVVJFT0RJNVFrRkVPVFk1TURrNE5rWXpNekU1UkRZd1JVRTNNRU5HTVRNNU55SXNJbU5vWVc1blpVbDBaVzF6SWpwYmV5SkRhR0ZwYmtsRUlqb2liRzlqWVd3aUxDSkJaR1J5WlhOeklqb2liRzlqWVd3ek16SkNjamhMUzNFMVp6UTNZV3R6V25adGRVTkRkell5ZFc5RE0waFRZallpTENKUVpXVnlRMmhoYVc1SlJDSTZJbXh2WTJGc1czbDVYU0lzSWxCbFpYSkRhR0ZwYmtKaGJHRnVZMlVpT2pJd01EQXdNREF3TURBd2ZWMTkiLCJyZWNlaXB0SGFzaCI6IkVGOTk4QjVCRjRCRDQ3OTIxQzg1QzAxNENENUM4NzQyNzU3OEMxOEQzM0E3NUQ5Qjk4RkY0NkZBNjY0RUZDN0MifQ==&quot;
+    }, {
+    &quot;key&quot;: &quot;LzEvc3RkOjp0cmFuc2Zlcg==&quot;,
+    &quot;value&quot;: &quot;eyJuYW1lIjoic3RkOjp0cmFuc2ZlciIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsW3l5XUFKcmJrNldkZjdUQ2J1bnJYWFM1a0t2YldWc3poQzFUQSIsInJlY2VpcHRCeXRlcyI6ImV5SjBiMnRsYmlJNklteHZZMkZzVzNsNVhVRktjbUpyTmxka1pqZFVRMkoxYm5KWVdGTTFhMHQyWWxkV2MzcG9RekZVUVNJc0ltWnliMjBpT2lKc2IyTmhiRnQ1ZVYwek16SkNjamhMUzNFMVp6UTNZV3R6V25adGRVTkRkell5ZFc5RE0waFRZallpTENKMGJ5STZJbXh2WTJGc1czbDVYVWhOY0ZONWRESkthelZDYVVacFVqSnFORFZ1UjBkcVZHOUdPVzFwVlZaaFJ5SXNJblpoYkhWbElqb3hNREF3TURBd01EQXdNREI5IiwicmVjZWlwdEhhc2giOiIzMDJENDc0OTFCNDIyNDQzQUFBODFCRkFBQjA4MzQwOTJCMDY4OTYwOEFCQjUyMzhERTM5RjI2NzlGNjQ4Q0QyIn0=&quot;
+    }, {
+    &quot;key&quot;: &quot;LzIvdG9rZW5iYXNpYy5Bc3NldENoYW5nZQ==&quot;,
+    &quot;value&quot;: &quot;eyJuYW1lIjoidG9rZW5iYXNpYy5Bc3NldENoYW5nZSIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsW3l5XUFKcmJrNldkZjdUQ2J1bnJYWFM1a0t2YldWc3poQzFUQSIsInJlY2VpcHRCeXRlcyI6ImV5SjJaWEp6YVc5dUlqb2lNaTR4SWl3aWRIbHdaU0k2SW5KbFkyRnpkQ0lzSW5SdmEyVnVJam9pYkc5allXeGJlWGxkUVVweVltczJWMlJtTjFSRFluVnVjbGhZVXpWclMzWmlWMVp6ZW1oRE1WUkJJaXdpWm5KdmJTSTZJbXh2WTJGc1JWUkxOMXBvT1doT1UxQnlSVXRrYlVObmJraEVkRVpRWVhSamN6bFhkMVpNSWl3aWRHOGlPaUpzYjJOaGJGdDVlVjFJVFhCVGVYUXlTbXMxUW1sR2FWSXlhalExYmtkSGFsUnZSamx0YVZWV1lVY2lMQ0oyWVd4MVpTSTZNVEF3TURBd01EQXdNREF3TENKcFltTklZWE5vSWpvaU1VSkJNVE5DT1RVMU9VVkdRemxCTWtJMlJUQkdSRFU0T1VWRU5UaEJOVVJFT0RJNVFrRkVPVFk1TURrNE5rWXpNekU1UkRZd1JVRTNNRU5HTVRNNU55SXNJbU5vWVc1blpVbDBaVzF6SWpwYmV5SkRhR0ZwYmtsRUlqb2liRzlqWVd4YmVYbGRJaXdpUVdSa2NtVnpjeUk2SW14dlkyRnNXM2w1WFRNek1rSnlPRXRMY1RWbk5EZGhhM05hZG0xMVEwTjNOakoxYjBNelNGTmlOaUlzSWxCbFpYSkRhR0ZwYmtsRUlqb2liRzlqWVd3aUxDSlFaV1Z5UTJoaGFXNUNZV3hoYm1ObElqb3RNVEl3TURBd01EQXdNREF3ZlYxOSIsInJlY2VpcHRIYXNoIjoiREU3MTRCRjJFOTQ1Rjg1MTFDNzA5RUUzNUE2MzYyOUMzQzczRDkyQkQyNzU0QjdCNTJBQkY0QzkzOTBCODQyRiJ9&quot;
+    }, {
+    &quot;key&quot;: &quot;LzEvdG9rZW5iYXNpYy5Bc3NldENoYW5nZQ==&quot;,
+    &quot;value&quot;: &quot;eyJuYW1lIjoidG9rZW5iYXNpYy5Bc3NldENoYW5nZSIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMlpYSnphVzl1SWpvaU1pNHhJaXdpZEhsd1pTSTZJbVJsYzNSeWIza2lMQ0owYjJ0bGJpSTZJbXh2WTJGc1FVcHlZbXMyVjJSbU4xUkRZblZ1Y2xoWVV6VnJTM1ppVjFaemVtaERNVlJCSWl3aVpuSnZiU0k2SW14dlkyRnNSVlJMTjFwb09XaE9VMUJ5UlV0a2JVTm5ia2hFZEVaUVlYUmpjemxYZDFaTUlpd2lkRzhpT2lKc2IyTmhiRnQ1ZVYxSVRYQlRlWFF5U21zMVFtbEdhVkl5YWpRMWJrZEhhbFJ2UmpsdGFWVldZVWNpTENKMllXeDFaU0k2TVRBd01EQXdNREF3TURBd0xDSnBZbU5JWVhOb0lqb2lNVUpCTVROQ09UVTFPVVZHUXpsQk1rSTJSVEJHUkRVNE9VVkVOVGhCTlVSRU9ESTVRa0ZFT1RZNU1EazROa1l6TXpFNVJEWXdSVUUzTUVOR01UTTVOeUlzSW1Ob1lXNW5aVWwwWlcxeklqcGJleUpEYUdGcGJrbEVJam9pYkc5allXd2lMQ0pCWkdSeVpYTnpJam9pYkc5allXd3pNekpDY2poTFMzRTFaelEzWVd0elduWnRkVU5EZHpZeWRXOURNMGhUWWpZaUxDSlFaV1Z5UTJoaGFXNUpSQ0k2SW14dlkyRnNXM2w1WFNJc0lsQmxaWEpEYUdGcGJrSmhiR0Z1WTJVaU9qRXlNREF3TURBd01EQXdNSDFkZlE9PSIsInJlY2VpcHRIYXNoIjoiQ0ZGQ0RCNjUzQjk5NDRDNDUwOERBRDc1M0VCMTk1ODU3RUE0NjE5RTA4MDk0RUYzNDcwRDQ3OTBBNkY3Q0U0MCJ9&quot;
+    }]
+}
+]'>Copy</button><pre><code class='shell' lang='shell'>./bcc query -k /ibc/1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397/packets
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397/packets
+ Value: [
+ ......,{
+  &quot;fromChainID&quot;: &quot;local&quot;,
+  &quot;toChainID&quot;: &quot;local[SmartCity]&quot;,
+  &quot;queueID&quot;: &quot;&quot;,
+  &quot;seq&quot;: 0,
+  &quot;orgID&quot;: &quot;orgJgaGConUyK81zibntUBjQ33PKctpk1K1G&quot;,
+  &quot;contractName&quot;: &quot;token-basic&quot;,
+  &quot;ibcHash&quot;: &quot;1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397&quot;,
+  &quot;type&quot;: &quot;tcctx&quot;,
+  &quot;state&quot;: {
+    &quot;status&quot;: &quot;NoAck&quot;,
+    &quot;tag&quot;: &quot;Confirmed&quot;,
+    &quot;log&quot;: &quot;&quot;},
+  &quot;receipts&quot;: [{
+    &quot;key&quot;: &quot;LzAvc3RkOjp0cmFuc2Zlcg==&quot;,
+    &quot;value&quot;: &quot;eyJuYW1lIjoic3RkOjp0cmFuc2ZlciIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMGIydGxiaUk2SW14dlkyRnNRVXB5WW1zMlYyUm1OMVJEWW5WdWNsaFlVelZyUzNaaVYxWnplbWhETVZSQklpd2labkp2YlNJNklteHZZMkZzUlZSTE4xcG9PV2hPVTFCeVJVdGtiVU5uYmtoRWRFWlFZWFJqY3psWGQxWk1JaXdpZEc4aU9pSnNiMk5oYkRNek1rSnlPRXRMY1RWbk5EZGhhM05hZG0xMVEwTjNOakoxYjBNelNGTmlOaUlzSW5aaGJIVmxJam94TURBd01EQXdNREF3TURBc0ltNXZkR1VpT2lKc2IyTnJPaUo5IiwicmVjZWlwdEhhc2giOiIyQTJGMDJBMzU4NzRBMDcyQUY4RjA5MjJENTc4NjQ5RTRBOERDQjkzQjQ0RUU4ODRGN0U5OURCMjQ1ODEzMTM4In0=&quot;
+    }, {
+    &quot;key&quot;: &quot;LzEvdG9rZW5iYXNpYy5Bc3NldENoYW5nZQ==&quot;,
+    &quot;value&quot;: &quot;eyJuYW1lIjoidG9rZW5iYXNpYy5Bc3NldENoYW5nZSIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMlpYSnphVzl1SWpvaU1pNHhJaXdpZEhsd1pTSTZJbXh2WTJzaUxDSjBiMnRsYmlJNklteHZZMkZzUVVweVltczJWMlJtTjFSRFluVnVjbGhZVXpWclMzWmlWMVp6ZW1oRE1WUkJJaXdpWm5KdmJTSTZJbXh2WTJGc1JWUkxOMXBvT1doT1UxQnlSVXRrYlVObmJraEVkRVpRWVhSamN6bFhkMVpNSWl3aWRHOGlPaUpzYjJOaGJGdDVlVjFJVFhCVGVYUXlTbXMxUW1sR2FWSXlhalExYmtkSGFsUnZSamx0YVZWV1lVY2lMQ0oyWVd4MVpTSTZNVEF3TURBd01EQXdNREF3TENKcFltTklZWE5vSWpvaU1VSkJNVE5DT1RVMU9VVkdRemxCTWtJMlJUQkdSRFU0T1VWRU5UaEJOVVJFT0RJNVFrRkVPVFk1TURrNE5rWXpNekU1UkRZd1JVRTNNRU5HTVRNNU55SXNJbU5vWVc1blpVbDBaVzF6SWpwYmV5SkRhR0ZwYmtsRUlqb2liRzlqWVd3aUxDSkJaR1J5WlhOeklqb2liRzlqWVd3ek16SkNjamhMUzNFMVp6UTNZV3R6V25adGRVTkRkell5ZFc5RE0waFRZallpTENKUVpXVnlRMmhoYVc1SlJDSTZJbXh2WTJGc1czbDVYU0lzSWxCbFpYSkRhR0ZwYmtKaGJHRnVZMlVpT2pJd01EQXdNREF3TURBd2ZWMTkiLCJyZWNlaXB0SGFzaCI6IkVGOTk4QjVCRjRCRDQ3OTIxQzg1QzAxNENENUM4NzQyNzU3OEMxOEQzM0E3NUQ5Qjk4RkY0NkZBNjY0RUZDN0MifQ==&quot;
+    }, {
+    &quot;key&quot;: &quot;LzEvc3RkOjp0cmFuc2Zlcg==&quot;,
+    &quot;value&quot;: &quot;eyJuYW1lIjoic3RkOjp0cmFuc2ZlciIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsW3l5XUFKcmJrNldkZjdUQ2J1bnJYWFM1a0t2YldWc3poQzFUQSIsInJlY2VpcHRCeXRlcyI6ImV5SjBiMnRsYmlJNklteHZZMkZzVzNsNVhVRktjbUpyTmxka1pqZFVRMkoxYm5KWVdGTTFhMHQyWWxkV2MzcG9RekZVUVNJc0ltWnliMjBpT2lKc2IyTmhiRnQ1ZVYwek16SkNjamhMUzNFMVp6UTNZV3R6V25adGRVTkRkell5ZFc5RE0waFRZallpTENKMGJ5STZJbXh2WTJGc1czbDVYVWhOY0ZONWRESkthelZDYVVacFVqSnFORFZ1UjBkcVZHOUdPVzFwVlZaaFJ5SXNJblpoYkhWbElqb3hNREF3TURBd01EQXdNREI5IiwicmVjZWlwdEhhc2giOiIzMDJENDc0OTFCNDIyNDQzQUFBODFCRkFBQjA4MzQwOTJCMDY4OTYwOEFCQjUyMzhERTM5RjI2NzlGNjQ4Q0QyIn0=&quot;
+    }, {
+    &quot;key&quot;: &quot;LzIvdG9rZW5iYXNpYy5Bc3NldENoYW5nZQ==&quot;,
+    &quot;value&quot;: &quot;eyJuYW1lIjoidG9rZW5iYXNpYy5Bc3NldENoYW5nZSIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsW3l5XUFKcmJrNldkZjdUQ2J1bnJYWFM1a0t2YldWc3poQzFUQSIsInJlY2VpcHRCeXRlcyI6ImV5SjJaWEp6YVc5dUlqb2lNaTR4SWl3aWRIbHdaU0k2SW5KbFkyRnpkQ0lzSW5SdmEyVnVJam9pYkc5allXeGJlWGxkUVVweVltczJWMlJtTjFSRFluVnVjbGhZVXpWclMzWmlWMVp6ZW1oRE1WUkJJaXdpWm5KdmJTSTZJbXh2WTJGc1JWUkxOMXBvT1doT1UxQnlSVXRrYlVObmJraEVkRVpRWVhSamN6bFhkMVpNSWl3aWRHOGlPaUpzYjJOaGJGdDVlVjFJVFhCVGVYUXlTbXMxUW1sR2FWSXlhalExYmtkSGFsUnZSamx0YVZWV1lVY2lMQ0oyWVd4MVpTSTZNVEF3TURBd01EQXdNREF3TENKcFltTklZWE5vSWpvaU1VSkJNVE5DT1RVMU9VVkdRemxCTWtJMlJUQkdSRFU0T1VWRU5UaEJOVVJFT0RJNVFrRkVPVFk1TURrNE5rWXpNekU1UkRZd1JVRTNNRU5HTVRNNU55SXNJbU5vWVc1blpVbDBaVzF6SWpwYmV5SkRhR0ZwYmtsRUlqb2liRzlqWVd4YmVYbGRJaXdpUVdSa2NtVnpjeUk2SW14dlkyRnNXM2w1WFRNek1rSnlPRXRMY1RWbk5EZGhhM05hZG0xMVEwTjNOakoxYjBNelNGTmlOaUlzSWxCbFpYSkRhR0ZwYmtsRUlqb2liRzlqWVd3aUxDSlFaV1Z5UTJoaGFXNUNZV3hoYm1ObElqb3RNVEl3TURBd01EQXdNREF3ZlYxOSIsInJlY2VpcHRIYXNoIjoiREU3MTRCRjJFOTQ1Rjg1MTFDNzA5RUUzNUE2MzYyOUMzQzczRDkyQkQyNzU0QjdCNTJBQkY0QzkzOTBCODQyRiJ9&quot;
+    }, {
+    &quot;key&quot;: &quot;LzEvdG9rZW5iYXNpYy5Bc3NldENoYW5nZQ==&quot;,
+    &quot;value&quot;: &quot;eyJuYW1lIjoidG9rZW5iYXNpYy5Bc3NldENoYW5nZSIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMlpYSnphVzl1SWpvaU1pNHhJaXdpZEhsd1pTSTZJbVJsYzNSeWIza2lMQ0owYjJ0bGJpSTZJbXh2WTJGc1FVcHlZbXMyVjJSbU4xUkRZblZ1Y2xoWVV6VnJTM1ppVjFaemVtaERNVlJCSWl3aVpuSnZiU0k2SW14dlkyRnNSVlJMTjFwb09XaE9VMUJ5UlV0a2JVTm5ia2hFZEVaUVlYUmpjemxYZDFaTUlpd2lkRzhpT2lKc2IyTmhiRnQ1ZVYxSVRYQlRlWFF5U21zMVFtbEdhVkl5YWpRMWJrZEhhbFJ2UmpsdGFWVldZVWNpTENKMllXeDFaU0k2TVRBd01EQXdNREF3TURBd0xDSnBZbU5JWVhOb0lqb2lNVUpCTVROQ09UVTFPVVZHUXpsQk1rSTJSVEJHUkRVNE9VVkVOVGhCTlVSRU9ESTVRa0ZFT1RZNU1EazROa1l6TXpFNVJEWXdSVUUzTUVOR01UTTVOeUlzSW1Ob1lXNW5aVWwwWlcxeklqcGJleUpEYUdGcGJrbEVJam9pYkc5allXd2lMQ0pCWkdSeVpYTnpJam9pYkc5allXd3pNekpDY2poTFMzRTFaelEzWVd0elduWnRkVU5EZHpZeWRXOURNMGhUWWpZaUxDSlFaV1Z5UTJoaGFXNUpSQ0k2SW14dlkyRnNXM2w1WFNJc0lsQmxaWEpEYUdGcGJrSmhiR0Z1WTJVaU9qRXlNREF3TURBd01EQXdNSDFkZlE9PSIsInJlY2VpcHRIYXNoIjoiQ0ZGQ0RCNjUzQjk5NDRDNDUwOERBRDc1M0VCMTk1ODU3RUE0NjE5RTA4MDk0RUYzNDcwRDQ3OTBBNkY3Q0U0MCJ9&quot;
+    }]
+}
+]
+</code></pre>
+</figure>
+<h4 id='f72ea0e8'><span class='bd-content-title'>3.2.1 Cross-Chain Transaction Data Analysis<a class='anchorjs-link ' href='#f72ea0e8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>We got a cross-chain transaction data successfully from above, and now let&#39;s analyze the cross-chain transaction data.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='type Packet struct {
+  FromChainID  string           // From chain id（A）
+  ToChainID    string           // To chain id（B）
+  QueueID      string           // Cross-chain communications queue（A-&gt;B）
+  Seq          uint64           // (A-&gt;B)The serial number on this queue, starting at 0.
+  OrgID        string           // Organization ID
+  ContractName string           // Smart contract name
+  IbcHash      types.Hash       // Cross-chain transaction hash, it determines the final result from the blockchain
+  Type         string           // Type of cross-chain communication：&quot;tcctx&quot;, &quot;notify&quot;
+  State        State            // State
+  Receipts     []types.KVPair   // Data to be transmitted
+}
+
+type State struct {
+  Status string     // State：&quot;NoAckWanted&quot;, &quot;NoAck&quot;
+  Tag    string     // status identification for the business layer：
+  Log    string     // Abnormal log
+}
+
+Notice:
+Type is the type of cross-chain communication：&quot;tcctx&quot; means transaction, &quot;notify&quot; means notification
+
+Status, the status of cross-chain transaction：
+&quot;NoAckWanted&quot;: the state of the cross-chain communication protocol, requiring the receipt to return a reply.
+&quot;NoAck&quot;: the state of the cross-chain communication protocol, does not require the receipt to return a reply
+
+Tag: status identification for the business layer
+&quot;NotifyPending&quot;: the status of the cross-chain notification at the initiator side, indicating that the next step requires the execution of the business notification on the target side.
+
+&quot;Success&quot;: the cross-chain notification at the target side, indicating the business layer has completed the notification.
+&quot;Failure&quot;: the cross-chain notification at the target side, indicating the business layer has not completed the notification. Probably because the contract version is inconsistent.
+
+&quot;RecastPending&quot;: the status of the cross-chain transaction at the initiator side, indicating the next step is to execute the recast business on the target side, or to be transited by the hub chain.
+&quot;ConfirmPending&quot;: the state of the cross-chain transaction at the hub chain and the target chain, indicating the next step is to execute the confirmation transit business on the hub chain, or to execute the final confirmation business on the initiator side
+&quot;Confirmed&quot;: the state of the cross-chain notification at the initiator side, indicating the cross-chain operation has been completed.
+&quot;CancelPending&quot;: the state of the cross-chain transaction at the hub chain and the target chain, indicating the next step is to execute the cancellation service on the hub chain, or to execute the final cancellation service on the initiator side.
+&quot;Canceled&quot;: the state of the cross-chain transaction at the initiator side, indicating the cross-chain operation has been cancelled successfully.'>Copy</button><pre><code class='go' lang='go'>type Packet struct {
+  FromChainID  string           // From chain id（A）
+  ToChainID    string           // To chain id（B）
+  QueueID      string           // Cross-chain communications queue（A-&gt;B）
+  Seq          uint64           // (A-&gt;B)The serial number on this queue, starting at 0.
+  OrgID        string           // Organization ID
+  ContractName string           // Smart contract name
+  IbcHash      types.Hash       // Cross-chain transaction hash, it determines the final result from the blockchain
+  Type         string           // Type of cross-chain communication：&quot;tcctx&quot;, &quot;notify&quot;
+  State        State            // State
+  Receipts     []types.KVPair   // Data to be transmitted
+}
+
+type State struct {
+  Status string     // State：&quot;NoAckWanted&quot;, &quot;NoAck&quot;
+  Tag    string     // status identification for the business layer：
+  Log    string     // Abnormal log
+}
+
+Notice:
+Type is the type of cross-chain communication：&quot;tcctx&quot; means transaction, &quot;notify&quot; means notification
+
+Status, the status of cross-chain transaction：
+&quot;NoAckWanted&quot;: the state of the cross-chain communication protocol, requiring the receipt to return a reply.
+&quot;NoAck&quot;: the state of the cross-chain communication protocol, does not require the receipt to return a reply
+
+Tag: status identification for the business layer
+&quot;NotifyPending&quot;: the status of the cross-chain notification at the initiator side, indicating that the next step requires the execution of the business notification on the target side.
+
+&quot;Success&quot;: the cross-chain notification at the target side, indicating the business layer has completed the notification.
+&quot;Failure&quot;: the cross-chain notification at the target side, indicating the business layer has not completed the notification. Probably because the contract version is inconsistent.
+
+&quot;RecastPending&quot;: the status of the cross-chain transaction at the initiator side, indicating the next step is to execute the recast business on the target side, or to be transited by the hub chain.
+&quot;ConfirmPending&quot;: the state of the cross-chain transaction at the hub chain and the target chain, indicating the next step is to execute the confirmation transit business on the hub chain, or to execute the final confirmation business on the initiator side
+&quot;Confirmed&quot;: the state of the cross-chain notification at the initiator side, indicating the cross-chain operation has been completed.
+&quot;CancelPending&quot;: the state of the cross-chain transaction at the hub chain and the target chain, indicating the next step is to execute the cancellation service on the hub chain, or to execute the final cancellation service on the initiator side.
+&quot;Canceled&quot;: the state of the cross-chain transaction at the initiator side, indicating the cross-chain operation has been cancelled successfully.
+</code></pre>
+</figure>
+<p class='with-space'>The cross-chain transaction data is composed of slices of packet structure (as shown in the figure). A packet structure represents a transaction, and a complete cross-chain transaction is generally composed of one or more such transactions (generally, there is only one such transaction in the notification initiation chain and two in the notification receiving chain; there are three such transactions in the transaction initiation chain and two in the target chain.</p>
+<h4 id='f23721f5'><span class='bd-content-title'>3.2.2 Cross-Chain Receipt Analysis<a class='anchorjs-link ' href='#f23721f5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>We have got a cross-chain transaction data from the above, there is a slice of the field <code>receipts</code> , and the data stored in it is the receipt of cross-chain transactions. In addition to the receipt of cross-chain transactions, there is receipt of handling fees, we only analyze the receipt of cross-chain transactions:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+  &quot;key&quot;: &quot;LzEvdG9rZW5iYXNpYy5Bc3NldENoYW5nZQ==&quot;,
+  &quot;value&quot;: &quot;eyJuYW1lIjoidG9rZW5iYXNpYy5Bc3NldENoYW5nZSIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMlpYSnphVzl1SWpvaU1pNHhJaXdpZEhsd1pTSTZJbVJsYzNSeWIza2lMQ0owYjJ0bGJpSTZJbXh2WTJGc1FVcHlZbXMyVjJSbU4xUkRZblZ1Y2xoWVV6VnJTM1ppVjFaemVtaERNVlJCSWl3aVpuSnZiU0k2SW14dlkyRnNSVlJMTjFwb09XaE9VMUJ5UlV0a2JVTm5ia2hFZEVaUVlYUmpjemxYZDFaTUlpd2lkRzhpT2lKc2IyTmhiRnQ1ZVYxSVRYQlRlWFF5U21zMVFtbEdhVkl5YWpRMWJrZEhhbFJ2UmpsdGFWVldZVWNpTENKMllXeDFaU0k2TVRBd01EQXdNREF3TURBd0xDSnBZbU5JWVhOb0lqb2lNVUpCTVROQ09UVTFPVVZHUXpsQk1rSTJSVEJHUkRVNE9VVkVOVGhCTlVSRU9ESTVRa0ZFT1RZNU1EazROa1l6TXpFNVJEWXdSVUUzTUVOR01UTTVOeUlzSW1Ob1lXNW5aVWwwWlcxeklqcGJleUpEYUdGcGJrbEVJam9pYkc5allXd2lMQ0pCWkdSeVpYTnpJam9pYkc5allXd3pNekpDY2poTFMzRTFaelEzWVd0elduWnRkVU5EZHpZeWRXOURNMGhUWWpZaUxDSlFaV1Z5UTJoaGFXNUpSQ0k2SW14dlkyRnNXM2w1WFNJc0lsQmxaWEpEYUdGcGJrSmhiR0Z1WTJVaU9qRXlNREF3TURBd01EQXdNSDFkZlE9PSIsInJlY2VpcHRIYXNoIjoiQ0ZGQ0RCNjUzQjk5NDRDNDUwOERBRDc1M0VCMTk1ODU3RUE0NjE5RTA4MDk0RUYzNDcwRDQ3OTBBNkY3Q0U0MCJ9&quot;
+}'>Copy</button><pre><code class='go' lang='go'>{
+  &quot;key&quot;: &quot;LzEvdG9rZW5iYXNpYy5Bc3NldENoYW5nZQ==&quot;,
+  &quot;value&quot;: &quot;eyJuYW1lIjoidG9rZW5iYXNpYy5Bc3NldENoYW5nZSIsImNvbnRyYWN0QWRkcmVzcyI6ImxvY2FsSExEaHF5b0oxdlJ1bzhyZTlHeEZBRlUyQmtzdzJrTnVwIiwicmVjZWlwdEJ5dGVzIjoiZXlKMlpYSnphVzl1SWpvaU1pNHhJaXdpZEhsd1pTSTZJbVJsYzNSeWIza2lMQ0owYjJ0bGJpSTZJbXh2WTJGc1FVcHlZbXMyVjJSbU4xUkRZblZ1Y2xoWVV6VnJTM1ppVjFaemVtaERNVlJCSWl3aVpuSnZiU0k2SW14dlkyRnNSVlJMTjFwb09XaE9VMUJ5UlV0a2JVTm5ia2hFZEVaUVlYUmpjemxYZDFaTUlpd2lkRzhpT2lKc2IyTmhiRnQ1ZVYxSVRYQlRlWFF5U21zMVFtbEdhVkl5YWpRMWJrZEhhbFJ2UmpsdGFWVldZVWNpTENKMllXeDFaU0k2TVRBd01EQXdNREF3TURBd0xDSnBZbU5JWVhOb0lqb2lNVUpCTVROQ09UVTFPVVZHUXpsQk1rSTJSVEJHUkRVNE9VVkVOVGhCTlVSRU9ESTVRa0ZFT1RZNU1EazROa1l6TXpFNVJEWXdSVUUzTUVOR01UTTVOeUlzSW1Ob1lXNW5aVWwwWlcxeklqcGJleUpEYUdGcGJrbEVJam9pYkc5allXd2lMQ0pCWkdSeVpYTnpJam9pYkc5allXd3pNekpDY2poTFMzRTFaelEzWVd0elduWnRkVU5EZHpZeWRXOURNMGhUWWpZaUxDSlFaV1Z5UTJoaGFXNUpSQ0k2SW14dlkyRnNXM2w1WFNJc0lsQmxaWEpEYUdGcGJrSmhiR0Z1WTJVaU9qRXlNREF3TURBd01EQXdNSDFkZlE9PSIsInJlY2VpcHRIYXNoIjoiQ0ZGQ0RCNjUzQjk5NDRDNDUwOERBRDc1M0VCMTk1ODU3RUE0NjE5RTA4MDk0RUYzNDcwRDQ3OTBBNkY3Q0U0MCJ9&quot;
+}
+</code></pre>
+</figure>
+<p class='with-space'>The above receipt is a receipt obtained from the receipts field. We can know this is a receipt for asset change by base64 decode , that is the receipt name is <code>tokenbasic.AssetChange</code> , we decode the value through base64 decode to get the receipt information:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{&quot;name&quot;:&quot;tokenbasic.AssetChange&quot;,&quot;contractAddress&quot;:&quot;localHLDhqyoJ1vRuo8re9GxFAFU2Bksw2kNup&quot;,&quot;receiptBytes&quot;:&quot;eyJ2ZXJzaW9uIjoiMi4xIiwidHlwZSI6ImRlc3Ryb3kiLCJ0b2tlbiI6ImxvY2FsQUpyYms2V2RmN1RDYnVuclhYUzVrS3ZiV1ZzemhDMVRBIiwiZnJvbSI6ImxvY2FsRVRLN1poOWhOU1ByRUtkbUNnbkhEdEZQYXRjczlXd1ZMIiwidG8iOiJsb2NhbFt5eV1ITXBTeXQySms1QmlGaVIyajQ1bkdHalRvRjltaVVWYUciLCJ2YWx1ZSI6MTAwMDAwMDAwMDAwLCJpYmNIYXNoIjoiMUJBMTNCOTU1OUVGQzlBMkI2RTBGRDU4OUVENThBNUREODI5QkFEOTY5MDk4NkYzMzE5RDYwRUE3MENGMTM5NyIsImNoYW5nZUl0ZW1zIjpbeyJDaGFpbklEIjoibG9jYWwiLCJBZGRyZXNzIjoibG9jYWwzMzJCcjhLS3E1ZzQ3YWtzWnZtdUNDdzYydW9DM0hTYjYiLCJQZWVyQ2hhaW5JRCI6ImxvY2FsW3l5XSIsIlBlZXJDaGFpbkJhbGFuY2UiOjEyMDAwMDAwMDAwMH1dfQ==&quot;,&quot;receiptHash&quot;:&quot;CFFCDB653B9944C4508DAD753EB195857EA4619E08094EF3470D4790A6F7CE40&quot;}'>Copy</button><pre><code class='go' lang='go'>{&quot;name&quot;:&quot;tokenbasic.AssetChange&quot;,&quot;contractAddress&quot;:&quot;localHLDhqyoJ1vRuo8re9GxFAFU2Bksw2kNup&quot;,&quot;receiptBytes&quot;:&quot;eyJ2ZXJzaW9uIjoiMi4xIiwidHlwZSI6ImRlc3Ryb3kiLCJ0b2tlbiI6ImxvY2FsQUpyYms2V2RmN1RDYnVuclhYUzVrS3ZiV1ZzemhDMVRBIiwiZnJvbSI6ImxvY2FsRVRLN1poOWhOU1ByRUtkbUNnbkhEdEZQYXRjczlXd1ZMIiwidG8iOiJsb2NhbFt5eV1ITXBTeXQySms1QmlGaVIyajQ1bkdHalRvRjltaVVWYUciLCJ2YWx1ZSI6MTAwMDAwMDAwMDAwLCJpYmNIYXNoIjoiMUJBMTNCOTU1OUVGQzlBMkI2RTBGRDU4OUVENThBNUREODI5QkFEOTY5MDk4NkYzMzE5RDYwRUE3MENGMTM5NyIsImNoYW5nZUl0ZW1zIjpbeyJDaGFpbklEIjoibG9jYWwiLCJBZGRyZXNzIjoibG9jYWwzMzJCcjhLS3E1ZzQ3YWtzWnZtdUNDdzYydW9DM0hTYjYiLCJQZWVyQ2hhaW5JRCI6ImxvY2FsW3l5XSIsIlBlZXJDaGFpbkJhbGFuY2UiOjEyMDAwMDAwMDAwMH1dfQ==&quot;,&quot;receiptHash&quot;:&quot;CFFCDB653B9944C4508DAD753EB195857EA4619E08094EF3470D4790A6F7CE40&quot;}
+</code></pre>
+</figure>
+<p class='with-space'>Then we decode the value of the field <code>receiptbytes</code> through <code>base64 decode</code> to get the receipt:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{&quot;version&quot;:&quot;2.1&quot;,&quot;type&quot;:&quot;destroy&quot;,&quot;token&quot;:&quot;localAJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,&quot;from&quot;:&quot;localETK7Zh9hNSPrEKdmCgnHDtFPatcs9WwVL&quot;,&quot;to&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;value&quot;:100000000000,&quot;ibcHash&quot;:&quot;1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397&quot;,&quot;changeItems&quot;:[{&quot;ChainID&quot;:&quot;local&quot;,&quot;Address&quot;:&quot;local332Br8KKq5g47aksZvmuCCw62uoC3HSb6&quot;,&quot;PeerChainID&quot;:&quot;local[SmartCity]&quot;,&quot;PeerChainBalance&quot;:120000000000}]}
+
+Notice:
+Type is the type of asset change:
+&quot;Lock&quot; means that the funds has been locked in the initiator side
+&quot;Recast&quot; means that the funds has been recast in the target chain
+&quot;Destroy&quot; means that the funds has been destroyed in the initiator side
+
+PeerChainID is the chain ID of the opposite chain
+
+PeerChainBalance is the total balance of the token in the opposite chain (this is the total balance of the whole chain, and the token is the token corresponding to the token field)'>Copy</button><pre><code class='go' lang='go'>{&quot;version&quot;:&quot;2.1&quot;,&quot;type&quot;:&quot;destroy&quot;,&quot;token&quot;:&quot;localAJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,&quot;from&quot;:&quot;localETK7Zh9hNSPrEKdmCgnHDtFPatcs9WwVL&quot;,&quot;to&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;value&quot;:100000000000,&quot;ibcHash&quot;:&quot;1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397&quot;,&quot;changeItems&quot;:[{&quot;ChainID&quot;:&quot;local&quot;,&quot;Address&quot;:&quot;local332Br8KKq5g47aksZvmuCCw62uoC3HSb6&quot;,&quot;PeerChainID&quot;:&quot;local[SmartCity]&quot;,&quot;PeerChainBalance&quot;:120000000000}]}
+
+Notice:
+Type is the type of asset change:
+&quot;Lock&quot; means that the funds has been locked in the initiator side
+&quot;Recast&quot; means that the funds has been recast in the target chain
+&quot;Destroy&quot; means that the funds has been destroyed in the initiator side
+
+PeerChainID is the chain ID of the opposite chain
+
+PeerChainBalance is the total balance of the token in the opposite chain (this is the total balance of the whole chain, and the token is the token corresponding to the token field)
+</code></pre>
+</figure>
+<p class='with-space'>Notice: there are multiple receipts for asset change in the field receipts , because it saves the receipt sent to it by the previous chain (that is, the receipt in the second packet contains the receipt in the first packet, and the receipt in the third packet contains the receipt in the second packet). In general, if you want to see the final receipt of this cross-chain transaction, You should see the last receipt of the asset change.</p>
+<h2 id='c6d98247'><span class='bd-content-title'>4. Query result<a class='anchorjs-link ' href='#c6d98247' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>You can query to get ibcHash : <code>1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397</code> from above, and then we use following command to get the state of the cross-chain transaction:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc query -k /ibc/1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397/state
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397/state
+  Value: {&quot;status&quot;:&quot;NoAck&quot;,&quot;tag&quot;:&quot;Confirmed&quot;,&quot;log&quot;:&quot;&quot;}'>Copy</button><pre><code class='shell' lang='shell'>./bcc query -k /ibc/1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397/state
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/1BA13B9559EFC9A2B6E0FD589ED58A5DD829BAD9690986F3319D60EA70CF1397/state
+  Value: {&quot;status&quot;:&quot;NoAck&quot;,&quot;tag&quot;:&quot;Confirmed&quot;,&quot;log&quot;:&quot;&quot;}
+</code></pre>
+</figure>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/en-us/02-BCBNetwork\BCBSideChain\04-CrossChainTransaction.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#fb8afcde'>Cross-Chain Transfer</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#a7bd74fa'>1. Preparation</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#e2da87d1'>1.1 Prepare account</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#ac0c98e5'>2. Token cross-chain transfer</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#b53b7db4'>2.1 Transfer from the main chain to the side chain</a>
+<a class='ml-2 my-1 nav-link' href='#d87bc805'>2.2 Transfer from the side chain to the main chain</a>
+<a class='ml-2 my-1 nav-link' href='#a484c874'>2.3 Transfer from the side chain to the side chain</a>
+<a class='ml-2 my-1 nav-link' href='#b4e2aa0f'>2.4 Token activation</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#a4bf98d9'>3. Cross-Chain Transaction</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#f63dda60'>3.1 Cross-Chain Transaction Hash</a>
+<a class='ml-2 my-1 nav-link' href='#b641b513'>3.2 Cross-Chain Transaction Data</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#c6d98247'>4. Query result</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

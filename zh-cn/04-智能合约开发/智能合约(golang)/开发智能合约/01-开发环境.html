@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>开发环境</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/站点地图.html'>站点地图</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB基础</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/01-BCB介绍.html'>BCB介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/02-BCB节点.html'>BCB节点</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/01-主网与测试网.html'>主网与测试网</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/02-私链搭建指南.html'>私链搭建指南</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB侧链</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/01-侧链注册.html'>侧链注册</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/02-侧链创世.html'>侧链创世</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/03-侧链治理.html'>侧链治理</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/04-跨链交易.html'>跨链交易</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB工具箱</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/02-编程实例.html'>编程实例</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/03-深入理解.html'>深入理解</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/01-开发环境.html'>开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/02-第一个智能合约.html'>第一个智能合约</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/01-BVM与EVM差异说明.html'>BVM与EVM差异说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/02-合约开发.html'>合约开发</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/03-合约部署调用.html'>合约部署调用</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所对接指南</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/01-集成方案介绍.html'>集成方案介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/02-安装部署.html'>安装部署</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/03-命令详解.html'>命令详解</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-模型说明.html'>模型说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-算法说明.html'>算法说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/04-交易格式v1.html'>交易格式v1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/05-交易格式v2.html'>交易格式v2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>主链API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/02-网络接口.html'>网络接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/03-区块接口.html'>区块接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/04-交易接口.html'>交易接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/05-世界接口.html'>世界接口</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/02-钱包接口.html'>钱包接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/03-区块链接口.html'>区块链接口</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='e3befa22'><span class='bd-content-title'>开发环境<a class='anchorjs-link ' href='#e3befa22' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>本文我们以私有链 <code> hello</code> 为目标来体验一下向区块链部署智能合约并进行调用。</p>
+<h2 id='dc7b19be'><span class='bd-content-title'>1. 开发组织<a class='anchorjs-link ' href='#dc7b19be' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>首先我们要用测试账户 <code> alice</code>  在私有链上注册一个用于测试的组织  <code>DAO</code> ，命令如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='[... pieces]# ./bcc registerOrg -k=wal -n=alice -p=Ab1@Ab1@ -g=500000 -o=DAO
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 1250000000,
+  &quot;txHash&quot;: &quot;d8466af21e72bb5d56236fc7d5af3fdb0e193fcc34e5dc346d5bc0ef5fc4c945&quot;,
+  &quot;height&quot;: 747,
+  &quot;orgID&quot;: &quot;orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db&quot;
+}'>Copy</button><pre><code>[... pieces]# ./bcc registerOrg -k=wal -n=alice -p=Ab1@Ab1@ -g=500000 -o=DAO
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 1250000000,
+  &quot;txHash&quot;: &quot;d8466af21e72bb5d56236fc7d5af3fdb0e193fcc34e5dc346d5bc0ef5fc4c945&quot;,
+  &quot;height&quot;: 747,
+  &quot;orgID&quot;: &quot;orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db&quot;
+}
+</code></pre>
+</figure>
+<p class='with-space'>按照上面返回交易哈希可以仿照上一章的方式查验这个交易的信息。</p>
+<p class='with-space'>下面的命令可以根据前面返回的组织ID查询组织的详细信息：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='[... pieces]# curl -s http://192.168.2.101:46657/abci_query? path=%22/organization/orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db%22 | ./jq .result.response.value | tr -d &quot;\&quot;&quot; | base64 -d
+{
+  &quot;orgID&quot;:&quot;orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db&quot;,
+  &quot;name&quot;:&quot;DAO&quot;,
+  &quot;orgOwner&quot;:&quot;hello9A8BiLaA3nHK3upwCZ3aTztRGFbFMW82b&quot;,
+  &quot;contractAddrList&quot;:[],
+  &quot;orgCodeHash&quot;:null,
+  &quot;signers&quot;:[]
+}'>Copy</button><pre><code>[... pieces]# curl -s http://192.168.2.101:46657/abci_query? path=%22/organization/orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db%22 | ./jq .result.response.value | tr -d &quot;\&quot;&quot; | base64 -d
+{
+  &quot;orgID&quot;:&quot;orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db&quot;,
+  &quot;name&quot;:&quot;DAO&quot;,
+  &quot;orgOwner&quot;:&quot;hello9A8BiLaA3nHK3upwCZ3aTztRGFbFMW82b&quot;,
+  &quot;contractAddrList&quot;:[],
+  &quot;orgCodeHash&quot;:null,
+  &quot;signers&quot;:[]
+}
+</code></pre>
+</figure>
+<p class='with-space'>我们可以看到新注册的组织尚未部署智能合约，并且尚未指定智能合约的签名人。</p>
+<p class='with-space'>下面我们需要用 <code> DAO</code>  组织注册人的账户将  <code>alice</code>  授权为  <code>DAO</code> 组织的智能合约签名人：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='[... pieces]# ./bcc setOrgSigners -k=wal -n=alice -p=Ab1@Ab1@ -g=500000 -o=DAO -s=[\&quot;0xe5b95784049c3b8669aa58ba08abd9f54281df8905dd3af24bf795b0103f9ec7\&quot;]
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 1250000000,
+  &quot;txHash&quot;: &quot;30f084f912d1360d958b9e057ff326dc08bf9d402863a66c60e2f8e683697266&quot;,
+  &quot;height&quot;: 774
+}'>Copy</button><pre><code>[... pieces]# ./bcc setOrgSigners -k=wal -n=alice -p=Ab1@Ab1@ -g=500000 -o=DAO -s=[\&quot;0xe5b95784049c3b8669aa58ba08abd9f54281df8905dd3af24bf795b0103f9ec7\&quot;]
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 1250000000,
+  &quot;txHash&quot;: &quot;30f084f912d1360d958b9e057ff326dc08bf9d402863a66c60e2f8e683697266&quot;,
+  &quot;height&quot;: 774
+}
+</code></pre>
+</figure>
+<p class='with-space'>下面我们需要用私有链 <code> hello</code>  委员会的账户将  <code>alice</code>  授权为  <code>DAO</code> 组织智能合约的部署人：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='[... pieces]# ./bcc setOrgDeployer -k=charter/wal/owner -n=owner -p=Ab1@Ab1@ -g=50000 -o=DAO -d=hello9A8BiLaA3nHK3upwCZ3aTztRGFbFMW82b
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 125000000,
+  &quot;txHash&quot;: &quot;98bb23e0f0248a04b2db4ff74b1dc10544887fa7673c64caea0b306a270c4a9e&quot;,
+  &quot;height&quot;: 884
+}'>Copy</button><pre><code>[... pieces]# ./bcc setOrgDeployer -k=charter/wal/owner -n=owner -p=Ab1@Ab1@ -g=50000 -o=DAO -d=hello9A8BiLaA3nHK3upwCZ3aTztRGFbFMW82b
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 125000000,
+  &quot;txHash&quot;: &quot;98bb23e0f0248a04b2db4ff74b1dc10544887fa7673c64caea0b306a270c4a9e&quot;,
+  &quot;height&quot;: 884
+}
+</code></pre>
+</figure>
+<h2 id='c1226868'><span class='bd-content-title'>2. IDE 资源<a class='anchorjs-link ' href='#c1226868' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>下面是智能合约的开发环境依赖的源码资源:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='git clone https://github.com/bcbchain/thirdparty
+git clone https://github.com/bcbchain/sdk'>Copy</button><pre><code>git clone https://github.com/bcbchain/thirdparty
+git clone https://github.com/bcbchain/sdk
+</code></pre>
+</figure>
+<p class='with-space'>智能合约的开发环境依赖的开发资源：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='GO:     GO 1.11 及以上版本
+
+GoLand: JetBrains GoLand 2018.3.5 及以上版本
+        需要安装 BCBChain 智能合约开发插件：sdk/plugin/bcbchain_goland_plugin_x.x.x.x-2018.zip
+或
+GoLand: JetBrains GoLand 2019.1.2 及以上版本
+        需要安装 BCBChain 智能合约开发插件：sdk/plugin/bcbchain_goland_plugin_x.x.x.x-2019.zip
+        需要将目录 thirdparty 和 sdk 设定为 GOPATH '>Copy</button><pre><code>GO:     GO 1.11 及以上版本
+
+GoLand: JetBrains GoLand 2018.3.5 及以上版本
+        需要安装 BCBChain 智能合约开发插件：sdk/plugin/bcbchain_goland_plugin_x.x.x.x-2018.zip
+或
+GoLand: JetBrains GoLand 2019.1.2 及以上版本
+        需要安装 BCBChain 智能合约开发插件：sdk/plugin/bcbchain_goland_plugin_x.x.x.x-2019.zip
+        需要将目录 thirdparty 和 sdk 设定为 GOPATH 
+</code></pre>
+</figure>
+<h2 id='e12f60b3'><span class='bd-content-title'>3. IDE 配置<a class='anchorjs-link ' href='#e12f60b3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>强烈建议使用 <code> GoLand IDE</code> 时使用如下的代码与编程风格配置。</p>
+<p class='with-space'>强烈建议使用 <code> GoLand IDE</code> 时配置在文件发生变化时自动对代码进行格式化并对代码进行静态分析。</p>
+<p class='with-space'>本节描述一下IDE的典型配置。</p>
+<p class='with-space'> <strong>GOPATH</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='File
+    &gt;&gt; Settings
+        &gt;&gt; GO
+            &gt;&gt; GOPATH
+                &gt;&gt; 在 Global GOPATH 中添加 thirdparty 和 sdk 目录
+                &gt;&gt; 或者在 Project GOPATH 中添加 thirdparty 和 sdk 目录'>Copy</button><pre><code>File
+    &gt;&gt; Settings
+        &gt;&gt; GO
+            &gt;&gt; GOPATH
+                &gt;&gt; 在 Global GOPATH 中添加 thirdparty 和 sdk 目录
+                &gt;&gt; 或者在 Project GOPATH 中添加 thirdparty 和 sdk 目录
+</code></pre>
+</figure>
+<p class='with-space'> <strong>代码格式化与静态分析</strong> :</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='File 
+    &gt;&gt; Settings 
+        &gt;&gt; Tools 
+            &gt;&gt; File Watchers
+                &gt;&gt; 添加并选中 &#39;go fmt&#39;
+                &gt;&gt; 添加并选中 &#39;goimports&#39;
+                &gt;&gt; 添加并选中 &#39;golangci-lint&#39;'>Copy</button><pre><code>File 
+    &gt;&gt; Settings 
+        &gt;&gt; Tools 
+            &gt;&gt; File Watchers
+                &gt;&gt; 添加并选中 &#39;go fmt&#39;
+                &gt;&gt; 添加并选中 &#39;goimports&#39;
+                &gt;&gt; 添加并选中 &#39;golangci-lint&#39;
+</code></pre>
+</figure>
+<p class='with-space'> <code> go fmt</code>  是  <code>golang</code> 自带的工具。</p>
+<p class='with-space'> <code> goimports</code> 是第三方开源工具，对代码中导入包的格式进行优化。配置模式为(Windows环境)：</p>
+<p><img class='d-inline-block img-fluid' data-original='./p/goimports.png' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>  golangci-lint ` 是第三方开源工具，用于对代码进行静态分析。配置模式为(Windows环境)：</p>
+<p><img class='d-inline-block img-fluid' data-original='./p/golangci-lint.png' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>BCBChain提供的智能合约开发 <code> SDK</code>  提供的第三方包已经包含了这些工具的源码以及安装脚本（资源打包在  <code>tools</code> 目录中）。</p>
+<p class='with-space'> <strong>制表符与代码缩进</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='File 
+    &gt;&gt; Settings 
+        &gt;&gt; Editor 
+            &gt;&gt; Code Style
+                &gt;&gt; Go
+                    &gt;&gt; Tabs and Indents
+                        &gt;&gt; 选中 &#39;Use tab character&#39;
+                        &gt;&gt; 其它都不选中'>Copy</button><pre><code>File 
+    &gt;&gt; Settings 
+        &gt;&gt; Editor 
+            &gt;&gt; Code Style
+                &gt;&gt; Go
+                    &gt;&gt; Tabs and Indents
+                        &gt;&gt; 选中 &#39;Use tab character&#39;
+                        &gt;&gt; 其它都不选中
+</code></pre>
+</figure>
+<p class='with-space'> <strong>import格式</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='File 
+    &gt;&gt; Settings 
+        &gt;&gt; Editor 
+            &gt;&gt; Code Style
+                &gt;&gt; Go
+                    &gt;&gt; Imports
+                        &gt;&gt; &#39;Sorting type&#39; 选中 &#39;gofmt&#39;
+                        &gt;&gt; 选中 &#39;Group stdlib imports&#39;
+                        &gt;&gt; 选中 &#39;Move all stdlib imports in a single group&#39;
+                        &gt;&gt; 选中 &#39;Move all imports in a single declaration&#39;
+                        &gt;&gt; 其它都不选中'>Copy</button><pre><code>File 
+    &gt;&gt; Settings 
+        &gt;&gt; Editor 
+            &gt;&gt; Code Style
+                &gt;&gt; Go
+                    &gt;&gt; Imports
+                        &gt;&gt; &#39;Sorting type&#39; 选中 &#39;gofmt&#39;
+                        &gt;&gt; 选中 &#39;Group stdlib imports&#39;
+                        &gt;&gt; 选中 &#39;Move all stdlib imports in a single group&#39;
+                        &gt;&gt; 选中 &#39;Move all imports in a single declaration&#39;
+                        &gt;&gt; 其它都不选中
+</code></pre>
+</figure>
+<p class='with-space'>注：保持 <code> import</code> 按不同类型的包进行分组是一个非常好的习惯。</p>
+<p class='with-space'> <strong>其它</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='File 
+    &gt;&gt; Settings 
+        &gt;&gt; Editor 
+            &gt;&gt; Code Style
+                &gt;&gt; Go
+                    &gt;&gt; Other
+                        &gt;&gt; 都不选中'>Copy</button><pre><code>File 
+    &gt;&gt; Settings 
+        &gt;&gt; Editor 
+            &gt;&gt; Code Style
+                &gt;&gt; Go
+                    &gt;&gt; Other
+                        &gt;&gt; 都不选中
+</code></pre>
+</figure>
+<p class='with-space'>注：不能勾选 <code> &quot;Add leading space to comments&quot;</code> ,否则会破坏BCBChain的合约标记。</p>
+<h2 id='e130754d'><span class='bd-content-title'>4. 安装插件<a class='anchorjs-link ' href='#e130754d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>GoLand 中安装 BCBChain 智能合约开发插件的执行路径如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='File 
+    &gt;&gt; Settings 
+        &gt;&gt; Plugins 
+            &gt;&gt; Marketplace &amp;&amp; Installed &amp;&amp; Updates &amp;&amp; ... &amp;&amp; Install Plugin from Disk
+                &gt;&gt; Install Plugin from Disk
+                    &gt;&gt; sdk/plugin/bcbchain_goland_plugin_x.x.x.x-2019.zip
+                        &gt;&gt; OK'>Copy</button><pre><code>File 
+    &gt;&gt; Settings 
+        &gt;&gt; Plugins 
+            &gt;&gt; Marketplace &amp;&amp; Installed &amp;&amp; Updates &amp;&amp; ... &amp;&amp; Install Plugin from Disk
+                &gt;&gt; Install Plugin from Disk
+                    &gt;&gt; sdk/plugin/bcbchain_goland_plugin_x.x.x.x-2019.zip
+                        &gt;&gt; OK
+</code></pre>
+</figure>
+<p class='with-space'>安装完成后，在 <code> GoLand IDE</code>  左侧的  <code>Project</code>  窗口中将鼠标移动到任意目录上点击鼠标右键出现的弹出菜单中将会新增一条操作选项：  <code>BCB Smart Contract</code> 。</p>
+<h2 id='c19f2fe1'><span class='bd-content-title'>5. 合约目录<a class='anchorjs-link ' href='#c19f2fe1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>为了开发智能合约，我们需要创建一个新的 <code> GoLand Project</code>  ，并在  <code>src</code>  目录下创建子目录  <code>contract</code> ，以后所有开发的智能合约都存放在这个目录下。</p>
+<h2 id='cb23c939'><span class='bd-content-title'>6. 导入私钥<a class='anchorjs-link ' href='#cb23c939' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'> <code> alice</code>  需要通过 BCBChain 智能合约开发插件将私钥导入  <code>GoLand</code> 。</p>
+<p class='with-space'>下面是 <code> alice</code> 导出私钥的指令：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='[... pieces]# ./bcw export -k=wal -n=alice -p=Ab1@Ab1@'>Copy</button><pre><code>[... pieces]# ./bcw export -k=wal -n=alice -p=Ab1@Ab1@
+</code></pre>
+</figure>
+<p class='with-space'>下面是在 <code> GoLand</code>  中导入  <code>alice</code> 的开发私钥的执行路径：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='GoLand左边栏 Project 浏览器
+    &gt;&gt; 在源码目录上点击鼠标右键出现菜单
+        &gt;&gt; BCB Smart Contrat
+            &gt;&gt; Settings...
+                &gt;&gt; 输入 Keystore
+                &gt;&gt; 输入 Package Output Path
+                &gt;&gt; OK
+            &gt;&gt; Private Key...
+                &gt;&gt; Import
+                    &gt;&gt; 输入 PrivaeKey #64字符16进制私钥(32字节ED25519私钥)
+                    &gt;&gt; 输入 Name      #alice
+                    &gt;&gt; 输入 Password
+                    &gt;&gt; OK'>Copy</button><pre><code>GoLand左边栏 Project 浏览器
+    &gt;&gt; 在源码目录上点击鼠标右键出现菜单
+        &gt;&gt; BCB Smart Contrat
+            &gt;&gt; Settings...
+                &gt;&gt; 输入 Keystore
+                &gt;&gt; 输入 Package Output Path
+                &gt;&gt; OK
+            &gt;&gt; Private Key...
+                &gt;&gt; Import
+                    &gt;&gt; 输入 PrivaeKey #64字符16进制私钥(32字节ED25519私钥)
+                    &gt;&gt; 输入 Name      #alice
+                    &gt;&gt; 输入 Password
+                    &gt;&gt; OK
+</code></pre>
+</figure>
+<p class='with-space'>至此， <code> alice</code>  就可以通过一个账户搞定  <code>DAO</code> 组织智能合约从开发、测试、发布、签名到部署的所有工作了。当然了，在现实中的区块链应该采用分工合作的方式来进行这些工作。</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/zh-cn/04-智能合约开发\智能合约(golang)\开发智能合约\01-开发环境.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#e3befa22'>开发环境</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#dc7b19be'>1. 开发组织</a>
+<a class='ml-0 my-1 nav-link' href='#c1226868'>2. IDE 资源</a>
+<a class='ml-0 my-1 nav-link' href='#e12f60b3'>3. IDE 配置</a>
+<a class='ml-0 my-1 nav-link' href='#e130754d'>4. 安装插件</a>
+<a class='ml-0 my-1 nav-link' href='#c19f2fe1'>5. 合约目录</a>
+<a class='ml-0 my-1 nav-link' href='#cb23c939'>6. 导入私钥</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

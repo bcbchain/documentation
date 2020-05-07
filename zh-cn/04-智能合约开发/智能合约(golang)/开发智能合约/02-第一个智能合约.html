@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>第一个智能合约</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/站点地图.html'>站点地图</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB基础</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/01-BCB介绍.html'>BCB介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/02-BCB节点.html'>BCB节点</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/01-主网与测试网.html'>主网与测试网</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/02-私链搭建指南.html'>私链搭建指南</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB侧链</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/01-侧链注册.html'>侧链注册</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/02-侧链创世.html'>侧链创世</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/03-侧链治理.html'>侧链治理</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/04-跨链交易.html'>跨链交易</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB工具箱</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/02-编程实例.html'>编程实例</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/03-深入理解.html'>深入理解</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/01-开发环境.html'>开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/02-第一个智能合约.html'>第一个智能合约</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/01-BVM与EVM差异说明.html'>BVM与EVM差异说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/02-合约开发.html'>合约开发</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/03-合约部署调用.html'>合约部署调用</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所对接指南</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/01-集成方案介绍.html'>集成方案介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/02-安装部署.html'>安装部署</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/03-命令详解.html'>命令详解</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-模型说明.html'>模型说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-算法说明.html'>算法说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/04-交易格式v1.html'>交易格式v1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/05-交易格式v2.html'>交易格式v2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>主链API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/02-网络接口.html'>网络接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/03-区块接口.html'>区块接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/04-交易接口.html'>交易接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/05-世界接口.html'>世界接口</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/02-钱包接口.html'>钱包接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/03-区块链接口.html'>区块链接口</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='ae8ce105'><span class='bd-content-title'>第一个智能合约<a class='anchorjs-link ' href='#ae8ce105' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='fa4fa353'><span class='bd-content-title'>1. 创建新合约<a class='anchorjs-link ' href='#fa4fa353' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>下面我们开始创建第一个智能合约。</p>
+<p class='with-space'>用 <code>GoLand</code>  打开刚刚创建的  <code>GoLand Project</code>，然后通过 BCBChain 智能合约开发插件创建智能合约，以下为执行路径：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='GoLand左边栏 Project 浏览器
+    &gt;&gt; 在 src/contract 目录上点击鼠标右键出现菜单
+        &gt;&gt; BCB Smart Contrat
+            &gt;&gt; New...
+                &gt;&gt; 输入 Name             #mydonation
+                &gt;&gt; 输入 Type             #Mydonation
+                &gt;&gt; 输入 Version          #1.0
+                &gt;&gt; 输入 OrganizationName #DAO
+                &gt;&gt; 计算 Organization     #orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db - DAO
+                &gt;&gt; 输入 Author           #alice
+                &gt;&gt; OK'>Copy</button><pre><code>GoLand左边栏 Project 浏览器
+    &gt;&gt; 在 src/contract 目录上点击鼠标右键出现菜单
+        &gt;&gt; BCB Smart Contrat
+            &gt;&gt; New...
+                &gt;&gt; 输入 Name             #mydonation
+                &gt;&gt; 输入 Type             #Mydonation
+                &gt;&gt; 输入 Version          #1.0
+                &gt;&gt; 输入 OrganizationName #DAO
+                &gt;&gt; 计算 Organization     #orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db - DAO
+                &gt;&gt; 输入 Author           #alice
+                &gt;&gt; OK
+</code></pre>
+</figure>
+<p class='with-space'>智能合约创建成功，将会自动生成框架代码，文件路径如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='src/contract/mydonation/v1.0/mydonation/mydonation.go'>Copy</button><pre><code>src/contract/mydonation/v1.0/mydonation/mydonation.go
+</code></pre>
+</figure>
+<p class='with-space'>智能合约初始代码如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mydonation
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+)
+
+//Mydonation This is struct of contract
+//@:contract:mydonation
+//@:version:1.0
+//@:organization:orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db
+//@:author:e5b95784049c3b8669aa58ba08abd9f54281df8905dd3af24bf795b0103f9ec7
+type Mydonation struct {
+    sdk sdk.ISmartContract
+
+    //This is a sample field which is to store in db
+    //@:public:store
+    sampleStore string
+}
+
+//InitChain Constructor of this Mydonation
+//@:constructor
+func (m *Mydonation) InitChain() {
+    //TODO
+    //This method is automatically selected when the block height reaches 
+    //the contract effective block height.
+}
+
+//UpdateChain Constructor of this Mydonation
+//@:constructor
+func (m *Mydonation) UpdateChain() {
+    //TODO
+    //This method is automatically selected when the block height reaches 
+    //the new version contract effective block height.
+}
+
+//SampleMethod This is a sample method
+//@:public:method:gas[500]
+func (m *Mydonation) SampleMethod() {
+
+}'>Copy</button><pre><code>package mydonation
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+)
+
+//Mydonation This is struct of contract
+//@:contract:mydonation
+//@:version:1.0
+//@:organization:orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db
+//@:author:e5b95784049c3b8669aa58ba08abd9f54281df8905dd3af24bf795b0103f9ec7
+type Mydonation struct {
+    sdk sdk.ISmartContract
+
+    //This is a sample field which is to store in db
+    //@:public:store
+    sampleStore string
+}
+
+//InitChain Constructor of this Mydonation
+//@:constructor
+func (m *Mydonation) InitChain() {
+    //TODO
+    //This method is automatically selected when the block height reaches 
+    //the contract effective block height.
+}
+
+//UpdateChain Constructor of this Mydonation
+//@:constructor
+func (m *Mydonation) UpdateChain() {
+    //TODO
+    //This method is automatically selected when the block height reaches 
+    //the new version contract effective block height.
+}
+
+//SampleMethod This is a sample method
+//@:public:method:gas[500]
+func (m *Mydonation) SampleMethod() {
+
+}
+</code></pre>
+</figure>
+<h2 id='ef8897ff'><span class='bd-content-title'>2. 慈善捐款合约<a class='anchorjs-link ' href='#ef8897ff' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>下面我们修改一下智能合约，让它看起来有点意思，下面这个智能合约代码包含了一组用于慈善捐款的简单功能，修改后的代码如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mydonation
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/forx&quot;
+    &quot;blockchain/smcsdk/sdk/std&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//Mydonation This is struct of contract
+//@:contract:mydonation
+//@:version:1.0
+//@:organization:orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db
+//@:author:e5b95784049c3b8669aa58ba08abd9f54281df8905dd3af24bf795b0103f9ec7
+type Mydonation struct {
+    sdk sdk.ISmartContract
+
+    //Total donations received by donees
+    //@:public:store
+    donations map[types.Address]bn.Number // key=address of donee
+}
+
+const (
+    errDoneeCannotBeOwner = 55000 + iota
+    errDoneeCannotBeSmc
+    errDoneeAlreadyExist
+    errDoneeNotExist
+    errDonationExist
+    errDonationNotEnough
+)
+
+//@:public:receipt
+type receipt interface {
+    emitAddDonee(donee types.Address)
+    emitDelDonee(donee types.Address)
+    emitDonate(from, donee types.Address, value, balance bn.Number)
+    emitTransferDonation(donee types.Address, value, balance bn.Number)
+}
+
+//InitChain Constructor of this Mydonation
+//@:constructor
+func (m *Mydonation) InitChain() {
+    //TODO
+    //This method is automatically selected when the block height reaches
+    //the contract effective block height.
+}
+
+//UpdateChain Constructor of this Mydonation
+//@:constructor
+func (m *Mydonation) UpdateChain() {
+    //TODO
+    //This method is automatically selected when the block height reaches
+    //the new version contract effective block height.
+}
+
+//AddDonee Add a new donee
+//@:public:method:gas[500]
+func (d *Mydonation) AddDonee(donee types.Address) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(donee != d.sdk.Message().Sender().Address(),
+        errDoneeCannotBeOwner, &quot;Donee can not be owner&quot;)
+    sdk.Require(donee != d.sdk.Message().Contract().Address(),
+        errDoneeCannotBeSmc, &quot;Donee can not be this smart contract&quot;)
+    sdk.Require(donee != d.sdk.Message().Contract().Account().Address(),
+        errDoneeCannotBeSmc, &quot;Donee can not be account of this smart contract&quot;)
+    sdk.Require(!d._chkDonations(donee),
+        errDoneeAlreadyExist, &quot;Donee already exists&quot;)
+
+    d._setDonations(donee, bn.N(0))
+
+    //emit receipt
+    d.emitAddDonee(donee)
+}
+
+//Donate delete a donee
+//@:public:method:gas[500]
+func (d *Mydonation) DelDonee(donee types.Address) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, &quot;Donee does not exist&quot;)
+    sdk.Require(d._donations(donee).IsEqualI(0),
+        errDonationExist, &quot;Donation exists&quot;)
+
+    d._delDonations(donee)
+
+    //emit receipt
+    d.emitDelDonee(donee)
+}
+
+//Donate Charitable donors donate money to smart contract
+//@:public:method:gas[500]
+func (d *Mydonation) Donate(donee types.Address) {
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, &quot;Donee does not exist&quot;)
+
+    var valTome *std.Transfer
+    token := d.sdk.Helper().GenesisHelper().Token()
+    forx.Range(d.sdk.Message().GetTransferToMe(), func(i int, receipt *std.Transfer) {
+        sdk.Require(receipt.Token == token.Address(),
+            types.ErrInvalidParameter, &quot;Accept donations in genesis token only&quot;)
+        sdk.Require(valTome == nil,
+            types.ErrInvalidParameter, &quot;Accept only one donation at a time&quot;)
+        valTome = receipt
+    })
+    sdk.Require(valTome != nil,
+        types.ErrInvalidParameter, &quot;Please transfer token to me first&quot;)
+
+    balance := d._donations(donee).Add(valTome.Value)
+    d._setDonations(donee, balance)
+
+    //emit receipt
+    d.emitDonate(
+        d.sdk.Message().Sender().Address(),
+        donee,
+        valTome.Value,
+        balance,
+    )
+}
+
+//Withdraw To transfer donations to donee
+//@:public:method:gas[500]
+func (d *Mydonation) Transfer(donee types.Address, value bn.Number) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, &quot;Donee does not exist&quot;)
+    sdk.Require(value.IsGreaterThanI(0),
+        types.ErrInvalidParameter, &quot;Parameter \&quot;value\&quot; must be greater than 0&quot;)
+    sdk.Require(d._donations(donee).IsGE(value),
+        errDonationNotEnough, &quot;Donation is not enough&quot;)
+
+    token := d.sdk.Helper().GenesisHelper().Token()
+    account := d.sdk.Message().Contract().Account()
+    account.TransferByToken(token.Address(), donee, value)
+    balance := d._donations(donee).Sub(value)
+    d._setDonations(donee, balance)
+
+    //emit receipt
+    d.emitTransferDonation(
+        donee,
+        value,
+        balance,
+    )
+}'>Copy</button><pre><code>package mydonation
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/forx&quot;
+    &quot;blockchain/smcsdk/sdk/std&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//Mydonation This is struct of contract
+//@:contract:mydonation
+//@:version:1.0
+//@:organization:orgE37w7wxhZwaox1fhndt5Czm8WnLBrh6db
+//@:author:e5b95784049c3b8669aa58ba08abd9f54281df8905dd3af24bf795b0103f9ec7
+type Mydonation struct {
+    sdk sdk.ISmartContract
+
+    //Total donations received by donees
+    //@:public:store
+    donations map[types.Address]bn.Number // key=address of donee
+}
+
+const (
+    errDoneeCannotBeOwner = 55000 + iota
+    errDoneeCannotBeSmc
+    errDoneeAlreadyExist
+    errDoneeNotExist
+    errDonationExist
+    errDonationNotEnough
+)
+
+//@:public:receipt
+type receipt interface {
+    emitAddDonee(donee types.Address)
+    emitDelDonee(donee types.Address)
+    emitDonate(from, donee types.Address, value, balance bn.Number)
+    emitTransferDonation(donee types.Address, value, balance bn.Number)
+}
+
+//InitChain Constructor of this Mydonation
+//@:constructor
+func (m *Mydonation) InitChain() {
+    //TODO
+    //This method is automatically selected when the block height reaches
+    //the contract effective block height.
+}
+
+//UpdateChain Constructor of this Mydonation
+//@:constructor
+func (m *Mydonation) UpdateChain() {
+    //TODO
+    //This method is automatically selected when the block height reaches
+    //the new version contract effective block height.
+}
+
+//AddDonee Add a new donee
+//@:public:method:gas[500]
+func (d *Mydonation) AddDonee(donee types.Address) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(donee != d.sdk.Message().Sender().Address(),
+        errDoneeCannotBeOwner, &quot;Donee can not be owner&quot;)
+    sdk.Require(donee != d.sdk.Message().Contract().Address(),
+        errDoneeCannotBeSmc, &quot;Donee can not be this smart contract&quot;)
+    sdk.Require(donee != d.sdk.Message().Contract().Account().Address(),
+        errDoneeCannotBeSmc, &quot;Donee can not be account of this smart contract&quot;)
+    sdk.Require(!d._chkDonations(donee),
+        errDoneeAlreadyExist, &quot;Donee already exists&quot;)
+
+    d._setDonations(donee, bn.N(0))
+
+    //emit receipt
+    d.emitAddDonee(donee)
+}
+
+//Donate delete a donee
+//@:public:method:gas[500]
+func (d *Mydonation) DelDonee(donee types.Address) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, &quot;Donee does not exist&quot;)
+    sdk.Require(d._donations(donee).IsEqualI(0),
+        errDonationExist, &quot;Donation exists&quot;)
+
+    d._delDonations(donee)
+
+    //emit receipt
+    d.emitDelDonee(donee)
+}
+
+//Donate Charitable donors donate money to smart contract
+//@:public:method:gas[500]
+func (d *Mydonation) Donate(donee types.Address) {
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, &quot;Donee does not exist&quot;)
+
+    var valTome *std.Transfer
+    token := d.sdk.Helper().GenesisHelper().Token()
+    forx.Range(d.sdk.Message().GetTransferToMe(), func(i int, receipt *std.Transfer) {
+        sdk.Require(receipt.Token == token.Address(),
+            types.ErrInvalidParameter, &quot;Accept donations in genesis token only&quot;)
+        sdk.Require(valTome == nil,
+            types.ErrInvalidParameter, &quot;Accept only one donation at a time&quot;)
+        valTome = receipt
+    })
+    sdk.Require(valTome != nil,
+        types.ErrInvalidParameter, &quot;Please transfer token to me first&quot;)
+
+    balance := d._donations(donee).Add(valTome.Value)
+    d._setDonations(donee, balance)
+
+    //emit receipt
+    d.emitDonate(
+        d.sdk.Message().Sender().Address(),
+        donee,
+        valTome.Value,
+        balance,
+    )
+}
+
+//Withdraw To transfer donations to donee
+//@:public:method:gas[500]
+func (d *Mydonation) Transfer(donee types.Address, value bn.Number) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, &quot;Donee does not exist&quot;)
+    sdk.Require(value.IsGreaterThanI(0),
+        types.ErrInvalidParameter, &quot;Parameter \&quot;value\&quot; must be greater than 0&quot;)
+    sdk.Require(d._donations(donee).IsGE(value),
+        errDonationNotEnough, &quot;Donation is not enough&quot;)
+
+    token := d.sdk.Helper().GenesisHelper().Token()
+    account := d.sdk.Message().Contract().Account()
+    account.TransferByToken(token.Address(), donee, value)
+    balance := d._donations(donee).Sub(value)
+    d._setDonations(donee, balance)
+
+    //emit receipt
+    d.emitTransferDonation(
+        donee,
+        value,
+        balance,
+    )
+}
+</code></pre>
+</figure>
+<p class='with-space'>下面我们简单描述一下这个合约提供的几个方法。</p>
+<h3 id='dbcf3a98'><span class='bd-content-title'>2.1 AddDonee<a class='anchorjs-link ' href='#dbcf3a98' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'> <code>AddDonee</code> 方法向智能合约添加一个接受捐款的账户地址。</p>
+<p class='with-space'>约束如下：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>只有合约拥有者可以调用；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code> 必须是一个合法地址；</p></li>
+<li>
+<p class='with-space'>输入参数 donee ` 不能是合约拥有者；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code> 不能是合约地址；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code> 不能是合约账户地址；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code> 对应的地址不能是一个已经存在的接收捐款的账户地址。</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>执行结果：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>状态数据库：</p>
+<p class='with-space'>新建KEY： <code>/orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer/mydonation/xxx</code>  ，其中  <code>xxx</code>  为输入参数  <code>donee</code>  对应的地址，Value：  <code>0</code>；</p></li>
+<li>
+<p class='with-space'>BCBChain：</p>
+<p class='with-space'>可扫描到交易执行成功的结果，其中包含收据 <code>addDonee</code> ：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='type addDonee struct { 
+   Donee types.Address `json:&quot;donee&quot;` 
+} '>Copy</button><pre><code>type addDonee struct { 
+   Donee types.Address `json:&quot;donee&quot;` 
+} 
+</code></pre>
+</figure></li>
+</ul>
+</blockquote>
+<h3 id='dd257bd0'><span class='bd-content-title'>2.2 DelDonee<a class='anchorjs-link ' href='#dd257bd0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'> <code>DelDonee</code> 方法从智能合约中删除一个接受捐款的账户地址。</p>
+<p class='with-space'>约束如下：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>只有合约拥有者可以调用；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code> 必须是一个合法地址；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code> 对应的地址必须是一个已经存在的接收捐款的账户地址；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code> 已经接收到的捐款已被全部提取，或者没有收到任何捐款。</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>执行结果：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>状态数据库：</p>
+<p class='with-space'>删除KEY： <code>/orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer/mydonation/xxx</code>  ，其中  <code>xxx</code>  为输入参数  <code>donee</code> 对应的地址；</p></li>
+<li>
+<p class='with-space'>BCBChain：</p>
+<p class='with-space'>可扫描到交易执行成功的结果，其中包含收据：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='type delDonee struct { 
+Donee types.Address `json:&quot;donee&quot;` 
+} '>Copy</button><pre><code>type delDonee struct { 
+Donee types.Address `json:&quot;donee&quot;` 
+} 
+</code></pre>
+</figure></li>
+</ul>
+</blockquote>
+<h3 id='a6913f3a'><span class='bd-content-title'>2.3 Donate<a class='anchorjs-link ' href='#a6913f3a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'> <code>Donate</code> 方法向智能合约中的一个接受捐款的账户地址进行捐款。</p>
+<p class='with-space'>约束如下：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>任何人都可以调用；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code> 必须是一个合法地址；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code> 对应的地址必须是一个已经存在的接收捐款的账户地址；</p></li>
+<li>
+<p class='with-space'> <code>Donate</code>  方法的调用必须在前面级联一个转账消息，转账消息将转账收据传递给  <code>Donate</code> 方法；</p></li>
+<li>
+<p class='with-space'>收到的转账收据的目标地址必须是 <code>mydonation</code> 合约的账户地址；</p></li>
+<li>
+<p class='with-space'>收到的捐款必须是 BCBChain 上的通证 <code>BCB</code> （也称为创世通证）；</p></li>
+<li>
+<p class='with-space'>只能收到满足上述条件的一笔捐款（转账收据）。</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>执行结果：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>状态数据库：</p>
+<p class='with-space'>更新KEY： <code>/orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer/mydonation/xxx</code>  ，其中  <code>xxx</code>  为输入参数  <code>donee</code> 对应的地址，Value：增加转账金额对应的数值；</p></li>
+<li>
+<p class='with-space'>BCBChain：</p>
+<p class='with-space'>可扫描到交易执行成功的结果，其中包含收据：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='type donate struct { 
+From    types.Address `json:&quot;from&quot;` 
+Donee   types.Address `json:&quot;donee&quot;` 
+Value   bn.Number     `json:&quot;value&quot;` 
+Balance bn.Number     `json:&quot;balance&quot;` 
+} '>Copy</button><pre><code>type donate struct { 
+From    types.Address `json:&quot;from&quot;` 
+Donee   types.Address `json:&quot;donee&quot;` 
+Value   bn.Number     `json:&quot;value&quot;` 
+Balance bn.Number     `json:&quot;balance&quot;` 
+} 
+</code></pre>
+</figure></li>
+</ul>
+</blockquote>
+<h3 id='d36ba1d7'><span class='bd-content-title'>2.4 Transfer<a class='anchorjs-link ' href='#d36ba1d7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'> <code>Transfer</code> 方法将智能合约收到的捐款转交给接受捐款的账户地址。</p>
+<p class='with-space'>约束如下：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>只有合约拥有者可以调用；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code> 必须是一个合法地址；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code> 对应的地址必须是一个已经存在的接收捐款的账户地址；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>value</code>  必须大于等于  <code>0</code>；</p></li>
+<li>
+<p class='with-space'>输入参数 <code>donee</code>  对应的地址已经接受的捐款余额必须大于等于输入参数  <code>value</code>。</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>执行结果：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>状态数据库：</p>
+<p class='with-space'>更新KEY： <code>/orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer/mydonation/xxx</code>  ，其中  <code>xxx</code>  为输入参数 donee 对应的地址，Value：减去输入参数  <code>value</code> 对应的数值；</p>
+<p class='with-space'>更新KEY： <code>/account/ex/xxx/token/yyy</code>  ，其中  <code>xxx</code>  为输入参数  <code>donee</code>  对应的地址，  <code>yyy</code>  为 BCBChain 上的通证  <code>BCB</code>  （创世通证）的地址，Value：账户余额增加输入参数  <code>value</code> 对应的数值；</p></li>
+<li>
+<p class='with-space'>BCBChain：</p>
+<p class='with-space'>可扫描到交易执行成功的结果，其中包含收据：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='type transferDonation struct { 
+Donee   types.Address `json:&quot;donee&quot;` 
+Value   bn.Number     `json:&quot;value&quot;` 
+Balance bn.Number     `json:&quot;balance&quot;` 
+}
+
+type std.Transfer struct { 
+Token types.Address `json:&quot;token&quot;` // Token types.Address 
+From  types.Address `json:&quot;from&quot;`  // Account address of Sender 
+To    types.Address `json:&quot;to&quot;`    // Account address of Receiver 
+Value bn.Number     `json:&quot;value&quot;` // Transfer value 
+} '>Copy</button><pre><code>type transferDonation struct { 
+Donee   types.Address `json:&quot;donee&quot;` 
+Value   bn.Number     `json:&quot;value&quot;` 
+Balance bn.Number     `json:&quot;balance&quot;` 
+}
+
+type std.Transfer struct { 
+Token types.Address `json:&quot;token&quot;` // Token types.Address 
+From  types.Address `json:&quot;from&quot;`  // Account address of Sender 
+To    types.Address `json:&quot;to&quot;`    // Account address of Receiver 
+Value bn.Number     `json:&quot;value&quot;` // Transfer value 
+} 
+</code></pre>
+</figure></li>
+</ul>
+</blockquote>
+<h2 id='e65c77c0'><span class='bd-content-title'>3. 合约规范检查<a class='anchorjs-link ' href='#e65c77c0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>下面的执行路径可以检查上面完成的慈善捐款合约是否符合 BCBChain 智能合约规范：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='GoLand左边栏 Project 浏览器
+    &gt;&gt; 在 src/contract/mydonation/v1.0/mydonation 目录上点击鼠标右键出现菜单
+        &gt;&gt; BCB Smart Contrat
+            &gt;&gt; Check'>Copy</button><pre><code>GoLand左边栏 Project 浏览器
+    &gt;&gt; 在 src/contract/mydonation/v1.0/mydonation 目录上点击鼠标右键出现菜单
+        &gt;&gt; BCB Smart Contrat
+            &gt;&gt; Check
+</code></pre>
+</figure>
+<h2 id='b99d8f1a'><span class='bd-content-title'>4. 合约代码补全<a class='anchorjs-link ' href='#b99d8f1a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>到现在为止，我们已经完成了上链合约代码，但这个合约代码不能在 <code>GoLand IDE</code> 中直接运行，需要使用插件提供的代码生成功能补全代码以后才能在本地运行，下面是补全代码的执行路径：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='GoLand左边栏 Project 浏览器
+    &gt;&gt; 在 src/contract/mydonation/v1.0/mydonation 目录上点击鼠标右键出现菜单
+        &gt;&gt; BCB Smart Contrat
+            &gt;&gt; Generate Code'>Copy</button><pre><code>GoLand左边栏 Project 浏览器
+    &gt;&gt; 在 src/contract/mydonation/v1.0/mydonation 目录上点击鼠标右键出现菜单
+        &gt;&gt; BCB Smart Contrat
+            &gt;&gt; Generate Code
+</code></pre>
+</figure>
+<p class='with-space'>补全代码执行以后，在合约代码目录将会自动生成如下代码文件：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//以下文件每次自动生成代码都会将原来的内容覆盖，请不要修改这些代码文件
+mydonation_autogen_store.go         //自动补全的状态数据库访问代码
+mydonation_autogen_receipt.go       //自动补全的收据发送代码
+mydonation_autogen_sdk.go           //自动补全的杂项代码
+mydonation_wrap_test.go             //自动补全的单元测试基础代码
+
+//以下文件为单元测试代码，需要程序员完成对各个方法的单元测试，下次自动生成代码时不会自动修改其中内容
+mydonation_case_adddonee_test.go    //自动补全的单元测试代码 - 针对 AddDonee 方法进行单元测试
+mydonation_case_deldonee_test.go    //自动补全的单元测试代码 - 针对 DelDonee 方法进行单元测试
+mydonation_case_donate_test.go      //自动补全的单元测试代码 - 针对 Donate 方法进行单元测试
+mydonation_case_transfer_test.go    //自动补全的单元测试代码 - 针对 Transfer 方法进行单元测试'>Copy</button><pre><code>//以下文件每次自动生成代码都会将原来的内容覆盖，请不要修改这些代码文件
+mydonation_autogen_store.go         //自动补全的状态数据库访问代码
+mydonation_autogen_receipt.go       //自动补全的收据发送代码
+mydonation_autogen_sdk.go           //自动补全的杂项代码
+mydonation_wrap_test.go             //自动补全的单元测试基础代码
+
+//以下文件为单元测试代码，需要程序员完成对各个方法的单元测试，下次自动生成代码时不会自动修改其中内容
+mydonation_case_adddonee_test.go    //自动补全的单元测试代码 - 针对 AddDonee 方法进行单元测试
+mydonation_case_deldonee_test.go    //自动补全的单元测试代码 - 针对 DelDonee 方法进行单元测试
+mydonation_case_donate_test.go      //自动补全的单元测试代码 - 针对 Donate 方法进行单元测试
+mydonation_case_transfer_test.go    //自动补全的单元测试代码 - 针对 Transfer 方法进行单元测试
+</code></pre>
+</figure>
+<p class='with-space'>源代码 <code>mydonation_autogen_store.go</code></p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mydonation
+
+import (
+    &quot;fmt&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+)
+
+//_setDonations This is a method of Mydonation
+func (m *Mydonation) _setDonations(k types.Address, v bn.Number) {
+    m.sdk.Helper().StateHelper().Set(fmt.Sprintf(&quot;/donations/%v&quot;, k), &amp;v)
+}
+
+//_donations This is a method of Mydonation
+func (m *Mydonation) _donations(k types.Address) bn.Number {
+    temp := bn.N(0)
+    return *m.sdk.Helper().StateHelper().GetEx(fmt.Sprintf(&quot;/donations/%v&quot;, k), &amp;temp).(*bn.Number)
+}
+
+//_chkDonations This is a method of Mydonation
+func (m *Mydonation) _chkDonations(k types.Address) bool {
+    return m.sdk.Helper().StateHelper().Check(fmt.Sprintf(&quot;/donations/%v&quot;, k))
+}
+
+//_delDonations This is a method of Mydonation
+func (m *Mydonation) _delDonations(k types.Address) {
+    m.sdk.Helper().StateHelper().Delete(fmt.Sprintf(&quot;/donations/%v&quot;, k))
+}'>Copy</button><pre><code>package mydonation
+
+import (
+    &quot;fmt&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+)
+
+//_setDonations This is a method of Mydonation
+func (m *Mydonation) _setDonations(k types.Address, v bn.Number) {
+    m.sdk.Helper().StateHelper().Set(fmt.Sprintf(&quot;/donations/%v&quot;, k), &amp;v)
+}
+
+//_donations This is a method of Mydonation
+func (m *Mydonation) _donations(k types.Address) bn.Number {
+    temp := bn.N(0)
+    return *m.sdk.Helper().StateHelper().GetEx(fmt.Sprintf(&quot;/donations/%v&quot;, k), &amp;temp).(*bn.Number)
+}
+
+//_chkDonations This is a method of Mydonation
+func (m *Mydonation) _chkDonations(k types.Address) bool {
+    return m.sdk.Helper().StateHelper().Check(fmt.Sprintf(&quot;/donations/%v&quot;, k))
+}
+
+//_delDonations This is a method of Mydonation
+func (m *Mydonation) _delDonations(k types.Address) {
+    m.sdk.Helper().StateHelper().Delete(fmt.Sprintf(&quot;/donations/%v&quot;, k))
+}
+</code></pre>
+</figure>
+<p class='with-space'>源代码 <code>mydonation_autogen_receipt.go</code></p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mydonation
+
+import (
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+)
+
+var _ receipt = (*Mydonation)(nil)
+
+//emitAddDonee This is a method of Mydonation
+func (m *Mydonation) emitAddDonee(donee types.Address) {
+    type addDonee struct {
+        Donee types.Address `json:&quot;donee&quot;`
+    }
+
+    m.sdk.Helper().ReceiptHelper().Emit(
+        addDonee{
+            Donee: donee,
+        },
+    )
+}
+
+//emitDelDonee This is a method of Mydonation
+func (m *Mydonation) emitDelDonee(donee types.Address) {
+    type delDonee struct {
+        Donee types.Address `json:&quot;donee&quot;`
+    }
+
+    m.sdk.Helper().ReceiptHelper().Emit(
+        delDonee{
+            Donee: donee,
+        },
+    )
+}
+
+//emitDonate This is a method of Mydonation
+func (m *Mydonation) emitDonate(from, donee types.Address, value, balance bn.Number) {
+    type donate struct {
+        From    types.Address `json:&quot;from&quot;`
+        Donee   types.Address `json:&quot;donee&quot;`
+        Value   bn.Number     `json:&quot;value&quot;`
+        Balance bn.Number     `json:&quot;balance&quot;`
+    }
+
+    m.sdk.Helper().ReceiptHelper().Emit(
+        donate{
+            From:    from,
+            Donee:   donee,
+            Value:   value,
+            Balance: balance,
+        },
+    )
+}
+
+//emitTransferDonation This is a method of Mydonation
+func (m *Mydonation) emitTransferDonation(donee types.Address, value, balance bn.Number) {
+    type transferDonation struct {
+        Donee   types.Address `json:&quot;donee&quot;`
+        Value   bn.Number     `json:&quot;value&quot;`
+        Balance bn.Number     `json:&quot;balance&quot;`
+    }
+
+    m.sdk.Helper().ReceiptHelper().Emit(
+        transferDonation{
+            Donee:   donee,
+            Value:   value,
+            Balance: balance,
+        },
+    )
+}'>Copy</button><pre><code>package mydonation
+
+import (
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+)
+
+var _ receipt = (*Mydonation)(nil)
+
+//emitAddDonee This is a method of Mydonation
+func (m *Mydonation) emitAddDonee(donee types.Address) {
+    type addDonee struct {
+        Donee types.Address `json:&quot;donee&quot;`
+    }
+
+    m.sdk.Helper().ReceiptHelper().Emit(
+        addDonee{
+            Donee: donee,
+        },
+    )
+}
+
+//emitDelDonee This is a method of Mydonation
+func (m *Mydonation) emitDelDonee(donee types.Address) {
+    type delDonee struct {
+        Donee types.Address `json:&quot;donee&quot;`
+    }
+
+    m.sdk.Helper().ReceiptHelper().Emit(
+        delDonee{
+            Donee: donee,
+        },
+    )
+}
+
+//emitDonate This is a method of Mydonation
+func (m *Mydonation) emitDonate(from, donee types.Address, value, balance bn.Number) {
+    type donate struct {
+        From    types.Address `json:&quot;from&quot;`
+        Donee   types.Address `json:&quot;donee&quot;`
+        Value   bn.Number     `json:&quot;value&quot;`
+        Balance bn.Number     `json:&quot;balance&quot;`
+    }
+
+    m.sdk.Helper().ReceiptHelper().Emit(
+        donate{
+            From:    from,
+            Donee:   donee,
+            Value:   value,
+            Balance: balance,
+        },
+    )
+}
+
+//emitTransferDonation This is a method of Mydonation
+func (m *Mydonation) emitTransferDonation(donee types.Address, value, balance bn.Number) {
+    type transferDonation struct {
+        Donee   types.Address `json:&quot;donee&quot;`
+        Value   bn.Number     `json:&quot;value&quot;`
+        Balance bn.Number     `json:&quot;balance&quot;`
+    }
+
+    m.sdk.Helper().ReceiptHelper().Emit(
+        transferDonation{
+            Donee:   donee,
+            Value:   value,
+            Balance: balance,
+        },
+    )
+}
+</code></pre>
+</figure>
+<p class='with-space'>下面是单元测试代码的初始内容。以源代码 <code>mydonation_case_adddonee_test.go</code> 文件为例：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mydonation
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+)
+
+func (mysuit *MySuite) test_Donate(owner sdk.IAccount, test *TestObject) {
+    //TODO
+}'>Copy</button><pre><code>package mydonation
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+)
+
+func (mysuit *MySuite) test_Donate(owner sdk.IAccount, test *TestObject) {
+    //TODO
+}
+</code></pre>
+</figure>
+<h2 id='df4559b5'><span class='bd-content-title'>5. 合约单元测试<a class='anchorjs-link ' href='#df4559b5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>下面我们来完成慈善捐款合约的单元测试代码。</p>
+<p class='with-space'>源代码： <code>mydonation_case_AddDonee_test.go</code></p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mydonation
+
+import (
+    &quot;blockchain/smcsdk/common/gls&quot;
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/utest&quot;
+    &quot;fmt&quot;
+
+    &quot;gopkg.in/check.v1&quot;
+)
+
+func keyOfDonation(addr types.Address) string {
+    return fmt.Sprintf(&quot;/donations/%v&quot;, addr)
+}
+
+//AddDonee This is a method of MySuite
+func (mysuit *MySuite) TestDemo_AddDonee(c *check.C) {
+    utest.Init(orgID)
+    contractOwner := utest.DeployContract(c, contractName, orgID, contractMethods, contractInterfaces)
+
+    gls.Mgr.SetValues(gls.Values{gls.SDKKey: utest.UTP.ISmartContract}, func() {
+        test := NewTestObject(contractOwner)
+        test.setSender(contractOwner).InitChain()
+        mysuit.test_AddDonee(contractOwner, test)
+    })
+}
+
+func (mysuit *MySuite) test_AddDonee(owner sdk.IAccount, test *TestObject) {
+    fmt.Println(&quot;=== Run  UnitTest case: AddDonee(donee types.Address)&quot;)
+
+    fmt.Println(&quot;=== prepare for test&quot;)
+    zero := bn.N(0)
+    oneCoin := bn.N(1000000000)
+    a1 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a2 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for authorization&quot;)
+    test.run(types.ErrNoAuthorization, func(t *TestObject) types.Error {
+        return t.setSender(a1).AddDonee(a2.Address())
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for parameters&quot;)
+    //prepare
+    var cases = []struct {
+        sender     sdk.IAccount
+        addr       types.Address
+        codeExpect uint32
+    }{
+        {owner, &quot;&quot;, types.ErrInvalidAddress},
+        {owner, &quot;local&quot;, types.ErrInvalidAddress},
+        {owner, &quot;localhshskhjkshfsswtsysyst6t76ddsg7s7w&quot;, types.ErrInvalidAddress},
+        {owner, owner.Address(), errDoneeCannotBeOwner},
+        {owner, utest.GetContract().Address(), errDoneeCannotBeSmc},
+        {owner, utest.GetContract().Account().Address(), errDoneeCannotBeSmc},
+    }
+    //run
+    for _, c := range cases {
+        test.run(c.codeExpect, func(t *TestObject) types.Error {
+            return t.setSender(c.sender).AddDonee(c.addr)
+        })
+    }
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for business logic&quot;)
+    //prepare
+    utest.AssertSDB(keyOfDonation(a1.Address()), nil)
+    //run
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a1.Address())
+    })
+    test.run(errDoneeAlreadyExist, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a1.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;zero)
+    utest.AssertSDB(keyOfDonation(a2.Address()), nil)
+    fmt.Println(&quot;=== pass&quot;)
+} '>Copy</button><pre><code>package mydonation
+
+import (
+    &quot;blockchain/smcsdk/common/gls&quot;
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/utest&quot;
+    &quot;fmt&quot;
+
+    &quot;gopkg.in/check.v1&quot;
+)
+
+func keyOfDonation(addr types.Address) string {
+    return fmt.Sprintf(&quot;/donations/%v&quot;, addr)
+}
+
+//AddDonee This is a method of MySuite
+func (mysuit *MySuite) TestDemo_AddDonee(c *check.C) {
+    utest.Init(orgID)
+    contractOwner := utest.DeployContract(c, contractName, orgID, contractMethods, contractInterfaces)
+
+    gls.Mgr.SetValues(gls.Values{gls.SDKKey: utest.UTP.ISmartContract}, func() {
+        test := NewTestObject(contractOwner)
+        test.setSender(contractOwner).InitChain()
+        mysuit.test_AddDonee(contractOwner, test)
+    })
+}
+
+func (mysuit *MySuite) test_AddDonee(owner sdk.IAccount, test *TestObject) {
+    fmt.Println(&quot;=== Run  UnitTest case: AddDonee(donee types.Address)&quot;)
+
+    fmt.Println(&quot;=== prepare for test&quot;)
+    zero := bn.N(0)
+    oneCoin := bn.N(1000000000)
+    a1 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a2 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for authorization&quot;)
+    test.run(types.ErrNoAuthorization, func(t *TestObject) types.Error {
+        return t.setSender(a1).AddDonee(a2.Address())
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for parameters&quot;)
+    //prepare
+    var cases = []struct {
+        sender     sdk.IAccount
+        addr       types.Address
+        codeExpect uint32
+    }{
+        {owner, &quot;&quot;, types.ErrInvalidAddress},
+        {owner, &quot;local&quot;, types.ErrInvalidAddress},
+        {owner, &quot;localhshskhjkshfsswtsysyst6t76ddsg7s7w&quot;, types.ErrInvalidAddress},
+        {owner, owner.Address(), errDoneeCannotBeOwner},
+        {owner, utest.GetContract().Address(), errDoneeCannotBeSmc},
+        {owner, utest.GetContract().Account().Address(), errDoneeCannotBeSmc},
+    }
+    //run
+    for _, c := range cases {
+        test.run(c.codeExpect, func(t *TestObject) types.Error {
+            return t.setSender(c.sender).AddDonee(c.addr)
+        })
+    }
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for business logic&quot;)
+    //prepare
+    utest.AssertSDB(keyOfDonation(a1.Address()), nil)
+    //run
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a1.Address())
+    })
+    test.run(errDoneeAlreadyExist, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a1.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;zero)
+    utest.AssertSDB(keyOfDonation(a2.Address()), nil)
+    fmt.Println(&quot;=== pass&quot;)
+} 
+</code></pre>
+</figure>
+<p class='with-space'>源代码： <code>mydonation_case_DelDonee_test.go</code></p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mydonation
+
+import (
+    &quot;blockchain/smcsdk/common/gls&quot;
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/utest&quot;
+    &quot;fmt&quot;
+
+    &quot;gopkg.in/check.v1&quot;
+)
+
+//DelDonee This is a method of MySuite
+func (mysuit *MySuite) TestDemo_DelDonee(c *check.C) {
+    utest.Init(orgID)
+    contractOwner := utest.DeployContract(c, contractName, orgID, contractMethods, contractInterfaces)
+
+    gls.Mgr.SetValues(gls.Values{gls.SDKKey: utest.UTP.ISmartContract}, func() {
+        test := NewTestObject(contractOwner)
+        test.setSender(contractOwner).InitChain()
+        mysuit.test_DelDonee(contractOwner, test)
+    })
+}
+
+func (mysuit *MySuite) test_DelDonee(owner sdk.IAccount, test *TestObject) {
+    fmt.Println(&quot;=== Run  UnitTest case: DelDonee(donee types.Address)&quot;)
+
+    fmt.Println(&quot;=== prepare for test&quot;)
+    zero := bn.N(0)
+    oneCoin := bn.N(1000000000)
+    halfCoin := bn.N(500000000)
+    a1 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a2 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a3 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a1.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a2.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(a1)
+        utest.Assert(t.transfer(halfCoin) != nil)
+        return t.Donate(a2.Address())
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for authorization&quot;)
+    test.run(types.ErrNoAuthorization, func(t *TestObject) types.Error {
+        return t.setSender(a2).DelDonee(a1.Address())
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for parameters&quot;)
+    //prepare
+    var cases = []struct {
+        sender     sdk.IAccount
+        addr       types.Address
+        codeExpect uint32
+    }{
+        {owner, &quot;&quot;, types.ErrInvalidAddress},
+        {owner, &quot;local&quot;, types.ErrInvalidAddress},
+        {owner, &quot;localhshskhjkshfsswtsysyst6t76ddsg7s7w&quot;, types.ErrInvalidAddress},
+        {owner, owner.Address(), errDoneeNotExist},
+        {owner, utest.GetContract().Address(), errDoneeNotExist},
+        {owner, utest.GetContract().Account().Address(), errDoneeNotExist},
+        {owner, a3.Address(), errDoneeNotExist},
+    }
+    //run
+    for _, c := range cases {
+        test.run(c.codeExpect, func(t *TestObject) types.Error {
+            return t.setSender(c.sender).DelDonee(c.addr)
+        })
+    }
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for business logic 1&quot;)
+    //prepare
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;zero)
+    //run
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).DelDonee(a1.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), nil)
+    //run
+    test.run(errDoneeNotExist, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        return t.DelDonee(a1.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), nil)
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for business logic 2&quot;)
+    //prepare
+    utest.AssertSDB(keyOfDonation(a2.Address()), &amp;halfCoin)
+    //run
+    test.run(errDonationExist, func(t *TestObject) types.Error {
+        return t.setSender(owner).DelDonee(a2.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        return t.Transfer(a2.Address(), halfCoin)
+    })
+
+    utest.AssertSDB(keyOfDonation(a2.Address()), &amp;zero)
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        return t.DelDonee(a2.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a2.Address()), nil)
+    //run
+    test.run(errDoneeNotExist, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        return t.DelDonee(a2.Address())
+    })
+    //check
+    utest.AssertBalance(a2, &quot;TSC&quot;, oneCoin.Add(halfCoin))
+    fmt.Println(&quot;=== pass&quot;)
+} '>Copy</button><pre><code>package mydonation
+
+import (
+    &quot;blockchain/smcsdk/common/gls&quot;
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/utest&quot;
+    &quot;fmt&quot;
+
+    &quot;gopkg.in/check.v1&quot;
+)
+
+//DelDonee This is a method of MySuite
+func (mysuit *MySuite) TestDemo_DelDonee(c *check.C) {
+    utest.Init(orgID)
+    contractOwner := utest.DeployContract(c, contractName, orgID, contractMethods, contractInterfaces)
+
+    gls.Mgr.SetValues(gls.Values{gls.SDKKey: utest.UTP.ISmartContract}, func() {
+        test := NewTestObject(contractOwner)
+        test.setSender(contractOwner).InitChain()
+        mysuit.test_DelDonee(contractOwner, test)
+    })
+}
+
+func (mysuit *MySuite) test_DelDonee(owner sdk.IAccount, test *TestObject) {
+    fmt.Println(&quot;=== Run  UnitTest case: DelDonee(donee types.Address)&quot;)
+
+    fmt.Println(&quot;=== prepare for test&quot;)
+    zero := bn.N(0)
+    oneCoin := bn.N(1000000000)
+    halfCoin := bn.N(500000000)
+    a1 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a2 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a3 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a1.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a2.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(a1)
+        utest.Assert(t.transfer(halfCoin) != nil)
+        return t.Donate(a2.Address())
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for authorization&quot;)
+    test.run(types.ErrNoAuthorization, func(t *TestObject) types.Error {
+        return t.setSender(a2).DelDonee(a1.Address())
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for parameters&quot;)
+    //prepare
+    var cases = []struct {
+        sender     sdk.IAccount
+        addr       types.Address
+        codeExpect uint32
+    }{
+        {owner, &quot;&quot;, types.ErrInvalidAddress},
+        {owner, &quot;local&quot;, types.ErrInvalidAddress},
+        {owner, &quot;localhshskhjkshfsswtsysyst6t76ddsg7s7w&quot;, types.ErrInvalidAddress},
+        {owner, owner.Address(), errDoneeNotExist},
+        {owner, utest.GetContract().Address(), errDoneeNotExist},
+        {owner, utest.GetContract().Account().Address(), errDoneeNotExist},
+        {owner, a3.Address(), errDoneeNotExist},
+    }
+    //run
+    for _, c := range cases {
+        test.run(c.codeExpect, func(t *TestObject) types.Error {
+            return t.setSender(c.sender).DelDonee(c.addr)
+        })
+    }
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for business logic 1&quot;)
+    //prepare
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;zero)
+    //run
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).DelDonee(a1.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), nil)
+    //run
+    test.run(errDoneeNotExist, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        return t.DelDonee(a1.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), nil)
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for business logic 2&quot;)
+    //prepare
+    utest.AssertSDB(keyOfDonation(a2.Address()), &amp;halfCoin)
+    //run
+    test.run(errDonationExist, func(t *TestObject) types.Error {
+        return t.setSender(owner).DelDonee(a2.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        return t.Transfer(a2.Address(), halfCoin)
+    })
+
+    utest.AssertSDB(keyOfDonation(a2.Address()), &amp;zero)
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        return t.DelDonee(a2.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a2.Address()), nil)
+    //run
+    test.run(errDoneeNotExist, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        return t.DelDonee(a2.Address())
+    })
+    //check
+    utest.AssertBalance(a2, &quot;TSC&quot;, oneCoin.Add(halfCoin))
+    fmt.Println(&quot;=== pass&quot;)
+} 
+</code></pre>
+</figure>
+<p class='with-space'>源代码： mydonation_case_Donate_test.go `</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mydonation
+
+import (
+    &quot;blockchain/smcsdk/common/gls&quot;
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/utest&quot;
+    &quot;fmt&quot;
+
+    &quot;gopkg.in/check.v1&quot;
+)
+
+//Donate This is a method of MySuite
+func (mysuit *MySuite) TestDemo_Donate(c *check.C) {
+    utest.Init(orgID)
+    contractOwner := utest.DeployContract(c, contractName, orgID, contractMethods, contractInterfaces)
+
+    gls.Mgr.SetValues(gls.Values{gls.SDKKey: utest.UTP.ISmartContract}, func() {
+        test := NewTestObject(contractOwner)
+        test.setSender(contractOwner).InitChain()
+        mysuit.test_Donate(contractOwner, test)
+    })
+}
+
+func (mysuit *MySuite) test_Donate(owner sdk.IAccount, test *TestObject) {
+    fmt.Println(&quot;=== Run  UnitTest case: Donate(donee types.Address)&quot;)
+
+    fmt.Println(&quot;=== prepare for test&quot;)
+    halfCoin := bn.N(500000000)
+    oneCoin := bn.N(1000000000)
+    oneHalfCoin := bn.N(1500000000)
+    twoCoin := bn.N(2000000000)
+    utest.Transfer(nil, owner.Address(), &quot;TSC&quot;, twoCoin)
+    utest.Transfer(nil, owner.Address(), &quot;BTC&quot;, twoCoin)
+    a1 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a2 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a3 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a1.Address())
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for parameters&quot;)
+    //prepare
+    var cases = []struct {
+        sender     sdk.IAccount
+        addr       types.Address
+        codeExpect uint32
+    }{
+        {owner, &quot;&quot;, types.ErrInvalidAddress},
+        {owner, &quot;local&quot;, types.ErrInvalidAddress},
+        {owner, &quot;localhshskhjkshfsswtsysyst6t76ddsg7s7w&quot;, types.ErrInvalidAddress},
+        {owner, a2.Address(), errDoneeNotExist},
+        {owner, a3.Address(), errDoneeNotExist},
+    }
+    //run
+    for _, c := range cases {
+        test.run(c.codeExpect, func(t *TestObject) types.Error {
+            return t.setSender(c.sender).Donate(c.addr)
+        })
+    }
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for receipt of transfer&quot;)
+    //run
+    test.run(types.ErrInvalidParameter, func(t *TestObject) types.Error {
+        return t.setSender(owner).Donate(a1.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        utest.Assert(t.transfer(&quot;TSC&quot;, halfCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    test.run(types.ErrInvalidParameter, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        utest.Assert(test.transfer(&quot;TSC&quot;, halfCoin) != nil)
+        utest.Assert(test.transfer(&quot;TSC&quot;, halfCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    test.run(types.ErrInvalidParameter, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        utest.Assert(t.transfer(&quot;BTC&quot;, halfCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for business logic&quot;)
+    //prepare
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;halfCoin)
+    //run
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(a2)
+        utest.Assert(t.transfer(halfCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(a3)
+        utest.Assert(t.transfer(halfCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;oneHalfCoin)
+    fmt.Println(&quot;=== pass&quot;)
+} '>Copy</button><pre><code>package mydonation
+
+import (
+    &quot;blockchain/smcsdk/common/gls&quot;
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/utest&quot;
+    &quot;fmt&quot;
+
+    &quot;gopkg.in/check.v1&quot;
+)
+
+//Donate This is a method of MySuite
+func (mysuit *MySuite) TestDemo_Donate(c *check.C) {
+    utest.Init(orgID)
+    contractOwner := utest.DeployContract(c, contractName, orgID, contractMethods, contractInterfaces)
+
+    gls.Mgr.SetValues(gls.Values{gls.SDKKey: utest.UTP.ISmartContract}, func() {
+        test := NewTestObject(contractOwner)
+        test.setSender(contractOwner).InitChain()
+        mysuit.test_Donate(contractOwner, test)
+    })
+}
+
+func (mysuit *MySuite) test_Donate(owner sdk.IAccount, test *TestObject) {
+    fmt.Println(&quot;=== Run  UnitTest case: Donate(donee types.Address)&quot;)
+
+    fmt.Println(&quot;=== prepare for test&quot;)
+    halfCoin := bn.N(500000000)
+    oneCoin := bn.N(1000000000)
+    oneHalfCoin := bn.N(1500000000)
+    twoCoin := bn.N(2000000000)
+    utest.Transfer(nil, owner.Address(), &quot;TSC&quot;, twoCoin)
+    utest.Transfer(nil, owner.Address(), &quot;BTC&quot;, twoCoin)
+    a1 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a2 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a3 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a1.Address())
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for parameters&quot;)
+    //prepare
+    var cases = []struct {
+        sender     sdk.IAccount
+        addr       types.Address
+        codeExpect uint32
+    }{
+        {owner, &quot;&quot;, types.ErrInvalidAddress},
+        {owner, &quot;local&quot;, types.ErrInvalidAddress},
+        {owner, &quot;localhshskhjkshfsswtsysyst6t76ddsg7s7w&quot;, types.ErrInvalidAddress},
+        {owner, a2.Address(), errDoneeNotExist},
+        {owner, a3.Address(), errDoneeNotExist},
+    }
+    //run
+    for _, c := range cases {
+        test.run(c.codeExpect, func(t *TestObject) types.Error {
+            return t.setSender(c.sender).Donate(c.addr)
+        })
+    }
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for receipt of transfer&quot;)
+    //run
+    test.run(types.ErrInvalidParameter, func(t *TestObject) types.Error {
+        return t.setSender(owner).Donate(a1.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        utest.Assert(t.transfer(&quot;TSC&quot;, halfCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    test.run(types.ErrInvalidParameter, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        utest.Assert(test.transfer(&quot;TSC&quot;, halfCoin) != nil)
+        utest.Assert(test.transfer(&quot;TSC&quot;, halfCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    test.run(types.ErrInvalidParameter, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        utest.Assert(t.transfer(&quot;BTC&quot;, halfCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for business logic&quot;)
+    //prepare
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;halfCoin)
+    //run
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(a2)
+        utest.Assert(t.transfer(halfCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(a3)
+        utest.Assert(t.transfer(halfCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;oneHalfCoin)
+    fmt.Println(&quot;=== pass&quot;)
+} 
+</code></pre>
+</figure>
+<p class='with-space'>源代码： <code>mydonation_case_Transfer_test.go</code></p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mydonation
+
+import (
+    &quot;blockchain/smcsdk/common/gls&quot;
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/utest&quot;
+    &quot;fmt&quot;
+
+    &quot;gopkg.in/check.v1&quot;
+)
+
+//Transfer This is a method of MySuite
+func (mysuit *MySuite) TestDemo_Transfer(c *check.C) {
+    utest.Init(orgID)
+    contractOwner := utest.DeployContract(c, contractName, orgID, contractMethods, contractInterfaces)
+
+    gls.Mgr.SetValues(gls.Values{gls.SDKKey: utest.UTP.ISmartContract}, func() {
+        test := NewTestObject(contractOwner)
+        test.setSender(contractOwner).InitChain()
+        mysuit.test_Transfer(contractOwner, test)
+    })
+}
+
+func (mysuit *MySuite) test_Transfer(owner sdk.IAccount, test *TestObject) {
+    fmt.Println(&quot;=== Run  UnitTest case: Transfer(donee types.Address, value bn.Number)&quot;)
+
+    fmt.Println(&quot;=== prepare for test&quot;)
+    zero := bn.N(0)
+    oneCoin := bn.N(1000000000)
+    halfCoin := bn.N(500000000)
+    utest.Transfer(nil, owner.Address(), bn.N(2).Mul(oneCoin))
+    a1 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a2 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a3 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a1.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        utest.Assert(test.transfer(oneCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    utest.AssertOK(test.AddDonee(a2.Address()))
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for authorization&quot;)
+    //run
+    test.run(types.ErrNoAuthorization, func(t *TestObject) types.Error {
+        t.setSender(a2)
+        utest.Assert(test.transfer(oneCoin) != nil)
+        return t.Transfer(a1.Address(), halfCoin)
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for parameters&quot;)
+    //prepare
+    var cases = []struct {
+        sender     sdk.IAccount
+        addr       types.Address
+        amount     bn.Number
+        codeExpect uint32
+    }{
+        {owner, &quot;&quot;, halfCoin, types.ErrInvalidAddress},
+        {owner, &quot;local&quot;, halfCoin, types.ErrInvalidAddress},
+        {owner, &quot;localhshskhjkshfsswtsysyst6t76ddsg7s7w&quot;, halfCoin, types.ErrInvalidAddress},
+        {owner, owner.Address(), halfCoin, errDoneeNotExist},
+        {owner, utest.GetContract().Address(), halfCoin, errDoneeNotExist},
+        {owner, utest.GetContract().Account().Address(), halfCoin, errDoneeNotExist},
+        {owner, a3.Address(), halfCoin, errDoneeNotExist},
+        {owner, a1.Address(), bn.N(-1), types.ErrInvalidParameter},
+        {owner, a1.Address(), bn.N(0), types.ErrInvalidParameter},
+        {owner, a1.Address(), bn.N(1), types.CodeOK},
+        {owner, a1.Address(), oneCoin, errDonationNotEnough},
+    }
+    //run
+    for _, c := range cases {
+        test.run(c.codeExpect, func(t *TestObject) types.Error {
+            return t.setSender(c.sender).Transfer(c.addr, c.amount)
+        })
+    }
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for business logic&quot;)
+    //prepare
+    x := oneCoin.SubI(1)
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;x)
+    //run
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        utest.Assert(test.transfer(bn.N(1)) != nil)
+        return t.Donate(a1.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;oneCoin)
+    //run
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).Transfer(a1.Address(), halfCoin)
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).Transfer(a1.Address(), halfCoin)
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;zero)
+    utest.AssertBalance(a1, &quot;TSC&quot;, bn.N(2).Mul(oneCoin).AddI(1))
+    fmt.Println(&quot;=== pass&quot;)
+} '>Copy</button><pre><code>package mydonation
+
+import (
+    &quot;blockchain/smcsdk/common/gls&quot;
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+    &quot;blockchain/smcsdk/utest&quot;
+    &quot;fmt&quot;
+
+    &quot;gopkg.in/check.v1&quot;
+)
+
+//Transfer This is a method of MySuite
+func (mysuit *MySuite) TestDemo_Transfer(c *check.C) {
+    utest.Init(orgID)
+    contractOwner := utest.DeployContract(c, contractName, orgID, contractMethods, contractInterfaces)
+
+    gls.Mgr.SetValues(gls.Values{gls.SDKKey: utest.UTP.ISmartContract}, func() {
+        test := NewTestObject(contractOwner)
+        test.setSender(contractOwner).InitChain()
+        mysuit.test_Transfer(contractOwner, test)
+    })
+}
+
+func (mysuit *MySuite) test_Transfer(owner sdk.IAccount, test *TestObject) {
+    fmt.Println(&quot;=== Run  UnitTest case: Transfer(donee types.Address, value bn.Number)&quot;)
+
+    fmt.Println(&quot;=== prepare for test&quot;)
+    zero := bn.N(0)
+    oneCoin := bn.N(1000000000)
+    halfCoin := bn.N(500000000)
+    utest.Transfer(nil, owner.Address(), bn.N(2).Mul(oneCoin))
+    a1 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a2 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    a3 := utest.NewAccount(&quot;TSC&quot;, oneCoin)
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).AddDonee(a1.Address())
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        utest.Assert(test.transfer(oneCoin) != nil)
+        return t.Donate(a1.Address())
+    })
+    utest.AssertOK(test.AddDonee(a2.Address()))
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for authorization&quot;)
+    //run
+    test.run(types.ErrNoAuthorization, func(t *TestObject) types.Error {
+        t.setSender(a2)
+        utest.Assert(test.transfer(oneCoin) != nil)
+        return t.Transfer(a1.Address(), halfCoin)
+    })
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for parameters&quot;)
+    //prepare
+    var cases = []struct {
+        sender     sdk.IAccount
+        addr       types.Address
+        amount     bn.Number
+        codeExpect uint32
+    }{
+        {owner, &quot;&quot;, halfCoin, types.ErrInvalidAddress},
+        {owner, &quot;local&quot;, halfCoin, types.ErrInvalidAddress},
+        {owner, &quot;localhshskhjkshfsswtsysyst6t76ddsg7s7w&quot;, halfCoin, types.ErrInvalidAddress},
+        {owner, owner.Address(), halfCoin, errDoneeNotExist},
+        {owner, utest.GetContract().Address(), halfCoin, errDoneeNotExist},
+        {owner, utest.GetContract().Account().Address(), halfCoin, errDoneeNotExist},
+        {owner, a3.Address(), halfCoin, errDoneeNotExist},
+        {owner, a1.Address(), bn.N(-1), types.ErrInvalidParameter},
+        {owner, a1.Address(), bn.N(0), types.ErrInvalidParameter},
+        {owner, a1.Address(), bn.N(1), types.CodeOK},
+        {owner, a1.Address(), oneCoin, errDonationNotEnough},
+    }
+    //run
+    for _, c := range cases {
+        test.run(c.codeExpect, func(t *TestObject) types.Error {
+            return t.setSender(c.sender).Transfer(c.addr, c.amount)
+        })
+    }
+    fmt.Println(&quot;=== pass&quot;)
+
+    fmt.Println(&quot;=== test for business logic&quot;)
+    //prepare
+    x := oneCoin.SubI(1)
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;x)
+    //run
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        t.setSender(owner)
+        utest.Assert(test.transfer(bn.N(1)) != nil)
+        return t.Donate(a1.Address())
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;oneCoin)
+    //run
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).Transfer(a1.Address(), halfCoin)
+    })
+    test.run(types.CodeOK, func(t *TestObject) types.Error {
+        return t.setSender(owner).Transfer(a1.Address(), halfCoin)
+    })
+    //check
+    utest.AssertSDB(keyOfDonation(a1.Address()), &amp;zero)
+    utest.AssertBalance(a1, &quot;TSC&quot;, bn.N(2).Mul(oneCoin).AddI(1))
+    fmt.Println(&quot;=== pass&quot;)
+} 
+</code></pre>
+</figure>
+<p class='with-space'>单元测试代码完成以后，可以使用下面的执行路径来进行单元测试：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='GoLand左边栏 Project 浏览器
+    &gt;&gt; 在 src/contract/mydonation/v1.0/mydonation 目录上点击鼠标右键出现菜单
+        &gt;&gt; Run
+            &gt;&gt; go test mydonation'>Copy</button><pre><code>GoLand左边栏 Project 浏览器
+    &gt;&gt; 在 src/contract/mydonation/v1.0/mydonation 目录上点击鼠标右键出现菜单
+        &gt;&gt; Run
+            &gt;&gt; go test mydonation
+</code></pre>
+</figure>
+<p class='with-space'>单元测试执行完成后，输出测试结果，如下所示：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='=== RUN   Test
+=== Run  UnitTest case: AddDonee(donee types.Address)
+=== prepare for test
+=== pass
+=== test for authorization
+only contract owner just can do it
+=== pass
+=== test for parameters
+Address chainID is error! 
+Address chainID is error! 
+Address chainID is error! 
+Donee can not be owner
+Donee can not be this smart contract
+Donee can not be account of this smart contract
+=== pass
+=== test for business logic
+Donee already exists
+=== pass
+=== Run  UnitTest case: DelDonee(donee types.Address)
+=== prepare for test
+=== pass
+=== test for authorization
+only contract owner just can do it
+=== pass
+=== test for parameters
+Address chainID is error! 
+Address chainID is error! 
+Address chainID is error! 
+Donee does not exist
+Donee does not exist
+Donee does not exist
+Donee does not exist
+=== pass
+=== test for business logic 1
+Donee does not exist
+=== pass
+=== test for business logic 2
+Donation exists
+Donee does not exist
+=== pass
+=== Run  UnitTest case: Donate(donee types.Address)
+=== prepare for test
+=== pass
+=== test for parameters
+Address chainID is error! 
+Address chainID is error! 
+Address chainID is error! 
+Donee does not exist
+Donee does not exist
+=== pass
+=== test for receipt of transfer
+Please transfer token to me first
+Accept only one donation at a time
+Accept donations in genesis token only
+=== pass
+=== test for business logic
+=== pass
+=== Run  UnitTest case: Transfer(donee types.Address, value bn.Number)
+=== prepare for test
+=== pass
+=== test for authorization
+only contract owner just can do it
+=== pass
+=== test for parameters
+Address chainID is error! 
+Address chainID is error! 
+Address chainID is error! 
+Donee does not exist
+Donee does not exist
+Donee does not exist
+Donee does not exist
+Parameter &quot;value&quot; must be greater than 0
+Parameter &quot;value&quot; must be greater than 0
+Donation is not enough
+=== pass
+=== test for business logic
+=== pass
+OK: 4 passed
+--- PASS: Test (0.14s)
+PASS
+ok      contract/orgexample/code/mydonation/v1.0/mydonation (cached)
+
+Process finished with exit code 0'>Copy</button><pre><code class='goroot=c:\go #gosetup' lang='goroot=c:\go #gosetup'>=== RUN   Test
+=== Run  UnitTest case: AddDonee(donee types.Address)
+=== prepare for test
+=== pass
+=== test for authorization
+only contract owner just can do it
+=== pass
+=== test for parameters
+Address chainID is error! 
+Address chainID is error! 
+Address chainID is error! 
+Donee can not be owner
+Donee can not be this smart contract
+Donee can not be account of this smart contract
+=== pass
+=== test for business logic
+Donee already exists
+=== pass
+=== Run  UnitTest case: DelDonee(donee types.Address)
+=== prepare for test
+=== pass
+=== test for authorization
+only contract owner just can do it
+=== pass
+=== test for parameters
+Address chainID is error! 
+Address chainID is error! 
+Address chainID is error! 
+Donee does not exist
+Donee does not exist
+Donee does not exist
+Donee does not exist
+=== pass
+=== test for business logic 1
+Donee does not exist
+=== pass
+=== test for business logic 2
+Donation exists
+Donee does not exist
+=== pass
+=== Run  UnitTest case: Donate(donee types.Address)
+=== prepare for test
+=== pass
+=== test for parameters
+Address chainID is error! 
+Address chainID is error! 
+Address chainID is error! 
+Donee does not exist
+Donee does not exist
+=== pass
+=== test for receipt of transfer
+Please transfer token to me first
+Accept only one donation at a time
+Accept donations in genesis token only
+=== pass
+=== test for business logic
+=== pass
+=== Run  UnitTest case: Transfer(donee types.Address, value bn.Number)
+=== prepare for test
+=== pass
+=== test for authorization
+only contract owner just can do it
+=== pass
+=== test for parameters
+Address chainID is error! 
+Address chainID is error! 
+Address chainID is error! 
+Donee does not exist
+Donee does not exist
+Donee does not exist
+Donee does not exist
+Parameter &quot;value&quot; must be greater than 0
+Parameter &quot;value&quot; must be greater than 0
+Donation is not enough
+=== pass
+=== test for business logic
+=== pass
+OK: 4 passed
+--- PASS: Test (0.14s)
+PASS
+ok      contract/orgexample/code/mydonation/v1.0/mydonation (cached)
+
+Process finished with exit code 0
+</code></pre>
+</figure>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/zh-cn/04-智能合约开发\智能合约(golang)\开发智能合约\02-第一个智能合约.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#ae8ce105'>第一个智能合约</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#fa4fa353'>1. 创建新合约</a>
+<a class='ml-0 my-1 nav-link' href='#ef8897ff'>2. 慈善捐款合约</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#dbcf3a98'>2.1 AddDonee</a>
+<a class='ml-2 my-1 nav-link' href='#dd257bd0'>2.2 DelDonee</a>
+<a class='ml-2 my-1 nav-link' href='#a6913f3a'>2.3 Donate</a>
+<a class='ml-2 my-1 nav-link' href='#d36ba1d7'>2.4 Transfer</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#e65c77c0'>3. 合约规范检查</a>
+<a class='ml-0 my-1 nav-link' href='#b99d8f1a'>4. 合约代码补全</a>
+<a class='ml-0 my-1 nav-link' href='#df4559b5'>5. 合约单元测试</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

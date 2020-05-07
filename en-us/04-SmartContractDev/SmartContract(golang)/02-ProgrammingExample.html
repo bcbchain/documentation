@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>Examples of Smart Contract Implementation</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/Site Map.html'>Site Map</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBBasic</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/01-BCBIntro.html'>BCBIntro</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/02-BCBNode.html'>BCBNode</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBNetwork</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/01-MainnetAndTestnet.html'>MainnetAndTestnet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/02-BuildForPrivateChain.html'>BuildForPrivateChain</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBSideChain</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/01-SideChainRegistration.html'>SideChainRegistration</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/02-SideChainCreation.html'>SideChainCreation</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/03-SideChainGovernance.html'>SideChainGovernance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/04-CrossChainTransaction.html'>CrossChainTransaction</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBTools</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractDev</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/02-ProgrammingExample.html'>ProgrammingExample</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/03-DeeperUnderstanding.html'>DeeperUnderstanding</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevSmartContract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/01-DevelopmentEnvironment.html'>DevelopmentEnvironment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/02-FirstSmartContract.html'>FirstSmartContract</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/01-BVM-EVM-diff.html'>BVM-EVM-diff</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/02-Smart-Contract-Dev.html'>Smart-Contract-Dev</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/03-Contract-deployment-call.html'>Contract-deployment-call</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeIntegrationGuide</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/01-IntroductionOfIntegrationScheme.html'>IntroductionOfIntegrationScheme</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/02-InstallationDeployment.html'>InstallationDeployment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/03-CommandDetails.html'>CommandDetails</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevelopmentReference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-ModelDescription.html'>ModelDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-AlgorithmDescription.html'>AlgorithmDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/04-TransactionFormatv1.html'>TransactionFormatv1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/05-TransactionFormatv2.html'>TransactionFormatv2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>MainChainAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/01-Protocol.html'>Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/02-NetworkInterface.html'>NetworkInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/04-TransactionInterface.html'>TransactionInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/05-GlobalInterface.html'>GlobalInterface</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/01-CommunicationProtocol.html'>CommunicationProtocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/02-WalletInterface.html'>WalletInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='f5a3260f'><span class='bd-content-title'>Examples of Smart Contract Implementation<a class='anchorjs-link ' href='#f5a3260f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='ebdb3fd8'><span class='bd-content-title'>1. Voting<a class='anchorjs-link ' href='#ebdb3fd8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>The following contract is quite complex and it implements a commissioned voting contract. Of course, the main problems with electronic voting is how to assign voting rights to the right people and how to prevent them from being manipulated. We will not resolve all the problems here, but at least we will show how to conduct a proxy vote that is automatic and completely transparent at the same time.</p>
+<p class='with-space'>Our idea is to create a contract for each (vote) vote, with an abbreviation for each option. Then, as the creator of the contract - the chairman, each independent address will be given the right to vote.</p>
+<p class='with-space'>Address owners can choose to vote on their own, or delegate to someone they trust to vote.</p>
+<p class='with-space'>At the end of the voting period, <code>WinningProposal()</code>will return the proposal that receives the most votes.</p>
+<p class='with-space'>This contract implementation uses two files, as follows:</p>
+<p class='with-space'>Source File： <code>myballot_types.go</code></p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package myballot
+
+import (
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+// Voter this declares a new complex type which will
+//       be used for variables later.
+//       it will represent a single voter.
+type Voter struct {
+    weight   uint          // weight is accumulated by delegation
+    voted    bool          // if true, that person already voted
+    delegate types.Address // person delegated to
+    vote     uint          // index of the voted proposal
+}
+
+//Proposal this is a type for a single proposal.
+type Proposal struct {
+    name      string       // short name (up to 32 bytes)
+    voteCount uint         // number of accumulated votes
+}'>Copy</button><pre><code class='go' lang='go'>package myballot
+
+import (
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+// Voter this declares a new complex type which will
+//       be used for variables later.
+//       it will represent a single voter.
+type Voter struct {
+    weight   uint          // weight is accumulated by delegation
+    voted    bool          // if true, that person already voted
+    delegate types.Address // person delegated to
+    vote     uint          // index of the voted proposal
+}
+
+//Proposal this is a type for a single proposal.
+type Proposal struct {
+    name      string       // short name (up to 32 bytes)
+    voteCount uint         // number of accumulated votes
+}
+</code></pre>
+</figure>
+<p class='with-space'>Source File： <code>myballot.go</code></p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package myballot
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/forx&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//Ballot a demo smart contract for voting with delegation.
+//@:contract:myballot
+//@:version:1.0
+//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer
+//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c
+type Ballot struct {
+    sdk sdk.ISmartContract
+
+    //chairperson this declares a state variable that stores a chairperson&#39;s 
+    //      address for the contract
+    //@:public:store:cache
+    chairperson string
+
+    //voters this declares a state variable that stores a &#39;Voter&#39; struct for
+    //    each possible address
+    //@:public:store
+    voters map[types.Address]Voter
+
+    //proposals a dynamically-sized array of &#39;Proposal&#39; structs
+    //@:public:store:cache
+    proposals []Proposal
+}
+
+//InitChain init when deployed on the blockChain first time
+//@:constructor
+func (ballot *Ballot) InitChain() {
+}
+
+//Init create a new (voting) vote for each proposal in &#39;proposal Names&#39;
+//@:public:method:gas[500]
+func (ballot *Ballot) Init(proposalNames []string) {
+    sender := ballot.sdk.Message().Sender().Address()
+
+    // Only cntract&#39;s owner can perform init
+    sdk.RequireOwner()
+
+    proposals := ballot._proposals()
+    sdk.Require(len(proposals) &lt;= 0,
+        types.ErrUserDefined, &quot;Already inited&quot;)
+
+    chairperson := sender
+    ballot._setChairperson(chairperson)
+
+    voter := ballot._voters(chairperson)
+    voter.weight = 1
+    ballot._setVoters(chairperson, voter)
+
+    // For each of the provided proposal names,
+    // create a new &#39;Proposal&#39; object and add it to the end of the array
+    forx.Range(proposalNames, func(i int, pName string) {
+        proposals = append(proposals,
+            Proposal{
+            name:   pName,
+            voteCount: 0,
+        })
+    })
+    ballot._setProposals(proposals)
+}
+
+//GiveRightToVote give `voter` the right to vote on this ballot.
+//                may only be called by &#39;chairperson&#39;.
+//@:public:method:gas[500]
+func (ballot *Ballot) GiveRightToVote(voterAddr types.Address) {
+    sender := ballot.sdk.Message().Sender().Address()
+    chairperson := ballot._chairperson()
+    sdk.Require(sender == chairperson,
+        types.ErrNoAuthorization, &quot;Only chairperson can give right to vote.&quot;)
+
+    voter := ballot._voters(voterAddr)
+    sdk.Require(voter.voted == false,
+        types.ErrUserDefined, &quot;The voter already voted.&quot;)
+    sdk.Require(voter.weight == 0,
+        types.ErrUserDefined, &quot;The voter&#39;s weight must be zero.&quot;)
+
+    voter.weight = 1
+    ballot._setVoters(voterAddr, voter)
+}
+
+//Delegate Delegate your vote to the voter &#39;to&#39;
+//@:public:method:gas[1500]
+func (ballot *Ballot) Delegate(to types.Address) {
+    sender := ballot.sdk.Message().Sender().Address()
+    sendVoter := ballot._voters(sender)
+
+    sdk.Require(sendVoter.voted == false,
+        types.ErrUserDefined, &quot;You already voted.&quot;)
+    sdk.Require(to != sender,
+        types.ErrUserDefined, &quot;Self-delegation is disallowed.&quot;)
+
+    // Forward the delegation as long as &#39;to&#39; also delegated.
+    // In general, such loops are very dangerous, because if they run too 
+    // long, they might need more gas than is available in a block.
+    // In this case, the delegation will not be executed, but in other 
+    // situations, such loops might cause a contract to get &quot;stuck&quot; completely.
+    toVoter := ballot._voters(to)
+    forx.Range( func() bool {
+            return toVoter.delegate != &quot;&quot;
+        },
+        func(i int) {
+            to = toVoter.delegate
+            toVoter = ballot._voters(to)
+
+            // We found a loop in the delegation, not allowed.
+            sdk.Require(to != sender,
+                types.ErrUserDefined, &quot;Found loop in delegation.&quot;)
+        })
+
+    sendVoter.voted = true
+    sendVoter.delegate = to
+    delegate := toVoter
+    if delegate.voted {
+        // If the delegate already voted,
+        // directly add to the number of votes
+        proposals := ballot._proposals()
+        proposals[int(delegate.vote)].voteCount += sendVoter.weight
+        ballot._setProposals(proposals)
+    } else {
+        // If the delegate did not vote yet,
+        // add to her weight.
+        delegate.weight += sendVoter.weight
+        ballot._setVoters(to, delegate)
+    }
+    return
+}
+
+//Vote give your vote (including votes delegated to you)
+//     to proposal `proposals[proposal].name`.
+//@:public:method:gas[500]
+func (ballot *Ballot) Vote(proposal uint) {
+    sender := ballot.sdk.Message().Sender().Address()
+    sendVoter := ballot._voters(sender)
+
+    sdk.Require(sendVoter.voted == false,
+        types.ErrUserDefined, &quot;You already voted.&quot;)
+
+    proposals := ballot._proposals()
+    sdk.Require(proposal &lt; uint(len(proposals)),
+        types.ErrUserDefined, &quot;Proposal is out of index.&quot;)
+
+    sendVoter.voted = true
+    sendVoter.vote = proposal
+    proposals[int(proposal)].voteCount += sendVoter.weight
+    ballot._setProposals(proposals)
+}
+
+//WinningProposal computes the winning proposal taking all
+//                previous votes into account.
+//@:public:method:gas[500]
+func (ballot *Ballot) WinningProposal() (winningProposal uint) {
+    var winningVoteCount uint
+
+    proposals := ballot._proposals()
+    forx.Range(proposals, func(i int, proposal Proposal) {
+        if proposal.voteCount &gt; winningVoteCount {
+            winningVoteCount = proposal.voteCount
+            winningProposal = uint(i)
+        }
+    })
+    return
+}
+
+//WinnerName calls winningProposal() function to get the index
+//     of the winner contained in the proposals array and then
+//     returns the name of the winner
+//@:public:method:gas[500]
+func (ballot *Ballot) WinnerName() (winnerName string) {
+    proposals := ballot._proposals()
+    if len(proposals) &gt; 0 {
+        winnerName = proposals[ballot.WinningProposal()].name
+    }
+    return
+}'>Copy</button><pre><code class='go' lang='go'>package myballot
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/forx&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//Ballot a demo smart contract for voting with delegation.
+//@:contract:myballot
+//@:version:1.0
+//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer
+//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c
+type Ballot struct {
+    sdk sdk.ISmartContract
+
+    //chairperson this declares a state variable that stores a chairperson&#39;s 
+    //      address for the contract
+    //@:public:store:cache
+    chairperson string
+
+    //voters this declares a state variable that stores a &#39;Voter&#39; struct for
+    //    each possible address
+    //@:public:store
+    voters map[types.Address]Voter
+
+    //proposals a dynamically-sized array of &#39;Proposal&#39; structs
+    //@:public:store:cache
+    proposals []Proposal
+}
+
+//InitChain init when deployed on the blockChain first time
+//@:constructor
+func (ballot *Ballot) InitChain() {
+}
+
+//Init create a new (voting) vote for each proposal in &#39;proposal Names&#39;
+//@:public:method:gas[500]
+func (ballot *Ballot) Init(proposalNames []string) {
+    sender := ballot.sdk.Message().Sender().Address()
+
+    // Only cntract&#39;s owner can perform init
+    sdk.RequireOwner()
+
+    proposals := ballot._proposals()
+    sdk.Require(len(proposals) &lt;= 0,
+        types.ErrUserDefined, &quot;Already inited&quot;)
+
+    chairperson := sender
+    ballot._setChairperson(chairperson)
+
+    voter := ballot._voters(chairperson)
+    voter.weight = 1
+    ballot._setVoters(chairperson, voter)
+
+    // For each of the provided proposal names,
+    // create a new &#39;Proposal&#39; object and add it to the end of the array
+    forx.Range(proposalNames, func(i int, pName string) {
+        proposals = append(proposals,
+            Proposal{
+            name:   pName,
+            voteCount: 0,
+        })
+    })
+    ballot._setProposals(proposals)
+}
+
+//GiveRightToVote give `voter` the right to vote on this ballot.
+//                may only be called by &#39;chairperson&#39;.
+//@:public:method:gas[500]
+func (ballot *Ballot) GiveRightToVote(voterAddr types.Address) {
+    sender := ballot.sdk.Message().Sender().Address()
+    chairperson := ballot._chairperson()
+    sdk.Require(sender == chairperson,
+        types.ErrNoAuthorization, &quot;Only chairperson can give right to vote.&quot;)
+
+    voter := ballot._voters(voterAddr)
+    sdk.Require(voter.voted == false,
+        types.ErrUserDefined, &quot;The voter already voted.&quot;)
+    sdk.Require(voter.weight == 0,
+        types.ErrUserDefined, &quot;The voter&#39;s weight must be zero.&quot;)
+
+    voter.weight = 1
+    ballot._setVoters(voterAddr, voter)
+}
+
+//Delegate Delegate your vote to the voter &#39;to&#39;
+//@:public:method:gas[1500]
+func (ballot *Ballot) Delegate(to types.Address) {
+    sender := ballot.sdk.Message().Sender().Address()
+    sendVoter := ballot._voters(sender)
+
+    sdk.Require(sendVoter.voted == false,
+        types.ErrUserDefined, &quot;You already voted.&quot;)
+    sdk.Require(to != sender,
+        types.ErrUserDefined, &quot;Self-delegation is disallowed.&quot;)
+
+    // Forward the delegation as long as &#39;to&#39; also delegated.
+    // In general, such loops are very dangerous, because if they run too 
+    // long, they might need more gas than is available in a block.
+    // In this case, the delegation will not be executed, but in other 
+    // situations, such loops might cause a contract to get &quot;stuck&quot; completely.
+    toVoter := ballot._voters(to)
+    forx.Range( func() bool {
+            return toVoter.delegate != &quot;&quot;
+        },
+        func(i int) {
+            to = toVoter.delegate
+            toVoter = ballot._voters(to)
+
+            // We found a loop in the delegation, not allowed.
+            sdk.Require(to != sender,
+                types.ErrUserDefined, &quot;Found loop in delegation.&quot;)
+        })
+
+    sendVoter.voted = true
+    sendVoter.delegate = to
+    delegate := toVoter
+    if delegate.voted {
+        // If the delegate already voted,
+        // directly add to the number of votes
+        proposals := ballot._proposals()
+        proposals[int(delegate.vote)].voteCount += sendVoter.weight
+        ballot._setProposals(proposals)
+    } else {
+        // If the delegate did not vote yet,
+        // add to her weight.
+        delegate.weight += sendVoter.weight
+        ballot._setVoters(to, delegate)
+    }
+    return
+}
+
+//Vote give your vote (including votes delegated to you)
+//     to proposal `proposals[proposal].name`.
+//@:public:method:gas[500]
+func (ballot *Ballot) Vote(proposal uint) {
+    sender := ballot.sdk.Message().Sender().Address()
+    sendVoter := ballot._voters(sender)
+
+    sdk.Require(sendVoter.voted == false,
+        types.ErrUserDefined, &quot;You already voted.&quot;)
+
+    proposals := ballot._proposals()
+    sdk.Require(proposal &lt; uint(len(proposals)),
+        types.ErrUserDefined, &quot;Proposal is out of index.&quot;)
+
+    sendVoter.voted = true
+    sendVoter.vote = proposal
+    proposals[int(proposal)].voteCount += sendVoter.weight
+    ballot._setProposals(proposals)
+}
+
+//WinningProposal computes the winning proposal taking all
+//                previous votes into account.
+//@:public:method:gas[500]
+func (ballot *Ballot) WinningProposal() (winningProposal uint) {
+    var winningVoteCount uint
+
+    proposals := ballot._proposals()
+    forx.Range(proposals, func(i int, proposal Proposal) {
+        if proposal.voteCount &gt; winningVoteCount {
+            winningVoteCount = proposal.voteCount
+            winningProposal = uint(i)
+        }
+    })
+    return
+}
+
+//WinnerName calls winningProposal() function to get the index
+//     of the winner contained in the proposals array and then
+//     returns the name of the winner
+//@:public:method:gas[500]
+func (ballot *Ballot) WinnerName() (winnerName string) {
+    proposals := ballot._proposals()
+    if len(proposals) &gt; 0 {
+        winnerName = proposals[ballot.WinningProposal()].name
+    }
+    return
+}
+</code></pre>
+</figure>
+<h2 id='c8bb2af2'><span class='bd-content-title'>2. Charity Donation<a class='anchorjs-link ' href='#c8bb2af2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>The following contract implements a simple charitable donation function. The contract code are as follows:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mydonation
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/forx&quot;
+    &quot;blockchain/smcsdk/sdk/std&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//Mydonation This is struct of contract
+//@:contract:mydonation
+//@:version:1.0
+//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer
+//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c
+type Mydonation struct {
+    sdk sdk.ISmartContract
+
+    //Total donations received by donees
+    //@:public:store
+    donations map[types.Address]bn.Number // key=address of donee
+}
+
+const (
+    errDoneeCannotBeOwner = 55000 + iota
+    errDoneeCannotBeSmc
+    errDoneeAlreadyExist
+    errDoneeNotExist
+    errDonationExist
+    errDonationNotEnough
+)
+
+//@:public:receipt
+type receipt interface {
+    emitAddDonee(donee types.Address)
+    emitDelDonee(donee types.Address)
+    emitDonate(from, donee types.Address, value, balance bn.Number)
+    emitTransferDonation(donee types.Address, value, balance bn.Number)
+}
+
+//InitChain Constructor of this Mydonation
+//@:constructor
+func (d *Mydonation) InitChain() {
+}
+
+//AddDonee Add a new donee
+//@:public:method:gas[500]
+func (d *Mydonation) AddDonee(donee types.Address) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(donee != d.sdk.Message().Sender().Address(),
+        errDoneeCannotBeOwner, &quot;Donee can not be owner&quot;)
+    sdk.Require(donee != d.sdk.Message().Contract().Address(),
+        errDoneeCannotBeSmc, &quot;Donee can not be this smart contract&quot;)
+    sdk.Require(donee != d.sdk.Message().Contract().Account().Address(),
+        errDoneeCannotBeSmc, &quot;Donee can not be account of this smart contract&quot;)
+    sdk.Require(!d._chkDonations(donee),
+        errDoneeAlreadyExist, &quot;Donee already exists&quot;)
+
+    d._setDonations(donee, bn.N(0))
+
+    //emit receipt
+    d.emitAddDonee(donee)
+}
+
+//Donate delete a donee
+//@:public:method:gas[500]
+func (d *Mydonation) DelDonee(donee types.Address) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, &quot;Donee does not exist&quot;)
+    sdk.Require(d._donations(donee).IsEqualI(0),
+        errDonationExist, &quot;Donation exists&quot;)
+
+    d._delDonations(donee)
+
+    //emit receipt
+    d.emitDelDonee(donee)
+}
+
+//Donate Charitable donors donate money to smart contract
+//@:public:method:gas[500]
+func (d *Mydonation) Donate(donee types.Address) {
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, &quot;Donee does not exist&quot;)
+
+    var valTome *std.Transfer
+    token := d.sdk.Helper().GenesisHelper().Token()
+    forx.Range(
+        d.sdk.Message().GetTransferToMe(), 
+        func(i int, receipt *std.Transfer) {
+            sdk.Require(receipt.Token == token.Address(),
+                types.ErrInvalidParameter, 
+                &quot;Accept donations in genesis token only&quot;)
+            sdk.Require(valTome == nil,
+                types.ErrInvalidParameter, 
+                &quot;Accept only one donation at a time&quot;)
+            valTome = receipt
+        },
+    )
+    sdk.Require(valTome != nil,
+        types.ErrInvalidParameter, &quot;Please transfer token to me first&quot;)
+
+    balance := d._donations(donee).Add(valTome.Value)
+    d._setDonations(donee, balance)
+
+    //emit receipt
+    d.emitDonate(
+        d.sdk.Message().Sender().Address(),
+        donee,
+        valTome.Value,
+        balance,
+    )
+}
+
+//Withdraw To transfer donations to donee
+//@:public:method:gas[500]
+func (d *Mydonation) Transfer(donee types.Address, value bn.Number) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, 
+        &quot;Donee does not exist&quot;)
+    sdk.Require(value.IsGreaterThanI(0),
+        types.ErrInvalidParameter, 
+        &quot;Parameter \&quot;value\&quot; must be greater than 0&quot;)
+    sdk.Require(d._donations(donee).IsGE(value),
+        errDonationNotEnough, 
+        &quot;Donation is not enough&quot;)
+
+    token := d.sdk.Helper().GenesisHelper().Token()
+    account := d.sdk.Message().Contract().Account()
+    account.TransferByToken(token.Address(), donee, value)
+    balance := d._donations(donee).Sub(value)
+    d._setDonations(donee, balance)
+
+    //emit receipt
+    d.emitTransferDonation(
+        donee,
+        value,
+        balance,
+    )
+}'>Copy</button><pre><code class='go' lang='go'>package mydonation
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/forx&quot;
+    &quot;blockchain/smcsdk/sdk/std&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//Mydonation This is struct of contract
+//@:contract:mydonation
+//@:version:1.0
+//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer
+//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c
+type Mydonation struct {
+    sdk sdk.ISmartContract
+
+    //Total donations received by donees
+    //@:public:store
+    donations map[types.Address]bn.Number // key=address of donee
+}
+
+const (
+    errDoneeCannotBeOwner = 55000 + iota
+    errDoneeCannotBeSmc
+    errDoneeAlreadyExist
+    errDoneeNotExist
+    errDonationExist
+    errDonationNotEnough
+)
+
+//@:public:receipt
+type receipt interface {
+    emitAddDonee(donee types.Address)
+    emitDelDonee(donee types.Address)
+    emitDonate(from, donee types.Address, value, balance bn.Number)
+    emitTransferDonation(donee types.Address, value, balance bn.Number)
+}
+
+//InitChain Constructor of this Mydonation
+//@:constructor
+func (d *Mydonation) InitChain() {
+}
+
+//AddDonee Add a new donee
+//@:public:method:gas[500]
+func (d *Mydonation) AddDonee(donee types.Address) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(donee != d.sdk.Message().Sender().Address(),
+        errDoneeCannotBeOwner, &quot;Donee can not be owner&quot;)
+    sdk.Require(donee != d.sdk.Message().Contract().Address(),
+        errDoneeCannotBeSmc, &quot;Donee can not be this smart contract&quot;)
+    sdk.Require(donee != d.sdk.Message().Contract().Account().Address(),
+        errDoneeCannotBeSmc, &quot;Donee can not be account of this smart contract&quot;)
+    sdk.Require(!d._chkDonations(donee),
+        errDoneeAlreadyExist, &quot;Donee already exists&quot;)
+
+    d._setDonations(donee, bn.N(0))
+
+    //emit receipt
+    d.emitAddDonee(donee)
+}
+
+//Donate delete a donee
+//@:public:method:gas[500]
+func (d *Mydonation) DelDonee(donee types.Address) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, &quot;Donee does not exist&quot;)
+    sdk.Require(d._donations(donee).IsEqualI(0),
+        errDonationExist, &quot;Donation exists&quot;)
+
+    d._delDonations(donee)
+
+    //emit receipt
+    d.emitDelDonee(donee)
+}
+
+//Donate Charitable donors donate money to smart contract
+//@:public:method:gas[500]
+func (d *Mydonation) Donate(donee types.Address) {
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, &quot;Donee does not exist&quot;)
+
+    var valTome *std.Transfer
+    token := d.sdk.Helper().GenesisHelper().Token()
+    forx.Range(
+        d.sdk.Message().GetTransferToMe(), 
+        func(i int, receipt *std.Transfer) {
+            sdk.Require(receipt.Token == token.Address(),
+                types.ErrInvalidParameter, 
+                &quot;Accept donations in genesis token only&quot;)
+            sdk.Require(valTome == nil,
+                types.ErrInvalidParameter, 
+                &quot;Accept only one donation at a time&quot;)
+            valTome = receipt
+        },
+    )
+    sdk.Require(valTome != nil,
+        types.ErrInvalidParameter, &quot;Please transfer token to me first&quot;)
+
+    balance := d._donations(donee).Add(valTome.Value)
+    d._setDonations(donee, balance)
+
+    //emit receipt
+    d.emitDonate(
+        d.sdk.Message().Sender().Address(),
+        donee,
+        valTome.Value,
+        balance,
+    )
+}
+
+//Withdraw To transfer donations to donee
+//@:public:method:gas[500]
+func (d *Mydonation) Transfer(donee types.Address, value bn.Number) {
+    sdk.RequireOwner()
+    sdk.RequireAddress(donee)
+    sdk.Require(d._chkDonations(donee),
+        errDoneeNotExist, 
+        &quot;Donee does not exist&quot;)
+    sdk.Require(value.IsGreaterThanI(0),
+        types.ErrInvalidParameter, 
+        &quot;Parameter \&quot;value\&quot; must be greater than 0&quot;)
+    sdk.Require(d._donations(donee).IsGE(value),
+        errDonationNotEnough, 
+        &quot;Donation is not enough&quot;)
+
+    token := d.sdk.Helper().GenesisHelper().Token()
+    account := d.sdk.Message().Contract().Account()
+    account.TransferByToken(token.Address(), donee, value)
+    balance := d._donations(donee).Sub(value)
+    d._setDonations(donee, balance)
+
+    //emit receipt
+    d.emitTransferDonation(
+        donee,
+        value,
+        balance,
+    )
+}
+</code></pre>
+</figure>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/en-us/04-SmartContractDev\SmartContract(golang)\02-ProgrammingExample.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#f5a3260f'>Examples of Smart Contract Implementation</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#ebdb3fd8'>1. Voting</a>
+<a class='ml-0 my-1 nav-link' href='#c8bb2af2'>2. Charity Donation</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

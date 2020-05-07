@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>sdk/bn</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/站点地图.html'>站点地图</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB基础</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/01-BCB介绍.html'>BCB介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/02-BCB节点.html'>BCB节点</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/01-主网与测试网.html'>主网与测试网</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/02-私链搭建指南.html'>私链搭建指南</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB侧链</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/01-侧链注册.html'>侧链注册</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/02-侧链创世.html'>侧链创世</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/03-侧链治理.html'>侧链治理</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/04-跨链交易.html'>跨链交易</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB工具箱</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/02-编程实例.html'>编程实例</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/03-深入理解.html'>深入理解</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/01-开发环境.html'>开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/02-第一个智能合约.html'>第一个智能合约</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/01-BVM与EVM差异说明.html'>BVM与EVM差异说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/02-合约开发.html'>合约开发</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/03-合约部署调用.html'>合约部署调用</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所对接指南</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/01-集成方案介绍.html'>集成方案介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/02-安装部署.html'>安装部署</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/03-命令详解.html'>命令详解</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-模型说明.html'>模型说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-算法说明.html'>算法说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/04-交易格式v1.html'>交易格式v1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/05-交易格式v2.html'>交易格式v2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>主链API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/02-网络接口.html'>网络接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/03-区块接口.html'>区块接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/04-交易接口.html'>交易接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/05-世界接口.html'>世界接口</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/02-钱包接口.html'>钱包接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/03-区块链接口.html'>区块链接口</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='a66c8de4'><span class='bd-content-title'>sdk/bn<a class='anchorjs-link ' href='#a66c8de4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>代码包 <code>blockchain/smcsdk/sdk/bn</code> 封装了一个处理大数的类 Number ，进行加减乘除操作时不必考虑溢出的问题。</p>
+<h2 id='f046f035'><span class='bd-content-title'>1 functions<a class='anchorjs-link ' href='#f046f035' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>本章描述程序包 <code>sdk/bn</code> 提供的关于类 Number 简便构造函数。</p>
+<h3 id='fc6755f1'><span class='bd-content-title'>1.1 func N()<a class='anchorjs-link ' href='#fc6755f1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func N(x int64) Number'>Copy</button><pre><code>func N(x int64) Number
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>int64</code> 类型的 x 转换成 <code>Number</code> 类型对象并返回。</p>
+<h3 id='bc776b9e'><span class='bd-content-title'>1.2 func N1()<a class='anchorjs-link ' href='#bc776b9e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func N1(b int64, d int64) Number'>Copy</button><pre><code>func N1(b int64, d int64) Number
+</code></pre>
+</figure>
+<p class='with-space'>根据传入的 <code>b</code> 和 d ，计算 <code>b * d</code> 的结果并返回 Number 类型对象。</p>
+<h3 id='b0375eec'><span class='bd-content-title'>1.3 func N2()<a class='anchorjs-link ' href='#b0375eec' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func N2(b int64, d1, d2 int64) Number'>Copy</button><pre><code>func N2(b int64, d1, d2 int64) Number
+</code></pre>
+</figure>
+<p class='with-space'>根据传入的 <code>b</code> ， d1 ， <code>d2</code> ，计算 b * d1 * d2 的结果并返回 <code>Number</code> 类型对象。</p>
+<h3 id='fa276f9c'><span class='bd-content-title'>1.4 func NB()<a class='anchorjs-link ' href='#fa276f9c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NB(x *big.Int) Number'>Copy</button><pre><code>func NB(x *big.Int) Number
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>big.Int</code> 类型的大整数 x 转换成 <code>Number</code> 类型对象并返回。</p>
+<h3 id='a06fab5a'><span class='bd-content-title'>1.5 func NBS()<a class='anchorjs-link ' href='#a06fab5a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NBS(x []byte) Number'>Copy</button><pre><code>func NBS(x []byte) Number
+</code></pre>
+</figure>
+<p class='with-space'>将按大端表示无符号大整数的字节切片 <code>x</code> 转换成 Number 类型对象并返回。</p>
+<h3 id='c9b186a9'><span class='bd-content-title'>1.6 func NSBS()<a class='anchorjs-link ' href='#c9b186a9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NSBS(x []byte) Number'>Copy</button><pre><code>func NSBS(x []byte) Number
+</code></pre>
+</figure>
+<p class='with-space'>将按大端表示带符号大整数的字节切片 <code>x</code> 转换成 Number 类型对象并返回。</p>
+<h3 id='fef574fd'><span class='bd-content-title'>1.7 func NBytes()<a class='anchorjs-link ' href='#fef574fd' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NBytes(x []byte) Number'>Copy</button><pre><code>func NBytes(x []byte) Number
+</code></pre>
+</figure>
+<p class='with-space'>将按大端表示无符号大整数的字节切片 <code>x</code> 转换成 Number 类型对象并返回。</p>
+<h3 id='df615b91'><span class='bd-content-title'>1.8 func NSBytes()<a class='anchorjs-link ' href='#df615b91' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NSBytes(x []byte) Number'>Copy</button><pre><code>func NSBytes(x []byte) Number
+</code></pre>
+</figure>
+<p class='with-space'>将按大端表示带符号大整数的字节切片 <code>x</code> 转换成 Number 类型对象并返回。</p>
+<h3 id='a599ab87'><span class='bd-content-title'>1.9 func NString()<a class='anchorjs-link ' href='#a599ab87' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NS(s string) Number'>Copy</button><pre><code>func NS(s string) Number
+</code></pre>
+</figure>
+<p class='with-space'>将按十进制字符串表示的大整数 <code>s</code> 转换成 Number 类型对象并返回，如果解析失败将返回 <code>0</code> 。</p>
+<h3 id='e82f3f4c'><span class='bd-content-title'>1.10 func NStringHex()<a class='anchorjs-link ' href='#e82f3f4c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NS(s string) Number'>Copy</button><pre><code>func NS(s string) Number
+</code></pre>
+</figure>
+<p class='with-space'>将以 <code>0x</code> 或 0X 开头的十六进制字符串表示的无符号大整数 <code>s</code> 转换成 Number 类型对象并返回，如果解析失败将返回 <code>0</code> 。</p>
+<h3 id='ec5f7847'><span class='bd-content-title'>1.11 func NewNumber()<a class='anchorjs-link ' href='#ec5f7847' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NewNumber(x int64) Number'>Copy</button><pre><code>func NewNumber(x int64) Number
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>int64</code> 类型的大整数 x 转换成 <code>Number</code> 类型对象并返回。</p>
+<h3 id='c55e2d78'><span class='bd-content-title'>1.12 func NewNumberStringBase()<a class='anchorjs-link ' href='#c55e2d78' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NewNumberStringBase(s string, base int) Number'>Copy</button><pre><code>func NewNumberStringBase(s string, base int) Number
+</code></pre>
+</figure>
+<p class='with-space'>将字符串表示的大整数 <code>s</code> 转换成 Number 类型对象并返回，字符串按给定的基数 <code>base</code> 进行解析，如果解析失败将返回 0 。</p>
+<p class='with-space'>基数 <code>base</code> 必须是 0 或者 <code>2</code> 到 MaxBase 之间的整数。如果 <code>base</code> 为 0 ，字符串 <code>s</code> 的前缀决定实际的转换基数：前缀为 &quot;0x&quot; 、 <code>&quot;0X&quot;</code> 表示十六进制；前缀 &quot;0b&quot; 、 <code>&quot;0B&quot;</code> 表示二进制；前缀 &quot;0&quot; 表示八进制；其它都自动采用十进制作为基数。</p>
+<p class='with-space'>针对 <code>&lt;= 36</code> 的基数，大写和小写字母表达相同的数，字母 &#39;a&#39; 到 <code>&#39;z&#39;</code> 和 &#39;A&#39; 到 <code>&#39;Z&#39;</code> 都表达数值 10 到 <code>35</code> 。</p>
+<p class='with-space'>针对 <code>&gt; 36</code> 的基数，大写字母 &#39;A&#39; 到 <code>&#39;Z&#39;</code> 表达数值 36 到 <code>61</code> 。</p>
+<h3 id='b31add80'><span class='bd-content-title'>1.13 func NewNumberBigInt()<a class='anchorjs-link ' href='#b31add80' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NewNumberBigInt(x *big.Int) Number'>Copy</button><pre><code>func NewNumberBigInt(x *big.Int) Number
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>big.Int</code> 类型的大整数 x 转换成 <code>Number</code> 类型对象并返回。</p>
+<h3 id='e39dc9f7'><span class='bd-content-title'>1.14 func NewNumberLong()<a class='anchorjs-link ' href='#e39dc9f7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NewNumberLong(b int64, d int64) Number'>Copy</button><pre><code>func NewNumberLong(b int64, d int64) Number
+</code></pre>
+</figure>
+<p class='with-space'>根据传入的 <code>b</code> 和 d ，计算 <code>b * d</code> 的结果并返回 Number 类型对象。</p>
+<h3 id='c74f7218'><span class='bd-content-title'>1.15 func NewNumberLongLong()<a class='anchorjs-link ' href='#c74f7218' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func NewNumberLongLong(b int64, d1, d2 int64) Number'>Copy</button><pre><code>func NewNumberLongLong(b int64, d1, d2 int64) Number
+</code></pre>
+</figure>
+<p class='with-space'>根据传入的 <code>b</code> ， d1 ， <code>d2</code> ，计算 b * d1 * d2 的结果并返回 <code>Number</code> 类型对象。</p>
+<h2 id='e4b26a4b'><span class='bd-content-title'>2 class Number<a class='anchorjs-link ' href='#e4b26a4b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>本章描述类 <code>Number</code> 的成员函数。</p>
+<h3 id='a1ba7d2e'><span class='bd-content-title'>2.1 func String()<a class='anchorjs-link ' href='#a1ba7d2e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) String() string'>Copy</button><pre><code>func (x Number) String() string
+</code></pre>
+</figure>
+<p class='with-space'>实现标准的获取字符串表达接口，将 <code>x</code> 转换为十进制字符串。 x 未设定初始大数值，返回 <code>nil</code> 。</p>
+<h3 id='c91a340f'><span class='bd-content-title'>2.2 func Value()<a class='anchorjs-link ' href='#c91a340f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Value() *big.Int'>Copy</button><pre><code>func (x Number) Value() *big.Int
+</code></pre>
+</figure>
+<p class='with-space'>获取 <code>x</code> 的 big.Int 的值。 <code>x</code> 未设定初始大数值，返回 nil 。</p>
+<h3 id='e5426aa2'><span class='bd-content-title'>2.3 func CmpI()<a class='anchorjs-link ' href='#e5426aa2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) CmpI(y int64) int'>Copy</button><pre><code>func (x Number) CmpI(y int64) int
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>-1</code> 代表 x &lt; y ， <code>0</code> 代表 x == y ， <code>+1</code> 代表 x &gt; y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='fa0561b8'><span class='bd-content-title'>2.4 func Cmp()<a class='anchorjs-link ' href='#fa0561b8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Cmp(y Number) int'>Copy</button><pre><code>func (x Number) Cmp(y Number) int
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>-1</code> 代表 x &lt; y ， <code>0</code> 代表 x == y ， <code>+1</code> 代表 x &gt; y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='b262659c'><span class='bd-content-title'>2.5 func IsZero()<a class='anchorjs-link ' href='#b262659c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsZero() bool'>Copy</button><pre><code>func (x Number) IsZero() bool
+</code></pre>
+</figure>
+<p class='with-space'>判断 <code>x</code> 是否为 0 。 <code>x</code> 等于 0 返回 <code>true</code> 。 x 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='c7ba7c39'><span class='bd-content-title'>2.6 func IsPositive()<a class='anchorjs-link ' href='#c7ba7c39' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsPositive() bool'>Copy</button><pre><code>func (x Number) IsPositive() bool
+</code></pre>
+</figure>
+<p class='with-space'>判断 <code>x</code> 是否为正整数(不包含 0 )。 <code>x</code> 为正数返回 true 。 <code>x</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='a8d19d1a'><span class='bd-content-title'>2.7 func IsNegative()<a class='anchorjs-link ' href='#a8d19d1a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsNegative() bool'>Copy</button><pre><code>func (x Number) IsNegative() bool
+</code></pre>
+</figure>
+<p class='with-space'>判断 <code>x</code> 是否为负整数。 x 为负数返回 <code>true</code> 。 x 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='ba16a7c5'><span class='bd-content-title'>2.8 func IsEqualI()<a class='anchorjs-link ' href='#ba16a7c5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsEqualI(y int64) bool'>Copy</button><pre><code>func (x Number) IsEqualI(y int64) bool
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>true</code> 代表 x == y ， <code>false</code> 代表 x != y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='eb0d49c6'><span class='bd-content-title'>2.9 func IsEqual()<a class='anchorjs-link ' href='#eb0d49c6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsEqual(y Number) bool'>Copy</button><pre><code>func (x Number) IsEqual(y Number) bool
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>true</code> 代表 x == y ， <code>false</code> 代表 x != y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='c5e997d5'><span class='bd-content-title'>2.10 func IsGreaterThanI()<a class='anchorjs-link ' href='#c5e997d5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsGreaterThanI(y int64) bool'>Copy</button><pre><code>func (x Number) IsGreaterThanI(y int64) bool
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>true</code> 代表 x &gt; y ， <code>false</code> 代表 x &lt;= y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='e53379ba'><span class='bd-content-title'>2.11 func IsGreaterThan()<a class='anchorjs-link ' href='#e53379ba' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsGreaterThan(y Number) bool'>Copy</button><pre><code>func (x Number) IsGreaterThan(y Number) bool
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>true</code> 代表 x &gt; y ， <code>false</code> 代表 x &lt;= y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='d3a3d3a8'><span class='bd-content-title'>2.12 func IsLessThanI()<a class='anchorjs-link ' href='#d3a3d3a8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsLessThanI(y int64) bool'>Copy</button><pre><code>func (x Number) IsLessThanI(y int64) bool
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>true</code> 代表 x &lt; y ， <code>false</code> 代表 x &gt;= y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='a3731acc'><span class='bd-content-title'>2.13 func IsLessThan()<a class='anchorjs-link ' href='#a3731acc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsLessThan(y Number) bool'>Copy</button><pre><code>func (x Number) IsLessThan(y Number) bool
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>true</code> 代表 x &lt; y ， <code>false</code> 代表 x &gt;= y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='cb4c6790'><span class='bd-content-title'>2.14 func IsGEI()<a class='anchorjs-link ' href='#cb4c6790' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsGEI()(y int64) bool'>Copy</button><pre><code>func (x Number) IsGEI()(y int64) bool
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>true</code> 代表 x &gt;= y ， <code>false</code> 代表 x &lt; y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='fec5c1f2'><span class='bd-content-title'>2.15 func IsGE()<a class='anchorjs-link ' href='#fec5c1f2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsGE(y Number) bool'>Copy</button><pre><code>func (x Number) IsGE(y Number) bool
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>true</code> 代表 x &gt;= y ， <code>false</code> 代表 x &lt; y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='a2238d93'><span class='bd-content-title'>2.16 func IsLEI()<a class='anchorjs-link ' href='#a2238d93' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsLEI(y int64) bool'>Copy</button><pre><code>func (x Number) IsLEI(y int64) bool
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>true</code> 代表 x &lt;= y ， <code>false</code> 代表 x &gt; y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='fe64b55f'><span class='bd-content-title'>2.17 func IsLE()<a class='anchorjs-link ' href='#fe64b55f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) IsLE(y Number) bool'>Copy</button><pre><code>func (x Number) IsLE(y Number) bool
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 与 y 进行比较，返回 <code>true</code> 代表 x &lt;= y ， <code>false</code> 代表 x &gt; y 。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='c18464f5'><span class='bd-content-title'>2.18 func AddI()<a class='anchorjs-link ' href='#c18464f5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) AddI(y int64) Number'>Copy</button><pre><code>func (x Number) AddI(y int64) Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x + y</code> ，并返回计算结果。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='ddba0876'><span class='bd-content-title'>2.19 func Add()<a class='anchorjs-link ' href='#ddba0876' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Add(y Number) Number'>Copy</button><pre><code>func (x Number) Add(y Number) Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x + y</code> ，并返回计算结果。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='ff648f8c'><span class='bd-content-title'>2.20 func SubI()<a class='anchorjs-link ' href='#ff648f8c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) SubI(y int64) Number'>Copy</button><pre><code>func (x Number) SubI(y int64) Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x - y</code> ，并返回计算结果。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='d2688cb7'><span class='bd-content-title'>2.21 func Sub()<a class='anchorjs-link ' href='#d2688cb7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Sub(y Number) Number'>Copy</button><pre><code>func (x Number) Sub(y Number) Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x - y</code> ，并返回计算结果。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='a7cdd23c'><span class='bd-content-title'>2.22 func MulI()<a class='anchorjs-link ' href='#a7cdd23c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) MulI(y int64) Number'>Copy</button><pre><code>func (x Number) MulI(y int64) Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x * y</code> ，并返回计算结果。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='b51bf838'><span class='bd-content-title'>2.23 func Mul()<a class='anchorjs-link ' href='#b51bf838' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Mul(y Number) Number'>Copy</button><pre><code>func (x Number) Mul(y Number) Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x * y</code> ，并返回计算结果。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='b8cfd809'><span class='bd-content-title'>2.24 func DivI()<a class='anchorjs-link ' href='#b8cfd809' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) DivI(y int64) Number'>Copy</button><pre><code>func (x Number) DivI(y int64) Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x / y</code> ，并返回计算结果。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='ebd1dbb4'><span class='bd-content-title'>2.25 func Div()<a class='anchorjs-link ' href='#ebd1dbb4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Div(y Number) Number'>Copy</button><pre><code>func (x Number) Div(y Number) Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x / y</code> ，并返回计算结果。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='fb22c091'><span class='bd-content-title'>2.26 func ModI()<a class='anchorjs-link ' href='#fb22c091' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) ModI(y int64) Number'>Copy</button><pre><code>func (x Number) ModI(y int64) Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x % y</code> ，并返回计算结果。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='c19cc751'><span class='bd-content-title'>2.27 func Mod()<a class='anchorjs-link ' href='#c19cc751' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Mod(y Number) Number'>Copy</button><pre><code>func (x Number) Mod(y Number) Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x % y</code> ，并返回计算结果。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='e570cb8b'><span class='bd-content-title'>2.28 func Sq()<a class='anchorjs-link ' href='#e570cb8b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Sq() Number'>Copy</button><pre><code>func (x Number) Sq() Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x ** 2</code> ，并返回计算结果。 x 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='bf02e74d'><span class='bd-content-title'>2.29 func Sqrt()<a class='anchorjs-link ' href='#bf02e74d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Sqrt() Number'>Copy</button><pre><code>func (x Number) Sqrt() Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x</code> 平方根，并返回计算结果。 x 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='b5e503c7'><span class='bd-content-title'>2.30 func Exp()<a class='anchorjs-link ' href='#b5e503c7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Exp(y Number) Number'>Copy</button><pre><code>func (x Number) Exp(y Number) Number
+</code></pre>
+</figure>
+<p class='with-space'>计算 <code>x ** y</code> ，并返回计算结果。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='fc926f65'><span class='bd-content-title'>2.31 func Lsh()<a class='anchorjs-link ' href='#fc926f65' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Lsh(n uint) Number'>Copy</button><pre><code>func (x Number) Lsh(n uint) Number
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 向左移 n 位，并返回移位结果。 <code>x</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='aee694b3'><span class='bd-content-title'>2.32 func Rsh()<a class='anchorjs-link ' href='#aee694b3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Rsh(n uint) Number'>Copy</button><pre><code>func (x Number) Rsh(n uint) Number
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 向右移 n 位，并返回移位结果。 <code>x</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='b58d9a14'><span class='bd-content-title'>2.33 func And()<a class='anchorjs-link ' href='#b58d9a14' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) And(y Number) Number'>Copy</button><pre><code>func (x Number) And(y Number) Number
+</code></pre>
+</figure>
+<p class='with-space'>按位计算 <code>x &amp; y</code> ，并返回计算结果（需要注意这里 x 、 <code>y</code> 有可能为负数，采用二进制补码形式进行按位与）。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='a2bf513d'><span class='bd-content-title'>2.34 func Or()<a class='anchorjs-link ' href='#a2bf513d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Or(y Number) Number'>Copy</button><pre><code>func (x Number) Or(y Number) Number
+</code></pre>
+</figure>
+<p class='with-space'>按位计算 <code>x | y</code> ，并返回计算结果（需要注意这里 x 、 <code>y</code> 有可能为负数，采用二进制补码形式进行按位或）。 x 或 <code>y</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='bdaceee8'><span class='bd-content-title'>2.35 func Xor()<a class='anchorjs-link ' href='#bdaceee8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Xor(y Number) Number'>Copy</button><pre><code>func (x Number) Xor(y Number) Number
+</code></pre>
+</figure>
+<p class='with-space'>按位计算 <code>x ^ y</code> ，并返回计算结果（需要注意这里 <code>x</code> 、 y 有可能为负数，采用二进制补码形式进行按位异或）。 <code>x</code> 或 y 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='af1a301f'><span class='bd-content-title'>2.36 func Not()<a class='anchorjs-link ' href='#af1a301f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Not() Number'>Copy</button><pre><code>func (x Number) Not() Number
+</code></pre>
+</figure>
+<p class='with-space'>按位计算 <code>^ x</code> ，并返回计算结果（需要注意这里 x 有可能为负数，采用二进制补码形式进行取反）。 <code>x</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='d8cae459'><span class='bd-content-title'>2.37 func Bytes()<a class='anchorjs-link ' href='#d8cae459' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) Bytes() []byte'>Copy</button><pre><code>func (x Number) Bytes() []byte
+</code></pre>
+</figure>
+<p class='with-space'>实现标准的获取字节切片接口，将 <code>x</code> 转换为大端顺序的字节切片（第一字节解为表示符号，负数为 0xFF ，非负数为 <code>0x00</code> ），并返回转换结果。例如： 380 将被转换为 <code>0x00017C</code> ； -380 将被转换为 <code>0xFF017C</code> 。 x 未设定初始大数值将触发 <code>panic</code> 。</p>
+<h3 id='f85add19'><span class='bd-content-title'>2.37 func SetBytes()<a class='anchorjs-link ' href='#f85add19' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x *Number) SetBytes(buf []byte) Number'>Copy</button><pre><code>func (x *Number) SetBytes(buf []byte) Number
+</code></pre>
+</figure>
+<p class='with-space'>将 <code>x</code> 的值设置为一个大端顺序的字节切片（第一字节为 0xFF 表示是一个负数，其绝对值从第二字节开始编码，否则整个字节切片表示一个非负整数），并将 <code>x</code> 的值返回。例如： 0x00017C 和 <code>0x017C</code> 都将被转换为 380 ； <code>0xFF017C</code> 将被转换为 -380 。</p>
+<h3 id='e75e42f5'><span class='bd-content-title'>2.38 func MarshalJSON()<a class='anchorjs-link ' href='#e75e42f5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x Number) MarshalJSON() (data []byte, err error)'>Copy</button><pre><code>func (x Number) MarshalJSON() (data []byte, err error)
+</code></pre>
+</figure>
+<p class='with-space'>实现标准的 JSON 序列化接口。将 <code>x</code> 转成简化版的 JSON 字符串，例如字符串 380 。 <code>x</code> 未设定初始大数值将触发 panic 。</p>
+<h3 id='f1f10843'><span class='bd-content-title'>2.39 func UnmarshalJSON()<a class='anchorjs-link ' href='#f1f10843' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (x *Number) UnmarshalJSON(data []byte) error'>Copy</button><pre><code>func (x *Number) UnmarshalJSON(data []byte) error
+</code></pre>
+</figure>
+<p class='with-space'>实现标准的 JSON 反序列化接口。将 <code>x</code> 的值设为输入的 JSON 字符串对应的大数。支持简化版的 JSON 字符串（例如：字符串 380 ）与结构版的 JSON 字符串（例如：字符串 <code>{&quot;v&quot;:380}</code> ）。</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/zh-cn/06-开发参考\02-智能合约API\04-sdk.bn.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#a66c8de4'>sdk/bn</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#f046f035'>1 functions</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#fc6755f1'>1.1 func N()</a>
+<a class='ml-2 my-1 nav-link' href='#bc776b9e'>1.2 func N1()</a>
+<a class='ml-2 my-1 nav-link' href='#b0375eec'>1.3 func N2()</a>
+<a class='ml-2 my-1 nav-link' href='#fa276f9c'>1.4 func NB()</a>
+<a class='ml-2 my-1 nav-link' href='#a06fab5a'>1.5 func NBS()</a>
+<a class='ml-2 my-1 nav-link' href='#c9b186a9'>1.6 func NSBS()</a>
+<a class='ml-2 my-1 nav-link' href='#fef574fd'>1.7 func NBytes()</a>
+<a class='ml-2 my-1 nav-link' href='#df615b91'>1.8 func NSBytes()</a>
+<a class='ml-2 my-1 nav-link' href='#a599ab87'>1.9 func NString()</a>
+<a class='ml-2 my-1 nav-link' href='#e82f3f4c'>1.10 func NStringHex()</a>
+<a class='ml-2 my-1 nav-link' href='#ec5f7847'>1.11 func NewNumber()</a>
+<a class='ml-2 my-1 nav-link' href='#c55e2d78'>1.12 func NewNumberStringBase()</a>
+<a class='ml-2 my-1 nav-link' href='#b31add80'>1.13 func NewNumberBigInt()</a>
+<a class='ml-2 my-1 nav-link' href='#e39dc9f7'>1.14 func NewNumberLong()</a>
+<a class='ml-2 my-1 nav-link' href='#c74f7218'>1.15 func NewNumberLongLong()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#e4b26a4b'>2 class Number</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#a1ba7d2e'>2.1 func String()</a>
+<a class='ml-2 my-1 nav-link' href='#c91a340f'>2.2 func Value()</a>
+<a class='ml-2 my-1 nav-link' href='#e5426aa2'>2.3 func CmpI()</a>
+<a class='ml-2 my-1 nav-link' href='#fa0561b8'>2.4 func Cmp()</a>
+<a class='ml-2 my-1 nav-link' href='#b262659c'>2.5 func IsZero()</a>
+<a class='ml-2 my-1 nav-link' href='#c7ba7c39'>2.6 func IsPositive()</a>
+<a class='ml-2 my-1 nav-link' href='#a8d19d1a'>2.7 func IsNegative()</a>
+<a class='ml-2 my-1 nav-link' href='#ba16a7c5'>2.8 func IsEqualI()</a>
+<a class='ml-2 my-1 nav-link' href='#eb0d49c6'>2.9 func IsEqual()</a>
+<a class='ml-2 my-1 nav-link' href='#c5e997d5'>2.10 func IsGreaterThanI()</a>
+<a class='ml-2 my-1 nav-link' href='#e53379ba'>2.11 func IsGreaterThan()</a>
+<a class='ml-2 my-1 nav-link' href='#d3a3d3a8'>2.12 func IsLessThanI()</a>
+<a class='ml-2 my-1 nav-link' href='#a3731acc'>2.13 func IsLessThan()</a>
+<a class='ml-2 my-1 nav-link' href='#cb4c6790'>2.14 func IsGEI()</a>
+<a class='ml-2 my-1 nav-link' href='#fec5c1f2'>2.15 func IsGE()</a>
+<a class='ml-2 my-1 nav-link' href='#a2238d93'>2.16 func IsLEI()</a>
+<a class='ml-2 my-1 nav-link' href='#fe64b55f'>2.17 func IsLE()</a>
+<a class='ml-2 my-1 nav-link' href='#c18464f5'>2.18 func AddI()</a>
+<a class='ml-2 my-1 nav-link' href='#ddba0876'>2.19 func Add()</a>
+<a class='ml-2 my-1 nav-link' href='#ff648f8c'>2.20 func SubI()</a>
+<a class='ml-2 my-1 nav-link' href='#d2688cb7'>2.21 func Sub()</a>
+<a class='ml-2 my-1 nav-link' href='#a7cdd23c'>2.22 func MulI()</a>
+<a class='ml-2 my-1 nav-link' href='#b51bf838'>2.23 func Mul()</a>
+<a class='ml-2 my-1 nav-link' href='#b8cfd809'>2.24 func DivI()</a>
+<a class='ml-2 my-1 nav-link' href='#ebd1dbb4'>2.25 func Div()</a>
+<a class='ml-2 my-1 nav-link' href='#fb22c091'>2.26 func ModI()</a>
+<a class='ml-2 my-1 nav-link' href='#c19cc751'>2.27 func Mod()</a>
+<a class='ml-2 my-1 nav-link' href='#e570cb8b'>2.28 func Sq()</a>
+<a class='ml-2 my-1 nav-link' href='#bf02e74d'>2.29 func Sqrt()</a>
+<a class='ml-2 my-1 nav-link' href='#b5e503c7'>2.30 func Exp()</a>
+<a class='ml-2 my-1 nav-link' href='#fc926f65'>2.31 func Lsh()</a>
+<a class='ml-2 my-1 nav-link' href='#aee694b3'>2.32 func Rsh()</a>
+<a class='ml-2 my-1 nav-link' href='#b58d9a14'>2.33 func And()</a>
+<a class='ml-2 my-1 nav-link' href='#a2bf513d'>2.34 func Or()</a>
+<a class='ml-2 my-1 nav-link' href='#bdaceee8'>2.35 func Xor()</a>
+<a class='ml-2 my-1 nav-link' href='#af1a301f'>2.36 func Not()</a>
+<a class='ml-2 my-1 nav-link' href='#d8cae459'>2.37 func Bytes()</a>
+<a class='ml-2 my-1 nav-link' href='#f85add19'>2.37 func SetBytes()</a>
+<a class='ml-2 my-1 nav-link' href='#e75e42f5'>2.38 func MarshalJSON()</a>
+<a class='ml-2 my-1 nav-link' href='#f1f10843'>2.39 func UnmarshalJSON()</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

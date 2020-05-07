@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>BCB 节点</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/站点地图.html'>站点地图</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB基础</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/01-BCB介绍.html'>BCB介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/02-BCB节点.html'>BCB节点</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/01-主网与测试网.html'>主网与测试网</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/02-私链搭建指南.html'>私链搭建指南</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB侧链</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/01-侧链注册.html'>侧链注册</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/02-侧链创世.html'>侧链创世</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/03-侧链治理.html'>侧链治理</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/04-跨链交易.html'>跨链交易</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB工具箱</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/02-编程实例.html'>编程实例</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/03-深入理解.html'>深入理解</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/01-开发环境.html'>开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/02-第一个智能合约.html'>第一个智能合约</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/01-BVM与EVM差异说明.html'>BVM与EVM差异说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/02-合约开发.html'>合约开发</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/03-合约部署调用.html'>合约部署调用</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所对接指南</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/01-集成方案介绍.html'>集成方案介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/02-安装部署.html'>安装部署</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/03-命令详解.html'>命令详解</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-模型说明.html'>模型说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-算法说明.html'>算法说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/04-交易格式v1.html'>交易格式v1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/05-交易格式v2.html'>交易格式v2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>主链API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/02-网络接口.html'>网络接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/03-区块接口.html'>区块接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/04-交易接口.html'>交易接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/05-世界接口.html'>世界接口</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/02-钱包接口.html'>钱包接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/03-区块链接口.html'>区块链接口</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='f4b7f71a'><span class='bd-content-title'>BCB 节点<a class='anchorjs-link ' href='#f4b7f71a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='af3e8a82'><span class='bd-content-title'>1. 概述<a class='anchorjs-link ' href='#af3e8a82' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>BCB Node是BCB网络的全节点程序，可以存储 BCB 网络的全部数据，通过 P2P 的方式与BCB其他节点进行连接， 能够独立校验BCB区块链上的所有交易并实时更新数据，负责区块链的交易的广播和验证。</p>
+<h2 id='f784c8fd'><span class='bd-content-title'>2. 节点环境配置<a class='anchorjs-link ' href='#f784c8fd' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='e9541c45'><span class='bd-content-title'>2.1 系统要求<a class='anchorjs-link ' href='#e9541c45' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>在搭建节点前需要准备如下环境：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='操作系统：  CentOS 7 64 bit
+硬件：     CPU 8核+，内存16GB+，硬盘512GB+（推荐SSD硬盘）'>Copy</button><pre><code>操作系统：  CentOS 7 64 bit
+硬件：     CPU 8核+，内存16GB+，硬盘512GB+（推荐SSD硬盘）
+</code></pre>
+</figure>
+<h3 id='e6f5adbd'><span class='bd-content-title'>2.2 NTP服务安装<a class='anchorjs-link ' href='#e6f5adbd' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>运行 BCBChain 节点需要保证节点时间同步，要求安装NTP服务：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='sudo yum install ntp'>Copy</button><pre><code>sudo yum install ntp
+</code></pre>
+</figure>
+<h3 id='eec66c1e'><span class='bd-content-title'>2.3 docker环境安装<a class='anchorjs-link ' href='#eec66c1e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>运行 BCBChain 节点需要安装 <code>docker</code>，版本要求如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Docker 1.13.1 + 镜像：golang:alpine、alpine'>Copy</button><pre><code>Docker 1.13.1 + 镜像：golang:alpine、alpine
+</code></pre>
+</figure>
+<p class='with-space'>BCBChain 已经为 <code>docker</code> 的安装准备了在线安装与离线安装资源，资源获取URL <a href='https://github.com/bcbchain/docker/releases/download/v1.0.11494/bcb-docker_setup_1.0.11494.tar.gz' target='_blank'> 在此</a> 。</p>
+<p class='with-space'>下载完成 <code>docker</code>  资源后将资源解压到  <code>docker</code>  目录，执行离线安装  <code>docker</code>  运行环境及 BCBChain 需要用到的  <code>docker</code> 镜像的命令如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='cd docker
+./docker.offline-Install.sh'>Copy</button><pre><code>cd docker
+./docker.offline-Install.sh
+</code></pre>
+</figure>
+<p class='with-space'>注: 上述离线安装脚本仅支持 <code>CentOS 7-x86_64-1810</code>  和  <code>Ubuntu 18.04.2-x86_64</code>。</p>
+<p class='with-space'>执行在线安装 <code>docker</code>  运行环境及 BCBChain 需要用到的  <code>docker</code> 镜像的命令如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='cd docker
+./docker.online-Install.sh'>Copy</button><pre><code>cd docker
+./docker.online-Install.sh
+</code></pre>
+</figure>
+<p class='with-space'>注:1 上述在线安装脚本仅支持 <code>CentOS 7-x86_64</code>  和  <code>Ubuntu 18.04-x86_64</code>.</p>
+<p class='with-space'>注2: 上述在线安装脚本将会自动升级操作系统到最新版本。</p>
+<h3 id='d44552a9'><span class='bd-content-title'>2.4  防火墙配置<a class='anchorjs-link ' href='#d44552a9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>运行 BCBChain 节点需要开放指定端口，命令如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='firewall-cmd --add-port=32332/tcp --permanent
+firewall-cmd --add-port=32333/tcp --permanent
+firewall-cmd --add-port=46656/tcp --permanent
+firewall-cmd --add-port=46657/tcp --permanent
+firewall-cmd --reload'>Copy</button><pre><code>firewall-cmd --add-port=32332/tcp --permanent
+firewall-cmd --add-port=32333/tcp --permanent
+firewall-cmd --add-port=46656/tcp --permanent
+firewall-cmd --add-port=46657/tcp --permanent
+firewall-cmd --reload
+</code></pre>
+</figure>
+<h2 id='d75ff51b'><span class='bd-content-title'>3. 节点安装<a class='anchorjs-link ' href='#d75ff51b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='befad072'><span class='bd-content-title'>3.1 节点下载<a class='anchorjs-link ' href='#befad072' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>节点程序下载链接：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='https://github.com/bcbchain/bcbchain/releases'>Copy</button><pre><code>https://github.com/bcbchain/bcbchain/releases
+</code></pre>
+</figure>
+<p class='with-space'>节点源码下载链接：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='https://github.com/bcbchain/bcbchain'>Copy</button><pre><code>https://github.com/bcbchain/bcbchain
+</code></pre>
+</figure>
+<p class='with-space'>离线数据包下载链接：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='http://211.154.140.124:43356/down/'>Copy</button><pre><code>http://211.154.140.124:43356/down/
+</code></pre>
+</figure>
+<h3 id='c123b9de'><span class='bd-content-title'>3.2 全新安装<a class='anchorjs-link ' href='#c123b9de' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>BCBChain 在 <code>github.com</code>  上发布了正式节点的安装包，以发布版本  <code>2.0.1.13780</code> 为例，安装包的下载URL如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='https://github.com/bcbchain/docker/releases/download/v2.0.1.13780/bcb-node_2.0.1.13780-x64.tar.gz'>Copy</button><pre><code>https://github.com/bcbchain/docker/releases/download/v2.0.1.13780/bcb-node_2.0.1.13780-x64.tar.gz
+</code></pre>
+</figure>
+<p class='with-space'>下载安装包以后，安装一个全新的 BCBChain 节点需要执行如下的命令：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='tar xvf bcb-node_2.0.1.13780-x64.tar.gz
+./setup.sh'>Copy</button><pre><code>tar xvf bcb-node_2.0.1.13780-x64.tar.gz
+./setup.sh
+</code></pre>
+</figure>
+<p class='with-space'>屏幕输出及交互过程示意如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='SETUP bcchain...
+
+Select which CHAINID to install
+1) bcb
+2) bcbtest
+3) local
+4) test
+#? 1
+You selected CHAINID=bcb
+
+Start copying files ...
+install sdk with version 2.0.1.13774
+install thirdparty packages with version 2.0.1.12318
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully installed with version 2.0.1.13780.
+
+
+SETUP tmcore...
+
+Select which CHAINID to install
+1) bcb
+2) bcbtest
+3) local
+4) test
+#? 1
+You selected CHAINID=bcb
+
+Start copying files ...
+End of copy files.
+
+Select which role that the node will run
+1) UNOFFICIAL FOLLOWER
+#? 1
+
+You selected UNOFFICIAL follower
+
+Please input the OFFICIAL follower&#39;s name[:port] you want to follow
+Multi nodes can be separated by comma ,
+for example &quot;earth.bcbchain.io,mar.bcbchain.io:46657&quot; or &quot;venus.bcbchain.io&quot;
+officials to follow: earth.bcbchain.io
+
+You selected &quot;earth.bcbchain.io&quot; to follow
+
+Congratulation !!! TENDERMINT is successfully installed with version 2.0.1.13780.'>Copy</button><pre><code>SETUP bcchain...
+
+Select which CHAINID to install
+1) bcb
+2) bcbtest
+3) local
+4) test
+#? 1
+You selected CHAINID=bcb
+
+Start copying files ...
+install sdk with version 2.0.1.13774
+install thirdparty packages with version 2.0.1.12318
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully installed with version 2.0.1.13780.
+
+
+SETUP tmcore...
+
+Select which CHAINID to install
+1) bcb
+2) bcbtest
+3) local
+4) test
+#? 1
+You selected CHAINID=bcb
+
+Start copying files ...
+End of copy files.
+
+Select which role that the node will run
+1) UNOFFICIAL FOLLOWER
+#? 1
+
+You selected UNOFFICIAL follower
+
+Please input the OFFICIAL follower&#39;s name[:port] you want to follow
+Multi nodes can be separated by comma ,
+for example &quot;earth.bcbchain.io,mar.bcbchain.io:46657&quot; or &quot;venus.bcbchain.io&quot;
+officials to follow: earth.bcbchain.io
+
+You selected &quot;earth.bcbchain.io&quot; to follow
+
+Congratulation !!! TENDERMINT is successfully installed with version 2.0.1.13780.
+</code></pre>
+</figure>
+<p class='with-space'>安装完成以后，需要等待 BCBChain 区块同步完成（这需要几个小时到几天的时间）这个新搭建的节点才能对外提供交易服务。</p>
+<h3 id='c5893d3c'><span class='bd-content-title'>3.3 快速同步<a class='anchorjs-link ' href='#c5893d3c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>上面全新安装以后，BCBChain 区块同步比较慢，节点需要等待很长时间才能正常提供服务，我们在 BCBChain 官网提供官方认可的离线数据包，通过快速安装的方式可以快速完成 BCBChain 的区块同步，使节点快速对外提供服务。</p>
+<p class='with-space'>下载安装包及离线数据包以后，快速安装一个全新的 BCBChain 节点需要执行如下的命令：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./setup.sh -t tmcore_data_20190717.tar.gz -c bcbchain_appstate.db_20190717.tar.gz'>Copy</button><pre><code>./setup.sh -t tmcore_data_20190717.tar.gz -c bcbchain_appstate.db_20190717.tar.gz
+</code></pre>
+</figure>
+<p class='with-space'>注：离线数据包文件名称为：tmcore<em>data</em>20190717.tar.gz 和 bcbchain<em>appstate.db</em>20190717.tar.gz</p>
+<p class='with-space'>屏幕输出及交互过程同上。</p>
+<h3 id='b6484352'><span class='bd-content-title'>3.4 升级程序<a class='anchorjs-link ' href='#b6484352' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>如果已经搭建好 BCBChain 的节点，只是需要升级新的程序，执行如下命令，依照交互提示可完成升级工作：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='tar xvf bcb-node_2.0.1.13780-x64.tar.gz
+./setup.sh'>Copy</button><pre><code>tar xvf bcb-node_2.0.1.13780-x64.tar.gz
+./setup.sh
+</code></pre>
+</figure>
+<p class='with-space'>屏幕输出及交互过程示意如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='SETUP bcchain...
+
+Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully updated from 2.0.1.13780 to version 2.0.1.13780.
+
+
+SETUP tmcore...
+
+Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! TENDERMINT is successfully updated from 2.0.1.13780 to version 2.0.1.13780.'>Copy</button><pre><code>SETUP bcchain...
+
+Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! BCCHAIN is successfully updated from 2.0.1.13780 to version 2.0.1.13780.
+
+
+SETUP tmcore...
+
+Old data exists, do you want to remove all data to re-sync?
+1) yes
+2) no
+#? 2
+No, keep old data
+
+Start copying files ...
+End of copy files.
+
+Congratulation !!! TENDERMINT is successfully updated from 2.0.1.13780 to version 2.0.1.13780.
+</code></pre>
+</figure>
+<p class='with-space'>安装或升级以后服务 BCBChain 的两个核心服务 <code>tmcore</code> 和 bcchain 将会自动启动。</p>
+<p class='with-space'>执行如下命令可以控制共识引擎服务 <code>tmcore</code> 的启动或停止：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='systemctl start tmcoresystemctl stop tmcore'>Copy</button><pre><code>systemctl start tmcoresystemctl stop tmcore
+</code></pre>
+</figure>
+<p class='with-space'>执行如下命令可以控制业务引擎服务 <code>bcchain</code> 的启动或停止：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='systemctl start bcchainsystemctl stop bcchain'>Copy</button><pre><code>systemctl start bcchainsystemctl stop bcchain
+</code></pre>
+</figure>
+<p class='with-space'>安装或升级完毕执行如下命令可以检测 BCBChain 的节点是否正常工作。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='curl http://127.0.0.1:46657/health'>Copy</button><pre><code>curl http://127.0.0.1:46657/health
+</code></pre>
+</figure>
+<p class='with-space'>屏幕输出示意如下： <code> {   &quot;jsonrpc&quot;: &quot;2.0&quot;,   &quot;id&quot;: &quot;&quot;,   &quot;result&quot;: {     &quot;chain_id&quot;: &quot;bcb&quot;,     &quot;version&quot;: &quot;2.0.1.13780&quot;,     &quot;chain_version&quot;: 0,     &quot;last_block_height&quot;: 153,     &quot;validator_count&quot;: 10   } }</code></p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/zh-cn/01-BCB基础\02-BCB节点.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#f4b7f71a'>BCB 节点</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#af3e8a82'>1. 概述</a>
+<a class='ml-0 my-1 nav-link' href='#f784c8fd'>2. 节点环境配置</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#e9541c45'>2.1 系统要求</a>
+<a class='ml-2 my-1 nav-link' href='#e6f5adbd'>2.2 NTP服务安装</a>
+<a class='ml-2 my-1 nav-link' href='#eec66c1e'>2.3 docker环境安装</a>
+<a class='ml-2 my-1 nav-link' href='#d44552a9'>2.4  防火墙配置</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#d75ff51b'>3. 节点安装</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#befad072'>3.1 节点下载</a>
+<a class='ml-2 my-1 nav-link' href='#c123b9de'>3.2 全新安装</a>
+<a class='ml-2 my-1 nav-link' href='#c5893d3c'>3.3 快速同步</a>
+<a class='ml-2 my-1 nav-link' href='#b6484352'>3.4 升级程序</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

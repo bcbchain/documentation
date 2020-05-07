@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>Toolbox</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/Site Map.html'>Site Map</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBBasic</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/01-BCBIntro.html'>BCBIntro</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/02-BCBNode.html'>BCBNode</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBNetwork</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/01-MainnetAndTestnet.html'>MainnetAndTestnet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/02-BuildForPrivateChain.html'>BuildForPrivateChain</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBSideChain</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/01-SideChainRegistration.html'>SideChainRegistration</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/02-SideChainCreation.html'>SideChainCreation</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/03-SideChainGovernance.html'>SideChainGovernance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/04-CrossChainTransaction.html'>CrossChainTransaction</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBTools</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractDev</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/02-ProgrammingExample.html'>ProgrammingExample</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/03-DeeperUnderstanding.html'>DeeperUnderstanding</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevSmartContract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/01-DevelopmentEnvironment.html'>DevelopmentEnvironment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/02-FirstSmartContract.html'>FirstSmartContract</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/01-BVM-EVM-diff.html'>BVM-EVM-diff</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/02-Smart-Contract-Dev.html'>Smart-Contract-Dev</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/03-Contract-deployment-call.html'>Contract-deployment-call</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeIntegrationGuide</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/01-IntroductionOfIntegrationScheme.html'>IntroductionOfIntegrationScheme</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/02-InstallationDeployment.html'>InstallationDeployment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/03-CommandDetails.html'>CommandDetails</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevelopmentReference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-ModelDescription.html'>ModelDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-AlgorithmDescription.html'>AlgorithmDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/04-TransactionFormatv1.html'>TransactionFormatv1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/05-TransactionFormatv2.html'>TransactionFormatv2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>MainChainAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/01-Protocol.html'>Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/02-NetworkInterface.html'>NetworkInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/04-TransactionInterface.html'>TransactionInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/05-GlobalInterface.html'>GlobalInterface</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/01-CommunicationProtocol.html'>CommunicationProtocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/02-WalletInterface.html'>WalletInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='e14701f5'><span class='bd-content-title'>Toolbox<a class='anchorjs-link ' href='#e14701f5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='f4426e62'><span class='bd-content-title'>1. sdk/forx<a class='anchorjs-link ' href='#f4426e62' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>The package <code>blockchain/smcsdk/sdk/mapx</code> encapsulates the application interface that optimizes the for loop.</p>
+<h3 id='a9f35bff'><span class='bd-content-title'>1.1 func Range()<a class='anchorjs-link ' href='#a9f35bff' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Function prototype:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range(args... interface{})'>Copy</button><pre><code class='go' lang='go'>func Range(args... interface{})
+</code></pre>
+</figure>
+<p class='with-space'>The keyword <code>for</code> is not allowed to be used in any part of the smart contract code.</p>
+<p class='with-space'>To perform loops, use the <code>Range()</code> function instead.</p>
+<p class='with-space'>There are six ways to use the <code>Range()</code> function, examples are as follows:</p>
+<p class='with-space'> <strong>Model one:</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( m map[keyType]valType, f func(key keyType, val valType) )
+func Range( m map[keyType]valType, f func(key keyType, val valType) bool )'>Copy</button><pre><code class='go' lang='go'>func Range( m map[keyType]valType, f func(key keyType, val valType) )
+func Range( m map[keyType]valType, f func(key keyType, val valType) bool )
+</code></pre>
+</figure>
+<p class='with-space'>The traversal operation is performed on the mapping table object m, and the order of the traversal is based on the mapping table key. The operation function is f. If the return value of f is defined as void, the loop can be ended after the traversal is finished. If the return value of f is a boolean, false value will terminate the execution of the traversal operation and exit the loop, while true value will continue the traversal operation. The input parameters are required to meet the following conditions. If any one is not satisfied, an exception occurs. When an exception occurs, the SDK will automatically trigger a panic:</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>The type of the parameter m must be a mapping table;</p></li>
+<li>
+<p class='with-space'>The parameter f must be a function, and the return value of the function must be between void and boolean type;</p></li>
+<li>
+<p class='with-space'>Function f must have two arguments</p></li>
+<li>
+<p class='with-space'>The first parameter type of the function f must be the type corresponding to the key of the mapping table m;</p></li>
+<li>
+<p class='with-space'>The second parameter type of the function f must be the type corresponding to the value of the mapping table m.</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>The sample code is as follows:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='m := make(map[int]string)
+m[93] = &quot;23231&quot;
+m[13] = &quot;23423423234324&quot;
+m[54] = &quot;3432432423&quot;
+m[23] = &quot;3434545345345&quot;
+
+forx.Range(m, func(k int, v string) {
+    printf(&quot;key=%v value=%v\n&quot;, k, v)
+})'>Copy</button><pre><code class='go' lang='go'>m := make(map[int]string)
+m[93] = &quot;23231&quot;
+m[13] = &quot;23423423234324&quot;
+m[54] = &quot;3432432423&quot;
+m[23] = &quot;3434545345345&quot;
+
+forx.Range(m, func(k int, v string) {
+    printf(&quot;key=%v value=%v\n&quot;, k, v)
+})
+</code></pre>
+</figure>
+<p class='with-space'> <strong>Model two:</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( s []valType, f func(i int, val valType) )
+func Range( s []valType, f func(i int, val valType) bool )'>Copy</button><pre><code class='go' lang='go'>func Range( s []valType, f func(i int, val valType) )
+func Range( s []valType, f func(i int, val valType) bool )
+</code></pre>
+</figure>
+<p class='with-space'>The traversal operation is performed on the object array s. The traversal is performed in order of the array order from front to end. The operation function is f. If the return value of f is defined as void, the loop can be ended after the traversal is finished.  If the return value of f is a boolean, false value will terminate the execution of the traversal operation and exit the loop, while true value will continue the traversal operation. The input parameters are required to meet the following conditions. If any one is not satisfied, an exception occurs. When an exception occurs, the SDK will automatically trigger a panic:</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>The type of the parameter m must be an array;</p></li>
+<li>
+<p class='with-space'>The parameter f must be a function, and the return value of the function must be between void and boolean type;</p></li>
+<li>
+<p class='with-space'>Function f must have two arguments</p></li>
+<li>
+<p class='with-space'>The first argument type of function f must be of type int, indicating the index number of the element, starting at 0;</p></li>
+<li>
+<p class='with-space'>The second parameter type of function f must be the type corresponding to the element value of array s.</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>The sample code is as follows:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='s := make([]string)
+s = append(s, &quot;23231&quot;)
+s = append(s, &quot;423792234&quot;)
+s = append(s, &quot;23232&quot;)
+s = append(s, &quot;3243455454&quot;)
+
+forx.Range(s, func(i int, v string) {
+    printf(&quot;i=%v value=%v\n&quot;, i, v)
+})'>Copy</button><pre><code class='go' lang='go'>s := make([]string)
+s = append(s, &quot;23231&quot;)
+s = append(s, &quot;423792234&quot;)
+s = append(s, &quot;23232&quot;)
+s = append(s, &quot;3243455454&quot;)
+
+forx.Range(s, func(i int, v string) {
+    printf(&quot;i=%v value=%v\n&quot;, i, v)
+})
+</code></pre>
+</figure>
+<p class='with-space'> <strong>Model three:</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( n intType, f func(i intType) )
+func Range( n intType, f func(i intType) bool )'>Copy</button><pre><code class='go' lang='go'>func Range( n intType, f func(i intType) )
+func Range( n intType, f func(i intType) bool )
+</code></pre>
+</figure>
+<p class='with-space'>The loop executes for the specified number of times. The operation function is f. If the return value of f is defined as void, the loop can be ended after the specified number of times. If the return value of f is a boolean, false value will exit the loop, while true value will continue the loop. The input parameters are required to meet the following conditions. If any one is not satisfied, an exception occurs. When an exception occurs, the SDK will automatically trigger a panic:</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>The type of the parameter n must be a type that expresses an integer, such as: int, uint, int32, etc., and the value must be greater than or equal to 0;</p></li>
+<li>
+<p class='with-space'>The parameter f must be a function, and the return value of the function must be between void and boolean type;</p></li>
+<li>
+<p class='with-space'>Function f must have exactly one argument. The type must be the same type of argument n, indicating the index number of the execution loop, starting at 0.</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>The sample code is as follows:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='forx.Range(10, func(i int) {
+    printf(&quot;i=%v\n&quot;, i)
+})'>Copy</button><pre><code class='go' lang='go'>forx.Range(10, func(i int) {
+    printf(&quot;i=%v\n&quot;, i)
+})
+</code></pre>
+</figure>
+<p class='with-space'> <strong>Model four:</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( m,n intType, f func(k intType) )
+func Range( m,n intType, f func(k intType) bool )'>Copy</button><pre><code class='go' lang='go'>func Range( m,n intType, f func(k intType) )
+func Range( m,n intType, f func(k intType) bool )
+</code></pre>
+</figure>
+<p class='with-space'>According to the input parameters, all integers between m and n (including m and n) are traversed, starting from m and ending at n, the operation function is f. If the return value of f is defined as void, the loop can be ended after the traversal is over. If the return value of f is a boolean, false value will terminate the execution of the traversal operation and exit the loop, while true value will continue the traversal operation. The input parameters are required to meet the following conditions. If any one is not satisfied, an exception occurs. When an exception occurs, the SDK will automatically trigger a panic:</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>The parameters m and n must be of the same type that express an integer, for example: int, uint, int32, etc. If m is less than n, then the loop will be in ascending order. If m is greater than n, the order will be descending;</p></li>
+<li>
+<p class='with-space'>The parameter f must be a function, and the return value of the function must be between void and boolean type;</p></li>
+<li>
+<p class='with-space'>Function f must have exactly one argument. The type must be the same type as the arguments m and n, representing the integer value traversed, starting at m.</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>The sample code is as follows:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='forx.Range(1,100, func(k int) {
+    printf(&quot;k=%v\n&quot;, k)
+})'>Copy</button><pre><code class='go' lang='go'>forx.Range(1,100, func(k int) {
+    printf(&quot;k=%v\n&quot;, k)
+})
+</code></pre>
+</figure>
+<p class='with-space'> <strong>Model five:</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( c func() bool, f func(i int) )
+func Range( c func() bool, f func(i int) bool )'>Copy</button><pre><code class='go' lang='go'>func Range( c func() bool, f func(i int) )
+func Range( c func() bool, f func(i int) bool )
+</code></pre>
+</figure>
+<p class='with-space'>The loop executes the function f. When the control function c returns true, the loop is terminated. This controls when the loop ends. If the return value of f is a boolean, false value will exit the loop, while true value will continue the loop. The input parameters are required to meet the following conditions. If any one is not satisfied, an exception occurs. When an exception occurs, the SDK will automatically trigger a panic:</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>The parameter c must be a function, and the return value of the function must be a boolean type;</p></li>
+<li>
+<p class='with-space'>The parameter f must be a function, and the return value of the function must be between void and boolean type;</p></li>
+<li>
+<p class='with-space'>Function f must have exactly one argument. The type must be int, indicating the index of the number of execution loops, starting at 0.</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>The sample code is as follows:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='toVoter := ballot._voters(to)
+forx.range( func() bool {
+              return toVoter.delegate != &quot;&quot;
+            },
+            func(i int) {
+              to = toVoter.delegate
+              toVoter = ballot._voters(to)
+            })'>Copy</button><pre><code class='go' lang='go'>toVoter := ballot._voters(to)
+forx.range( func() bool {
+              return toVoter.delegate != &quot;&quot;
+            },
+            func(i int) {
+              to = toVoter.delegate
+              toVoter = ballot._voters(to)
+            })
+</code></pre>
+</figure>
+<p class='with-space'> <strong>Model six</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( f func(i int) bool )'>Copy</button><pre><code class='go' lang='go'>func Range( f func(i int) bool )
+</code></pre>
+</figure>
+<p class='with-space'>The loop will execute function f in each iteration. Since the return value of f is a boolean, false value will exit the loop, while true value will continue the loop. The input parameters are required to meet the following conditions. If any one is not satisfied, an exception occurs. When an exception occurs, the SDK will automatically trigger a panic:</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>The argument f must be a function, and the return value of the function must be a boolean type;</p></li>
+<li>
+<p class='with-space'>Function f must have exactly one argument. The type must be int, which represents the index of the number of execution loops, starting at 0.</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>The sample code is as follows:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='toVoter := ballot._voters(to)
+forx.Range( func(i int) bool {
+              to = toVoter.delegate
+              toVoter = ballot._voters(to)
+
+              if toVoter.delegate != &quot;&quot; {
+                return forx.Break
+              } else {
+                return forx.Continue
+              }
+            })'>Copy</button><pre><code class='go' lang='go'>toVoter := ballot._voters(to)
+forx.Range( func(i int) bool {
+              to = toVoter.delegate
+              toVoter = ballot._voters(to)
+
+              if toVoter.delegate != &quot;&quot; {
+                return forx.Break
+              } else {
+                return forx.Continue
+              }
+            })
+</code></pre>
+</figure>
+<h3 id='d75eb130'><span class='bd-content-title'>1.2 func RangeReverse()<a class='anchorjs-link ' href='#d75eb130' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Function prototype:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func RangeReverse(args... interface{})'>Copy</button><pre><code class='go' lang='go'>func RangeReverse(args... interface{})
+</code></pre>
+</figure>
+<p class='with-space'>RangeReverse provides a for loop that traverses slices in reverse. There is a model for the <code>RangeReverse ()</code> function.</p>
+<p class='with-space'> <strong>Model one:</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func RangeReverse( s []valType, f func(i int, val valType) )
+func RangeReverse( s []valType, f func(i int, val valType) bool )'>Copy</button><pre><code class='go' lang='go'>func RangeReverse( s []valType, f func(i int, val valType) )
+func RangeReverse( s []valType, f func(i int, val valType) bool )
+</code></pre>
+</figure>
+<p class='with-space'>The traversal operation is performed on the slice object s. The traversal is performed in the order of the slice from large to small. The operation function is f. If the return value of f is defined as empty, the loop can be ended after the traversal is completed. Type, f returns false to terminate the traversal operation and end the loop, and f returns true to continue the traversal operation. The input parameters are required to meet the following conditions. If any one is not satisfied, an exception occurs. When an exception occurs, the SDK will automatically trigger a panic:</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>The type of parameter s must be a slice;</p></li>
+<li>
+<p class='with-space'>The parameter f must be a function, and the return value of the function must be one of null and Boolean;</p></li>
+<li>
+<p class='with-space'>Function f must have two arguments;</p></li>
+<li>
+<p class='with-space'>The first parameter type of function f must be of type int, which represents the index number of the element, starting from len (s) -1 and decreasing;</p></li>
+<li>
+<p class='with-space'>The second argument type of function f must be the type corresponding to the element value of slice s.</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>The sample code is as follows:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='s := make([]string)
+s = append(s, &quot;23231&quot;)
+s = append(s, &quot;423792234&quot;)
+s = append(s, &quot;23232&quot;)
+s = append(s, &quot;3243455454&quot;)
+
+forx.Range(s, func(i int, v string) {
+    printf(&quot;i=%v value=%v\n&quot;, i, v)
+})'>Copy</button><pre><code class='go' lang='go'>s := make([]string)
+s = append(s, &quot;23231&quot;)
+s = append(s, &quot;423792234&quot;)
+s = append(s, &quot;23232&quot;)
+s = append(s, &quot;3243455454&quot;)
+
+forx.Range(s, func(i int, v string) {
+    printf(&quot;i=%v value=%v\n&quot;, i, v)
+})
+</code></pre>
+</figure>
+<h2 id='b8e5e114'><span class='bd-content-title'>2. sdk/jsoniter<a class='anchorjs-link ' href='#b8e5e114' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>The package <code>blockchain/smcsdk/sdk/jsoniter</code>  encapsulates a simple application interface to  <code>jsoniter</code>, a third-party package that quickly processes JSON data.</p>
+<h3 id='afcace33'><span class='bd-content-title'>2.1 func Marshal()<a class='anchorjs-link ' href='#afcace33' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Function prototype:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Marshal(v interface{}) ([]byte, error)'>Copy</button><pre><code class='go' lang='go'>func Marshal(v interface{}) ([]byte, error)
+</code></pre>
+</figure>
+<p class='with-space'>Serializes the input object <code>v</code> into a JSON-formatted string and returns it.</p>
+<h3 id='bc1cba49'><span class='bd-content-title'>2.2 func Unmarshal()<a class='anchorjs-link ' href='#bc1cba49' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Function prototype:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Unmarshal(bz []byte, v interface{}) error'>Copy</button><pre><code class='go' lang='go'>func Unmarshal(bz []byte, v interface{}) error
+</code></pre>
+</figure>
+<p class='with-space'>Deserializes the input JSON string to the object pointed to by <code>v</code>.</p>
+<h2 id='d7fbb272'><span class='bd-content-title'>3. sdk/rlp<a class='anchorjs-link ' href='#d7fbb272' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>The package <code>blockchain/smcsdk/sdk/rlp</code>  encapsulates the BCBChain RLP encoding of the transaction. The source code is based on the open source version of  <code>geth</code>  . Due to BCBChain requirements, codec support for  <code>bn.Number</code> large numbers is added, as well as support for mapping tables.</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/en-us/06-DevelopmentReference\02-SmartContractAPI\07-Toolbox.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#e14701f5'>Toolbox</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#f4426e62'>1. sdk/forx</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#a9f35bff'>1.1 func Range()</a>
+<a class='ml-2 my-1 nav-link' href='#d75eb130'>1.2 func RangeReverse()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#b8e5e114'>2. sdk/jsoniter</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#afcace33'>2.1 func Marshal()</a>
+<a class='ml-2 my-1 nav-link' href='#bc1cba49'>2.2 func Unmarshal()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#d7fbb272'>3. sdk/rlp</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

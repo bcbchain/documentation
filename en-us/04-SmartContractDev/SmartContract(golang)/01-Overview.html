@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>Smart Contract Overview</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/Site Map.html'>Site Map</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBBasic</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/01-BCBIntro.html'>BCBIntro</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/02-BCBNode.html'>BCBNode</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBNetwork</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/01-MainnetAndTestnet.html'>MainnetAndTestnet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/02-BuildForPrivateChain.html'>BuildForPrivateChain</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBSideChain</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/01-SideChainRegistration.html'>SideChainRegistration</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/02-SideChainCreation.html'>SideChainCreation</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/03-SideChainGovernance.html'>SideChainGovernance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/04-CrossChainTransaction.html'>CrossChainTransaction</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBTools</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractDev</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/02-ProgrammingExample.html'>ProgrammingExample</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/03-DeeperUnderstanding.html'>DeeperUnderstanding</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevSmartContract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/01-DevelopmentEnvironment.html'>DevelopmentEnvironment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/02-FirstSmartContract.html'>FirstSmartContract</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/01-BVM-EVM-diff.html'>BVM-EVM-diff</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/02-Smart-Contract-Dev.html'>Smart-Contract-Dev</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/03-Contract-deployment-call.html'>Contract-deployment-call</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeIntegrationGuide</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/01-IntroductionOfIntegrationScheme.html'>IntroductionOfIntegrationScheme</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/02-InstallationDeployment.html'>InstallationDeployment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/03-CommandDetails.html'>CommandDetails</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevelopmentReference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-ModelDescription.html'>ModelDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-AlgorithmDescription.html'>AlgorithmDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/04-TransactionFormatv1.html'>TransactionFormatv1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/05-TransactionFormatv2.html'>TransactionFormatv2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>MainChainAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/01-Protocol.html'>Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/02-NetworkInterface.html'>NetworkInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/04-TransactionInterface.html'>TransactionInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/05-GlobalInterface.html'>GlobalInterface</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/01-CommunicationProtocol.html'>CommunicationProtocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/02-WalletInterface.html'>WalletInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='fcee9eaf'><span class='bd-content-title'>Smart Contract Overview<a class='anchorjs-link ' href='#fcee9eaf' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>Since <code>V2.0</code>  , BCBChain supports independent development and deployment of smart contracts, developed using  <code>golang</code>.</p>
+<h2 id='f33f0bec'><span class='bd-content-title'>1. Simple smart contract<a class='anchorjs-link ' href='#f33f0bec' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='f60516ec'><span class='bd-content-title'>1.1 Storage<a class='anchorjs-link ' href='#f60516ec' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Let us first take a look at the simplest form of a smart contract</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mystorage
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+)
+
+//MyStorage a demo contract
+//@:contract:mystorage
+//@:version:1.0
+//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer
+//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c
+type MyStorage struct {
+    sdk sdk.ISmartContract
+
+    //@:public:store
+    storedData uint64
+}
+
+//InitChain init when deployed on the blockchain first time
+//@:constructor
+func (ms *MyStorage) InitChain() {
+}
+
+//Set set a data to the stored data
+//@:public:method:gas[100]
+func (ms *MyStorage) Set(data uint64) {
+    ms._setStoredData(data)
+}
+
+//Get get the stored data
+//@:public:method:gas[100]
+func (ms *MyStorage) Get() uint64 {
+    return ms._storedData()
+}'>Copy</button><pre><code class='go' lang='go'>package mystorage
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+)
+
+//MyStorage a demo contract
+//@:contract:mystorage
+//@:version:1.0
+//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer
+//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c
+type MyStorage struct {
+    sdk sdk.ISmartContract
+
+    //@:public:store
+    storedData uint64
+}
+
+//InitChain init when deployed on the blockchain first time
+//@:constructor
+func (ms *MyStorage) InitChain() {
+}
+
+//Set set a data to the stored data
+//@:public:method:gas[100]
+func (ms *MyStorage) Set(data uint64) {
+    ms._setStoredData(data)
+}
+
+//Get get the stored data
+//@:public:method:gas[100]
+func (ms *MyStorage) Get() uint64 {
+    return ms._storedData()
+}
+</code></pre>
+</figure>
+<p class='with-space'>BCBChain&#39;s smart contract is a combination of code (functions of the contract) and data (data types in the contract) and a set of tags (metadata of the contract), and is located at a specific address of the BCBChain.</p>
+<p class='with-space'>Code line:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mystorage'>Copy</button><pre><code class='go' lang='go'>package mystorage
+</code></pre>
+</figure>
+<p class='with-space'>Declare the name of the smart contract code package, this can be set by the developer, so long it conforms to <code>golang</code> standards.</p>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='import (
+    &quot;blockchain/smcsdk/sdk&quot;
+)'>Copy</button><pre><code class='go' lang='go'>import (
+    &quot;blockchain/smcsdk/sdk&quot;
+)
+</code></pre>
+</figure>
+<p class='with-space'>Declaration of the library to import, it is a smart contract <code>SDK</code>  released by BCBChain. When creating the smart contract, you will need to configure the  <code>SDK</code>  path in  <code>GOPATH</code>.</p>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//MyStorage a demo contract
+//@:contract:mystorage
+//@:version:1.0
+//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer
+//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c
+type MyStorage struct {
+    sdk sdk.ISmartContract
+
+    //@:public:store
+    storedData uint64
+}'>Copy</button><pre><code class='go' lang='go'>//MyStorage a demo contract
+//@:contract:mystorage
+//@:version:1.0
+//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer
+//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c
+type MyStorage struct {
+    sdk sdk.ISmartContract
+
+    //@:public:store
+    storedData uint64
+}
+</code></pre>
+</figure>
+<p class='with-space'>Declare the metadata and status of the smart contract.</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Comment line <code>//MyStorage a demo contract</code> A comment defining the smart contract below.</p></li>
+<li>
+<p class='with-space'>Markup //@:contract:mystorage  <code>Declares the struct</code>  MyStorage ` that will be defined below represents a smart contract, and also declares the name of the smart contract as mystorage. This is the contract name to be sent to the BCBChain main chain during deployment. As an organization may develop multiple different smart contracts, the names of each smart contract will need to be unique, so the authors have to plan around this restriction.</p></li>
+<li>
+<p class='with-space'>Markup <code>//@:version:1.0</code> Declares the code version of the smart contract.</p></li>
+<li>
+<p class='with-space'>Markup <code>//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer</code> Identifies the organization to which the smart contract belongs. The organization name in this example is: example.</p></li>
+<li>
+<p class='with-space'>Markup <code>//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c</code>  Author’s public key. The code line  <code>type MyStorage struct {</code>  declares the opening of the smart contract data structure, its members and its data type. The code line  <code>sdk sdk.ISmartContract</code> indicates that the data structure is a BCBChain Smart Contract SDK and will automatically possess the smart contract access context provided by the SDK (variable names must be defined as sdk).</p></li>
+<li>
+<p class='with-space'>Markup <code>//@:public:store</code> indicates that the next line of code will declare a data type.</p></li>
+<li>
+<p class='with-space'>Code line <code>storedData uint64</code>  Declares a state data variable of type  <code>uint64</code>  with the name  <code>storedData</code>  . You can view it as a member in the state database, and access or mutate its values by calling the database management functions, as well as access its KEY value (  <code>/orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer/mystorage/storedData</code>  ) externally. The helper tools provided by BCBChain will automatically encapsulate the state variables and generate access functions  <code>_storeData() uint64</code>  ,  <code>_setStoreData(uint64)</code>  ,  <code>_chkStoreData() bool</code>  and  <code>_delStoreData() bool</code>.</p></li>
+<li>
+<p class='with-space'>Code line <code>}</code> marks the end of this data structure’s declaration.</p></li>
+</ul>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//InitChain init when deployed on the blockchain first time
+//@:constructor
+func (ms *MyStorage) InitChain() {
+}'>Copy</button><pre><code class='go' lang='go'>//InitChain init when deployed on the blockchain first time
+//@:constructor
+func (ms *MyStorage) InitChain() {
+}
+</code></pre>
+</figure>
+<p class='with-space'>Declares the initialization code for the smart contract when it first joins the chain (executed only on the first time,another initialization code <code>UpdateChain</code>will be executed when the contract is upgraded, this does not need to be defined in this contract).</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Markup <code>//@:constructor</code>  indicates that the function  <code>InitChain()</code> defined below is an initialization function that is to be used once, when a smart contract is first deployed to BCBChain in order to complete the initialization of the smart contract on the blockchain. A part of the initialization, for example, includes the initialization of certain values in the global state variables.</p></li>
+<li>
+<p class='with-space'>Code line <code>func (ms *MyStorage) InitChain() {</code>  A function prototype that declares the initialization of a smart contract. The function name must be  <code>InitChain</code>, which has no input parameters.</p></li>
+<li>
+<p class='with-space'>The code line <code>}</code> completes the function.</p></li>
+</ul>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//Set set a data to the stored data
+//@:public:method:gas[100]
+func (ms *MyStorage) Set(data uint64) {
+    ms._setStoredData(data)
+}'>Copy</button><pre><code class='go' lang='go'>//Set set a data to the stored data
+//@:public:method:gas[100]
+func (ms *MyStorage) Set(data uint64) {
+    ms._setStoredData(data)
+}
+</code></pre>
+</figure>
+<p class='with-space'>Declares the code for the smart contract</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Markup <code>//@:public:method:gas[100]</code>  declares that the function  <code>Set()</code> defined below is a public function of a smart contract, which can be called by BCBChain transaction broadcast, whereby the call information and result will be recorded in the blockchain. In doing so, the calling function will consume 100 gas.</p></li>
+<li>
+<p class='with-space'>Code line <code>func (ms *MyStorage) Set(data uint64) {</code>  Declares a function for a smart contract. The line  <code>ms._setStoredData(data)</code>  is the implementation code for the function, which means that the input parameters are saved to the state variable  <code>storedData</code>.</p></li>
+<li>
+<p class='with-space'>The code line <code>}</code> completes the smart contract function.</p></li>
+</ul>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//Get get the stored data
+//@:public:method:gas[100]
+func (ms *MyStorage) Get() uint64 {
+    return ms._storedData()
+}'>Copy</button><pre><code class='go' lang='go'>//Get get the stored data
+//@:public:method:gas[100]
+func (ms *MyStorage) Get() uint64 {
+    return ms._storedData()
+}
+</code></pre>
+</figure>
+<p class='with-space'>Declares the code for the smart contract</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Markup <code>//@:public:method:gas[100]</code>  declares that the function  <code>Get()</code> defined below is a public function of a smart contract, which can be called by BCBChain transaction broadcast, whereby the call information and result will be recorded in the blockchain. In doing so, the calling function will consume 100 gas.</p></li>
+<li>
+<p class='with-space'>Code line <code>func (ms *MyStorage) Get() uint64 {</code>  Declare a function prototype for a smart contract. The code line  <code>return ms._storedData()</code>  is the implementation code for the function, indicating that the value of the state variable  <code>storedData</code>will be read and returned to the caller.</p></li>
+<li>
+<p class='with-space'>The code line <code>}</code> completes the smart contract function.</p></li>
+</ul>
+<p class='with-space'>There aren&#39;t many things that can be done with this contract: it allows anyone to store a single number in the contract, and that number can be accessed by anyone in the world, and there is no viable way to prevent you from publishing this number. Of course, anyone can call the <code>Set()</code> function again, passing in different values, overwriting your number, but this number will still be stored in the history of the blockchain. Later, we will see how to impose access restrictions to ensure that only you can change this number.</p>
+<p class='with-space'>Note:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>All identifiers (contract name, function name, and variable name) of the smart contract code can only use the <code>ASCII</code> character set.</p></li>
+<li>
+<p class='with-space'>Smart contract codes require storage in the form of <code>ASCII</code>  or  <code>UTF-8</code> encoding.</p></li>
+</ul>
+<h3 id='ce5d5a20'><span class='bd-content-title'>1.2 Token<a class='anchorjs-link ' href='#ce5d5a20' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The following contract implements one of the simplest encryption tokens. Here, the token can indeed be produced out of nothing, but only the owner of the contract can do it, and anyone can transfer the currency to others without registering the username and password - all that is required is a BCBChain-compliant encrypted key pair.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package mycoin
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//Mycoin a demo contract for digital coin
+//@:contract:mycoin
+//@:version:1.0
+//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer
+//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c
+type Mycoin struct {
+    sdk sdk.ISmartContract
+
+    //@:public:store:cache
+    totalSupply bn.Number
+
+    //@:public:store
+    balanceOf map[types.Address]bn.Number
+}
+
+const oneToken int64 = 1000000000
+
+//InitChain init when deployed on the blockchain first time
+//@:constructor
+func (mc *Mycoin) InitChain() {
+  thisContract := mc.sdk.Helper().ContractHelper().ContractOfName(&quot;mycoin&quot;)
+  totalSupply := bn.N1(1000000, oneToken)
+  mc._setTotalSupply(totalSupply)
+  mc._setBalanceOf(thisContract.Owner().Address(), totalSupply)
+}
+
+//@:public:receipt
+type receipt interface {
+    emitTransferMyCoin(token, from, to types.Address, value bn.Number)
+}
+
+//Transfer transfer coins from sender to another
+//@:public:method:gas[500]
+//@:public:interface:gas[450]
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    sdk.Require(value.IsPositive(),
+        types.ErrInvalidParameter, &quot;value must be positive&quot;)
+
+    sender := mc.sdk.Message().Sender().Address()
+    newBalanceOfSender := mc._balanceOf(sender).Sub(value)
+    sdk.Require(newBalanceOfSender.IsGEI(0),
+        types.ErrInsufficientBalance, &quot;&quot;)
+
+    receiver := to
+    newBalanceOfReceiver := mc._balanceOf(receiver).Add(value)
+
+    mc._setBalanceOf(sender, newBalanceOfSender)
+    mc._setBalanceOf(receiver, newBalanceOfReceiver)
+
+    mc.emitTransferMyCoin(
+        mc.sdk.Message().Contract().Address(),
+        sender,
+        receiver,
+        value)
+}'>Copy</button><pre><code class='go' lang='go'>package mycoin
+
+import (
+    &quot;blockchain/smcsdk/sdk&quot;
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//Mycoin a demo contract for digital coin
+//@:contract:mycoin
+//@:version:1.0
+//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer
+//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c
+type Mycoin struct {
+    sdk sdk.ISmartContract
+
+    //@:public:store:cache
+    totalSupply bn.Number
+
+    //@:public:store
+    balanceOf map[types.Address]bn.Number
+}
+
+const oneToken int64 = 1000000000
+
+//InitChain init when deployed on the blockchain first time
+//@:constructor
+func (mc *Mycoin) InitChain() {
+  thisContract := mc.sdk.Helper().ContractHelper().ContractOfName(&quot;mycoin&quot;)
+  totalSupply := bn.N1(1000000, oneToken)
+  mc._setTotalSupply(totalSupply)
+  mc._setBalanceOf(thisContract.Owner().Address(), totalSupply)
+}
+
+//@:public:receipt
+type receipt interface {
+    emitTransferMyCoin(token, from, to types.Address, value bn.Number)
+}
+
+//Transfer transfer coins from sender to another
+//@:public:method:gas[500]
+//@:public:interface:gas[450]
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    sdk.Require(value.IsPositive(),
+        types.ErrInvalidParameter, &quot;value must be positive&quot;)
+
+    sender := mc.sdk.Message().Sender().Address()
+    newBalanceOfSender := mc._balanceOf(sender).Sub(value)
+    sdk.Require(newBalanceOfSender.IsGEI(0),
+        types.ErrInsufficientBalance, &quot;&quot;)
+
+    receiver := to
+    newBalanceOfReceiver := mc._balanceOf(receiver).Add(value)
+
+    mc._setBalanceOf(sender, newBalanceOfSender)
+    mc._setBalanceOf(receiver, newBalanceOfReceiver)
+
+    mc.emitTransferMyCoin(
+        mc.sdk.Message().Contract().Address(),
+        sender,
+        receiver,
+        value)
+}
+</code></pre>
+</figure>
+<p class='with-space'>This contract introduces some new concepts, which will be explained one-by-one in detail below</p>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='    //@:public:store:cache
+    totalSupply bn.Number'>Copy</button><pre><code class='go' lang='go'>    //@:public:store:cache
+    totalSupply bn.Number
+</code></pre>
+</figure>
+<p class='with-space'>Declare state data for smart contracts.</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Markup <code>//@:public:store:cache</code> means that the next line of code will declare a state data that will be cached in memory.</p></li>
+<li>
+<p class='with-space'>Code line <code>totalSupply bn.Number</code>  declares a state variable of type  <code>bn.Number</code>  . The variable name is  <code>totalSupply</code>  . The  <code>bn.Number</code>  type represents a signed large number. The addition, subtraction, multiplication, and division operations do not need to consider the overflow problem. The KEY value of this variable in the database is  <code>/orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer/mycoin/totalSupply</code>  . The helper tool provided by BCBChain will automatically encapsulate the variable and generate access functions  <code>_totalSupply() bn.Number</code>  ,  <code>_setTotalSupply(bn.Number)</code>  ,  <code>_chkTotalSupply() bool</code>  and  <code>_delTotalSupply()</code>  , which will also be generated due to the influence of the tag  <code>cache</code>  . A function to clear the memory cache  <code>_clrTotalSupply()</code>.</p></li>
+</ul>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='    //@:public:store
+    balanceOf map[types.Address]bn.Number'>Copy</button><pre><code class='go' lang='go'>    //@:public:store
+    balanceOf map[types.Address]bn.Number
+</code></pre>
+</figure>
+<p class='with-space'>A public state variable is also declared, but it is a more complex data type. This type maps the address to a large number and is used to store the balance corresponding to the account address that owns the token. The KEY value of this variable from the external access state database is <code>/orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer/mycoin/balanceOf/address</code>  , where  <code>address</code>  is the actual account address to be queried. The helper tool provided by BCBChain will automatically encapsulate and generate access functions for this variable  <code>_balanceOf(types.Address) bn.Number</code>  ,  <code>_setBalanceOf(types.Address, bn.Number)</code>  ,  <code>_chkBalanceOf(types.Address) bool</code>  and  <code>_delBalanceOf(types.Address)</code>.</p>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:public:receipt
+type receipt interface {
+    emitTransferMyCoin(token, from, to types.Address, value bn.Number)
+}'>Copy</button><pre><code class='go' lang='go'>//@:public:receipt
+type receipt interface {
+    emitTransferMyCoin(token, from, to types.Address, value bn.Number)
+}
+</code></pre>
+</figure>
+<p class='with-space'>Declares the receipt of the smart contract transaction, which be stored in the BCBChain chain for later access</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Markup <code>//@:public:receipt</code> declares the next line of code as the receipt interface.</p></li>
+<li>
+<p class='with-space'>Code line <code>type receipt interface {</code>  declares the start of the receipt type, with the type name as  <code>receipt</code>.</p></li>
+<li>
+<p class='with-space'>Code line <code>emitTransferMyCoin(token, from, to types.Address, value bn.Number)</code>  declares a so-called receipt (receipt) that will be emitted on the last line of the Transfer function. The user interface (including the server application) can listen for the receipt being sent on the BCBChain chain at no cost. Once it is sent, the receipt  <code>listener</code> will will be notified to facilitate tracking of the transaction.</p></li>
+<li>
+<p class='with-space'>Code line <code>}</code> marks the end of the interface definition.</p></li>
+</ul>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//Transfer transfer coins from sender to another
+//@:public:method:gas[500]
+//@:public:interface:gas[450]
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    .
+    .
+    .
+}'>Copy</button><pre><code class='go' lang='go'>//Transfer transfer coins from sender to another
+//@:public:method:gas[500]
+//@:public:interface:gas[450]
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    .
+    .
+    .
+}
+</code></pre>
+</figure>
+<p class='with-space'>Declares the code for the smart contract</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Markup <code>//@:public:interface:gas[450]</code>  declares that the function  <code>Transfer()</code> defined below is a public interface of a smart contract, which can be called between multiple smart contracts, and its use and results will be written into the BCBChain chain. The smart contracts from the same organization can call each other on the BCBChain. The public interface provided by BCBChain-based organization’s smart contracts can be called by any smart contract.</p></li>
+</ul>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='  sdk.RequireAddress(to)
+  sdk.Require(value.IsPositive(),
+        types.ErrInvalidParameter, &quot;value must be positive&quot;)'>Copy</button><pre><code class='go' lang='go'>  sdk.RequireAddress(to)
+  sdk.Require(value.IsPositive(),
+        types.ErrInvalidParameter, &quot;value must be positive&quot;)
+</code></pre>
+</figure>
+<p class='with-space'>Declares a part of the code logic in the contract. The function <code>sdk.RequireAddress()</code>  is provided by the SDK to validate if input parameter  <code>to</code>  is an account address. If not, it will terminate the contract execution and return an error message in the response. The function  <code>sdk.Require()</code>  is provided by the SDK to detect that a certain condition must be met (in this case, the input parameter  <code>value</code>must be greater than 0), otherwise, it will terminate the contract execution and return an error message in the response.</p>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='  sender := mc.sdk.Message().Sender().Address()
+  newBalanceOfSender := mc._balanceOf(sender).Sub(value)
+  sdk.Require(newBalanceOfSender.IsGEI(0),
+        types.ErrInsufficientBalance, &quot;&quot;)'>Copy</button><pre><code class='go' lang='go'>  sender := mc.sdk.Message().Sender().Address()
+  newBalanceOfSender := mc._balanceOf(sender).Sub(value)
+  sdk.Require(newBalanceOfSender.IsGEI(0),
+        types.ErrInsufficientBalance, &quot;&quot;)
+</code></pre>
+</figure>
+<p class='with-space'>Declares a part of the code logic in the contract. The function <code>mc.sdk.Message().Sender().Address()</code>  is provided by the SDK to retrieve the account address of the sender  <code>mc._balanceOf(sender).Sub(value)</code>  is used to obtain the balance of the tokens in the sender&#39;s account address after subtracting the transfer amount. The function  <code>_balanceOf()</code>  is automatically generated by a support tool in BCBChain. The function  <code>sdk.Require()</code> is provided by the SDK to detect that a certain condition must be met (in this case, the balance of the sender is must be sufficient for the transfer), otherwise, it will terminate the contract execution and return an error message in the response.</p>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='  receiver := to
+  newBalanceOfReceiver := mc._balanceOf(receiver).Add(value)'>Copy</button><pre><code class='go' lang='go'>  receiver := to
+  newBalanceOfReceiver := mc._balanceOf(receiver).Add(value)
+</code></pre>
+</figure>
+<p class='with-space'>Declares a part of the code logic in the contract. <code>mc._balanceOf(receiver).Add(value)</code> calculates the new account balance of the transfer recipient’s account address.</p>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='  mc._setBalanceOf(sender, newBalanceOfSender)
+  mc._setBalanceOf(receiver, newBalanceOfReceiver)'>Copy</button><pre><code class='go' lang='go'>  mc._setBalanceOf(sender, newBalanceOfSender)
+  mc._setBalanceOf(receiver, newBalanceOfReceiver)
+</code></pre>
+</figure>
+<p class='with-space'>Declares a part of the code logic in the contract. Used to write the calculated new account balance to the state database, the function <code>_setBalanceOf()</code>is automatically generated by the supporting tool provided by BCBChain</p>
+<p class='with-space'>Code segment:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='  mc.emitTransferMyCoin(
+        mc.sdk.Message().Contract().Address(),
+        sender,
+        receiver,
+        value)'>Copy</button><pre><code class='go' lang='go'>  mc.emitTransferMyCoin(
+        mc.sdk.Message().Contract().Address(),
+        sender,
+        receiver,
+        value)
+</code></pre>
+</figure>
+<p class='with-space'>Declares a part of the code logic in the contract. It is to be used for updating the receipt of the current transfer transaction into the blockchain. The function <code>emitTransferMyCoin()</code> is automatically generated by the support tool provided by BCBChain.</p>
+<p class='with-space'>This contract provides two functions. The function <code>InitChain()</code>  is automatically called once by the BCBChain chain after contract creation to initialize the contract. The function for actual use by the user or other contract, and for completing the contract, is  <code>Transfer()</code>. This function can be used by anyone to send tokens to others (provided, of course, that the sender owns these tokens). Remember, if you use a contract to send tokens to an address, you will not see any relevant information when you view the address on the BCBChain chain browser. This is because the detailed information of the transfer and changes in balances is only stored in the data store of this contract (requires special means to query from the state database). By using receipts, you can easily create a “blockchain browser” for your new token to track transactions and balances.</p>
+<h2 id='c6ac97e2'><span class='bd-content-title'>2. Blockchain basics<a class='anchorjs-link ' href='#c6ac97e2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>programmers should not find the concept of blockchain difficult to understand, because most of the complex algorithms and protocols (hash, elliptic curve cryptography, peer-to-peer networking (P2P), etc.) are only used to fulfill special-case functionality and promise. Smart contract development programmers only need to accept these existing features and functions, and not care about the implementation of the underlying technology.</p>
+<h3 id='f6247ad8'><span class='bd-content-title'>2.1 Transactions<a class='anchorjs-link ' href='#f6247ad8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>A blockchain is a globally shared transactional database, which means that everyone can join the network to read the records in the database. If you want to change something in the database, you must create a transaction that is accepted by everyone else (also known as a transaction in the blockchain world). The word “transaction” means that for whatever that you want to do (assuming you want to change two values at the same time), it either occurs all at once, or not at all. In addition, when your transaction is saved to the database, it cannot be modified.</p>
+<p class='with-space'>For example, imagine a table listing the balances of all accounts in an digital currency. If you send a request to transfer from one account to another, the transactional nature of the database ensures that if the amount is deducted from one account, it is always added to another account. If for some reason it is not possible to add an amount to the target account, the source account will not change.</p>
+<p class='with-space'>In addition, the transaction is always signed by the sender (creator). This makes it very easy to add access protection mechanisms for specific modifications to the database. In the case of digital tokens, a simple check ensures that only the person holding the account key can transfer money from it.</p>
+<h3 id='bc111f80'><span class='bd-content-title'>2.2 States<a class='anchorjs-link ' href='#bc111f80' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>BCBChain referenced Ethereum、Fabric、Tendermint、Cosmos and other open source blockchain solutions, drawing on some of these excellent ideas.</p>
+<p class='with-space'>BCBChain is essentially a transaction-based state machine. In computer science, a state machine is a calculation model that contains a set of states, a start state, a set of input symbols (alphabet), and a A conversion function that maps the input symbol from current state to the next state (transition function).</p>
+<p class='with-space'>In BCBChain, the state set is expressed by the state database. The initial state is called the genesis state. The input symbol set is the transaction (transaction, tx for short) in the blockchain field. The state transition function is the Smart contract.</p>
+<p><img class='d-inline-block img-fluid' data-original='./p/statemachine.png' alt='state machine' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>According to the state machine of BCBChain, we start with the genesis state. This is almost similar to a blank slate, and there is no state of any transaction in the network. When the transaction is executed, the Genesis status will be transformed into the final state. At any time, this final state represents the current state of BCBChain.</p>
+<h3 id='b693bee8'><span class='bd-content-title'>2.3 Blocks<a class='anchorjs-link ' href='#b693bee8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The state of BCBChain is composed of thousands of transactions. These transactions are &quot;grouped&quot; into blocks. A block contains a series of transactions, each block is linked to its previous block, and each block causes the state machine to reach a new state.</p>
+<p><img class='d-inline-block img-fluid' data-original='./p/blockchain.png' alt='blockchain' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>For the state transition to happen, the transaction must be valid (i.e, to promote the non-repudiation characteristics of the blockchain technique). For a transaction to be considered valid, it must go through a verification process. Each transaction must be signed by the sender using its own private key, and the BCBChain&#39;s smart contract must be verified to meet certain conditions. Only then can the validation be successful.</p>
+<h3 id='e31160aa'><span class='bd-content-title'>2.4 Message Calls<a class='anchorjs-link ' href='#e31160aa' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Smart contracts can communicate with each other via message calls.</p>
+<p class='with-space'>Each transaction can contain multiple top-level message calls that are executed in sequence. The receipt generated from the previous message call can be used as input for the next top-level message call for some logical processing.</p>
+<p class='with-space'>Each top-level message called, will in turn generate more message calls across multiple contracts.</p>
+<p class='with-space'>The number of message call layers is limited to 8. In order to prevent infinite loops, each layer of message calls are prohibited from forming a loop.</p>
+<h3 id='ff5f9580'><span class='bd-content-title'>2.5 Receipt<a class='anchorjs-link ' href='#ff5f9580' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>On top of transaction result, message calls can also return the log data of the transaction execution process. Here, we call it the receipt, which is stored on the block and very easy to retrieve.</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/en-us/04-SmartContractDev\SmartContract(golang)\01-Overview.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#fcee9eaf'>Smart Contract Overview</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#f33f0bec'>1. Simple smart contract</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#f60516ec'>1.1 Storage</a>
+<a class='ml-2 my-1 nav-link' href='#ce5d5a20'>1.2 Token</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#c6ac97e2'>2. Blockchain basics</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#f6247ad8'>2.1 Transactions</a>
+<a class='ml-2 my-1 nav-link' href='#bc111f80'>2.2 States</a>
+<a class='ml-2 my-1 nav-link' href='#b693bee8'>2.3 Blocks</a>
+<a class='ml-2 my-1 nav-link' href='#e31160aa'>2.4 Message Calls</a>
+<a class='ml-2 my-1 nav-link' href='#ff5f9580'>2.5 Receipt</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

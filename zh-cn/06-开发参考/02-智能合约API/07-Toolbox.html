@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>Toolbox</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/站点地图.html'>站点地图</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB基础</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/01-BCB介绍.html'>BCB介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/02-BCB节点.html'>BCB节点</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/01-主网与测试网.html'>主网与测试网</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/02-私链搭建指南.html'>私链搭建指南</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB侧链</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/01-侧链注册.html'>侧链注册</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/02-侧链创世.html'>侧链创世</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/03-侧链治理.html'>侧链治理</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/04-跨链交易.html'>跨链交易</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB工具箱</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/02-编程实例.html'>编程实例</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/03-深入理解.html'>深入理解</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/01-开发环境.html'>开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/02-第一个智能合约.html'>第一个智能合约</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/01-BVM与EVM差异说明.html'>BVM与EVM差异说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/02-合约开发.html'>合约开发</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/03-合约部署调用.html'>合约部署调用</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所对接指南</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/01-集成方案介绍.html'>集成方案介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/02-安装部署.html'>安装部署</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/03-命令详解.html'>命令详解</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-模型说明.html'>模型说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-算法说明.html'>算法说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/04-交易格式v1.html'>交易格式v1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/05-交易格式v2.html'>交易格式v2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>主链API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/02-网络接口.html'>网络接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/03-区块接口.html'>区块接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/04-交易接口.html'>交易接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/05-世界接口.html'>世界接口</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/02-钱包接口.html'>钱包接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/03-区块链接口.html'>区块链接口</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='e14701f5'><span class='bd-content-title'>Toolbox<a class='anchorjs-link ' href='#e14701f5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='f4426e62'><span class='bd-content-title'>1. sdk/forx<a class='anchorjs-link ' href='#f4426e62' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>代码包 <code>blockchain/smcsdk/sdk/mapx</code> 封装了对 for 循环进行优化处理的应用接口。</p>
+<h3 id='a9f35bff'><span class='bd-content-title'>1.1 func Range()<a class='anchorjs-link ' href='#a9f35bff' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range(args... interface{})'>Copy</button><pre><code>func Range(args... interface{})
+</code></pre>
+</figure>
+<p class='with-space'>智能合约规范中不允许智能合约代码中使用关键字 <code>for</code> 。</p>
+<p class='with-space'>智能合约中需要循环执行的指令必须采用 <code>Range()</code> 函数。</p>
+<p class='with-space'> <code>Range()</code> 函数存在六种模型。</p>
+<p class='with-space'> <strong>. 模型一</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( m map[keyType]valType, f func(key keyType, val valType) )
+func Range( m map[keyType]valType, f func(key keyType, val valType) bool )'>Copy</button><pre><code>func Range( m map[keyType]valType, f func(key keyType, val valType) )
+func Range( m map[keyType]valType, f func(key keyType, val valType) bool )
+</code></pre>
+</figure>
+<p class='with-space'>对映射表对象 m 进行遍历操作，遍历按照映射表键的顺序执行，操作函数为 f，如果 f 的返回值定义为空，则遍历结束以后才可以结束循环，如果 f 的返回值定义为布尔类型，f 返回 false 表示终止执行遍历操作退出循环，f 返回 true 表示继续执行遍历操作。输入参数要求满足如下条件，如果任意一条不满足则发生异常，当发生异常时，将会自动触发SDK进行 panic：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 m 的类型必须是一个映射表；</p></li>
+<li>
+<p class='with-space'>参数 f 必须是一个函数，函数的返回值必须是在空与布尔类型之间二选一；</p></li>
+<li>
+<p class='with-space'>函数 f 的参数必须是两个；</p></li>
+<li>
+<p class='with-space'>函数 f 的第一个参数类型必须是映射表 m 的键对应的类型；</p></li>
+<li>
+<p class='with-space'>函数 f 的第二个参数类型必须是映射表 m 的值对应的类型。</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>示例代码如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='m := make(map[int]string)
+m[93] = &quot;23231&quot;
+m[13] = &quot;23423423234324&quot;
+m[54] = &quot;3432432423&quot;
+m[23] = &quot;3434545345345&quot;
+
+forx.Range(m, func(k int, v string) {
+    printf(&quot;key=%v value=%v\n&quot;, k, v)
+}) '>Copy</button><pre><code>m := make(map[int]string)
+m[93] = &quot;23231&quot;
+m[13] = &quot;23423423234324&quot;
+m[54] = &quot;3432432423&quot;
+m[23] = &quot;3434545345345&quot;
+
+forx.Range(m, func(k int, v string) {
+    printf(&quot;key=%v value=%v\n&quot;, k, v)
+}) 
+</code></pre>
+</figure>
+<p class='with-space'> <strong>. 模型二</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( s []valType, f func(i int, val valType) )
+func Range( s []valType, f func(i int, val valType) bool )'>Copy</button><pre><code>func Range( s []valType, f func(i int, val valType) )
+func Range( s []valType, f func(i int, val valType) bool )
+</code></pre>
+</figure>
+<p class='with-space'>对切片对象 s 进行遍历操作，遍历按照切片顺序从小到大顺序执行，操作函数为 f，如果 f 的返回值定义为空，则遍历结束以后才可以结束循环，如果 f 的返回值定义为布尔类型，f 返回 false 表示终止执行遍历操作结束循环，f 返回 true 表示继续执行遍历操作。输入参数要求满足如下条件，如果任意一条不满足则发生异常，当发生异常时，将会自动触发SDK进行 panic：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 s 的类型必须是一个切片；</p></li>
+<li>
+<p class='with-space'>参数 f 必须是一个函数，函数的返回值必须是在空与布尔类型之间二选一；</p></li>
+<li>
+<p class='with-space'>函数 f 的参数必须是两个；</p></li>
+<li>
+<p class='with-space'>函数 f 的第一个参数类型必须是 int 类型，表示元素的索引号，从 0 开始；</p></li>
+<li>
+<p class='with-space'>函数 f 的第二个参数类型必须是切片 s 的元素值对应的类型。</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>示例代码如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='s := make([]string)
+s = append(s, &quot;23231&quot;)
+s = append(s, &quot;423792234&quot;)
+s = append(s, &quot;23232&quot;)
+s = append(s, &quot;3243455454&quot;)
+
+forx.Range(s, func(i int, v string) {
+    printf(&quot;i=%v value=%v\n&quot;, i, v)
+}) '>Copy</button><pre><code>s := make([]string)
+s = append(s, &quot;23231&quot;)
+s = append(s, &quot;423792234&quot;)
+s = append(s, &quot;23232&quot;)
+s = append(s, &quot;3243455454&quot;)
+
+forx.Range(s, func(i int, v string) {
+    printf(&quot;i=%v value=%v\n&quot;, i, v)
+}) 
+</code></pre>
+</figure>
+<p class='with-space'> <strong>. 模型三</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( n intType, f func(i intType) )
+func Range( n intType, f func(i intType) bool )'>Copy</button><pre><code>func Range( n intType, f func(i intType) )
+func Range( n intType, f func(i intType) bool )
+</code></pre>
+</figure>
+<p class='with-space'>循环执行指定次数，操作函数为 f，如果 f 的返回值定义为空，则执行完指定次数以后才可以结束循环，f 返回 false 表示终止循环操作，f 返回 true 表示继续循环操作。输入参数要求满足如下条件，如果任意一条不满足则发生异常，当发生异常时，将会自动触发SDK进行 panic：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 n 的类型必须为表达整数的类型，例如：int、uint、int32等, 值必须大于等于 0 的整数；</p></li>
+<li>
+<p class='with-space'>参数 f 必须是一个函数，函数的返回值必须是在空与布尔类型之间二选一；</p></li>
+<li>
+<p class='with-space'>函数 f 的参数必须是一个，类型必须于参数 n 的类型相同，表示执行循环的索引号，从 0 开始。</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>示例代码如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='forx.Range(10, func(i int) {
+    printf(&quot;i=%v\n&quot;, i)
+}) '>Copy</button><pre><code>forx.Range(10, func(i int) {
+    printf(&quot;i=%v\n&quot;, i)
+}) 
+</code></pre>
+</figure>
+<p class='with-space'> <strong>. 模型四</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( m,n intType, f func(k intType) )
+func Range( m,n intType, f func(k intType) bool )'>Copy</button><pre><code>func Range( m,n intType, f func(k intType) )
+func Range( m,n intType, f func(k intType) bool )
+</code></pre>
+</figure>
+<p class='with-space'>根据输入参数遍历 m 到 n 之间(包含 m 和 n)的所有整数，从 m 开始执行，到 n 结束，操作函数为 f，如果 f 的返回值定义为空，则遍历结束以后才可以结束循环，f 返回 false 表示终止执行遍历操作退出循环，f 返回 true 表示继续执行遍历操作。输入参数要求满足如下条件，如果任意一条不满足则发生异常，当发生异常时，将会自动触发SDK进行 panic：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 m 和 n 的类型必须为表达整数的同一类型，例如：int、uint、int32等，如果 m 小于 n，则执行顺序为增序，如果 m 大于 n，则执行顺序为降序；</p></li>
+<li>
+<p class='with-space'>参数 f 必须是一个函数，函数的返回值必须是在空与布尔类型之间二选一；</p></li>
+<li>
+<p class='with-space'>函数 f 的参数必须是一个，类型必须与参数 m 和 n 的类型相同，表示遍历的整数值，从 m 开始。</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>示例代码如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='forx.Range(1,100, func(k int) {
+    printf(&quot;k=%v\n&quot;, k)
+}) '>Copy</button><pre><code>forx.Range(1,100, func(k int) {
+    printf(&quot;k=%v\n&quot;, k)
+}) 
+</code></pre>
+</figure>
+<p class='with-space'> <strong>. 模型五</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( c func() bool, f func(i int) )
+func Range( c func() bool, f func(i int) bool )'>Copy</button><pre><code>func Range( c func() bool, f func(i int) )
+func Range( c func() bool, f func(i int) bool )
+</code></pre>
+</figure>
+<p class='with-space'>循环执行函数 f，当控制函数 c 满足返回值为 true 时立即终止循环操作，它控制循环结束的时间，如果 f 的返回值定义为布尔类型，则除了函数 c 可以控制循环结束以外，f 返回 false 表示终止执行循环操作，f 返回 true 表示继续执行循环操作，输入参数要求满足如下条件，如果任意一条不满足则发生异常，当发生异常时，将会自动触发SDK进行 panic：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 c 必须是一个函数，函数的返回值必须是布尔类型；</p></li>
+<li>
+<p class='with-space'>参数 f 必须是一个函数，函数的返回值必须是在空与布尔类型之间二选一；</p></li>
+<li>
+<p class='with-space'>函数 f 的参数必须是一个，类型必须是 int，表示执行循环次数的索引，从 0 开始。</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>示例代码如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='toVoter := ballot._voters(to)
+forx.range( func() bool {
+              return toVoter.delegate != &quot;&quot; 
+            },
+            func(i int) {                
+              to = toVoter.delegate
+              toVoter = ballot._voters(to)
+            })'>Copy</button><pre><code>toVoter := ballot._voters(to)
+forx.range( func() bool {
+              return toVoter.delegate != &quot;&quot; 
+            },
+            func(i int) {                
+              to = toVoter.delegate
+              toVoter = ballot._voters(to)
+            })
+</code></pre>
+</figure>
+<p class='with-space'> <strong>. 模型六</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Range( f func(i int) bool )'>Copy</button><pre><code>func Range( f func(i int) bool )
+</code></pre>
+</figure>
+<p class='with-space'>循环执行函数 f，f 返回 false 表示终止执行循环操作，f 返回 true 表示继续执行循环操作。输入参数要求满足如下条件，如果任意一条不满足则发生异常，当发生异常时，将会自动触发SDK进行 panic：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 f 必须是一个函数，函数的返回值必须是布尔类型；</p></li>
+<li>
+<p class='with-space'>函数 f 的参数必须是一个，类型必须是 int，表示执行循环次数的索引，从 0 开始。</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>示例代码如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='toVoter := ballot._voters(to)
+forx.Range( func(i int) bool {                
+              to = toVoter.delegate
+              toVoter = ballot._voters(to)
+
+              if toVoter.delegate != &quot;&quot; {
+                return forx.Break
+              } else {
+                return forx.Continue
+              }
+            })'>Copy</button><pre><code>toVoter := ballot._voters(to)
+forx.Range( func(i int) bool {                
+              to = toVoter.delegate
+              toVoter = ballot._voters(to)
+
+              if toVoter.delegate != &quot;&quot; {
+                return forx.Break
+              } else {
+                return forx.Continue
+              }
+            })
+</code></pre>
+</figure>
+<h3 id='d75eb130'><span class='bd-content-title'>1.2 func RangeReverse()<a class='anchorjs-link ' href='#d75eb130' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func RangeReverse(args... interface{})'>Copy</button><pre><code>func RangeReverse(args... interface{})
+</code></pre>
+</figure>
+<p class='with-space'>RangeReverse提供反向遍历切片的for循环。</p>
+<p class='with-space'> <code>RangeReverse()</code> 函数存在一种模型。</p>
+<p class='with-space'> <strong>. 模型一</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func RangeReverse( s []valType, f func(i int, val valType) )
+func RangeReverse( s []valType, f func(i int, val valType) bool )'>Copy</button><pre><code>func RangeReverse( s []valType, f func(i int, val valType) )
+func RangeReverse( s []valType, f func(i int, val valType) bool )
+</code></pre>
+</figure>
+<p class='with-space'>对切片对象 s 进行遍历操作，遍历按照切片顺序从大到小顺序执行，操作函数为 f，如果 f 的返回值定义为空，则遍历结束以后才可以结束循环，如果 f 的返回值定义为布尔类型，f 返回 false 表示终止执行遍历操作结束循环，f 返回 true 表示继续执行遍历操作。输入参数要求满足如下条件，如果任意一条不满足则发生异常，当发生异常时，将会自动触发SDK进行 panic：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 s 的类型必须是一个切片；</p></li>
+<li>
+<p class='with-space'>参数 f 必须是一个函数，函数的返回值必须是在空与布尔类型之间二选一；</p></li>
+<li>
+<p class='with-space'>函数 f 的参数必须是两个；</p></li>
+<li>
+<p class='with-space'>函数 f 的第一个参数类型必须是 int 类型，表示元素的索引号，从 len(s)-1 开始递减；</p></li>
+<li>
+<p class='with-space'>函数 f 的第二个参数类型必须是切片 s 的元素值对应的类型。</p></li>
+</ul>
+</blockquote>
+<p class='with-space'>示例代码如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='s := make([]string)
+s = append(s, &quot;23231&quot;)
+s = append(s, &quot;423792234&quot;)
+s = append(s, &quot;23232&quot;)
+s = append(s, &quot;3243455454&quot;)
+
+forx.Range(s, func(i int, v string) {
+    printf(&quot;i=%v value=%v\n&quot;, i, v)
+}) '>Copy</button><pre><code>s := make([]string)
+s = append(s, &quot;23231&quot;)
+s = append(s, &quot;423792234&quot;)
+s = append(s, &quot;23232&quot;)
+s = append(s, &quot;3243455454&quot;)
+
+forx.Range(s, func(i int, v string) {
+    printf(&quot;i=%v value=%v\n&quot;, i, v)
+}) 
+</code></pre>
+</figure>
+<h2 id='f585b582'><span class='bd-content-title'>2. sdk/jsoniter<a class='anchorjs-link ' href='#f585b582' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>代码包 <code>blockchain/smcsdk/sdk/jsoniter</code> 封装了对快速处理 JSON 数据的第三方包 jsoniter 的简便应用接口。</p>
+<h3 id='ccdcc439'><span class='bd-content-title'>2.1 func Marshal()<a class='anchorjs-link ' href='#ccdcc439' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Marshal(v interface{}) ([]byte, error)'>Copy</button><pre><code>func Marshal(v interface{}) ([]byte, error)
+</code></pre>
+</figure>
+<p class='with-space'>将输入的对象 <code>v</code> 序列化成 JSON 格式的字符串并返回。</p>
+<h3 id='f2a83dfc'><span class='bd-content-title'>2.2 func Unmarshal()<a class='anchorjs-link ' href='#f2a83dfc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Unmarshal(bz []byte, v interface{}) error'>Copy</button><pre><code>func Unmarshal(bz []byte, v interface{}) error
+</code></pre>
+</figure>
+<p class='with-space'>对输入的 JSON 字符串进行解析，并将解析结果存入 <code>v</code> 指向的对象。</p>
+<h2 id='db21ad2b'><span class='bd-content-title'>3. sdk/rlp<a class='anchorjs-link ' href='#db21ad2b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>代码包 <code>blockchain/smcsdk/sdk/rlp</code> 封装了 BCBChain 对交易进行 RLP 编码的操作。源码是基于 <code>geth</code> 的开源版本，根据 BCBChain 的需要，添加了对 <code>bn.Number</code> 大数的编解码支持，同时添加了对映射表的支持。</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/zh-cn/06-开发参考\02-智能合约API\07-Toolbox.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#e14701f5'>Toolbox</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#f4426e62'>1. sdk/forx</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#a9f35bff'>1.1 func Range()</a>
+<a class='ml-2 my-1 nav-link' href='#d75eb130'>1.2 func RangeReverse()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#f585b582'>2. sdk/jsoniter</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#ccdcc439'>2.1 func Marshal()</a>
+<a class='ml-2 my-1 nav-link' href='#f2a83dfc'>2.2 func Unmarshal()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#db21ad2b'>3. sdk/rlp</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

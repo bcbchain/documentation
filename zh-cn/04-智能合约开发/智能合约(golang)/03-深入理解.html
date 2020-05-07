@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>深入理解智能合约</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/站点地图.html'>站点地图</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB基础</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/01-BCB介绍.html'>BCB介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/02-BCB节点.html'>BCB节点</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/01-主网与测试网.html'>主网与测试网</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/02-私链搭建指南.html'>私链搭建指南</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB侧链</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/01-侧链注册.html'>侧链注册</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/02-侧链创世.html'>侧链创世</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/03-侧链治理.html'>侧链治理</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/04-跨链交易.html'>跨链交易</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB工具箱</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/02-编程实例.html'>编程实例</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/03-深入理解.html'>深入理解</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/01-开发环境.html'>开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/02-第一个智能合约.html'>第一个智能合约</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/01-BVM与EVM差异说明.html'>BVM与EVM差异说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/02-合约开发.html'>合约开发</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/03-合约部署调用.html'>合约部署调用</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所对接指南</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/01-集成方案介绍.html'>集成方案介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/02-安装部署.html'>安装部署</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/03-命令详解.html'>命令详解</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-模型说明.html'>模型说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-算法说明.html'>算法说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/04-交易格式v1.html'>交易格式v1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/05-交易格式v2.html'>交易格式v2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>主链API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/02-网络接口.html'>网络接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/03-区块接口.html'>区块接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/04-交易接口.html'>交易接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/05-世界接口.html'>世界接口</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/02-钱包接口.html'>钱包接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/03-区块链接口.html'>区块链接口</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='ff7cb732'><span class='bd-content-title'>深入理解智能合约<a class='anchorjs-link ' href='#ff7cb732' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='d468373b'><span class='bd-content-title'>1. 组织机构<a class='anchorjs-link ' href='#d468373b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>为BCBChain主链开发的智能合约按照组织的架构进行组织，为同一个组织机构开发的所有智能合约都将被集成在一个合约进程中供用户进行调用。</p>
+<p class='with-space'>在一个智能合约中可以调用其它智能合约提供的接口，在那个接口对应的智能合约代码中又可以调用另一个智能合约的接口，BCBChain最多支持8级嵌套的跨合约调用，嵌套调用不允许包含环形调用结构。</p>
+<p class='with-space'>BCBChain设定了一个基础组织，为该基础组织开发的智能合约将被集成到所有组织的合约进程中供用户调用，这个组织的设定主要是为了提供一些可以随时被任意组织跨合约调用执行的基础合约，例如BCBChain主链的基础通证以及代币模板合约。</p>
+<h2 id='f277a581'><span class='bd-content-title'>2. BNF范式<a class='anchorjs-link ' href='#f277a581' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>本章对合约规范的描述采用巴科斯(BNF)范式。</p>
+<p class='with-space'>巴科斯范式的英文缩写为BNF，它是以美国人巴科斯(Backus)和丹麦人诺尔(Naur)的名字命名的一种形式化的语法表示方法，用来描述语法的一种形式体系，是一种典型的元语言。又称巴科斯-诺尔形式(Backus-Naur form)。它不仅能严格地表示语法规则，而且所描述的语法是与上下文无关的。它具有语法简单，表示明确，便于语法分析和编译的特点。</p>
+<p class='with-space'>BNF范式表示语法规则的方式为：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>非终结符用尖括号括起。</p></li>
+<li>
+<p class='with-space'>每条规则的左部是一个非终结符，右部是由非终结符和终结符组成的一个符号串，中间一般以::=分开。</p></li>
+<li>
+<p class='with-space'>具有相同左部的规则可以共用一个左部，各右部之间以竖线“|”隔开。</p></li>
+</ul>
+<p class='with-space'>BNF范式中常用的元字符及其表示的意义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='1. 在双引号中的字符(例如&quot;word&quot;)代表着这些字符本身。而double_quote用来代表双引号本身。
+2. 在双引号外的字(有可能有下划线)代表着语法部分。 
+3. 尖括号 &lt; &gt; 内包含的为必选项。 
+4. 方括号 [ ] 内包含的为可选项。 
+5. 大括号 { } 内包含的为可重复0至无数次的项。 
+6. 圆括号 ( ) 内包含的所有项为一组，用来控制表达式的优先级。
+7. 竖线 | 表示在其左右两边任选一项，相当于&quot;OR&quot;的意思。 
+8. ::= 是“被定义为”的意思。 
+9. 空白字符 BNF范式定义中出现的空白字符间隔仅为排版需要，不作为规范的一部分。'>Copy</button><pre><code>1. 在双引号中的字符(例如&quot;word&quot;)代表着这些字符本身。而double_quote用来代表双引号本身。
+2. 在双引号外的字(有可能有下划线)代表着语法部分。 
+3. 尖括号 &lt; &gt; 内包含的为必选项。 
+4. 方括号 [ ] 内包含的为可选项。 
+5. 大括号 { } 内包含的为可重复0至无数次的项。 
+6. 圆括号 ( ) 内包含的所有项为一组，用来控制表达式的优先级。
+7. 竖线 | 表示在其左右两边任选一项，相当于&quot;OR&quot;的意思。 
+8. ::= 是“被定义为”的意思。 
+9. 空白字符 BNF范式定义中出现的空白字符间隔仅为排版需要，不作为规范的一部分。
+</code></pre>
+</figure>
+<h2 id='fa024aa0'><span class='bd-content-title'>3. 合约标记<a class='anchorjs-link ' href='#fa024aa0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>BCBChain智能合约代码采用标记法在合约代码的注释中对合约的元数据进行描述。</p>
+<p class='with-space'>下面为BCBChain智能合约所使用的各种标记的详细语法描述。</p>
+<h3 id='c2e0694a'><span class='bd-content-title'>3.1 contract<a class='anchorjs-link ' href='#c2e0694a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 <code>contract</code>用于标识合约名称，同一组织之下的合约名称必须唯一，请智能合约的开发者进行合理的规划。</p>
+<p class='with-space'>标记 <code>contract</code>为必须标记，但在整个合约代码中只能出现一次。</p>
+<p class='with-space'>标记 <code>contract</code>的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;contract标记语法&gt; ::= &quot;//@:contract:&quot; &lt;合约名称&gt;
+&lt;合约名称&gt; ::= &lt;字母&gt; | &lt;合约名称&gt; &lt;字母数字串&gt;
+&lt;字母数字串&gt; ::= &lt;字母&gt; | &lt;十进制数字&gt; | &lt;字母数字串&gt; &lt;字母&gt; | &lt;字母数字串&gt; &lt;十进制数字&gt; 
+&lt;字母&gt; ::= &quot;_&quot; | &quot;-&quot; | &quot;.&quot; | &lt;小写字母&gt; | &lt;大写字母&gt; 
+&lt;小写字母&gt; ::= &quot;a&quot; | &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;f&quot; | &quot;g&quot; | &quot;h&quot; | &quot;i&quot; | &quot;j&quot; | &quot;k&quot; | &quot;l&quot; | 
+              &quot;m&quot; | &quot;n&quot; | &quot;o&quot; | &quot;p&quot; | &quot;q&quot; | &quot;r&quot; | &quot;s&quot; | &quot;t&quot; | &quot;u&quot; | &quot;v&quot; | &quot;w&quot; | &quot;x&quot; | 
+              &quot;y&quot; | &quot;z&quot; 
+&lt;大写字母&gt; ::= &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot; | &quot;G&quot; | &quot;H&quot; | &quot;I&quot; | &quot;J&quot; | &quot;K&quot; | &quot;L&quot; | 
+              &quot;M&quot; | &quot;N&quot; | &quot;O&quot; | &quot;P&quot; | &quot;Q&quot; | &quot;R&quot; | &quot;S&quot; | &quot;T&quot; | &quot;U&quot; | &quot;V&quot; | &quot;W&quot; | &quot;X&quot; | 
+              &quot;Y&quot; | &quot;Z&quot; 
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;'>Copy</button><pre><code>&lt;contract标记语法&gt; ::= &quot;//@:contract:&quot; &lt;合约名称&gt;
+&lt;合约名称&gt; ::= &lt;字母&gt; | &lt;合约名称&gt; &lt;字母数字串&gt;
+&lt;字母数字串&gt; ::= &lt;字母&gt; | &lt;十进制数字&gt; | &lt;字母数字串&gt; &lt;字母&gt; | &lt;字母数字串&gt; &lt;十进制数字&gt; 
+&lt;字母&gt; ::= &quot;_&quot; | &quot;-&quot; | &quot;.&quot; | &lt;小写字母&gt; | &lt;大写字母&gt; 
+&lt;小写字母&gt; ::= &quot;a&quot; | &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;f&quot; | &quot;g&quot; | &quot;h&quot; | &quot;i&quot; | &quot;j&quot; | &quot;k&quot; | &quot;l&quot; | 
+              &quot;m&quot; | &quot;n&quot; | &quot;o&quot; | &quot;p&quot; | &quot;q&quot; | &quot;r&quot; | &quot;s&quot; | &quot;t&quot; | &quot;u&quot; | &quot;v&quot; | &quot;w&quot; | &quot;x&quot; | 
+              &quot;y&quot; | &quot;z&quot; 
+&lt;大写字母&gt; ::= &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot; | &quot;G&quot; | &quot;H&quot; | &quot;I&quot; | &quot;J&quot; | &quot;K&quot; | &quot;L&quot; | 
+              &quot;M&quot; | &quot;N&quot; | &quot;O&quot; | &quot;P&quot; | &quot;Q&quot; | &quot;R&quot; | &quot;S&quot; | &quot;T&quot; | &quot;U&quot; | &quot;V&quot; | &quot;W&quot; | &quot;X&quot; | 
+              &quot;Y&quot; | &quot;Z&quot; 
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;
+</code></pre>
+</figure>
+<p class='with-space'>标记 <code>contract</code>  之后的有效代码必须紧跟一个包含  <code>sdk.ISmartContract</code>成员的合约类定义，这个合约类为智能合约的上下文环境，每次针对智能合约的消息调用都会自动创建这个合约类的一个实例，在这个实例上调用智能合约的方法。智能合约对外提供的方法必须属于这个类的成员函数。类名首字母必须大写。</p>
+<p class='with-space'>示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:contract:mycoin
+type Mycoin struct {
+    sdk sdk.ISmartContract
+
+    //@:public:store:cache
+    totalSupply bn.Number
+
+    //@:public:store
+    balanceOf map[types.Address]bn.Number
+}'>Copy</button><pre><code>//@:contract:mycoin
+type Mycoin struct {
+    sdk sdk.ISmartContract
+
+    //@:public:store:cache
+    totalSupply bn.Number
+
+    //@:public:store
+    balanceOf map[types.Address]bn.Number
+}
+</code></pre>
+</figure>
+<h3 id='f5c12141'><span class='bd-content-title'>3.2 version<a class='anchorjs-link ' href='#f5c12141' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 <code>version</code>用于标识合约的版本，在整个合约代码中只能出现一次。</p>
+<p class='with-space'>标记 <code>version</code>为必须标记，但在整个合约代码中只能出现一次。</p>
+<p class='with-space'>标记 <code>version</code>的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;version标记语法&gt; ::= &quot;//@:version:&quot; &lt;合约版本&gt;
+&lt;合约版本&gt; ::= &lt;十进制数&gt; |
+              &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt; |
+              &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt; |
+              &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt;
+&lt;十进制数&gt; ::= &lt;十进制数字&gt; | &lt;十进制数&gt; &lt;十进制数字&gt;
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;'>Copy</button><pre><code>&lt;version标记语法&gt; ::= &quot;//@:version:&quot; &lt;合约版本&gt;
+&lt;合约版本&gt; ::= &lt;十进制数&gt; |
+              &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt; |
+              &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt; |
+              &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt; &quot;.&quot; &lt;十进制数&gt;
+&lt;十进制数&gt; ::= &lt;十进制数字&gt; | &lt;十进制数&gt; &lt;十进制数字&gt;
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;
+</code></pre>
+</figure>
+<p class='with-space'>示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:version:1.0'>Copy</button><pre><code>//@:version:1.0
+</code></pre>
+</figure>
+<p class='with-space'>注：BCBChain链不要求智能合约版本的具体规则，即合约版本既可以采用一段式（例如1、2、3），也可以采用两段式（1.0、1.1、1.2）、三段式（1.0.1、1.0.2、1.0.3）、四段式（1.0.1.102、1.0.1.103），但是同一智能合约的不同版本需要保持版本格式段数的一致性。</p>
+<h3 id='d3300a02'><span class='bd-content-title'>3.3 organization<a class='anchorjs-link ' href='#d3300a02' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 <code>organization</code> 用于标识合约所属组织机构的ID。</p>
+<p class='with-space'>标记 <code>organization</code> 为必须标记，但在整个合约代码中只能出现一次。</p>
+<p class='with-space'>标记 <code>organization</code> 的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;organization标记语法&gt; ::= &quot;//@:organization:&quot; &lt;组织ID&gt;
+&lt;组织ID&gt; ::= &lt;前缀码&gt; &lt;Base58字符串&gt;
+&lt;前缀码&gt; ::= &quot;org&quot;
+&lt;Base58字符串&gt; ::= &lt;Base58字符&gt; | &lt;Base58字符串&gt; &lt;Base58字符&gt;
+&lt;Base58字符&gt; ::= &lt;十进制数字&gt; | &lt;大写字母&gt; | &lt;小写字母&gt;
+&lt;十进制数字&gt; ::= &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;
+&lt;大写字母&gt; ::= &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot; | &quot;G&quot; | &quot;H&quot; | &quot;J&quot; | &quot;K&quot; | &quot;L&quot; | &quot;M&quot; |
+              &quot;N&quot; | &quot;P&quot; | &quot;Q&quot; | &quot;R&quot; | &quot;S&quot; | &quot;T&quot; | &quot;U&quot; | &quot;V&quot; | &quot;W&quot; | &quot;X&quot; | &quot;Y&quot; | &quot;Z&quot; 
+&lt;小写字母&gt; ::= &quot;a&quot; | &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;f&quot; | &quot;g&quot; | &quot;h&quot; | &quot;i&quot; | &quot;j&quot; | &quot;k&quot; | &quot;m&quot; |
+              &quot;n&quot; | &quot;o&quot; | &quot;p&quot; | &quot;q&quot; | &quot;r&quot; | &quot;s&quot; | &quot;t&quot; | &quot;u&quot; | &quot;v&quot; | &quot;w&quot; | &quot;x&quot; | &quot;y&quot; |
+              &quot;z&quot; '>Copy</button><pre><code>&lt;organization标记语法&gt; ::= &quot;//@:organization:&quot; &lt;组织ID&gt;
+&lt;组织ID&gt; ::= &lt;前缀码&gt; &lt;Base58字符串&gt;
+&lt;前缀码&gt; ::= &quot;org&quot;
+&lt;Base58字符串&gt; ::= &lt;Base58字符&gt; | &lt;Base58字符串&gt; &lt;Base58字符&gt;
+&lt;Base58字符&gt; ::= &lt;十进制数字&gt; | &lt;大写字母&gt; | &lt;小写字母&gt;
+&lt;十进制数字&gt; ::= &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;
+&lt;大写字母&gt; ::= &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot; | &quot;G&quot; | &quot;H&quot; | &quot;J&quot; | &quot;K&quot; | &quot;L&quot; | &quot;M&quot; |
+              &quot;N&quot; | &quot;P&quot; | &quot;Q&quot; | &quot;R&quot; | &quot;S&quot; | &quot;T&quot; | &quot;U&quot; | &quot;V&quot; | &quot;W&quot; | &quot;X&quot; | &quot;Y&quot; | &quot;Z&quot; 
+&lt;小写字母&gt; ::= &quot;a&quot; | &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;f&quot; | &quot;g&quot; | &quot;h&quot; | &quot;i&quot; | &quot;j&quot; | &quot;k&quot; | &quot;m&quot; |
+              &quot;n&quot; | &quot;o&quot; | &quot;p&quot; | &quot;q&quot; | &quot;r&quot; | &quot;s&quot; | &quot;t&quot; | &quot;u&quot; | &quot;v&quot; | &quot;w&quot; | &quot;x&quot; | &quot;y&quot; |
+              &quot;z&quot; 
+</code></pre>
+</figure>
+<p class='with-space'>示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer'>Copy</button><pre><code>//@:organization:orgBtjfCSPCAJ84uQWcpNr74NLMWYm5SXzer
+</code></pre>
+</figure>
+<h3 id='db385d79'><span class='bd-content-title'>3.4 author<a class='anchorjs-link ' href='#db385d79' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 <code>author</code>用于标识合约作者的账户公钥。</p>
+<p class='with-space'>标记 <code>author</code>为必须标记，但在整个合约代码中只能出现一次。</p>
+<p class='with-space'>标记 <code>author</code>的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;author标记语法&gt; ::= &quot;//@:author:&quot; &lt;账户公钥&gt;
+&lt;账户公钥&gt; ::= &lt;十六进制字符串&gt;
+&lt;十六进制字符串&gt; ::= &lt;十六进制数字&gt; | &lt;十六进制字符串&gt; &lt;十六进制数字&gt;
+&lt;十六进制数字&gt; ::= &quot;0&quot; | 1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot; |
+                 &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot; |
+                 &quot;a&quot; | &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;f&quot;'>Copy</button><pre><code>&lt;author标记语法&gt; ::= &quot;//@:author:&quot; &lt;账户公钥&gt;
+&lt;账户公钥&gt; ::= &lt;十六进制字符串&gt;
+&lt;十六进制字符串&gt; ::= &lt;十六进制数字&gt; | &lt;十六进制字符串&gt; &lt;十六进制数字&gt;
+&lt;十六进制数字&gt; ::= &quot;0&quot; | 1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot; |
+                 &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot; |
+                 &quot;a&quot; | &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;f&quot;
+</code></pre>
+</figure>
+<p class='with-space'>示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c'>Copy</button><pre><code>//@:author:b37e7627431feb18123b81bcf1f41ffd37efdb90513d48ff2c7f8a0c27a9d06c
+</code></pre>
+</figure>
+<p class='with-space'>注：十六进制公钥字符串长度必须等于64。</p>
+<h3 id='eb9c6576'><span class='bd-content-title'>3.5 constructor<a class='anchorjs-link ' href='#eb9c6576' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 <code>constructor</code> 用于标识合约的上链初始化函数。</p>
+<p class='with-space'>标记 <code>constructor</code>  之后的有效代码必须紧跟一个名为  <code>InitChain</code>  或  <code>UpdateChain</code>  的无参数函数，该函数将在BCBChain链上第一次部署(  <code>InitChain</code>  )或者升级(  <code>UpdateChain</code>)这个合约的时候自动进行唯一一次调用，以完成智能合约在区块链上的初始化工作，例如初始化某些全局状态数据的初始值。</p>
+<p class='with-space'>标记 <code>constructor</code>  为可选标记，但在整个合约代码中最多只能出现两次，一次标识  <code>InitChain</code>  函数，一次标识  <code>UpdateChain</code>函数。</p>
+<p class='with-space'>标记 <code>constructor</code>的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;author标记语法&gt; ::= &quot;//@:constructor&quot;'>Copy</button><pre><code>&lt;author标记语法&gt; ::= &quot;//@:constructor&quot;
+</code></pre>
+</figure>
+<p class='with-space'>示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:constructor
+func (mc *Mycoin) InitChain() {
+    ...
+}
+
+//@:constructor
+func (mc *Mycoin) UpdateChain() {
+    ...
+}'>Copy</button><pre><code>//@:constructor
+func (mc *Mycoin) InitChain() {
+    ...
+}
+
+//@:constructor
+func (mc *Mycoin) UpdateChain() {
+    ...
+}
+</code></pre>
+</figure>
+<h3 id='a0dbd069'><span class='bd-content-title'>3.6 public:store<a class='anchorjs-link ' href='#a0dbd069' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 <code>public:store</code>  用于标识一个状态变量，状态变量必须是通过标记  <code>contract</code>标注的合约类的成员变量。</p>
+<p class='with-space'>标记 <code>public:store</code> 之后的有效代码必须紧跟一个成员变量的定义。</p>
+<p class='with-space'>标记 <code>public:store</code> 为可选标记，在合约类定义中可以出现多次，每次标识一个状态变量。</p>
+<p class='with-space'>标记 <code>public:store</code> 的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;public:store标记语法&gt; ::= &quot;//@:public:store&quot;'>Copy</button><pre><code>&lt;public:store标记语法&gt; ::= &quot;//@:public:store&quot;
+</code></pre>
+</figure>
+<p class='with-space'>示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:contract:mycoin
+type Mycoin struct {
+    sdk sdk.ISmartContract
+    ...
+    //@:public:store
+    balanceOf map[types.Address]bn.Number
+}'>Copy</button><pre><code>//@:contract:mycoin
+type Mycoin struct {
+    sdk sdk.ISmartContract
+    ...
+    //@:public:store
+    balanceOf map[types.Address]bn.Number
+}
+</code></pre>
+</figure>
+<p class='with-space'>标记 <code>public:store</code>标识的状态变量在合约代码中不能直接访问，根据BCBChain合约规范，BCBChain链提供的SDK配套工具会自动生成访问该状态变量的读写函数，示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//读取状态变量balanceOf的函数
+func (mc *Mycoin) _balanceOf(k types.Address) bn.Number {
+    return *mc.sdk.Helper().StateHelper().GetEx(
+        fmt.Sprintf(&quot;/balanceOf/%v&quot;, k), &amp;bn.Number{V: big.NewInt(0)}).(*bn.Number)
+}
+
+//检测状态数据balanceOf是否存在的函数
+func (mc *Mycoin) _chkBalanceOf(k types.Address) bool {
+    return mc.sdk.Helper().StateHelper().Check(fmt.Sprintf(&quot;/balanceOf/%v&quot;, k))
+}
+
+//设置状态变量balanceOf的函数
+func (mc *Mycoin) _setBalanceOf(k types.Address, v bn.Number) {
+    mc.sdk.Helper().StateHelper().Set(fmt.Sprintf(&quot;/balanceOf/%v&quot;, k), &amp;v)
+}
+
+//从状态数据库中删除状态变量balanceOf的键值的函数
+func (mc *Mycoin) _delBalanceOf(k types.Address) {
+    mc.sdk.Helper().StateHelper().Delete(fmt.Sprintf(&quot;/balanceOf/%v&quot;, k))
+} '>Copy</button><pre><code>//读取状态变量balanceOf的函数
+func (mc *Mycoin) _balanceOf(k types.Address) bn.Number {
+    return *mc.sdk.Helper().StateHelper().GetEx(
+        fmt.Sprintf(&quot;/balanceOf/%v&quot;, k), &amp;bn.Number{V: big.NewInt(0)}).(*bn.Number)
+}
+
+//检测状态数据balanceOf是否存在的函数
+func (mc *Mycoin) _chkBalanceOf(k types.Address) bool {
+    return mc.sdk.Helper().StateHelper().Check(fmt.Sprintf(&quot;/balanceOf/%v&quot;, k))
+}
+
+//设置状态变量balanceOf的函数
+func (mc *Mycoin) _setBalanceOf(k types.Address, v bn.Number) {
+    mc.sdk.Helper().StateHelper().Set(fmt.Sprintf(&quot;/balanceOf/%v&quot;, k), &amp;v)
+}
+
+//从状态数据库中删除状态变量balanceOf的键值的函数
+func (mc *Mycoin) _delBalanceOf(k types.Address) {
+    mc.sdk.Helper().StateHelper().Delete(fmt.Sprintf(&quot;/balanceOf/%v&quot;, k))
+} 
+</code></pre>
+</figure>
+<h3 id='de348a9a'><span class='bd-content-title'>3.7 public:store:cache<a class='anchorjs-link ' href='#de348a9a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 <code>public:store:cache</code>  用于标识一个可缓存在内存的状态变量，状态变量必须是通过标记  <code>contract</code>标注的合约类的成员变量。</p>
+<p class='with-space'>标记 <code>public:store:cache</code>之后的有效代码必须紧跟一个成员变量的定义。</p>
+<p class='with-space'>标记 <code>public:store:cache</code>为可选标记，在合约类定义中可以出现多次，每次标识一个状态变量。</p>
+<p class='with-space'>标记 <code>public:store:cache</code>的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;public:store:cache标记语法&gt; ::= &quot;//@:public:store:cache&quot;'>Copy</button><pre><code>&lt;public:store:cache标记语法&gt; ::= &quot;//@:public:store:cache&quot;
+</code></pre>
+</figure>
+<p class='with-space'>示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:contract:mycoin
+type Mycoin struct {
+    sdk sdk.ISmartContract
+    ...
+    //@:public:store:cache
+    totalSupply bn.Number
+}'>Copy</button><pre><code>//@:contract:mycoin
+type Mycoin struct {
+    sdk sdk.ISmartContract
+    ...
+    //@:public:store:cache
+    totalSupply bn.Number
+}
+</code></pre>
+</figure>
+<p class='with-space'>可缓存的状态变量在合约代码中不能直接访问，根据BCBChain合约规范，BCBChain提供的SDK配套工具会自动生成访问该状态变量的读写函数，示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//读取状态变量totalSupply的函数
+func (mc *Mycoin) _totalSupply() bn.Number {
+    return *mc.sdk.Helper().StateHelper().McGetEx(
+        &quot;/totalSupply&quot;, &amp;bn.Number{V: big.NewInt(0)}).(*bn.Number)
+}
+
+//检测状态数据totalSupply是否存在的函数
+func (mc *Mycoin) _chkTotalSupply() bool {
+    return mc.sdk.Helper().StateHelper().McCheck(&quot;/totalSupply&quot;)
+}
+
+//设置状态变量totalSupply的函数
+func (mc *Mycoin) _setTotalSupply(v bn.Number) {
+    mc.sdk.Helper().StateHelper().McSet(&quot;/totalSupply&quot;, &amp;v)
+}
+
+//清除状态变量totalSupply的内存缓存的函数
+func (mc *Mycoin) _clrTotalSupply() {
+    mc.sdk.Helper().StateHelper().McClear(&quot;/totalSupply&quot;)
+}
+
+//从状态数据库中删除状态变量totalSupply
+func (m *Mycoin) _delTotalSupply() {
+    m.sdk.Helper().StateHelper().McDelete(&quot;/totalSupply&quot;)
+} '>Copy</button><pre><code>//读取状态变量totalSupply的函数
+func (mc *Mycoin) _totalSupply() bn.Number {
+    return *mc.sdk.Helper().StateHelper().McGetEx(
+        &quot;/totalSupply&quot;, &amp;bn.Number{V: big.NewInt(0)}).(*bn.Number)
+}
+
+//检测状态数据totalSupply是否存在的函数
+func (mc *Mycoin) _chkTotalSupply() bool {
+    return mc.sdk.Helper().StateHelper().McCheck(&quot;/totalSupply&quot;)
+}
+
+//设置状态变量totalSupply的函数
+func (mc *Mycoin) _setTotalSupply(v bn.Number) {
+    mc.sdk.Helper().StateHelper().McSet(&quot;/totalSupply&quot;, &amp;v)
+}
+
+//清除状态变量totalSupply的内存缓存的函数
+func (mc *Mycoin) _clrTotalSupply() {
+    mc.sdk.Helper().StateHelper().McClear(&quot;/totalSupply&quot;)
+}
+
+//从状态数据库中删除状态变量totalSupply
+func (m *Mycoin) _delTotalSupply() {
+    m.sdk.Helper().StateHelper().McDelete(&quot;/totalSupply&quot;)
+} 
+</code></pre>
+</figure>
+<h3 id='ce984654'><span class='bd-content-title'>3.8 public:receipt<a class='anchorjs-link ' href='#ce984654' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 <code>public:receipt</code> 用于标识合约中所有收据的定义。</p>
+<p class='with-space'>标记 <code>public:receipt</code>  之后的有效代码必须紧跟一个名为  <code>receipt</code> 的接口定义。</p>
+<p class='with-space'>标记 <code>public:receipt</code> 为可选标记，在整个合约代码中最多只能出现一次。</p>
+<p class='with-space'>标记 <code>public:receipt</code> 的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;public:receipt标记语法&gt; ::= &quot;//@:public:receipt&quot;'>Copy</button><pre><code>&lt;public:receipt标记语法&gt; ::= &quot;//@:public:receipt&quot;
+</code></pre>
+</figure>
+<p class='with-space'>示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:public:receipt
+type receipt interface {
+    emitTransferMyCoin(token, from, to types.Address, value bn.Number)
+}'>Copy</button><pre><code>//@:public:receipt
+type receipt interface {
+    emitTransferMyCoin(token, from, to types.Address, value bn.Number)
+}
+</code></pre>
+</figure>
+<p class='with-space'>接口 receipt  <code>之中定义的每一个发送收据的方法必须以</code>  emit  <code>开头。</code>  emit `之后的第一个单词首字母转为小写后就是这个收据的名称，可以根据收据名称到BCBChain链上进行检索。根据BCBChain合约规范，BCBChain提供的SDK配套工具会自动生成发送收据函数的实现代码，示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//下面的函数是由配套工具自动生成的
+func (mc *Mycoin) emitTransferMyCoin(token, from, to types.Address, value bn.Number) {
+    type transferMyCoin struct {
+        Token types.Address `json:&quot;token&quot;`
+        From types.Address `json:&quot;from&quot;`
+        To types.Address `json:&quot;to&quot;`
+        Value bn.Number `json:&quot;value&quot;`
+    }
+    mc.sdk.Helper().ReceiptHelper().Emit(
+        transferMycoin{
+            Token:   token,
+            From:    from,
+            To:      to,
+            Value:   value,
+        })
+}
+
+//下面是发送收据的示例代码，位于Transfer函数的实现当中
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+
+    //实现转账的业务逻辑代码
+    ...
+
+    //发送转账收据
+    mc.emitTransferMyCoin(
+        mc.sdk.Message().Contract().Address(),
+        sender,
+        to,
+        value)
+}'>Copy</button><pre><code>//下面的函数是由配套工具自动生成的
+func (mc *Mycoin) emitTransferMyCoin(token, from, to types.Address, value bn.Number) {
+    type transferMyCoin struct {
+        Token types.Address `json:&quot;token&quot;`
+        From types.Address `json:&quot;from&quot;`
+        To types.Address `json:&quot;to&quot;`
+        Value bn.Number `json:&quot;value&quot;`
+    }
+    mc.sdk.Helper().ReceiptHelper().Emit(
+        transferMycoin{
+            Token:   token,
+            From:    from,
+            To:      to,
+            Value:   value,
+        })
+}
+
+//下面是发送收据的示例代码，位于Transfer函数的实现当中
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+
+    //实现转账的业务逻辑代码
+    ...
+
+    //发送转账收据
+    mc.emitTransferMyCoin(
+        mc.sdk.Message().Contract().Address(),
+        sender,
+        to,
+        value)
+}
+</code></pre>
+</figure>
+<h3 id='c733e0bf'><span class='bd-content-title'>3.9 public:method<a class='anchorjs-link ' href='#c733e0bf' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 <code>public:method</code>用于标识合约的公开方法。</p>
+<p class='with-space'>标记 <code>public:method</code>  之后的有效代码必须紧跟一个针对通过标记  <code>contract</code>标注的合约类的成员函数定义（函数名称必须由大写字母开头），这个合约的成员函数可以通过BCBChain链的广播交易来执行。</p>
+<p class='with-space'>标记 <code>public:method</code>为可选标记，在整个合约代码中可以出现零次、一次或多次。</p>
+<p class='with-space'>标记 <code>public:method</code>的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;public:method标记语法&gt; ::= &quot;//@:public:method:gas[&quot; &lt;燃料数量&gt; &quot;]&quot;
+&lt;燃料数量&gt; ::= [&quot;-&quot;] &lt;十进制数&gt;
+&lt;十进制数&gt; ::= &lt;十进制数字&gt; | &lt;十进制数&gt; &lt;十进制数字&gt;
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;'>Copy</button><pre><code>&lt;public:method标记语法&gt; ::= &quot;//@:public:method:gas[&quot; &lt;燃料数量&gt; &quot;]&quot;
+&lt;燃料数量&gt; ::= [&quot;-&quot;] &lt;十进制数&gt;
+&lt;十进制数&gt; ::= &lt;十进制数字&gt; | &lt;十进制数&gt; &lt;十进制数字&gt;
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;
+</code></pre>
+</figure>
+<p class='with-space'>注：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>燃料数量为正整数表示该方法调用消耗的燃料费用由交易最初的发起者支付；</p></li>
+<li>
+<p class='with-space'>燃料数量为0表示不需要支付手续费；</p></li>
+<li>
+<p class='with-space'>燃料数量为负整数表示该方法调用消耗的燃料费用由当前智能合约的账户进行支付。</p></li>
+</ul>
+<p class='with-space'>示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:public:method:gas[500]
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    ...
+}'>Copy</button><pre><code>//@:public:method:gas[500]
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    ...
+}
+</code></pre>
+</figure>
+<h3 id='e8aedc3e'><span class='bd-content-title'>3.10 public:interface<a class='anchorjs-link ' href='#e8aedc3e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 <code>public:interface</code>用于标识合约的公开接口。</p>
+<p class='with-space'>标记 <code>public:interface</code>  之后的有效代码必须紧跟一个针对通过标记  <code>contract</code>标注的合约类的成员函数定义（函数名称必须由大写字母开头），这个合约的成员函数可以从别的合约通过跨合约调用机制来执行。</p>
+<p class='with-space'>标记 <code>public:interface</code>为可选标记，在整个合约代码中可以出现零次、一次或多次。</p>
+<p class='with-space'>标记 <code>public:interface</code>的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;public:interface标记语法&gt; ::= &quot;//@:public:interface:gas[&quot; &lt;燃料数量&gt; &quot;]&quot;
+&lt;燃料数量&gt; ::= &lt;十进制数&gt;
+&lt;十进制数&gt; ::= &lt;十进制数字&gt; | &lt;十进制数&gt; &lt;十进制数字&gt;
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;'>Copy</button><pre><code>&lt;public:interface标记语法&gt; ::= &quot;//@:public:interface:gas[&quot; &lt;燃料数量&gt; &quot;]&quot;
+&lt;燃料数量&gt; ::= &lt;十进制数&gt;
+&lt;十进制数&gt; ::= &lt;十进制数字&gt; | &lt;十进制数&gt; &lt;十进制数字&gt;
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;
+</code></pre>
+</figure>
+<p class='with-space'>示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:public:interface:gas[450]
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    ...
+}'>Copy</button><pre><code>//@:public:interface:gas[450]
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    ...
+}
+</code></pre>
+</figure>
+<p class='with-space'>注：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>燃料数量大于等于0。</p></li>
+</ul>
+<p class='with-space'>标记 <code>public:interface</code>  标记  <code>public:method</code>可以同时标注合约类的同一个成员函数，上面的例子实际上应该定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:public:method:gas[500]
+//@:public:interface:gas[450]
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    ...
+}'>Copy</button><pre><code>//@:public:method:gas[500]
+//@:public:interface:gas[450]
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    ...
+}
+</code></pre>
+</figure>
+<h3 id='b8dc7770'><span class='bd-content-title'>3.11 public:mine<a class='anchorjs-link ' href='#b8dc7770' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 <code>public:mine</code>用于标识合约公开的挖矿接口。</p>
+<p class='with-space'>标记 <code>public:mine</code>  之后的有效代码必须紧跟一个针对通过标记  <code>contract</code>  标注的合约类的成员函数定义（挖矿函数原型必须为：  <code>func Mine() int64</code>），这个挖矿函数将在 BCBChain 的区块达成共识后自动执行。</p>
+<p class='with-space'>标记 <code>public:mine</code>为可选标记，在整个合约代码中可以出现零次或一次。只有 BCBChain 的基础组织的智能合约才允许包含挖矿接口。</p>
+<p class='with-space'>标记 <code>public:mine</code>的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;public:interface标记语法&gt; ::= &quot;//@:public:mine&quot;'>Copy</button><pre><code>&lt;public:interface标记语法&gt; ::= &quot;//@:public:mine&quot;
+</code></pre>
+</figure>
+<p class='with-space'>示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:public:mine
+func (mc *Mycoin) Mine() int64 {
+    ...
+}'>Copy</button><pre><code>//@:public:mine
+func (mc *Mycoin) Mine() int64 {
+    ...
+}
+</code></pre>
+</figure>
+<p class='with-space'>注：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>挖矿函数 Mine()  <code>只能与标记</code>  public:mine `  进行配合。</p></li>
+</ul>
+<h3 id='a0d1a49c'><span class='bd-content-title'>3.12 import<a class='anchorjs-link ' href='#a0d1a49c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>标记 import `用于导入一个外部合约的接口原型，方便在当前合约中调用外部合约。</p>
+<p class='with-space'>标记 <code>import</code>为可选标记，在整个合约代码中可以出现多次，每次导入一个外部合约的跨合约调用接口，每一个外部合约只能导入一次。</p>
+<p class='with-space'>标记 <code>import</code>的BNF范式定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;import标记语法&gt; ::= &quot;//@:import:&quot; &lt;合约名称&gt;
+&lt;合约名称&gt; ::= &lt;字母&gt; | &lt;合约名称&gt; &lt;字母数字串&gt;
+&lt;字母数字串&gt; ::= &lt;字母&gt; | &lt;十进制数字&gt; | &lt;字母数字串&gt; &lt;字母&gt; | &lt;字母数字串&gt; &lt;十进制数字&gt; 
+&lt;字母&gt; ::= &quot;_&quot; | &quot;-&quot; | &quot;.&quot; | &lt;小写字母&gt; | &lt;大写字母&gt; 
+&lt;小写字母&gt; ::= &quot;a&quot; | &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;f&quot; | &quot;g&quot; | &quot;h&quot; | &quot;i&quot; | &quot;j&quot; | &quot;k&quot; | &quot;l&quot; | 
+              &quot;m&quot; | &quot;n&quot; | &quot;o&quot; | &quot;p&quot; | &quot;q&quot; | &quot;r&quot; | &quot;s&quot; | &quot;t&quot; | &quot;u&quot; | &quot;v&quot; | &quot;w&quot; | &quot;x&quot; | 
+              &quot;y&quot; | &quot;z&quot; 
+&lt;大写字母&gt; ::= &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot; | &quot;G&quot; | &quot;H&quot; | &quot;I&quot; | &quot;J&quot; | &quot;K&quot; | &quot;L&quot; | 
+              &quot;M&quot; | &quot;N&quot; | &quot;O&quot; | &quot;P&quot; | &quot;Q&quot; | &quot;R&quot; | &quot;S&quot; | &quot;T&quot; | &quot;U&quot; | &quot;V&quot; | &quot;W&quot; | &quot;X&quot; | 
+              &quot;Y&quot; | &quot;Z&quot; 
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;'>Copy</button><pre><code>&lt;import标记语法&gt; ::= &quot;//@:import:&quot; &lt;合约名称&gt;
+&lt;合约名称&gt; ::= &lt;字母&gt; | &lt;合约名称&gt; &lt;字母数字串&gt;
+&lt;字母数字串&gt; ::= &lt;字母&gt; | &lt;十进制数字&gt; | &lt;字母数字串&gt; &lt;字母&gt; | &lt;字母数字串&gt; &lt;十进制数字&gt; 
+&lt;字母&gt; ::= &quot;_&quot; | &quot;-&quot; | &quot;.&quot; | &lt;小写字母&gt; | &lt;大写字母&gt; 
+&lt;小写字母&gt; ::= &quot;a&quot; | &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;f&quot; | &quot;g&quot; | &quot;h&quot; | &quot;i&quot; | &quot;j&quot; | &quot;k&quot; | &quot;l&quot; | 
+              &quot;m&quot; | &quot;n&quot; | &quot;o&quot; | &quot;p&quot; | &quot;q&quot; | &quot;r&quot; | &quot;s&quot; | &quot;t&quot; | &quot;u&quot; | &quot;v&quot; | &quot;w&quot; | &quot;x&quot; | 
+              &quot;y&quot; | &quot;z&quot; 
+&lt;大写字母&gt; ::= &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot; | &quot;G&quot; | &quot;H&quot; | &quot;I&quot; | &quot;J&quot; | &quot;K&quot; | &quot;L&quot; | 
+              &quot;M&quot; | &quot;N&quot; | &quot;O&quot; | &quot;P&quot; | &quot;Q&quot; | &quot;R&quot; | &quot;S&quot; | &quot;T&quot; | &quot;U&quot; | &quot;V&quot; | &quot;W&quot; | &quot;X&quot; | 
+              &quot;Y&quot; | &quot;Z&quot; 
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;
+</code></pre>
+</figure>
+<p class='with-space'>以前面的 <code>mycoin</code>代币合约为例，如果在其它合约中需要调用该合约，需要编写如下代码：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//本段代码在合约mycontract中
+
+//@:import:mycoin
+type mycoin interface {
+    Transfer(to types.Address, value bn.Number)
+}'>Copy</button><pre><code>//本段代码在合约mycontract中
+
+//@:import:mycoin
+type mycoin interface {
+    Transfer(to types.Address, value bn.Number)
+}
+</code></pre>
+</figure>
+<p class='with-space'>外部合约的接口名称自定义，只要遵循 <code>golang</code> 语法规范即可。</p>
+<p class='with-space'>外部合约的接口在合约代码中不能直接访问，根据BCBChain合约规范，BCBChain提供的 <code>SDK</code> 配套工具会自动生成访问该外部合约接口的实现函数，自动生成的代码示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//本段代码是由SDK配套工具自动生成的
+
+//mycoin This is method of MyContract 
+func (m *MyContract) mycoin() *InterfacemycoinStub {
+    return &amp;InterfacemycoinStub{}
+}
+
+//Transfer This is a method of InterfacemycoinStub
+func (is *InterfacemycoinStub) Transfer(to types.Address, value bn.Number) {
+    return
+}
+
+//run Transfer some receipts to destination contract
+func (is *InterfacemycoinStub) run(f func()) (*InterfacemycoinStub) {
+    ...
+    f()
+    ...
+    return is
+}
+
+//contract Wrap the destination contract information
+func (is *InterfacemycoinStub) contract() IContract {
+    ...
+    return contract
+}'>Copy</button><pre><code>//本段代码是由SDK配套工具自动生成的
+
+//mycoin This is method of MyContract 
+func (m *MyContract) mycoin() *InterfacemycoinStub {
+    return &amp;InterfacemycoinStub{}
+}
+
+//Transfer This is a method of InterfacemycoinStub
+func (is *InterfacemycoinStub) Transfer(to types.Address, value bn.Number) {
+    return
+}
+
+//run Transfer some receipts to destination contract
+func (is *InterfacemycoinStub) run(f func()) (*InterfacemycoinStub) {
+    ...
+    f()
+    ...
+    return is
+}
+
+//contract Wrap the destination contract information
+func (is *InterfacemycoinStub) contract() IContract {
+    ...
+    return contract
+}
+</code></pre>
+</figure>
+<p class='with-space'>下面是在合约代码中调用外部合约的示例代码：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//本段代码在合约mycontract中
+
+func (m *MyContract)TransferTest(to types.Address, value bn.Number) {
+    m.mycoin().Transfer(to, value)
+}'>Copy</button><pre><code>//本段代码在合约mycontract中
+
+func (m *MyContract)TransferTest(to types.Address, value bn.Number) {
+    m.mycoin().Transfer(to, value)
+}
+</code></pre>
+</figure>
+<p class='with-space'>跨合约调用还支持向被调用合约传递收据，以下为示例代码（从合约 <code>contract2</code>  中调用合约  <code>contract1</code> 的接口）：</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>合约1，提供跨合约接口服务：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:contract:contract1
+type C1 struct {
+  sdk sdk.ISmartContract
+  ...
+}
+
+//@:public:interface:gas[450]
+func (c *C1) Register() {
+
+  //I need receipt from caller
+  transfers := dw.sdk.Message().GetTransferToMe()
+  sdk.Require(transfers!=nil &amp;&amp; len(transfers)==1,
+    types.ErrInvalidParameter, &quot;Please transfer to me first&quot;)
+
+  token := transfers[0].Token
+  value := transfers[0].Value
+
+  ...
+}'>Copy</button><pre><code>//@:contract:contract1
+type C1 struct {
+  sdk sdk.ISmartContract
+  ...
+}
+
+//@:public:interface:gas[450]
+func (c *C1) Register() {
+
+  //I need receipt from caller
+  transfers := dw.sdk.Message().GetTransferToMe()
+  sdk.Require(transfers!=nil &amp;&amp; len(transfers)==1,
+    types.ErrInvalidParameter, &quot;Please transfer to me first&quot;)
+
+  token := transfers[0].Token
+  value := transfers[0].Value
+
+  ...
+}
+</code></pre>
+</figure>
+<p class='with-space'>合约2，跨合约调用者：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:contract:contract2
+type C2 struct {
+  sdk sdk.ISmartContract
+  ...
+}
+
+//@:import:contract1
+type mycoin interface {
+    Register()
+}
+
+//@:public:method:gas[450]
+func (c *C2) Register() {
+  ...
+  c.contract1().run(func(){
+    c.sdk.Message().Contract().Account.TransferByName(
+      &quot;bcb&quot;,
+      c.contract1().contract().Account().Address(),
+      bn.N(1000000000),
+    )
+  }).Register()
+  ...
+}'>Copy</button><pre><code>//@:contract:contract2
+type C2 struct {
+  sdk sdk.ISmartContract
+  ...
+}
+
+//@:import:contract1
+type mycoin interface {
+    Register()
+}
+
+//@:public:method:gas[450]
+func (c *C2) Register() {
+  ...
+  c.contract1().run(func(){
+    c.sdk.Message().Contract().Account.TransferByName(
+      &quot;bcb&quot;,
+      c.contract1().contract().Account().Address(),
+      bn.N(1000000000),
+    )
+  }).Register()
+  ...
+}
+</code></pre>
+</figure>
+</blockquote>
+<h2 id='d5066bb0'><span class='bd-content-title'>4. 合约规范<a class='anchorjs-link ' href='#d5066bb0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='df1006a9'><span class='bd-content-title'>4.1 BNF范式定义<a class='anchorjs-link ' href='#df1006a9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>综合上面对合约标记的描述，下面定义合约规范的 <code>BNF</code> 范式：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;智能合约&gt; ::= &lt;合约定义代码文件&gt; {&lt;合约实现代码文件&gt;} {&lt;合约测试代码文件&gt;}
+
+&lt;合约定义代码文件&gt; ::= &lt;代码包定义&gt; &lt;合约定义代码&gt;
+&lt;合约实现代码文件&gt; ::= &lt;代码包定义&gt; &lt;合约实现代码&gt;
+&lt;合约测试代码文件&gt; ::= &lt;代码包定义&gt; &lt;合约测试代码&gt;
+&lt;代码包定义&gt; ::= &quot;package&quot; &lt;合约包名&gt;
+&lt;合约包名&gt; ::= 遵循glang语法规范，但不能为 std
+&lt;合约定义代码&gt; ::= &quot;import (&quot;
+                     &lt;合约SDK包根路径&gt;
+                     {[包别名] &lt;合约支撑代码包路径&gt;}
+                 &quot;)&quot;
+                 &lt;合约类定义&gt;
+                 [&lt;合约上链初始化函数定义&gt;]
+                 [&lt;挖矿定义&gt;]
+                 [&lt;合约收据定义&gt;]
+                 {&lt;跨合约调用接口定义&gt;}
+                 {&lt;合约公开函数定义&gt;}
+                 {&lt;合约实现代码&gt;}
+&lt;合约SDK包根路径&gt; ::= double_quote &quot;blockchain/smcsdk/sdk&quot; double_quote
+&lt;合约支撑代码包路径&gt; ::= 遵循golang代码包路径规范，遵循BCBChain合约规范的白名单与灰名单规范
+&lt;包别名&gt; ::= 遵循golang代码规范的代码包别名，不允许使用 &#39;.&#39;
+&lt;合约实现代码&gt; ::= 遵循golang代码规范的合约实现代码（不需要BCBChain合约标记的代码），包括类型定义、
+                 常量定义、函数定义（注：不能包含全局变量定义，不允许使用 for 关键字，不允许递归
+                 调用）
+&lt;合约测试代码&gt; ::= 遵循golang单元测试规范的测试代码
+
+&lt;合约类定义&gt; ::= &quot;//@:contract:&quot; &lt;合约名称&gt;
+               &quot;//@:version:&quot; &lt;合约版本&gt;
+               &quot;//@:organization:&quot; &lt;组织ID&gt;
+               &quot;//@:author:&quot; &lt;账户公钥&gt;
+               &quot;type &quot; &lt;合约类名&gt; &quot; struct {&quot;
+               &quot;    sdk sdk.ISmartContract&quot;
+                   {&lt;状态变量定义&gt;}
+                   {&lt;golang变量定义&gt;}
+               &quot;}&quot;
+&lt;合约名称&gt; ::= 参见&lt;合约标记:contract&gt;
+&lt;合约版本&gt; ::= 参见&lt;合约标记:version&gt;
+&lt;组织ID&gt; ::= 参见&lt;合约标记:organization&gt;
+&lt;账户公钥&gt; ::= 参见&lt;合约标记:author&gt;
+&lt;合约类名&gt; ::= &lt;大写字母开头的标识符&gt;
+&lt;golang变量定义&gt; ::= 遵循golang代码规范的标准变量定义代码
+&lt;状态变量定义&gt; ::= &lt;基本状态变量定义&gt; | &lt;带缓存的状态变量定义&gt;
+&lt;基本状态变量定义&gt; ::= &quot;//@:public:store&quot;
+                     &lt;变量名称&gt; [&quot;*&quot;] &lt;变量类型&gt;
+&lt;带缓存的状态变量定义&gt; ::= &quot;//@:public:store:cache&quot;
+                        &lt;变量名称&gt; [&quot;*&quot;] &lt;变量类型&gt;
+&lt;变量名称&gt; ::= &lt;标识符&gt;
+&lt;变量类型&gt; ::= &lt;元数据类型&gt; | &lt;数组类型&gt; | &lt;映射表类型&gt;
+
+&lt;合约上链初始化函数定义&gt; ::= &lt;部署函数&gt; | &lt;升级函数&gt;
+&lt;部署函数&gt; ::= &quot;//@:constructor&quot;
+              &quot;func (&quot; &lt;合约对象定义&gt; &quot;) InitChain() {&quot;
+                &lt;上链代码&gt;
+              &quot;}&quot;
+&lt;升级函数&gt; ::= &quot;//@:constructor&quot;
+              &quot;func (&quot; &lt;合约对象定义&gt; &quot;) UpdateChain() {&quot;
+                &lt;上链代码&gt;
+              &quot;}&quot;
+&lt;挖矿定义&gt; ::= &quot;//@:public:mine&quot;
+              &quot;func (&quot; &lt;合约对象定义&gt; &quot;) Mine() int64 {&quot;
+                &lt;挖矿代码&gt;
+              &quot;}&quot;
+&lt;合约对象定义&gt; ::= &lt;变量名称&gt; &quot;*&quot; &lt;合约类名&gt;
+&lt;上链代码&gt; ::= &lt;golang函数体&gt;
+              注1：只允许访问状态变量
+              注2：sdk中不允许访问Message()和Tx()
+&lt;挖矿代码&gt; ::= &lt;golang函数体&gt;
+              注1：sdk中不允许访问Message()和Tx()
+&lt;golang函数体&gt; ::= 遵循golang代码规范的函数体实现代码，参见 &lt;合约实现代码&gt; 的定义
+
+&lt;合约收据定义&gt; ::= &quot;//@:public:receipt&quot;
+                 &quot;type receipt interface {&quot;
+                     &lt;收据函数名称&gt; &lt;函数入口参数定义&gt;
+                 &quot;}&quot;
+&lt;收据函数名称&gt; ::= &quot;emit&quot; &lt;大写字母开头的标识符&gt;
+&lt;函数入口参数定义&gt; ::= &quot;(&quot; &lt;参数表&gt; &quot;)&quot;
+&lt;参数表&gt; ::= &lt;参数定义&gt; | &lt;参数表&gt; &quot;,&quot; &lt;参数定义&gt;
+&lt;参数定义&gt; ::= &lt;变量名称&gt; [&quot;*&quot;] &lt;变量类型&gt;
+
+&lt;跨合约调用接口定义&gt; ::= &quot;//@:import:&quot; &lt;合约名称&gt;
+                      &quot;type &quot;&lt;接口类名称&gt;&quot; interface {&quot;
+                           &lt;接口函数名称&gt; &lt;函数入口参数定义&gt; &lt;函数返回定义&gt;
+                      &quot;}&quot;
+&lt;接口类名称&gt; ::= &lt;大写字母开头的标识符&gt;
+&lt;接口函数名称&gt; ::= &lt;大写字母开头的标识符&gt;
+&lt;函数返回定义&gt; ::= &lt;空&gt; | [&quot;*&quot;] &lt;变量类型&gt; | &quot;(&quot; &lt;返回表&gt; &quot;)&quot;
+&lt;空&gt; ::= 空白
+&lt;返回表&gt; ::= &lt;返回定义&gt; | &lt;返回表&gt; &quot;,&quot; &lt;返回定义&gt;
+&lt;返回定义&gt; ::= [&lt;变量名称&gt;] [&quot;*&quot;] &lt;变量类型&gt;
+
+&lt;合约公开函数定义&gt; ::=[&lt;合约公开方法标记&gt;]
+                   [&lt;合约公开接口标记&gt;]
+                &quot;func (&quot; &lt;合约对象定义&gt; &quot;)&quot; &lt;公开函数名称&gt; &lt;函数入口参数定义&gt; &lt;函数返回定义&gt; &quot;{&quot;
+                     &lt;golang函数体&gt;
+                &quot;}&quot;                    
+&lt;合约公开方法标记&gt; ::= &quot;//@:public:method:gas[ &quot;&lt;燃料数量&gt; &quot;]&quot;
+&lt;合约公开接口标记&gt; ::= &quot;//@:public:interface:gas[ &quot;&lt;燃料数量&gt; &quot;]&quot;
+&lt;燃料数量&gt; ::= 参见&lt;合约标记:public:method&gt;
+&lt;公开函数名称&gt; ::= &lt;大写字母开头的标识符&gt;
+
+&lt;标识符&gt; ::= &lt;字母&gt; | &lt;标识符&gt; &lt;字母数字串&gt;
+&lt;大写字母开头的标识符&gt; ::= &lt;大写字母&gt; | &lt;大写字母开头的标识符&gt; &lt;字母数字串&gt;
+&lt;字母数字串&gt; ::= &lt;字母&gt; | &lt;十进制数字&gt; | &lt;字母数字串&gt; &lt;字母&gt; | &lt;字母数字串&gt; &lt;十进制数字&gt; 
+&lt;字母&gt; ::= &quot;_&quot; | &lt;小写字母&gt; | &lt;大写字母&gt; 
+&lt;小写字母&gt; ::= &quot;a&quot; | &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;f&quot; | &quot;g&quot; | &quot;h&quot; | &quot;i&quot; | &quot;j&quot; | &quot;k&quot; | &quot;l&quot; | 
+              &quot;m&quot; | &quot;n&quot; | &quot;o&quot; | &quot;p&quot; | &quot;q&quot; | &quot;r&quot; | &quot;s&quot; | &quot;t&quot; | &quot;u&quot; | &quot;v&quot; | &quot;w&quot; | &quot;x&quot; | 
+              &quot;y&quot; | &quot;z&quot; 
+&lt;大写字母&gt; ::= &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot; | &quot;G&quot; | &quot;H&quot; | &quot;I&quot; | &quot;J&quot; | &quot;K&quot; | &quot;L&quot; | 
+              &quot;M&quot; | &quot;N&quot; | &quot;O&quot; | &quot;P&quot; | &quot;Q&quot; | &quot;R&quot; | &quot;S&quot; | &quot;T&quot; | &quot;U&quot; | &quot;V&quot; | &quot;W&quot; | &quot;X&quot; | 
+              &quot;Y&quot; | &quot;Z&quot; 
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;
+&lt;十进制数&gt; ::= &lt;十进制数字&gt; | &lt;十进制数&gt; &lt;十进制数字&gt;
+
+&lt;元数据类型&gt; := &lt;golang内置类型&gt; | &lt;SDK内置类型&gt; | &lt;自定义数据结构&gt;
+&lt;golang内置类型&gt; ::= &quot;int&quot; | &quot;int8&quot; | &quot;int16&quot; | &quot;int32&quot; | &quot;int64&quot; |
+                    &quot;uint&quot; | &quot;uint8&quot; | &quot;uint16&quot; | &quot;uint32&quot; | &quot;uint64&quot; |
+                    &quot;bool&quot; | &quot;string&quot; | &quot;byte&quot;
+&lt;SDK内置类型&gt; ::= &lt;Address&gt; | &lt;HexBytes&gt; | &lt;Hash&gt; | &lt;PubKey&gt; | &lt;Number&gt;
+&lt;Address&gt; ::= &quot;types.Address&quot;
+&lt;HexBytes&gt; ::= &quot;types.HexBytes&quot;
+&lt;Hash&gt; ::= &quot;types.Hash&quot;
+&lt;PubKey&gt; ::= &quot;types.PubKey&quot;
+&lt;Number&gt; ::= &quot;bn.Number&quot;
+&lt;自定义数据结构&gt; ::= &quot;type &quot; &lt;标识符&gt; &quot; struct {&quot;
+                      {&lt;变量名称&gt; [&quot;*&quot;] &lt;变量类型&gt;}
+                  &quot;}&quot;
+&lt;数组类型&gt; ::= &lt;数组维度定义&gt; [&lt;数组维度定义&gt;] &lt;元数据类型&gt;
+&lt;数组维度定义&gt; ::= &quot;[&quot; [&lt;十进制数&gt;] &quot;]&quot;
+&lt;映射表类型&gt; ::= &lt;映射表类型1&gt; | &lt;映射表类型2&gt;
+&lt;映射表类型1&gt; ::= &lt;映射表定义&gt; [&lt;映射表定义&gt;] &lt;元数据类型&gt;
+&lt;映射表类型2&gt; ::= &lt;映射表定义&gt; [&lt;映射表定义&gt;] &lt;数组类型&gt;
+&lt;映射表定义&gt; ::= &quot;map[&quot; &lt;元数据类型&gt; &quot;]&quot;'>Copy</button><pre><code>&lt;智能合约&gt; ::= &lt;合约定义代码文件&gt; {&lt;合约实现代码文件&gt;} {&lt;合约测试代码文件&gt;}
+
+&lt;合约定义代码文件&gt; ::= &lt;代码包定义&gt; &lt;合约定义代码&gt;
+&lt;合约实现代码文件&gt; ::= &lt;代码包定义&gt; &lt;合约实现代码&gt;
+&lt;合约测试代码文件&gt; ::= &lt;代码包定义&gt; &lt;合约测试代码&gt;
+&lt;代码包定义&gt; ::= &quot;package&quot; &lt;合约包名&gt;
+&lt;合约包名&gt; ::= 遵循glang语法规范，但不能为 std
+&lt;合约定义代码&gt; ::= &quot;import (&quot;
+                     &lt;合约SDK包根路径&gt;
+                     {[包别名] &lt;合约支撑代码包路径&gt;}
+                 &quot;)&quot;
+                 &lt;合约类定义&gt;
+                 [&lt;合约上链初始化函数定义&gt;]
+                 [&lt;挖矿定义&gt;]
+                 [&lt;合约收据定义&gt;]
+                 {&lt;跨合约调用接口定义&gt;}
+                 {&lt;合约公开函数定义&gt;}
+                 {&lt;合约实现代码&gt;}
+&lt;合约SDK包根路径&gt; ::= double_quote &quot;blockchain/smcsdk/sdk&quot; double_quote
+&lt;合约支撑代码包路径&gt; ::= 遵循golang代码包路径规范，遵循BCBChain合约规范的白名单与灰名单规范
+&lt;包别名&gt; ::= 遵循golang代码规范的代码包别名，不允许使用 &#39;.&#39;
+&lt;合约实现代码&gt; ::= 遵循golang代码规范的合约实现代码（不需要BCBChain合约标记的代码），包括类型定义、
+                 常量定义、函数定义（注：不能包含全局变量定义，不允许使用 for 关键字，不允许递归
+                 调用）
+&lt;合约测试代码&gt; ::= 遵循golang单元测试规范的测试代码
+
+&lt;合约类定义&gt; ::= &quot;//@:contract:&quot; &lt;合约名称&gt;
+               &quot;//@:version:&quot; &lt;合约版本&gt;
+               &quot;//@:organization:&quot; &lt;组织ID&gt;
+               &quot;//@:author:&quot; &lt;账户公钥&gt;
+               &quot;type &quot; &lt;合约类名&gt; &quot; struct {&quot;
+               &quot;    sdk sdk.ISmartContract&quot;
+                   {&lt;状态变量定义&gt;}
+                   {&lt;golang变量定义&gt;}
+               &quot;}&quot;
+&lt;合约名称&gt; ::= 参见&lt;合约标记:contract&gt;
+&lt;合约版本&gt; ::= 参见&lt;合约标记:version&gt;
+&lt;组织ID&gt; ::= 参见&lt;合约标记:organization&gt;
+&lt;账户公钥&gt; ::= 参见&lt;合约标记:author&gt;
+&lt;合约类名&gt; ::= &lt;大写字母开头的标识符&gt;
+&lt;golang变量定义&gt; ::= 遵循golang代码规范的标准变量定义代码
+&lt;状态变量定义&gt; ::= &lt;基本状态变量定义&gt; | &lt;带缓存的状态变量定义&gt;
+&lt;基本状态变量定义&gt; ::= &quot;//@:public:store&quot;
+                     &lt;变量名称&gt; [&quot;*&quot;] &lt;变量类型&gt;
+&lt;带缓存的状态变量定义&gt; ::= &quot;//@:public:store:cache&quot;
+                        &lt;变量名称&gt; [&quot;*&quot;] &lt;变量类型&gt;
+&lt;变量名称&gt; ::= &lt;标识符&gt;
+&lt;变量类型&gt; ::= &lt;元数据类型&gt; | &lt;数组类型&gt; | &lt;映射表类型&gt;
+
+&lt;合约上链初始化函数定义&gt; ::= &lt;部署函数&gt; | &lt;升级函数&gt;
+&lt;部署函数&gt; ::= &quot;//@:constructor&quot;
+              &quot;func (&quot; &lt;合约对象定义&gt; &quot;) InitChain() {&quot;
+                &lt;上链代码&gt;
+              &quot;}&quot;
+&lt;升级函数&gt; ::= &quot;//@:constructor&quot;
+              &quot;func (&quot; &lt;合约对象定义&gt; &quot;) UpdateChain() {&quot;
+                &lt;上链代码&gt;
+              &quot;}&quot;
+&lt;挖矿定义&gt; ::= &quot;//@:public:mine&quot;
+              &quot;func (&quot; &lt;合约对象定义&gt; &quot;) Mine() int64 {&quot;
+                &lt;挖矿代码&gt;
+              &quot;}&quot;
+&lt;合约对象定义&gt; ::= &lt;变量名称&gt; &quot;*&quot; &lt;合约类名&gt;
+&lt;上链代码&gt; ::= &lt;golang函数体&gt;
+              注1：只允许访问状态变量
+              注2：sdk中不允许访问Message()和Tx()
+&lt;挖矿代码&gt; ::= &lt;golang函数体&gt;
+              注1：sdk中不允许访问Message()和Tx()
+&lt;golang函数体&gt; ::= 遵循golang代码规范的函数体实现代码，参见 &lt;合约实现代码&gt; 的定义
+
+&lt;合约收据定义&gt; ::= &quot;//@:public:receipt&quot;
+                 &quot;type receipt interface {&quot;
+                     &lt;收据函数名称&gt; &lt;函数入口参数定义&gt;
+                 &quot;}&quot;
+&lt;收据函数名称&gt; ::= &quot;emit&quot; &lt;大写字母开头的标识符&gt;
+&lt;函数入口参数定义&gt; ::= &quot;(&quot; &lt;参数表&gt; &quot;)&quot;
+&lt;参数表&gt; ::= &lt;参数定义&gt; | &lt;参数表&gt; &quot;,&quot; &lt;参数定义&gt;
+&lt;参数定义&gt; ::= &lt;变量名称&gt; [&quot;*&quot;] &lt;变量类型&gt;
+
+&lt;跨合约调用接口定义&gt; ::= &quot;//@:import:&quot; &lt;合约名称&gt;
+                      &quot;type &quot;&lt;接口类名称&gt;&quot; interface {&quot;
+                           &lt;接口函数名称&gt; &lt;函数入口参数定义&gt; &lt;函数返回定义&gt;
+                      &quot;}&quot;
+&lt;接口类名称&gt; ::= &lt;大写字母开头的标识符&gt;
+&lt;接口函数名称&gt; ::= &lt;大写字母开头的标识符&gt;
+&lt;函数返回定义&gt; ::= &lt;空&gt; | [&quot;*&quot;] &lt;变量类型&gt; | &quot;(&quot; &lt;返回表&gt; &quot;)&quot;
+&lt;空&gt; ::= 空白
+&lt;返回表&gt; ::= &lt;返回定义&gt; | &lt;返回表&gt; &quot;,&quot; &lt;返回定义&gt;
+&lt;返回定义&gt; ::= [&lt;变量名称&gt;] [&quot;*&quot;] &lt;变量类型&gt;
+
+&lt;合约公开函数定义&gt; ::=[&lt;合约公开方法标记&gt;]
+                   [&lt;合约公开接口标记&gt;]
+                &quot;func (&quot; &lt;合约对象定义&gt; &quot;)&quot; &lt;公开函数名称&gt; &lt;函数入口参数定义&gt; &lt;函数返回定义&gt; &quot;{&quot;
+                     &lt;golang函数体&gt;
+                &quot;}&quot;                    
+&lt;合约公开方法标记&gt; ::= &quot;//@:public:method:gas[ &quot;&lt;燃料数量&gt; &quot;]&quot;
+&lt;合约公开接口标记&gt; ::= &quot;//@:public:interface:gas[ &quot;&lt;燃料数量&gt; &quot;]&quot;
+&lt;燃料数量&gt; ::= 参见&lt;合约标记:public:method&gt;
+&lt;公开函数名称&gt; ::= &lt;大写字母开头的标识符&gt;
+
+&lt;标识符&gt; ::= &lt;字母&gt; | &lt;标识符&gt; &lt;字母数字串&gt;
+&lt;大写字母开头的标识符&gt; ::= &lt;大写字母&gt; | &lt;大写字母开头的标识符&gt; &lt;字母数字串&gt;
+&lt;字母数字串&gt; ::= &lt;字母&gt; | &lt;十进制数字&gt; | &lt;字母数字串&gt; &lt;字母&gt; | &lt;字母数字串&gt; &lt;十进制数字&gt; 
+&lt;字母&gt; ::= &quot;_&quot; | &lt;小写字母&gt; | &lt;大写字母&gt; 
+&lt;小写字母&gt; ::= &quot;a&quot; | &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;f&quot; | &quot;g&quot; | &quot;h&quot; | &quot;i&quot; | &quot;j&quot; | &quot;k&quot; | &quot;l&quot; | 
+              &quot;m&quot; | &quot;n&quot; | &quot;o&quot; | &quot;p&quot; | &quot;q&quot; | &quot;r&quot; | &quot;s&quot; | &quot;t&quot; | &quot;u&quot; | &quot;v&quot; | &quot;w&quot; | &quot;x&quot; | 
+              &quot;y&quot; | &quot;z&quot; 
+&lt;大写字母&gt; ::= &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot; | &quot;G&quot; | &quot;H&quot; | &quot;I&quot; | &quot;J&quot; | &quot;K&quot; | &quot;L&quot; | 
+              &quot;M&quot; | &quot;N&quot; | &quot;O&quot; | &quot;P&quot; | &quot;Q&quot; | &quot;R&quot; | &quot;S&quot; | &quot;T&quot; | &quot;U&quot; | &quot;V&quot; | &quot;W&quot; | &quot;X&quot; | 
+              &quot;Y&quot; | &quot;Z&quot; 
+&lt;十进制数字&gt; ::= &quot;0&quot; | &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | 8 | &quot;9&quot;
+&lt;十进制数&gt; ::= &lt;十进制数字&gt; | &lt;十进制数&gt; &lt;十进制数字&gt;
+
+&lt;元数据类型&gt; := &lt;golang内置类型&gt; | &lt;SDK内置类型&gt; | &lt;自定义数据结构&gt;
+&lt;golang内置类型&gt; ::= &quot;int&quot; | &quot;int8&quot; | &quot;int16&quot; | &quot;int32&quot; | &quot;int64&quot; |
+                    &quot;uint&quot; | &quot;uint8&quot; | &quot;uint16&quot; | &quot;uint32&quot; | &quot;uint64&quot; |
+                    &quot;bool&quot; | &quot;string&quot; | &quot;byte&quot;
+&lt;SDK内置类型&gt; ::= &lt;Address&gt; | &lt;HexBytes&gt; | &lt;Hash&gt; | &lt;PubKey&gt; | &lt;Number&gt;
+&lt;Address&gt; ::= &quot;types.Address&quot;
+&lt;HexBytes&gt; ::= &quot;types.HexBytes&quot;
+&lt;Hash&gt; ::= &quot;types.Hash&quot;
+&lt;PubKey&gt; ::= &quot;types.PubKey&quot;
+&lt;Number&gt; ::= &quot;bn.Number&quot;
+&lt;自定义数据结构&gt; ::= &quot;type &quot; &lt;标识符&gt; &quot; struct {&quot;
+                      {&lt;变量名称&gt; [&quot;*&quot;] &lt;变量类型&gt;}
+                  &quot;}&quot;
+&lt;数组类型&gt; ::= &lt;数组维度定义&gt; [&lt;数组维度定义&gt;] &lt;元数据类型&gt;
+&lt;数组维度定义&gt; ::= &quot;[&quot; [&lt;十进制数&gt;] &quot;]&quot;
+&lt;映射表类型&gt; ::= &lt;映射表类型1&gt; | &lt;映射表类型2&gt;
+&lt;映射表类型1&gt; ::= &lt;映射表定义&gt; [&lt;映射表定义&gt;] &lt;元数据类型&gt;
+&lt;映射表类型2&gt; ::= &lt;映射表定义&gt; [&lt;映射表定义&gt;] &lt;数组类型&gt;
+&lt;映射表定义&gt; ::= &quot;map[&quot; &lt;元数据类型&gt; &quot;]&quot;
+</code></pre>
+</figure>
+<h3 id='b580f737'><span class='bd-content-title'>4.2 包结构规范<a class='anchorjs-link ' href='#b580f737' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>下面定义合约包结构的 <code>BNF</code> 范式：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&lt;智能合约包结构&gt; ::= &lt;合约定义代码文件&gt; {&lt;合约实现代码文件&gt;} {&lt;合约测试代码文件&gt;}
+&lt;合约定义代码文件&gt; ::= &lt;合约代码目录&gt; &quot;/&quot; &lt;golang实现代码文件名&gt;
+&lt;合约实现代码文件&gt; ::= &lt;合约代码目录&gt; &quot;/&quot; &lt;golang实现代码文件名&gt;
+&lt;合约测试代码文件&gt; ::= &lt;合约代码目录&gt; &quot;/&quot; &lt;golang测试代码文件名&gt;
+&lt;合约代码目录&gt; ::= &lt;GOPATH&gt; &quot;/&quot; &lt;合约根目录&gt; &quot;/&quot; &lt;合约名称&gt; &quot;/v&quot; &lt;合约版本&gt; &quot;/&quot; &lt;合约名称&gt;
+&lt;GOPATH&gt; ::= golang标准环境变量GOPATH指向的目录
+&lt;合约根目录&gt; ::= &quot;src/contract/&quot; &lt;组织ID&gt; &quot;/code&quot;
+&lt;组织ID&gt; ::= 参见&lt;合约标记:organization&gt;
+&lt;golang实现代码文件名&gt; ::= &lt;合法文件名&gt; &quot;.go&quot;
+&lt;golang测试代码文件名&gt; ::= &lt;合法文件名&gt; &quot;_test.go&quot;
+&lt;任意文件名&gt; ::= &lt;合法文件名&gt;|&lt;非法文件名&gt;
+&lt;非法文件名&gt; ::= [&lt;合法文件名&gt;] &quot;autogen&quot; [&lt;合法文件名&gt;] | &lt;任意文件名&gt; &quot;_test&quot;
+&lt;合法文件名&gt; ::= 排除&lt;非法文件名&gt;以后所有操作系统认可作为文件名的字符串'>Copy</button><pre><code>&lt;智能合约包结构&gt; ::= &lt;合约定义代码文件&gt; {&lt;合约实现代码文件&gt;} {&lt;合约测试代码文件&gt;}
+&lt;合约定义代码文件&gt; ::= &lt;合约代码目录&gt; &quot;/&quot; &lt;golang实现代码文件名&gt;
+&lt;合约实现代码文件&gt; ::= &lt;合约代码目录&gt; &quot;/&quot; &lt;golang实现代码文件名&gt;
+&lt;合约测试代码文件&gt; ::= &lt;合约代码目录&gt; &quot;/&quot; &lt;golang测试代码文件名&gt;
+&lt;合约代码目录&gt; ::= &lt;GOPATH&gt; &quot;/&quot; &lt;合约根目录&gt; &quot;/&quot; &lt;合约名称&gt; &quot;/v&quot; &lt;合约版本&gt; &quot;/&quot; &lt;合约名称&gt;
+&lt;GOPATH&gt; ::= golang标准环境变量GOPATH指向的目录
+&lt;合约根目录&gt; ::= &quot;src/contract/&quot; &lt;组织ID&gt; &quot;/code&quot;
+&lt;组织ID&gt; ::= 参见&lt;合约标记:organization&gt;
+&lt;golang实现代码文件名&gt; ::= &lt;合法文件名&gt; &quot;.go&quot;
+&lt;golang测试代码文件名&gt; ::= &lt;合法文件名&gt; &quot;_test.go&quot;
+&lt;任意文件名&gt; ::= &lt;合法文件名&gt;|&lt;非法文件名&gt;
+&lt;非法文件名&gt; ::= [&lt;合法文件名&gt;] &quot;autogen&quot; [&lt;合法文件名&gt;] | &lt;任意文件名&gt; &quot;_test&quot;
+&lt;合法文件名&gt; ::= 排除&lt;非法文件名&gt;以后所有操作系统认可作为文件名的字符串
+</code></pre>
+</figure>
+<p class='with-space'>注：规范定义中出现的空白符间隔仅为排版需要，不作为规范的一部分。</p>
+<h3 id='ea7aa625'><span class='bd-content-title'>4.3 白名单列表<a class='anchorjs-link ' href='#ea7aa625' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>出于安全考虑，BCBChain智能合约限制为只允许导入行为明确且不会导致不同节点运行结果不一致的代码支撑包。这样的包包含在白名单列表中。</p>
+<p class='with-space'>白名单列表中支持的代码包在智能合约中可以放心的使用。</p>
+<p class='with-space'>白名单与灰名单的具体内容随智能合约 <code>SDK</code>  及配套的BCBChain插件版本升级将会有所不同，详细信息请参见智能合约  <code>SDK</code> 及配套的BCBChain插件的相关文件。</p>
+<p class='with-space'>下面是第一版白名单列表：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//以下为可用的 golang 标识包
+bytes
+container/heap
+container/list
+container/ring
+crypto
+crypto/aes
+crypto/cipher
+crypto/des
+crypto/hmac
+crypto/md5
+crypto/rc4
+crypto/sha1
+crypto/sha256
+crypto/sha512
+encoding
+encoding/ascii85
+encoding/asn1
+encoding/base32
+encoding/base64
+encoding/binary
+encoding/csv
+encoding/gob
+encoding/hex
+encoding/json
+encoding/pem
+encoding/xml
+errors
+fmt
+hash
+hash/adler32
+hash/crc32
+hash/crc64
+hash/fnv
+index/suffixarray
+math
+math/big
+math/bits
+math/cmplx
+reflect
+regexp
+regexp/syntax
+sort
+strconv
+strings
+unicode
+unicode/utf16
+unicode/utf8
+
+//以下为 SDK 提供的标准包
+blockchain/smcsdk/sdk'>Copy</button><pre><code>//以下为可用的 golang 标识包
+bytes
+container/heap
+container/list
+container/ring
+crypto
+crypto/aes
+crypto/cipher
+crypto/des
+crypto/hmac
+crypto/md5
+crypto/rc4
+crypto/sha1
+crypto/sha256
+crypto/sha512
+encoding
+encoding/ascii85
+encoding/asn1
+encoding/base32
+encoding/base64
+encoding/binary
+encoding/csv
+encoding/gob
+encoding/hex
+encoding/json
+encoding/pem
+encoding/xml
+errors
+fmt
+hash
+hash/adler32
+hash/crc32
+hash/crc64
+hash/fnv
+index/suffixarray
+math
+math/big
+math/bits
+math/cmplx
+reflect
+regexp
+regexp/syntax
+sort
+strconv
+strings
+unicode
+unicode/utf16
+unicode/utf8
+
+//以下为 SDK 提供的标准包
+blockchain/smcsdk/sdk
+</code></pre>
+</figure>
+<h2 id='e5134740'><span class='bd-content-title'>5. BRC20代币<a class='anchorjs-link ' href='#e5134740' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>本文档概述中发布的智能合约 “代币” 是一个演示性的代币合约，不是符合BCBChain标准的 BRC20 ` 代币。</p>
+<p class='with-space'>BCBChain的用户可以自己编写智能合约发行符合BRC20代币规范的代币。本节定义符合 <code>BRC20</code> 代币规范的智能合约。</p>
+<p class='with-space'>规范描述如下：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>合约必须明确调用智能合约SDK提供的接口 ITokenHelper::RegisterToken(...) `向BCBChain注册一个新的代币（每个智能合约能且只能注册一个代币）；</p></li>
+<li>
+<p class='with-space'>合约注册代币会自动在BCBChain上记录一条标准的代币生成收据，收据定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='import ( 
+  &quot;blockchain/smcsdk/sdk/bn&quot; 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::newToken 
+type NewToken struct { 
+  TokenAddress     types.Address `json:&quot;tokenAddr&quot;`     // 代币地址 
+  ContractAddress  types.Address `json:&quot;contractAddr&quot;`  // 代币的合约地址 
+  Owner            types.Address `json:&quot;owner&quot;`         // 代币拥有者的外部账户地址 
+  Name             string      `json:&quot;name&quot;`            // 代币名称 
+  Symbol           string      `json:&quot;symbol&quot;`          // 代币符号 
+  TotalSupply      bn.Number   `json:&quot;totalSupply&quot;`     // 代币总供应量（单位：cong） 
+  AddSupplyEnabled bool        `json:&quot;addSupplyEnabled&quot;`// 代币是否支持增发 
+  BurnEnabled      bool        `json:&quot;burnEnabled&quot;`     // 代币是否支持燃烧 
+  GasPrice         int64       `json:&quot;gasPrice&quot;`        // 代币燃料价格（单位：cong） 
+} '>Copy</button><pre><code>import ( 
+  &quot;blockchain/smcsdk/sdk/bn&quot; 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::newToken 
+type NewToken struct { 
+  TokenAddress     types.Address `json:&quot;tokenAddr&quot;`     // 代币地址 
+  ContractAddress  types.Address `json:&quot;contractAddr&quot;`  // 代币的合约地址 
+  Owner            types.Address `json:&quot;owner&quot;`         // 代币拥有者的外部账户地址 
+  Name             string      `json:&quot;name&quot;`            // 代币名称 
+  Symbol           string      `json:&quot;symbol&quot;`          // 代币符号 
+  TotalSupply      bn.Number   `json:&quot;totalSupply&quot;`     // 代币总供应量（单位：cong） 
+  AddSupplyEnabled bool        `json:&quot;addSupplyEnabled&quot;`// 代币是否支持增发 
+  BurnEnabled      bool        `json:&quot;burnEnabled&quot;`     // 代币是否支持燃烧 
+  GasPrice         int64       `json:&quot;gasPrice&quot;`        // 代币燃料价格（单位：cong） 
+} 
+</code></pre>
+</figure></li>
+<li>
+<p class='with-space'>合约必须实现本章定义的方法与接口。</p></li>
+</ul>
+<h3 id='b04ba97d'><span class='bd-content-title'>5.1 Transfer<a class='anchorjs-link ' href='#b04ba97d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'> <strong>方法原型</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='import (
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//@:public:method:gas[500]
+//@:public:interface:gas[450]
+Transfer(types.Address,bn.Number)'>Copy</button><pre><code>import (
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//@:public:method:gas[500]
+//@:public:interface:gas[450]
+Transfer(types.Address,bn.Number)
+</code></pre>
+</figure>
+<p class='with-space'> <strong>功能说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>执行代币转移功能。</p></li>
+</ul>
+<p class='with-space'> <strong>实现说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>必须实现；</p></li>
+<li>
+<p class='with-space'>必须标记为 <code>public:method</code>；</p></li>
+<li>
+<p class='with-space'>必须标记为 <code>public:interface</code>。</p></li>
+</ul>
+<p class='with-space'> <strong>调用说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>允许任何人通过广播交易进行调用；</p></li>
+<li>
+<p class='with-space'>允许同组织的其它智能合约进行跨合约调用；</p></li>
+<li>
+<p class='with-space'>允许同组织的其它智能合约通过SDK提供的接口 <code>IAccount::Transfer</code>  直接调用（  <code>SDK</code> 底层自动进行跨合约调用）。</p></li>
+</ul>
+<p class='with-space'> <strong>输入参数</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>_to		  types.Address	   代币接收方地址（可以是外部账户地址、合约账户地址、合约地址）</p>
+<p class='with-space'>_value	bn.Number			转移的代币数额（单位： <code>cong</code>）</p>
+<p class='with-space'>注：如果接收方地址是合约地址，会自动将接收到的代币转入该合约的账户地址。</p></li>
+</ul>
+<p class='with-space'> <strong>输出收据</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>BRC20代币 <code>Transfer()</code> 方法会自动在BCBChain上记录一条标准的代币转移收据，收据定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='import ( 
+  &quot;blockchain/smcsdk/sdk/bn&quot; 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::transfer 
+type Transfer struct { 
+  Token      smc.Address  `json:&quot;token&quot;`      // 代币地址 
+  From       smc.Address  `json:&quot;from&quot;`       // 转出方地址 
+  To         smc.Address  `json:&quot;to&quot;`         // 代币接收方地址 
+  Value      bn.Number    `json:&quot;value&quot;`      // 转移的代币数额（（单位：cong） 
+} '>Copy</button><pre><code>import ( 
+  &quot;blockchain/smcsdk/sdk/bn&quot; 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::transfer 
+type Transfer struct { 
+  Token      smc.Address  `json:&quot;token&quot;`      // 代币地址 
+  From       smc.Address  `json:&quot;from&quot;`       // 转出方地址 
+  To         smc.Address  `json:&quot;to&quot;`         // 代币接收方地址 
+  Value      bn.Number    `json:&quot;value&quot;`      // 转移的代币数额（（单位：cong） 
+} 
+</code></pre>
+</figure></li>
+</ul>
+<h3 id='d035494e'><span class='bd-content-title'>5.2 AddSupply<a class='anchorjs-link ' href='#d035494e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'> <strong>方法原型</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='import (
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+)
+
+//@:public:method:gas[2400]
+AddSupply(bn.Number)'>Copy</button><pre><code>import (
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+)
+
+//@:public:method:gas[2400]
+AddSupply(bn.Number)
+</code></pre>
+</figure>
+<p class='with-space'> <strong>功能说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>为代币增加供应量。</p></li>
+</ul>
+<p class='with-space'> <strong>实现说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>可选实现；</p></li>
+<li>
+<p class='with-space'>如果实现，必须标记为 <code>public:method</code>。</p></li>
+</ul>
+<p class='with-space'> <strong>调用说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>只有代币拥有者才能通过广播交易进行调用。</p></li>
+</ul>
+<p class='with-space'> <strong>输入参数</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>_value	bn.Number	新增加的供应量（单位： <code>cong</code>）。</p></li>
+</ul>
+<p class='with-space'> <strong>输出收据</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>BRC20代币 <code>AddSupply()</code> 方法会自动在BCBChain上记录一条标准的代币增发收据，收据定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='import ( 
+  &quot;blockchain/smcsdk/sdk/bn&quot; 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::addSupply 
+type AddSupply struct { 
+  Token       types.Address `json:&quot;token&quot;`       // 代币地址 
+  Value       bn.Number     `json:&quot;value&quot;`       // 增发的供应量（单位：cong） 
+  TotalSupply bn.Number     `json:&quot;totalSupply&quot;` // 新的总供应量（单位：cong） 
+} '>Copy</button><pre><code>import ( 
+  &quot;blockchain/smcsdk/sdk/bn&quot; 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::addSupply 
+type AddSupply struct { 
+  Token       types.Address `json:&quot;token&quot;`       // 代币地址 
+  Value       bn.Number     `json:&quot;value&quot;`       // 增发的供应量（单位：cong） 
+  TotalSupply bn.Number     `json:&quot;totalSupply&quot;` // 新的总供应量（单位：cong） 
+} 
+</code></pre>
+</figure></li>
+<li>
+<p class='with-space'>BRC20代币 <code>AddSupply()</code>  方法还会自动在BCBChain上记录一条标准的  <code>std::transfer</code>收据。</p></li>
+</ul>
+<h3 id='bfd8af66'><span class='bd-content-title'>5.3 Burn<a class='anchorjs-link ' href='#bfd8af66' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'> <strong>方法原型</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='import (
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+)
+
+//@:public:method:gas[2400]
+Burn(bn.Number)'>Copy</button><pre><code>import (
+    &quot;blockchain/smcsdk/sdk/bn&quot;
+)
+
+//@:public:method:gas[2400]
+Burn(bn.Number)
+</code></pre>
+</figure>
+<p class='with-space'> <strong>功能说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>燃烧代币的供应量。</p></li>
+</ul>
+<p class='with-space'> <strong>实现说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>可选实现；</p></li>
+<li>
+<p class='with-space'>如果实现，必须标记为 <code>public:method</code>。</p></li>
+</ul>
+<p class='with-space'> <strong>调用说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>只有代币拥有者才能通过广播交易进行调用。</p></li>
+</ul>
+<p class='with-space'> <strong>输入参数</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>_value	bn.Number	燃烧掉的供应量（单位： <code>cong</code>）。</p></li>
+</ul>
+<p class='with-space'> <strong>输出收据</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>BRC20代币 <code>Burn()</code> 方法会自动在BCBChain上记录一条标准的代币燃烧收据，收据定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='import ( 
+  &quot;blockchain/smcsdk/sdk/bn&quot; 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::burn 
+type Burn struct { 
+  Token       types.Address `json:&quot;token&quot;`       // 代币地址 
+  Value       bn.Number     `json:&quot;value&quot;`       // 燃烧的供应量（单位：cong） 
+  TotalSupply bn.Number     `json:&quot;totalSupply&quot;` // 新的总供应量（单位：cong） 
+} '>Copy</button><pre><code>import ( 
+  &quot;blockchain/smcsdk/sdk/bn&quot; 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::burn 
+type Burn struct { 
+  Token       types.Address `json:&quot;token&quot;`       // 代币地址 
+  Value       bn.Number     `json:&quot;value&quot;`       // 燃烧的供应量（单位：cong） 
+  TotalSupply bn.Number     `json:&quot;totalSupply&quot;` // 新的总供应量（单位：cong） 
+} 
+</code></pre>
+</figure></li>
+<li>
+<p class='with-space'>BRC20代币 <code>Burn()</code>  方法还会自动在BCBChain上记录一条标准的  <code>std::transfer</code>收据。</p></li>
+</ul>
+<h3 id='adff1281'><span class='bd-content-title'>5.4 SetGasPrice<a class='anchorjs-link ' href='#adff1281' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'> <strong>方法原型</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:public:method:gas[2400]
+SetGasPrice(int64)'>Copy</button><pre><code>//@:public:method:gas[2400]
+SetGasPrice(int64)
+</code></pre>
+</figure>
+<p class='with-space'> <strong>功能说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>设置燃料价格。</p></li>
+</ul>
+<p class='with-space'> <strong>实现说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>可选实现；</p></li>
+<li>
+<p class='with-space'>如果实现，必须标记为 <code>public:method</code>。</p></li>
+</ul>
+<p class='with-space'> <strong>调用说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>只有代币拥有者才能通过广播交易进行调用。</p></li>
+</ul>
+<p class='with-space'> <strong>输入参数</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>_value	int64		新的燃料价格（单位： <code>cong</code> ）。</p></li>
+</ul>
+<p class='with-space'> <strong>输出收据</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>BRC20代币 SetGasPrice() ` 方法会自动在BCBChain上记录一条标准的设置燃料价格收据，收据定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='import ( 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::setGasPrice 
+type SetGasPrice struct { 
+  Token    types.Address `json:&quot;token&quot;`    // 代币地址 
+  GasPrice int64         `json:&quot;gasPrice&quot;` // 燃料价格（单位：cong） 
+} '>Copy</button><pre><code>import ( 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::setGasPrice 
+type SetGasPrice struct { 
+  Token    types.Address `json:&quot;token&quot;`    // 代币地址 
+  GasPrice int64         `json:&quot;gasPrice&quot;` // 燃料价格（单位：cong） 
+} 
+</code></pre>
+</figure></li>
+</ul>
+<h3 id='c10d7f72'><span class='bd-content-title'>5.5 SetOwner<a class='anchorjs-link ' href='#c10d7f72' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'> <strong>方法原型</strong> </p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='import (
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//@:public:method:gas[2400]
+SetOwner(types.Address)'>Copy</button><pre><code>import (
+    &quot;blockchain/smcsdk/sdk/types&quot;
+)
+
+//@:public:method:gas[2400]
+SetOwner(types.Address)
+</code></pre>
+</figure>
+<p class='with-space'> <strong>功能说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>转移智能合约及代币的所有权。</p></li>
+</ul>
+<p class='with-space'> <strong>实现说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>可选实现；</p></li>
+<li>
+<p class='with-space'>如果实现，必须标记为 <code>public:method</code>。</p></li>
+</ul>
+<p class='with-space'> <strong>调用说明</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>只有代币拥有者才能通过广播交易进行调用。</p></li>
+</ul>
+<p class='with-space'> <strong>输入参数</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>_newOwner	types.Address	合约新的拥有者的外部账户地址。</p></li>
+</ul>
+<p class='with-space'> <strong>输出收据</strong> </p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>BRC20代币 SetOwner() ` 方法会自动在BCBChain上记录一条标准的转移所有权收据，收据定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='import ( 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::setOwner 
+type SetOwner struct { 
+  ContractAddr types.Address `json:&quot;contractAddr&quot;` // 智能合约地址 
+  NewOwner     types.Address `json:&quot;newOwner&quot;`     // 合约新的拥有者的外部账户地址 
+} '>Copy</button><pre><code>import ( 
+  &quot;blockchain/smcsdk/sdk/types&quot; 
+)
+
+// Name of receipt: std::setOwner 
+type SetOwner struct { 
+  ContractAddr types.Address `json:&quot;contractAddr&quot;` // 智能合约地址 
+  NewOwner     types.Address `json:&quot;newOwner&quot;`     // 合约新的拥有者的外部账户地址 
+} 
+</code></pre>
+</figure></li>
+<li>
+<p class='with-space'>BRC20代币 <code>SetOwner()</code>  方法还会自动在BCBChain上记录一条标准的  <code>std::transfer</code>收据。</p></li>
+</ul>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/zh-cn/04-智能合约开发\智能合约(golang)\03-深入理解.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#ff7cb732'>深入理解智能合约</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#d468373b'>1. 组织机构</a>
+<a class='ml-0 my-1 nav-link' href='#f277a581'>2. BNF范式</a>
+<a class='ml-0 my-1 nav-link' href='#fa024aa0'>3. 合约标记</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#c2e0694a'>3.1 contract</a>
+<a class='ml-2 my-1 nav-link' href='#f5c12141'>3.2 version</a>
+<a class='ml-2 my-1 nav-link' href='#d3300a02'>3.3 organization</a>
+<a class='ml-2 my-1 nav-link' href='#db385d79'>3.4 author</a>
+<a class='ml-2 my-1 nav-link' href='#eb9c6576'>3.5 constructor</a>
+<a class='ml-2 my-1 nav-link' href='#a0dbd069'>3.6 public:store</a>
+<a class='ml-2 my-1 nav-link' href='#de348a9a'>3.7 public:store:cache</a>
+<a class='ml-2 my-1 nav-link' href='#ce984654'>3.8 public:receipt</a>
+<a class='ml-2 my-1 nav-link' href='#c733e0bf'>3.9 public:method</a>
+<a class='ml-2 my-1 nav-link' href='#e8aedc3e'>3.10 public:interface</a>
+<a class='ml-2 my-1 nav-link' href='#b8dc7770'>3.11 public:mine</a>
+<a class='ml-2 my-1 nav-link' href='#a0d1a49c'>3.12 import</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#d5066bb0'>4. 合约规范</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#df1006a9'>4.1 BNF范式定义</a>
+<a class='ml-2 my-1 nav-link' href='#b580f737'>4.2 包结构规范</a>
+<a class='ml-2 my-1 nav-link' href='#ea7aa625'>4.3 白名单列表</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#e5134740'>5. BRC20代币</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#b04ba97d'>5.1 Transfer</a>
+<a class='ml-2 my-1 nav-link' href='#d035494e'>5.2 AddSupply</a>
+<a class='ml-2 my-1 nav-link' href='#bfd8af66'>5.3 Burn</a>
+<a class='ml-2 my-1 nav-link' href='#adff1281'>5.4 SetGasPrice</a>
+<a class='ml-2 my-1 nav-link' href='#c10d7f72'>5.5 SetOwner</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

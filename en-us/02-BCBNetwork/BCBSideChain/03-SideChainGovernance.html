@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>Side Chain Governance</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/Site Map.html'>Site Map</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBBasic</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/01-BCBIntro.html'>BCBIntro</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/01-BCBBasic/02-BCBNode.html'>BCBNode</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBNetwork</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/01-MainnetAndTestnet.html'>MainnetAndTestnet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/02-BuildForPrivateChain.html'>BuildForPrivateChain</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBSideChain</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/01-SideChainRegistration.html'>SideChainRegistration</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/02-SideChainCreation.html'>SideChainCreation</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/03-SideChainGovernance.html'>SideChainGovernance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/02-BCBNetwork/BCBSideChain/04-CrossChainTransaction.html'>CrossChainTransaction</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCBTools</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/03-BCBTools/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractDev</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/02-ProgrammingExample.html'>ProgrammingExample</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/03-DeeperUnderstanding.html'>DeeperUnderstanding</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevSmartContract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/01-DevelopmentEnvironment.html'>DevelopmentEnvironment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(golang)/DevSmartContract/02-FirstSmartContract.html'>FirstSmartContract</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContract(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/01-BVM-EVM-diff.html'>BVM-EVM-diff</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/02-Smart-Contract-Dev.html'>Smart-Contract-Dev</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/04-SmartContractDev/SmartContract(solidity)/03-Contract-deployment-call.html'>Contract-deployment-call</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeIntegrationGuide</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/01-IntroductionOfIntegrationScheme.html'>IntroductionOfIntegrationScheme</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/02-InstallationDeployment.html'>InstallationDeployment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/05-ExchangeIntegrationGuide/03-CommandDetails.html'>CommandDetails</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>DevelopmentReference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-ModelDescription.html'>ModelDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-AlgorithmDescription.html'>AlgorithmDescription</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/04-TransactionFormatv1.html'>TransactionFormatv1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/05-TransactionFormatv2.html'>TransactionFormatv2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>MainChainAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/01-Protocol.html'>Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/02-NetworkInterface.html'>NetworkInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/04-TransactionInterface.html'>TransactionInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/01-MainChainAPI/05-GlobalInterface.html'>GlobalInterface</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>SmartContractAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/01-Overview.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/02-SmartContractAPI/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>ExchangeAPI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/01-CommunicationProtocol.html'>CommunicationProtocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/02-WalletInterface.html'>WalletInterface</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/06-DevelopmentReference/03-ExchangeAPI/03-BlockchainInterface.html'>BlockchainInterface</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='fc74f025'><span class='bd-content-title'>Side Chain Governance<a class='anchorjs-link ' href='#fc74f025' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='e46ff3f4'><span class='bd-content-title'>1. Quick start for the side chain governance<a class='anchorjs-link ' href='#e46ff3f4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='c7c20f61'><span class='bd-content-title'>1.1  Adjust the side chain public URL<a class='anchorjs-link ' href='#c7c20f61' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Query the account balance of the side chain owner <code>scowner</code> on the main chain local to ensure that the <code>gas</code> needed to set the side chain OpenURLs is paid, querying command is:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text=' ./bcc balance --accAddress=&quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local
+
+Return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;localAJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;9977498750000&quot;
+  }
+]'>Copy</button><pre><code class='shell' lang='shell'> ./bcc balance --accAddress=&quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot; --tokenName=&quot;LOC&quot; --chainid local
+
+Return results:
+
+OK
+Response: [
+  {
+    &quot;tokenAddress&quot;: &quot;localAJrbk6Wdf7TCbunrXXS5kKvbWVszhC1TA&quot;,
+    &quot;tokenName&quot;: &quot;LOC&quot;,
+    &quot;balance&quot;: &quot;9977498750000&quot;
+  }
+]
+</code></pre>
+</figure>
+<p class='with-space'>To set the <code>OpenURLs</code> for the side chain, we take the side chain name is smartCity , the side chain public URL is <code>[&quot;http://ip1:46657&quot;]</code> as an example to show how to use bcc tool to set the OpenURLs for the side chain:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc call --contract netgovernance --method SetOpenURLs --splitBy @ --params smartCity@&quot;[\&quot;http://ip1:46657\&quot;]&quot; --gasLimit 100000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local
+
+Return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 125000000,
+  &quot;txHash&quot;: &quot;0xCE0E3359A967E60A73316E7AE7726D7890AFD05B70FDCA319BC5E50E8E161464&quot;,
+  &quot;height&quot;: 11503
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc call --contract netgovernance --method SetOpenURLs --splitBy @ --params smartCity@&quot;[\&quot;http://ip1:46657\&quot;]&quot; --gasLimit 100000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local
+
+Return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 125000000,
+  &quot;txHash&quot;: &quot;0xCE0E3359A967E60A73316E7AE7726D7890AFD05B70FDCA319BC5E50E8E161464&quot;,
+  &quot;height&quot;: 11503
+}
+</code></pre>
+</figure>
+<p class='with-space'>The value of option <code>params</code> in the command line is the argument to set for the side chain OpenURLs.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='the first parameter: smartCity, the side chain name
+the second parameter: [&quot;http://ip1:46657&quot;], the list of URL open to the public, it could be many, such as [&quot;http://ip1:46657&quot;, &quot;http://ip2:46657&quot;]'>Copy</button><pre><code class='html' lang='html'>the first parameter: smartCity, the side chain name
+the second parameter: [&quot;http://ip1:46657&quot;], the list of URL open to the public, it could be many, such as [&quot;http://ip1:46657&quot;, &quot;http://ip2:46657&quot;]
+</code></pre>
+</figure>
+<p class='with-space'>After adjusting <code>openURLs</code> for the side chain, you can query whether the openURLs of the side chain is set successfully. Query command is:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc query -k /sidechain/local[smartCity]/openurls
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /sidechain/local[smartCity]/openurls
+  Value: [&quot;ip1:46657&quot;]
+
+After querying, you can see the side chain URL is the above set URL.'>Copy</button><pre><code class='shell' lang='shell'>./bcc query -k /sidechain/local[smartCity]/openurls
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /sidechain/local[smartCity]/openurls
+  Value: [&quot;ip1:46657&quot;]
+
+After querying, you can see the side chain URL is the above set URL.
+</code></pre>
+</figure>
+<p class='with-space'>If the querying result is not the URL set above, you can query the details of the transaction by the returned <code>txhash</code> when you set the URL:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc tx --txhash 0xCE0E3359A967E60A73316E7AE7726D7890AFD05B70FDCA319BC5E50E8E161464
+OK
+Response: {
+  &quot;txHash&quot;: &quot;0xCE0E3359A967E60A73316E7AE7726D7890AFD05B70FDCA319BC5E50E8E161464&quot;,
+  &quot;txTime&quot;: &quot;2019-11-30 05:42:54.886886465 +0000 UTC&quot;,
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;blockHash&quot;: &quot;0x3aa75d9b3c08adf5d7140377b50ee02ffdb62abc&quot;,
+  &quot;blockHeight&quot;: 4102,
+  &quot;from&quot;: &quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,
+  &quot;nonce&quot;: 2,
+  &quot;gasLimit&quot;: 100000,
+  &quot;fee&quot;: 125000000,
+  &quot;note&quot;: &quot;&quot;,
+  &quot;messages&quot;: [
+    {
+      &quot;smcAddress&quot;: &quot;local4f5YLBNi336r1zUYZTga9PXVJifDqdg3U&quot;,
+      &quot;smcName&quot;: &quot;netgovernance&quot;,
+      &quot;method&quot;: &quot;SetOpenURLs(string,[]string)&quot;,
+      &quot;to&quot;: &quot;&quot;,
+      &quot;value&quot;: &quot;&quot;
+    }
+  ],
+  &quot;tags&quot;: {
+    &quot;/0/0/std::fee&quot;: {
+          ......
+    },
+    &quot;/0/1/netgovernance.setOpenURL&quot;: {
+      &quot;Name&quot;: &quot;netgovernance.setOpenURL&quot;,
+      &quot;ContractAddr&quot;: &quot;&quot;,
+      &quot;ReceiptBytes&quot;: &quot;eyJzaWRlQ2hhaW5JRCI6ImxvY2FsW3l5XSIsIm9wZW5VUkxzIjpbImh0dHA6Ly8xNzIuMTYuNDIuMTM2OjQ2NjU3IiwiaHR0cDovLzE3Mi4xNi40Mi4xMzU6NDY2NTciXX0=&quot;,
+      &quot;ReceiptHash&quot;: &quot;0x45F4E7344F40ED8E27BCE4ED63B0D5678BF4B095970F6A3B901490E67DF60D3D&quot;,
+      &quot;Receipt&quot;: {
+        &quot;openURLs&quot;: [
+          &quot;http://ip1:46657&quot;
+        ],
+        &quot;sideChainID&quot;: &quot;local[SmartCity]&quot;
+      }
+    },
+    &quot;/1/0/totalFee&quot;: {
+      ......
+    },
+    &quot;/1/1/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/2/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/3/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/4/transferFee&quot;: {
+      ......
+    }
+  }
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc tx --txhash 0xCE0E3359A967E60A73316E7AE7726D7890AFD05B70FDCA319BC5E50E8E161464
+OK
+Response: {
+  &quot;txHash&quot;: &quot;0xCE0E3359A967E60A73316E7AE7726D7890AFD05B70FDCA319BC5E50E8E161464&quot;,
+  &quot;txTime&quot;: &quot;2019-11-30 05:42:54.886886465 +0000 UTC&quot;,
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;blockHash&quot;: &quot;0x3aa75d9b3c08adf5d7140377b50ee02ffdb62abc&quot;,
+  &quot;blockHeight&quot;: 4102,
+  &quot;from&quot;: &quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,
+  &quot;nonce&quot;: 2,
+  &quot;gasLimit&quot;: 100000,
+  &quot;fee&quot;: 125000000,
+  &quot;note&quot;: &quot;&quot;,
+  &quot;messages&quot;: [
+    {
+      &quot;smcAddress&quot;: &quot;local4f5YLBNi336r1zUYZTga9PXVJifDqdg3U&quot;,
+      &quot;smcName&quot;: &quot;netgovernance&quot;,
+      &quot;method&quot;: &quot;SetOpenURLs(string,[]string)&quot;,
+      &quot;to&quot;: &quot;&quot;,
+      &quot;value&quot;: &quot;&quot;
+    }
+  ],
+  &quot;tags&quot;: {
+    &quot;/0/0/std::fee&quot;: {
+          ......
+    },
+    &quot;/0/1/netgovernance.setOpenURL&quot;: {
+      &quot;Name&quot;: &quot;netgovernance.setOpenURL&quot;,
+      &quot;ContractAddr&quot;: &quot;&quot;,
+      &quot;ReceiptBytes&quot;: &quot;eyJzaWRlQ2hhaW5JRCI6ImxvY2FsW3l5XSIsIm9wZW5VUkxzIjpbImh0dHA6Ly8xNzIuMTYuNDIuMTM2OjQ2NjU3IiwiaHR0cDovLzE3Mi4xNi40Mi4xMzU6NDY2NTciXX0=&quot;,
+      &quot;ReceiptHash&quot;: &quot;0x45F4E7344F40ED8E27BCE4ED63B0D5678BF4B095970F6A3B901490E67DF60D3D&quot;,
+      &quot;Receipt&quot;: {
+        &quot;openURLs&quot;: [
+          &quot;http://ip1:46657&quot;
+        ],
+        &quot;sideChainID&quot;: &quot;local[SmartCity]&quot;
+      }
+    },
+    &quot;/1/0/totalFee&quot;: {
+      ......
+    },
+    &quot;/1/1/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/2/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/3/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/4/transferFee&quot;: {
+      ......
+    }
+  }
+}
+</code></pre>
+</figure>
+<p class='with-space'>You can find the receipt for <code>netgovernance.setOpenURL</code> in the tag, and check if the openURLs and <code>sideChainID</code> in the Receipt field are correct.</p>
+<h3 id='a765c1ec'><span class='bd-content-title'>1.2 Adjust the gas price ratio for the side chain<a class='anchorjs-link ' href='#a765c1ec' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>You can use the bcc tool to adjust the gas price ratio of the side chain, we take the side chain is <code>smartCity</code> , the gas price ratio is 2.000 as an example to show how to adjust the gas price ratio of the side chain:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc call --contract netgovernance --method SetGasPriceRatio --splitBy @ --params SmartCity@&quot;2.000&quot; --gasLimit 100000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local
+
+Return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 127500000,
+  &quot;txHash&quot;: &quot;0x5100A109C3FDEACED7B5E7B90A61C966E1A093D6409ACFD2045D3CC8CBAB679E&quot;,
+  &quot;height&quot;: 12831
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc call --contract netgovernance --method SetGasPriceRatio --splitBy @ --params SmartCity@&quot;2.000&quot; --gasLimit 100000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local
+
+Return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 127500000,
+  &quot;txHash&quot;: &quot;0x5100A109C3FDEACED7B5E7B90A61C966E1A093D6409ACFD2045D3CC8CBAB679E&quot;,
+  &quot;height&quot;: 12831
+}
+</code></pre>
+</figure>
+<p class='with-space'>The value of option <code>params</code> in the command line is the argument to set for the side chain genesis creation:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='the first parameter: SmartCity, the side chain name
+the second parameter: &quot;2.000&quot;, the gas price ratio, note that the format must be accurate to three decimal places.'>Copy</button><pre><code class='html' lang='html'>the first parameter: SmartCity, the side chain name
+the second parameter: &quot;2.000&quot;, the gas price ratio, note that the format must be accurate to three decimal places.
+</code></pre>
+</figure>
+<p class='with-space'>If we want to query if the above operation is successful, you can use the following command:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Query on the main chain:
+./bcc query -k /sidechain/local[SmartCity]/chaininfo
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /sidechain/local[SmartCity]/chaininfo
+  Value: {&quot;sideChainName&quot;:&quot;SmartCity&quot;,&quot;chainID&quot;:&quot;local[SmartCity]&quot;,&quot;NodeNames&quot;:[&quot;node1&quot;],&quot;orgName&quot;:&quot;SmartCity&quot;,&quot;owner&quot;:&quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;height&quot;:748,&quot;status&quot;:&quot;ready&quot;,&quot;gasPriceRatio&quot;:&quot;2.000&quot;}
+
+Query on the side chain:
+  ./bcc query -k /genesis/gaspriceratio --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /genesis/gaspriceratio
+  Value: &quot;2.000&quot;'>Copy</button><pre><code class='shell' lang='shell'>Query on the main chain:
+./bcc query -k /sidechain/local[SmartCity]/chaininfo
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /sidechain/local[SmartCity]/chaininfo
+  Value: {&quot;sideChainName&quot;:&quot;SmartCity&quot;,&quot;chainID&quot;:&quot;local[SmartCity]&quot;,&quot;NodeNames&quot;:[&quot;node1&quot;],&quot;orgName&quot;:&quot;SmartCity&quot;,&quot;owner&quot;:&quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;height&quot;:748,&quot;status&quot;:&quot;ready&quot;,&quot;gasPriceRatio&quot;:&quot;2.000&quot;}
+
+Query on the side chain:
+  ./bcc query -k /genesis/gaspriceratio --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /genesis/gaspriceratio
+  Value: &quot;2.000&quot;
+</code></pre>
+</figure>
+<p class='with-space'>Through querying, you can see the side chain gas price ratio is the above set <code>gaspriceratio</code> . If the query result is not as expected, you can query the receipt by the following command:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc tx  --chainid local --txhash 0x5100A109C3FDEACED7B5E7B90A61C966E1A093D6409ACFD2045D3CC8CBAB679E
+OK
+Response: {
+  &quot;txHash&quot;: &quot;0x5100A109C3FDEACED7B5E7B90A61C966E1A093D6409ACFD2045D3CC8CBAB679E&quot;,
+  &quot;txTime&quot;: &quot;2019-11-30 05:58:31.242099551 +0000 UTC&quot;,
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;blockHash&quot;: &quot;0x00b041f365468cbd9f9d911e20e1f9ef643dd0c4&quot;,
+  &quot;blockHeight&quot;: 5014,
+  &quot;from&quot;: &quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,
+  &quot;nonce&quot;: 3,
+  &quot;gasLimit&quot;: 100000,
+  &quot;fee&quot;: 127500000,
+  &quot;note&quot;: &quot;&quot;,
+  &quot;messages&quot;: [
+    {
+      &quot;smcAddress&quot;: &quot;local4f5YLBNi336r1zUYZTga9PXVJifDqdg3U&quot;,
+      &quot;smcName&quot;: &quot;netgovernance&quot;,
+      &quot;method&quot;: &quot;SetGasPriceRatio(string,string)&quot;,
+      &quot;to&quot;: &quot;&quot;,
+      &quot;value&quot;: &quot;&quot;
+    }
+  ],
+  &quot;tags&quot;: {
+    &quot;/0/0/std::fee&quot;: {
+      ......
+    },
+    &quot;/0/1/netgovernance.setGasPriceRatio&quot;: {
+      &quot;Name&quot;: &quot;netgovernance.setGasPriceRatio&quot;,
+      &quot;ContractAddr&quot;: &quot;&quot;,
+      &quot;ReceiptBytes&quot;: &quot;eyJjaGFpbk5hbWUiOiJ5eSIsImNoYWluSUQiOiJsb2NhbFt5eV0iLCJnYXNQcmljZVJhdGlvIjoiMi4wMDAifQ==&quot;,
+      &quot;ReceiptHash&quot;: &quot;0xA20E055CA12756C18D74A17052BA2FE1A505380086158F549EC78F605165790A&quot;,
+      &quot;Receipt&quot;: {
+        &quot;chainID&quot;: &quot;local[SmartCity]&quot;,
+        &quot;chainName&quot;: &quot;SmartCity&quot;,
+        &quot;gasPriceRatio&quot;: &quot;2.000&quot;
+      }
+    },
+    &quot;/0/2/std::fee&quot;: {
+      ......
+    },
+    &quot;/0/3/ibc::packet/local-&gt;local[SmartCity]&quot;: {
+      &quot;Name&quot;: &quot;ibc::packet/local-&gt;local[SmartCity]&quot;,
+      &quot;ContractAddr&quot;: &quot;&quot;,
+      &quot;ReceiptBytes&quot;: &quot;eyJmcm9tQ2hhaW5JRCI6ImxvY2FsIiwidG9DaGFpbklEIjoibG9jYWxbeXldIiwicXVldWVJRCI6ImxvY2FsLT5sb2NhbFt5eV0iLCJzZXEiOjEsIm9yZ0lEIjoib3JnSmdhR0NvblV5SzgxemlibnRVQmpRMzNQS2N0cGsxSzFHIiwiY29udHJhY3ROYW1lIjoibmV0Z292ZXJuYW5jZSIsImliY0hhc2giOiI2QTE2QTM2M0E1NDIxNUY1QzBFMUY2MzJENjg5RkJENjBDNjE0RkYyNEQwMDUxNEFDMTVCMzYzQ0UyRDM2QTA1IiwidHlwZSI6Im5vdGlmeSIsInN0YXRlIjp7InN0YXR1cyI6Ik5vQWNrIiwidGFnIjoiTm90aWZ5UGVuZGluZyIsImxvZyI6IiJ9LCJyZWNlaXB0cyI6W3sia2V5IjoiTHpBdmJtVjBaMjkyWlhKdVlXNWpaUzV6WlhSSFlYTlFjbWxqWlZKaGRHbHYiLCJ2YWx1ZSI6ImV5SnVZVzFsSWpvaWJtVjBaMjkyWlhKdVlXNWpaUzV6WlhSSFlYTlFjbWxqWlZKaGRHbHZJaXdpWTI5dWRISmhZM1JCWkdSeVpYTnpJam9pYkc5allXdzBaalZaVEVKT2FUTXpObkl4ZWxWWldsUm5ZVGxRV0ZaS2FXWkVjV1JuTTFVaUxDSnlaV05sYVhCMFFubDBaWE1pT2lKbGVVcHFZVWRHY0dKck5XaGlWMVZwVDJsS05XVlRTWE5KYlU1dldWZHNkVk5WVVdsUGFVcHpZakpPYUdKR2REVmxWakJwVEVOS2JsbFlUbEZqYld4cVdsWkthR1JIYkhaSmFtOXBUV2swZDAxRVFXbG1VVDA5SWl3aWNtVmpaV2x3ZEVoaGMyZ2lPaUpCTWpCRk1EVTFRMEV4TWpjMU5rTXhPRVEzTkVFeE56QTFNa0pCTWtaRk1VRTFNRFV6T0RBd09EWXhOVGhHTlRRNVJVTTNPRVkyTURVeE5qVTNPVEJCSW4wPSJ9XX0=&quot;,
+      &quot;ReceiptHash&quot;: &quot;0x4B9FF741906AABC2977AA366F048C00F77E6CDFCC44F00B1FB0A8222BB27C5F2&quot;,
+      &quot;Receipt&quot;: {
+        &quot;contractName&quot;: &quot;netgovernance&quot;,
+        &quot;fromChainID&quot;: &quot;local&quot;,
+        &quot;ibcHash&quot;: &quot;6A16A363A54215F5C0E1F632D689FBD60C614FF24D00514AC15B363CE2D36A05&quot;,
+        &quot;orgID&quot;: &quot;orgJgaGConUyK81zibntUBjQ33PKctpk1K1G&quot;,
+        &quot;queueID&quot;: &quot;local-&gt;local[SmartCity]&quot;,
+        &quot;receipts&quot;: [
+          {
+            &quot;key&quot;: &quot;LzAvbmV0Z292ZXJuYW5jZS5zZXRHYXNQcmljZVJhdGlv&quot;,
+            &quot;value&quot;: &quot;eyJuYW1lIjoibmV0Z292ZXJuYW5jZS5zZXRHYXNQcmljZVJhdGlvIiwiY29udHJhY3RBZGRyZXNzIjoibG9jYWw0ZjVZTEJOaTMzNnIxelVZWlRnYTlQWFZKaWZEcWRnM1UiLCJyZWNlaXB0Qnl0ZXMiOiJleUpqYUdGcGJrNWhiV1VpT2lKNWVTSXNJbU5vWVdsdVNVUWlPaUpzYjJOaGJGdDVlVjBpTENKbllYTlFjbWxqWlZKaGRHbHZJam9pTWk0d01EQWlmUT09IiwicmVjZWlwdEhhc2giOiJBMjBFMDU1Q0ExMjc1NkMxOEQ3NEExNzA1MkJBMkZFMUE1MDUzODAwODYxNThGNTQ5RUM3OEY2MDUxNjU3OTBBIn0=&quot;
+          }
+        ],
+        &quot;seq&quot;: 1,
+        &quot;state&quot;: {
+          &quot;log&quot;: &quot;&quot;,
+          &quot;status&quot;: &quot;NoAck&quot;,
+          &quot;tag&quot;: &quot;NotifyPending&quot;
+        },
+        &quot;toChainID&quot;: &quot;local[SmartCity]&quot;,
+        &quot;type&quot;: &quot;notify&quot;
+      }
+    },
+    &quot;/1/0/totalFee&quot;: {
+      ......
+    },
+    &quot;/1/1/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/2/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/3/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/4/transferFee&quot;: {
+      ......
+    }
+  }
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc tx  --chainid local --txhash 0x5100A109C3FDEACED7B5E7B90A61C966E1A093D6409ACFD2045D3CC8CBAB679E
+OK
+Response: {
+  &quot;txHash&quot;: &quot;0x5100A109C3FDEACED7B5E7B90A61C966E1A093D6409ACFD2045D3CC8CBAB679E&quot;,
+  &quot;txTime&quot;: &quot;2019-11-30 05:58:31.242099551 +0000 UTC&quot;,
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;blockHash&quot;: &quot;0x00b041f365468cbd9f9d911e20e1f9ef643dd0c4&quot;,
+  &quot;blockHeight&quot;: 5014,
+  &quot;from&quot;: &quot;localHMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,
+  &quot;nonce&quot;: 3,
+  &quot;gasLimit&quot;: 100000,
+  &quot;fee&quot;: 127500000,
+  &quot;note&quot;: &quot;&quot;,
+  &quot;messages&quot;: [
+    {
+      &quot;smcAddress&quot;: &quot;local4f5YLBNi336r1zUYZTga9PXVJifDqdg3U&quot;,
+      &quot;smcName&quot;: &quot;netgovernance&quot;,
+      &quot;method&quot;: &quot;SetGasPriceRatio(string,string)&quot;,
+      &quot;to&quot;: &quot;&quot;,
+      &quot;value&quot;: &quot;&quot;
+    }
+  ],
+  &quot;tags&quot;: {
+    &quot;/0/0/std::fee&quot;: {
+      ......
+    },
+    &quot;/0/1/netgovernance.setGasPriceRatio&quot;: {
+      &quot;Name&quot;: &quot;netgovernance.setGasPriceRatio&quot;,
+      &quot;ContractAddr&quot;: &quot;&quot;,
+      &quot;ReceiptBytes&quot;: &quot;eyJjaGFpbk5hbWUiOiJ5eSIsImNoYWluSUQiOiJsb2NhbFt5eV0iLCJnYXNQcmljZVJhdGlvIjoiMi4wMDAifQ==&quot;,
+      &quot;ReceiptHash&quot;: &quot;0xA20E055CA12756C18D74A17052BA2FE1A505380086158F549EC78F605165790A&quot;,
+      &quot;Receipt&quot;: {
+        &quot;chainID&quot;: &quot;local[SmartCity]&quot;,
+        &quot;chainName&quot;: &quot;SmartCity&quot;,
+        &quot;gasPriceRatio&quot;: &quot;2.000&quot;
+      }
+    },
+    &quot;/0/2/std::fee&quot;: {
+      ......
+    },
+    &quot;/0/3/ibc::packet/local-&gt;local[SmartCity]&quot;: {
+      &quot;Name&quot;: &quot;ibc::packet/local-&gt;local[SmartCity]&quot;,
+      &quot;ContractAddr&quot;: &quot;&quot;,
+      &quot;ReceiptBytes&quot;: &quot;eyJmcm9tQ2hhaW5JRCI6ImxvY2FsIiwidG9DaGFpbklEIjoibG9jYWxbeXldIiwicXVldWVJRCI6ImxvY2FsLT5sb2NhbFt5eV0iLCJzZXEiOjEsIm9yZ0lEIjoib3JnSmdhR0NvblV5SzgxemlibnRVQmpRMzNQS2N0cGsxSzFHIiwiY29udHJhY3ROYW1lIjoibmV0Z292ZXJuYW5jZSIsImliY0hhc2giOiI2QTE2QTM2M0E1NDIxNUY1QzBFMUY2MzJENjg5RkJENjBDNjE0RkYyNEQwMDUxNEFDMTVCMzYzQ0UyRDM2QTA1IiwidHlwZSI6Im5vdGlmeSIsInN0YXRlIjp7InN0YXR1cyI6Ik5vQWNrIiwidGFnIjoiTm90aWZ5UGVuZGluZyIsImxvZyI6IiJ9LCJyZWNlaXB0cyI6W3sia2V5IjoiTHpBdmJtVjBaMjkyWlhKdVlXNWpaUzV6WlhSSFlYTlFjbWxqWlZKaGRHbHYiLCJ2YWx1ZSI6ImV5SnVZVzFsSWpvaWJtVjBaMjkyWlhKdVlXNWpaUzV6WlhSSFlYTlFjbWxqWlZKaGRHbHZJaXdpWTI5dWRISmhZM1JCWkdSeVpYTnpJam9pYkc5allXdzBaalZaVEVKT2FUTXpObkl4ZWxWWldsUm5ZVGxRV0ZaS2FXWkVjV1JuTTFVaUxDSnlaV05sYVhCMFFubDBaWE1pT2lKbGVVcHFZVWRHY0dKck5XaGlWMVZwVDJsS05XVlRTWE5KYlU1dldWZHNkVk5WVVdsUGFVcHpZakpPYUdKR2REVmxWakJwVEVOS2JsbFlUbEZqYld4cVdsWkthR1JIYkhaSmFtOXBUV2swZDAxRVFXbG1VVDA5SWl3aWNtVmpaV2x3ZEVoaGMyZ2lPaUpCTWpCRk1EVTFRMEV4TWpjMU5rTXhPRVEzTkVFeE56QTFNa0pCTWtaRk1VRTFNRFV6T0RBd09EWXhOVGhHTlRRNVJVTTNPRVkyTURVeE5qVTNPVEJCSW4wPSJ9XX0=&quot;,
+      &quot;ReceiptHash&quot;: &quot;0x4B9FF741906AABC2977AA366F048C00F77E6CDFCC44F00B1FB0A8222BB27C5F2&quot;,
+      &quot;Receipt&quot;: {
+        &quot;contractName&quot;: &quot;netgovernance&quot;,
+        &quot;fromChainID&quot;: &quot;local&quot;,
+        &quot;ibcHash&quot;: &quot;6A16A363A54215F5C0E1F632D689FBD60C614FF24D00514AC15B363CE2D36A05&quot;,
+        &quot;orgID&quot;: &quot;orgJgaGConUyK81zibntUBjQ33PKctpk1K1G&quot;,
+        &quot;queueID&quot;: &quot;local-&gt;local[SmartCity]&quot;,
+        &quot;receipts&quot;: [
+          {
+            &quot;key&quot;: &quot;LzAvbmV0Z292ZXJuYW5jZS5zZXRHYXNQcmljZVJhdGlv&quot;,
+            &quot;value&quot;: &quot;eyJuYW1lIjoibmV0Z292ZXJuYW5jZS5zZXRHYXNQcmljZVJhdGlvIiwiY29udHJhY3RBZGRyZXNzIjoibG9jYWw0ZjVZTEJOaTMzNnIxelVZWlRnYTlQWFZKaWZEcWRnM1UiLCJyZWNlaXB0Qnl0ZXMiOiJleUpqYUdGcGJrNWhiV1VpT2lKNWVTSXNJbU5vWVdsdVNVUWlPaUpzYjJOaGJGdDVlVjBpTENKbllYTlFjbWxqWlZKaGRHbHZJam9pTWk0d01EQWlmUT09IiwicmVjZWlwdEhhc2giOiJBMjBFMDU1Q0ExMjc1NkMxOEQ3NEExNzA1MkJBMkZFMUE1MDUzODAwODYxNThGNTQ5RUM3OEY2MDUxNjU3OTBBIn0=&quot;
+          }
+        ],
+        &quot;seq&quot;: 1,
+        &quot;state&quot;: {
+          &quot;log&quot;: &quot;&quot;,
+          &quot;status&quot;: &quot;NoAck&quot;,
+          &quot;tag&quot;: &quot;NotifyPending&quot;
+        },
+        &quot;toChainID&quot;: &quot;local[SmartCity]&quot;,
+        &quot;type&quot;: &quot;notify&quot;
+      }
+    },
+    &quot;/1/0/totalFee&quot;: {
+      ......
+    },
+    &quot;/1/1/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/2/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/3/transferFee&quot;: {
+      ......
+    },
+    &quot;/1/4/transferFee&quot;: {
+      ......
+    }
+  }
+}
+</code></pre>
+</figure>
+<p class='with-space'>You can find the receipt named <code>netgovernance.setGasPriceRatio</code> , and check if the chainID and <code>gasPriceRatio</code> in the Receipt field are correct.</p>
+<h2 id='e70830c3'><span class='bd-content-title'>2. Quick start for node governance<a class='anchorjs-link ' href='#e70830c3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='d85245d1'><span class='bd-content-title'>2.1 Node preparation<a class='anchorjs-link ' href='#d85245d1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>After the previous operation, you have built a side chain, but it only has one observer node, so next, you need to add the verifier node of this side chain for consensus.</p></li>
+<li>
+<p class='with-space'>You need to build a observer node for the side chain so that the side chain observer node can be converted into the side chain verifier node. Refer to <a href='../../01-BCBBasic/02-BCBNode.html'> BCB Installation Section</a> .</p></li>
+</ul>
+<h3 id='da08779e'><span class='bd-content-title'>2.2 Export node private key<a class='anchorjs-link ' href='#da08779e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Using the following command to export the public key on the machine of the side chain observer node prepared in section 2.1. The node public key is used when turning the side chain observer into a verifier. Refer to <a href='./02-SideChainCreation.html'> Export Node Public Key</a> for the export node public key.</p>
+<h3 id='a68aebc3'><span class='bd-content-title'>2.3 Add verifier node<a class='anchorjs-link ' href='#a68aebc3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>Notice: When add the verifier node for the side chain(verifier node is less than four), you must confirm the added public key is correct, otherwise the side chain will not work.</p>
+</blockquote>
+<p class='with-space'>If you want to add a verifier node, you need to use the following command to add by the node public key from above, we take the verifier node name is <code>node2</code> , node public key is 0x0d180d63841102960cd86d88cf1f79e6695891d85385b4abf25f97b94cfaf2c0 , reward address is <code>local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG</code> , node weight is 10 as an example to show how to add verifier node:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc call --contract governance --method NewValidator --params node2@0x0d180d63841102960cd86d88cf1f79e6695891d85385b4abf25f97b94cfaf2c0@local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG@10 --gasLimit 1000000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 255000000,
+  &quot;txHash&quot;: &quot;0xC6619B5D446CB718E555FB51C7E7FDCA46EE57E28683C979413EBA1F0FDF6A64&quot;,
+  &quot;height&quot;: 3819
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc call --contract governance --method NewValidator --params node2@0x0d180d63841102960cd86d88cf1f79e6695891d85385b4abf25f97b94cfaf2c0@local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG@10 --gasLimit 1000000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 255000000,
+  &quot;txHash&quot;: &quot;0xC6619B5D446CB718E555FB51C7E7FDCA46EE57E28683C979413EBA1F0FDF6A64&quot;,
+  &quot;height&quot;: 3819
+}
+</code></pre>
+</figure>
+<p class='with-space'>The value of option <code>params</code> in the command line is the argument to set for the side chain genesis creation.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='the first parameter: node2, the verifier node name you added
+the second parameter: 0x0d180d63841102960cd86d88cf1f79e6695891d85385b4abf25f97b94cfaf2c0, the node public key you got above + 0x
+the third parameter:local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG, reward address
+the forth parameter: 10, the node weight'>Copy</button><pre><code class='html' lang='html'>the first parameter: node2, the verifier node name you added
+the second parameter: 0x0d180d63841102960cd86d88cf1f79e6695891d85385b4abf25f97b94cfaf2c0, the node public key you got above + 0x
+the third parameter:local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG, reward address
+the forth parameter: 10, the node weight
+</code></pre>
+</figure>
+<p class='with-space'>Check the side chain <code>SmartCity</code> successfully adds the node by the following command:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc query -k /ibc/local[SmartCity] --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/local[SmartCity]
+  Value: {&quot;local[SmartCity]33KDwKPQrtwdgTejxeGspyR7u4fefXTb7&quot;:{&quot;nodepubkey&quot;:&quot;0D180D63841102960CD86D88CF1F79E6695891D85385B4ABF25F97B94CFAF2C0&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node2&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]33KDwKPQrtwdgTejxeGspyR7u4fefXTb7&quot;},&quot;local[SmartCity]91TcFC3vPqsS3DWh5TksV1xCKZLWEftpD&quot;:{&quot;nodepubkey&quot;:&quot;10366FE4D47A9EA4AD54C864143B7FBD3ECA247995C663BCC3C8835D29317A30&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]2V6b1EW2cExW5UtuUX9XXQhJCaaxXzLV6&quot;,&quot;name&quot;:&quot;node1&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]91TcFC3vPqsS3DWh5TksV1xCKZLWEftpD&quot;}}'>Copy</button><pre><code class='shell' lang='shell'>./bcc query -k /ibc/local[SmartCity] --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/local[SmartCity]
+  Value: {&quot;local[SmartCity]33KDwKPQrtwdgTejxeGspyR7u4fefXTb7&quot;:{&quot;nodepubkey&quot;:&quot;0D180D63841102960CD86D88CF1F79E6695891D85385B4ABF25F97B94CFAF2C0&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node2&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]33KDwKPQrtwdgTejxeGspyR7u4fefXTb7&quot;},&quot;local[SmartCity]91TcFC3vPqsS3DWh5TksV1xCKZLWEftpD&quot;:{&quot;nodepubkey&quot;:&quot;10366FE4D47A9EA4AD54C864143B7FBD3ECA247995C663BCC3C8835D29317A30&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]2V6b1EW2cExW5UtuUX9XXQhJCaaxXzLV6&quot;,&quot;name&quot;:&quot;node1&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]91TcFC3vPqsS3DWh5TksV1xCKZLWEftpD&quot;}}
+</code></pre>
+</figure>
+<p class='with-space'>You can see the side chain has added the new node <code>node2</code> successfully.</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>Notice: when the current total number of the node is less than 4, the new node weight must be equal to 10, otherwise the addation of the new node will fail.</p>
+</blockquote>
+<h3 id='ee3a5a30'><span class='bd-content-title'>2.4 Adjust verifier node weight<a class='anchorjs-link ' href='#ee3a5a30' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>When adjusting the verifier node weight, the current node must be guranteed to be greater than or equal to 4, we take the node public key is <code>0x2113d7a30d47a08ca79c8ebbc32a9c73a65a488b3f93da3a1eb42c57b35f9c9f</code> , node weight is 12 as an example to show how to adjust the verifier node weight:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc call --contract governance --method SetPower --params 0x2113d7a30d47a08ca79c8ebbc32a9c73a65a488b3f93da3a1eb42c57b35f9c9f@12 --gasLimit 1000000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local[SmartCity]
+
+Return result:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 175000000,
+  &quot;txHash&quot;: &quot;0xB0BB34E92ED02745460D4C6FD98F0B70B9B199A7B11B54C64F0281FA48D520F6&quot;,
+  &quot;height&quot;: 830
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc call --contract governance --method SetPower --params 0x2113d7a30d47a08ca79c8ebbc32a9c73a65a488b3f93da3a1eb42c57b35f9c9f@12 --gasLimit 1000000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local[SmartCity]
+
+Return result:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 175000000,
+  &quot;txHash&quot;: &quot;0xB0BB34E92ED02745460D4C6FD98F0B70B9B199A7B11B54C64F0281FA48D520F6&quot;,
+  &quot;height&quot;: 830
+}
+</code></pre>
+</figure>
+<p class='with-space'>The value of option <code>params</code> in the command line is the argument to set for the side chain genesis creation:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='the first parameter:0x2113d7a30d47a08ca79c8ebbc32a9c73a65a488b3f93da3a1eb42c57b35f9c9f,  the node public key + 0x
+the second parameter:12, the node weight'>Copy</button><pre><code class='html' lang='html'>the first parameter:0x2113d7a30d47a08ca79c8ebbc32a9c73a65a488b3f93da3a1eb42c57b35f9c9f,  the node public key + 0x
+the second parameter:12, the node weight
+</code></pre>
+</figure>
+<p class='with-space'>If you want to query if the node weight be set successfully, you can verify by the following command:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc query -k /ibc/local[SmartCity] --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/local[SmartCity]
+  Value: {&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;:{&quot;nodepubkey&quot;:&quot;E1464972D492C1FB916336658068F0B7A92B458A6D7D0D010BDE5F035BC32A90&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node2&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;},&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;:{&quot;nodepubkey&quot;:&quot;F3D77C12669A83AF7E922A7190001A40304AF01AD545A464D786A332761FB494&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node4&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;},&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;:{&quot;nodepubkey&quot;:&quot;2113D7A30D47A08CA79C8EBBC32A9C73A65A488B3F93DA3A1EB42C57B35F9C9F&quot;,&quot;power&quot;:12,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node3&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;},&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;:{&quot;nodepubkey&quot;:&quot;D781A3CE164052F8E103D5F9DE216659438ABF2D2F956FF76483A7E6B9C93117&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]8LtT8AonWgJ8nMCEdAR5UGrbRfUmuoeiz&quot;,&quot;name&quot;:&quot;node1&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;}}'>Copy</button><pre><code class='shell' lang='shell'>./bcc query -k /ibc/local[SmartCity] --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/local[SmartCity]
+  Value: {&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;:{&quot;nodepubkey&quot;:&quot;E1464972D492C1FB916336658068F0B7A92B458A6D7D0D010BDE5F035BC32A90&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node2&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;},&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;:{&quot;nodepubkey&quot;:&quot;F3D77C12669A83AF7E922A7190001A40304AF01AD545A464D786A332761FB494&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node4&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;},&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;:{&quot;nodepubkey&quot;:&quot;2113D7A30D47A08CA79C8EBBC32A9C73A65A488B3F93DA3A1EB42C57B35F9C9F&quot;,&quot;power&quot;:12,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node3&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;},&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;:{&quot;nodepubkey&quot;:&quot;D781A3CE164052F8E103D5F9DE216659438ABF2D2F956FF76483A7E6B9C93117&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]8LtT8AonWgJ8nMCEdAR5UGrbRfUmuoeiz&quot;,&quot;name&quot;:&quot;node1&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;}}
+</code></pre>
+</figure>
+<p class='with-space'>You can see the node weight of the node <code>node3</code> is set to 12 successfully.</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>Notice: if current node number is less than 4, you are not allowed to modify the node weight.</p>
+</blockquote>
+<h3 id='bd204f07'><span class='bd-content-title'>2.5 Delete verifier node<a class='anchorjs-link ' href='#bd204f07' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Deleting a node means to set the node weight to 0.</p>
+<p class='with-space'>Before delete a node, you can query the current node details:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc query -k /ibc/local[SmartCity] --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/local[SmartCity]
+  Value: {&quot;local[SmartCity]33KDwKPQrtwdgTejxeGspyR7u4fefXTb7&quot;:{&quot;nodepubkey&quot;:&quot;0D180D63841102960CD86D88CF1F79E6695891D85385B4ABF25F97B94CFAF2C0&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node5&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]33KDwKPQrtwdgTejxeGspyR7u4fefXTb7&quot;},&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;:{&quot;nodepubkey&quot;:&quot;E1464972D492C1FB916336658068F0B7A92B458A6D7D0D010BDE5F035BC32A90&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node2&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;},&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;:{&quot;nodepubkey&quot;:&quot;F3D77C12669A83AF7E922A7190001A40304AF01AD545A464D786A332761FB494&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node4&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;},&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;:{&quot;nodepubkey&quot;:&quot;2113D7A30D47A08CA79C8EBBC32A9C73A65A488B3F93DA3A1EB42C57B35F9C9F&quot;,&quot;power&quot;:12,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node3&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;},&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;:{&quot;nodepubkey&quot;:&quot;D781A3CE164052F8E103D5F9DE216659438ABF2D2F956FF76483A7E6B9C93117&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]8LtT8AonWgJ8nMCEdAR5UGrbRfUmuoeiz&quot;,&quot;name&quot;:&quot;node1&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;}}'>Copy</button><pre><code class='shell' lang='shell'>./bcc query -k /ibc/local[SmartCity] --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/local[SmartCity]
+  Value: {&quot;local[SmartCity]33KDwKPQrtwdgTejxeGspyR7u4fefXTb7&quot;:{&quot;nodepubkey&quot;:&quot;0D180D63841102960CD86D88CF1F79E6695891D85385B4ABF25F97B94CFAF2C0&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node5&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]33KDwKPQrtwdgTejxeGspyR7u4fefXTb7&quot;},&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;:{&quot;nodepubkey&quot;:&quot;E1464972D492C1FB916336658068F0B7A92B458A6D7D0D010BDE5F035BC32A90&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node2&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;},&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;:{&quot;nodepubkey&quot;:&quot;F3D77C12669A83AF7E922A7190001A40304AF01AD545A464D786A332761FB494&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node4&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;},&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;:{&quot;nodepubkey&quot;:&quot;2113D7A30D47A08CA79C8EBBC32A9C73A65A488B3F93DA3A1EB42C57B35F9C9F&quot;,&quot;power&quot;:12,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node3&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;},&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;:{&quot;nodepubkey&quot;:&quot;D781A3CE164052F8E103D5F9DE216659438ABF2D2F956FF76483A7E6B9C93117&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]8LtT8AonWgJ8nMCEdAR5UGrbRfUmuoeiz&quot;,&quot;name&quot;:&quot;node1&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;}}
+</code></pre>
+</figure>
+<p class='with-space'>We take the node <code>node5</code> (its node public key is 0d180d63841102960cd86d88cf1f79e6695891d85385b4abf25f97b94cfaf2c0 ) as an example to delete a node:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc call --contract governance --method SetPower --params 0x0d180d63841102960cd86d88cf1f79e6695891d85385b4abf25f97b94cfaf2c0@0 --gasLimit 1000000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 175000000,
+  &quot;txHash&quot;: &quot;0x2CA4F72EBA8D525E8AFF3B325024E1E87D673EF2FF6B8287AA87487657AF9AF5&quot;,
+  &quot;height&quot;: 1352
+}'>Copy</button><pre><code class='shell' lang='shell'>./bcc call --contract governance --method SetPower --params 0x0d180d63841102960cd86d88cf1f79e6695891d85385b4abf25f97b94cfaf2c0@0 --gasLimit 1000000 --orgName genesis --name scowner --password SCOwner@2019 --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response: {
+  &quot;code&quot;: 200,
+  &quot;log&quot;: &quot;&quot;,
+  &quot;fee&quot;: 175000000,
+  &quot;txHash&quot;: &quot;0x2CA4F72EBA8D525E8AFF3B325024E1E87D673EF2FF6B8287AA87487657AF9AF5&quot;,
+  &quot;height&quot;: 1352
+}
+</code></pre>
+</figure>
+<p class='with-space'>You can verify the removal of the node by the following command:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='./bcc query -k /ibc/local[SmartCity] --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/local[SmartCity]
+  Value: {&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;:{&quot;nodepubkey&quot;:&quot;E1464972D492C1FB916336658068F0B7A92B458A6D7D0D010BDE5F035BC32A90&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node2&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;},&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;:{&quot;nodepubkey&quot;:&quot;F3D77C12669A83AF7E922A7190001A40304AF01AD545A464D786A332761FB494&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node4&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;},&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;:{&quot;nodepubkey&quot;:&quot;2113D7A30D47A08CA79C8EBBC32A9C73A65A488B3F93DA3A1EB42C57B35F9C9F&quot;,&quot;power&quot;:12,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node3&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;},&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;:{&quot;nodepubkey&quot;:&quot;D781A3CE164052F8E103D5F9DE216659438ABF2D2F956FF76483A7E6B9C93117&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]8LtT8AonWgJ8nMCEdAR5UGrbRfUmuoeiz&quot;,&quot;name&quot;:&quot;node1&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;}}'>Copy</button><pre><code class='shell' lang='shell'>./bcc query -k /ibc/local[SmartCity] --chainid local[SmartCity]
+
+Return results:
+
+OK
+Response:
+  Code: 200
+  Key: /ibc/local[SmartCity]
+  Value: {&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;:{&quot;nodepubkey&quot;:&quot;E1464972D492C1FB916336658068F0B7A92B458A6D7D0D010BDE5F035BC32A90&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node2&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]CFCHxFV6z6djWJR5FH1uSrJ8eN7AYj6gE&quot;},&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;:{&quot;nodepubkey&quot;:&quot;F3D77C12669A83AF7E922A7190001A40304AF01AD545A464D786A332761FB494&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node4&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]F5GqPDn294pdydBfxSgPEspbU5RPpwnUS&quot;},&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;:{&quot;nodepubkey&quot;:&quot;2113D7A30D47A08CA79C8EBBC32A9C73A65A488B3F93DA3A1EB42C57B35F9C9F&quot;,&quot;power&quot;:12,&quot;rewardaddr&quot;:&quot;local[SmartCity]HMpSyt2Jk5BiFiR2j45nGGjToF9miUVaG&quot;,&quot;name&quot;:&quot;node3&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]Gbh2JuVFg6orPcpCpQvAdv5gYT5kFQV3Q&quot;},&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;:{&quot;nodepubkey&quot;:&quot;D781A3CE164052F8E103D5F9DE216659438ABF2D2F956FF76483A7E6B9C93117&quot;,&quot;power&quot;:10,&quot;rewardaddr&quot;:&quot;local[SmartCity]8LtT8AonWgJ8nMCEdAR5UGrbRfUmuoeiz&quot;,&quot;name&quot;:&quot;node1&quot;,&quot;nodeaddr&quot;:&quot;local[SmartCity]MwKS9rCK2nBNsevTdBBeiqKCrqQRkAK18&quot;}}
+</code></pre>
+</figure>
+<p class='with-space'>You can see the node <code>node5</code> has been deleted successfully.</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>Notice: if current node number is less than 4, you are not allowed to delete the node.</p>
+</blockquote>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/en-us/02-BCBNetwork\BCBSideChain\03-SideChainGovernance.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#fc74f025'>Side Chain Governance</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#e46ff3f4'>1. Quick start for the side chain governance</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#c7c20f61'>1.1  Adjust the side chain public URL</a>
+<a class='ml-2 my-1 nav-link' href='#a765c1ec'>1.2 Adjust the gas price ratio for the side chain</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#e70830c3'>2. Quick start for node governance</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#d85245d1'>2.1 Node preparation</a>
+<a class='ml-2 my-1 nav-link' href='#da08779e'>2.2 Export node private key</a>
+<a class='ml-2 my-1 nav-link' href='#a68aebc3'>2.3 Add verifier node</a>
+<a class='ml-2 my-1 nav-link' href='#ee3a5a30'>2.4 Adjust verifier node weight</a>
+<a class='ml-2 my-1 nav-link' href='#bd204f07'>2.5 Delete verifier node</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

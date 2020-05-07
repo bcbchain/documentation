@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="bcb-project">
+    <meta name="application-name" content="bcbchain.io">
+    <meta name="renderer" content="ie-stand">
+    <title>Interfaces</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BCB Documentation" />
+    <meta property="og:description" content="BCB Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="BCB Documentation" />
+    <meta name="twitter:description" content="BCB Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://bcbchain.io">
+            <img class="logo" src="/img/logo.png" alt="BCB Logo" />
+            <img class="logo-dark" src="/img/logo-dark.png" alt="BCB Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="languageEx('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/站点地图.html'>站点地图</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB基础</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/01-BCB介绍.html'>BCB介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/01-BCB基础/02-BCB节点.html'>BCB节点</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/01-主网与测试网.html'>主网与测试网</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/02-私链搭建指南.html'>私链搭建指南</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB侧链</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/01-侧链注册.html'>侧链注册</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/02-侧链创世.html'>侧链创世</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/03-侧链治理.html'>侧链治理</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/02-BCB网络/BCB侧链/04-跨链交易.html'>跨链交易</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>BCB工具箱</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/02-bcw.html'>bcw</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/03-bcc.html'>bcc</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/04-smccheck.html'>smccheck</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/05-smcpack.html'>smcpack</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/06-sigorg.html'>sigorg</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/07-addr.html'>addr</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/08-orgid.html'>orgid</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/09-genesis.html'>genesis</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/03-BCB工具箱/10-txparse.html'>txparse</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(golang)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/02-编程实例.html'>编程实例</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/03-深入理解.html'>深入理解</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/01-开发环境.html'>开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(golang)/开发智能合约/02-第一个智能合约.html'>第一个智能合约</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约(solidity)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/01-BVM与EVM差异说明.html'>BVM与EVM差异说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/02-合约开发.html'>合约开发</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/04-智能合约开发/智能合约(solidity)/03-合约部署调用.html'>合约部署调用</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所对接指南</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/01-集成方案介绍.html'>集成方案介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/02-安装部署.html'>安装部署</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/05-交易所对接指南/03-命令详解.html'>命令详解</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-模型说明.html'>模型说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-算法说明.html'>算法说明</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/04-交易格式v1.html'>交易格式v1</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/05-交易格式v2.html'>交易格式v2</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>主链API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/02-网络接口.html'>网络接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/03-区块接口.html'>区块接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/04-交易接口.html'>交易接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/01-主链API/05-世界接口.html'>世界接口</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/01-概述.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/02-Functions.html'>Functions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/03-sdk.types.html'>sdk.types</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/04-sdk.bn.html'>sdk.bn</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/05-sdk.crypto.ed25519.html'>sdk.crypto.ed25519</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/06-sdk.crypto.sha3.html'>sdk.crypto.sha3</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/07-Toolbox.html'>Toolbox</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/02-智能合约API/08-Interfaces.html'>Interfaces</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/01-通讯协议.html'>通讯协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/02-钱包接口.html'>钱包接口</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/06-开发参考/03-交易所API/03-区块链接口.html'>区块链接口</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='c52e45f1'><span class='bd-content-title'>Interfaces<a class='anchorjs-link ' href='#c52e45f1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='db7629c4'><span class='bd-content-title'>1 sdk/ISmartContract<a class='anchorjs-link ' href='#db7629c4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/ISmartContract</code> 封装了智能合约上下文获取的途径。</p>
+<h3 id='f80ed4d2'><span class='bd-content-title'>1.1 func Block()<a class='anchorjs-link ' href='#f80ed4d2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ISmartContract) Block() IBlock'>Copy</button><pre><code>func (ISmartContract) Block() IBlock
+</code></pre>
+</figure>
+<p class='with-space'>返回对 BCBChain 区块链进行调用时的区块信息。</p>
+<h3 id='fd8a79b7'><span class='bd-content-title'>1.2 func Tx()<a class='anchorjs-link ' href='#fd8a79b7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ISmartContract) Tx() ITx'>Copy</button><pre><code>func (ISmartContract) Tx() ITx
+</code></pre>
+</figure>
+<p class='with-space'>返回对 BCBChain 区块链进行调用的交易信息。</p>
+<h3 id='b285cdb6'><span class='bd-content-title'>1.3 func Message()<a class='anchorjs-link ' href='#b285cdb6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ISmartContract) Message() IMessage'>Copy</button><pre><code>func (ISmartContract) Message() IMessage
+</code></pre>
+</figure>
+<p class='with-space'>返回针对本智能合约调用的消息信息。</p>
+<h3 id='abc28d68'><span class='bd-content-title'>1.4 func Helper()<a class='anchorjs-link ' href='#abc28d68' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ISmartContract) Helper() IHelper'>Copy</button><pre><code>func (ISmartContract) Helper() IHelper
+</code></pre>
+</figure>
+<p class='with-space'>返回封装了SDK所有辅助功能的对象。</p>
+<h2 id='c9d46820'><span class='bd-content-title'>2 sdk/IBlock<a class='anchorjs-link ' href='#c9d46820' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IBlock</code> 封装了智能合约获取到的区块信息。</p>
+<p class='with-space'>在智能合约调用时， <code>IBlock</code> 接口在两个不同阶段对应的区块信息是有区别的。</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>在checkTx阶段，当前智能合约的调用还没有取得共识，此时调用 ISmartContract::Block() 获得的为区块链上最后一个区块之上（区块高度加1）生成的一个模拟区块的信息（可能是一个空区块，总之这个区块与当前所执行的智能合约调用没有任何关系）。</p>
+</blockquote>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>在deliverTx阶段，此次调用智能合约的交易已经在区块链上达成共识，并写入到最新一个区块中，此时调用ISmartContract::Block() 获得的为区块链上最新一个实时区块的信息（不可能是一个空区块，这个区块中至少包含一笔对本次智能合约调用的交易信息）。</p>
+</blockquote>
+<h3 id='f2304512'><span class='bd-content-title'>2.1 func ChainID()<a class='anchorjs-link ' href='#f2304512' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) ChainID() string'>Copy</button><pre><code>func (IBlock) ChainID() string
+</code></pre>
+</figure>
+<p class='with-space'>返回当前区块链的链标识。</p>
+<h3 id='b0243e98'><span class='bd-content-title'>2.2 func BlockHash()<a class='anchorjs-link ' href='#b0243e98' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) BlockHash() types.Hash'>Copy</button><pre><code>func (IBlock) BlockHash() types.Hash
+</code></pre>
+</figure>
+<p class='with-space'>返回当前区块的区块哈希。</p>
+<h3 id='ccc4084f'><span class='bd-content-title'>2.3 func Height()<a class='anchorjs-link ' href='#ccc4084f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) Height() int64'>Copy</button><pre><code>func (IBlock) Height() int64
+</code></pre>
+</figure>
+<p class='with-space'>返回当前区块的高度。</p>
+<h3 id='af64f8a6'><span class='bd-content-title'>2.4 func Time()<a class='anchorjs-link ' href='#af64f8a6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) Time() int64'>Copy</button><pre><code>func (IBlock) Time() int64
+</code></pre>
+</figure>
+<p class='with-space'>返回当前区块生成时的时间戳信息，结果为相对于 1970-1-1 00:00:00 过去的秒数。</p>
+<h3 id='b9614065'><span class='bd-content-title'>2.5 func Now()<a class='anchorjs-link ' href='#b9614065' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) Now() bn.Number'>Copy</button><pre><code>func (IBlock) Now() bn.Number
+</code></pre>
+</figure>
+<p class='with-space'>对 <code>Time()</code> 函数的别称。返回当前区块生成时的时间戳信息，结果为相对于 <code>1970-1-1 00:00:00</code> 过去的秒数。</p>
+<h3 id='f27df790'><span class='bd-content-title'>2.6 func NumTxs()<a class='anchorjs-link ' href='#f27df790' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) NumTxs() int32'>Copy</button><pre><code>func (IBlock) NumTxs() int32
+</code></pre>
+</figure>
+<p class='with-space'>返回当前区块收录的交易笔数。</p>
+<h3 id='cb5e1f85'><span class='bd-content-title'>2.7 func DataHash()<a class='anchorjs-link ' href='#cb5e1f85' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) DataHash() types.Hash'>Copy</button><pre><code>func (IBlock) DataHash() types.Hash
+</code></pre>
+</figure>
+<p class='with-space'>返回当前区块的数据哈希。</p>
+<h3 id='cf20199e'><span class='bd-content-title'>2.8 func ProposerAddress()<a class='anchorjs-link ' href='#cf20199e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) ProposerAddress() types.Address'>Copy</button><pre><code>func (IBlock) ProposerAddress() types.Address
+</code></pre>
+</figure>
+<p class='with-space'>返回当前区块的提案者地址。</p>
+<h3 id='c2a807e1'><span class='bd-content-title'>2.9 func RewardAddress()<a class='anchorjs-link ' href='#c2a807e1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) RewardAddress() types.Address'>Copy</button><pre><code>func (IBlock) RewardAddress() types.Address
+</code></pre>
+</figure>
+<p class='with-space'>返回当前区块的提案者接收出块奖励的地址。</p>
+<h3 id='c32b8f44'><span class='bd-content-title'>2.10 func RandomNumber()<a class='anchorjs-link ' href='#c32b8f44' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) RandomNumber() types.HexBytes'>Copy</button><pre><code>func (IBlock) RandomNumber() types.HexBytes
+</code></pre>
+</figure>
+<p class='with-space'>返回当前区块的区块随机数。</p>
+<h3 id='a30b4ae5'><span class='bd-content-title'>2.11 func Version()<a class='anchorjs-link ' href='#a30b4ae5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) Version() string'>Copy</button><pre><code>func (IBlock) Version() string
+</code></pre>
+</figure>
+<p class='with-space'>返回当前区块提案者出块时的软件版本。</p>
+<h3 id='ba58919e'><span class='bd-content-title'>2.12 func LastBlockHash()<a class='anchorjs-link ' href='#ba58919e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) LastBlockHash() types.Hash'>Copy</button><pre><code>func (IBlock) LastBlockHash() types.Hash
+</code></pre>
+</figure>
+<p class='with-space'>返回上一区块的区块哈希。</p>
+<h3 id='ce09bc48'><span class='bd-content-title'>2.13 func LastCommitHash()<a class='anchorjs-link ' href='#ce09bc48' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) LastCommitHash() types.Hash'>Copy</button><pre><code>func (IBlock) LastCommitHash() types.Hash
+</code></pre>
+</figure>
+<p class='with-space'>返回上一区块的确认哈希。</p>
+<h3 id='d088c6e2'><span class='bd-content-title'>2.14 func LastAppHash()<a class='anchorjs-link ' href='#d088c6e2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) LastAppHash() types.Hash'>Copy</button><pre><code>func (IBlock) LastAppHash() types.Hash
+</code></pre>
+</figure>
+<p class='with-space'>返回上一区块的应用层哈希。</p>
+<h3 id='b982857d'><span class='bd-content-title'>2.15 func LastFee()<a class='anchorjs-link ' href='#b982857d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlock) LastFee() int64'>Copy</button><pre><code>func (IBlock) LastFee() int64
+</code></pre>
+</figure>
+<p class='with-space'>返回上一区块的手续费（单位： <code>cong</code> ）。</p>
+<h2 id='b53ee134'><span class='bd-content-title'>3 sdk/ITx<a class='anchorjs-link ' href='#b53ee134' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/ITx</code> 封装了对 BCBChain 区块链进行调用的交易信息。</p>
+<h3 id='e827d73b'><span class='bd-content-title'>3.1 func Note()<a class='anchorjs-link ' href='#e827d73b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITx) Note() string'>Copy</button><pre><code>func (ITx) Note() string
+</code></pre>
+</figure>
+<p class='with-space'>返回当前交易的备注信息。</p>
+<h3 id='fbd2101b'><span class='bd-content-title'>3.2 func GasLimit()<a class='anchorjs-link ' href='#fbd2101b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITx) GasLimit() int64'>Copy</button><pre><code>func (ITx) GasLimit() int64
+</code></pre>
+</figure>
+<p class='with-space'>返回当前交易的最大燃料限制数量。</p>
+<h3 id='fbf06f37'><span class='bd-content-title'>3.3 func GasLeft()<a class='anchorjs-link ' href='#fbf06f37' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITx) GasLeft() int64'>Copy</button><pre><code>func (ITx) GasLeft() int64
+</code></pre>
+</figure>
+<p class='with-space'>返回当前交易的剩余燃料数量（已经预扣除对当前智能合约调用需要的燃料数量）。</p>
+<h3 id='c81448ee'><span class='bd-content-title'>3.4 func Signer()<a class='anchorjs-link ' href='#c81448ee' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITx) Signer() IAccount'>Copy</button><pre><code>func (ITx) Signer() IAccount
+</code></pre>
+</figure>
+<p class='with-space'>返回当前交易签名人(发起人)的账户对象。</p>
+<h3 id='ac899803'><span class='bd-content-title'>3.5 func TxHash()<a class='anchorjs-link ' href='#ac899803' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITx) TxHash() []byte'>Copy</button><pre><code>func (ITx) TxHash() []byte
+</code></pre>
+</figure>
+<p class='with-space'>返回当前交易Hash的字节切片。</p>
+<h2 id='a8e78ae1'><span class='bd-content-title'>4 sdk/IMessage<a class='anchorjs-link ' href='#a8e78ae1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IMessage</code> 封装了对某个智能合约方法的一次调用相关的所有信息。在同一笔交易当中可以级联多次对不同智能合约方法进行调用的消息。</p>
+<h3 id='d39e172d'><span class='bd-content-title'>4.1 func Contract()<a class='anchorjs-link ' href='#d39e172d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IMessage) Contract() types.Address'>Copy</button><pre><code>func (IMessage) Contract() types.Address
+</code></pre>
+</figure>
+<p class='with-space'>返回当前消息调用的智能合约地址。</p>
+<h3 id='fca1c395'><span class='bd-content-title'>4.2 func MethodID()<a class='anchorjs-link ' href='#fca1c395' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IMessage) MethodID() string'>Copy</button><pre><code>func (IMessage) MethodID() string
+</code></pre>
+</figure>
+<p class='with-space'>返回当前消息调用的智能合约方法ID（采用十六进制字符串进行表示）。</p>
+<h3 id='a9df7cd9'><span class='bd-content-title'>4.3 func Items()<a class='anchorjs-link ' href='#a9df7cd9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IMessage) Items() []types.HexBytes'>Copy</button><pre><code>func (IMessage) Items() []types.HexBytes
+</code></pre>
+</figure>
+<p class='with-space'>返回当前消息调用的每个参数数据字段的原始信息。当发生跨智能合约调用时，在被调用合约内部， Items() 获得的数据为 <code>nil</code> 。</p>
+<h3 id='ec146c8f'><span class='bd-content-title'>4.4 func GasPrice()<a class='anchorjs-link ' href='#ec146c8f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IMessage) GasPrice() int64'>Copy</button><pre><code>func (IMessage) GasPrice() int64
+</code></pre>
+</figure>
+<p class='with-space'>返回当前消息调用的燃料价格（单位： <code>cong</code> ）。</p>
+<h3 id='ca40d1fa'><span class='bd-content-title'>4.5 func Sender()<a class='anchorjs-link ' href='#ca40d1fa' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IMessage) Sender() IAccount'>Copy</button><pre><code>func (IMessage) Sender() IAccount
+</code></pre>
+</figure>
+<p class='with-space'>返回当前消息调用发起人的账户对象。第一层的消息调用，消息发起人就是交易的签名人；当发生跨合约调用时，在被调用合约内部， <code>Sender()</code> 返回的是发起合约的账户对象。</p>
+<h3 id='ab27cb16'><span class='bd-content-title'>4.6 func Payer()<a class='anchorjs-link ' href='#ab27cb16' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IMessage) Payer() IAccount'>Copy</button><pre><code>func (IMessage) Payer() IAccount
+</code></pre>
+</figure>
+<p class='with-space'>返回支付当前消息手续费的账户对象。</p>
+<h3 id='d2d226fc'><span class='bd-content-title'>4.7 func Origins()<a class='anchorjs-link ' href='#d2d226fc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IMessage) Origins() []types.Address'>Copy</button><pre><code>func (IMessage) Origins() []types.Address
+</code></pre>
+</figure>
+<p class='with-space'>返回消息完整的调用链。在不是进行跨合约调用时， <code>Origins()</code> 返回包含本次交易发起者的账户地址的切片。当发生跨智能合约调用时， Origins() 返回表达调用的合约链，在被调用合约内部， <code>Origins()</code> 返回的地址列表中最后一个为本次调用发起合约的合约地址。</p>
+<h3 id='f07af95c'><span class='bd-content-title'>4.8 func InputReceipts()<a class='anchorjs-link ' href='#f07af95c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IMessage) InputReceipts() []types.KVPair'>Copy</button><pre><code>func (IMessage) InputReceipts() []types.KVPair
+</code></pre>
+</figure>
+<p class='with-space'>在级联和跨合约消息调用时，前一个消息调用输出的收据将作为后一个消息调用的输入，本函数返回输入到本次消息调用的收据列表。</p>
+<h3 id='c4794d8a'><span class='bd-content-title'>4.9 func GetTransferToMe()<a class='anchorjs-link ' href='#c4794d8a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IMessage) GetTransferToMe() []*std.Transfer'>Copy</button><pre><code>func (IMessage) GetTransferToMe() []*std.Transfer
+</code></pre>
+</figure>
+<p class='with-space'>在前一个消息调用输出的收据中查询并返回向当前智能合约进行转账的所有收据，如果找不到则返回 nil 。转账收据定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package std
+
+type Transfer struct {
+    Token types.Address `json:&quot;token&quot;` // 代币地址
+    From  types.Address `json:&quot;from&quot;`  // 资金转出方账户地址
+    To    types.Address `json:&quot;to&quot;`    // 资金接收方账户地址
+    Value bn.Number     `json:&quot;value&quot;` // 转账金额（单位：`cong`）
+}'>Copy</button><pre><code>package std
+
+type Transfer struct {
+    Token types.Address `json:&quot;token&quot;` // 代币地址
+    From  types.Address `json:&quot;from&quot;`  // 资金转出方账户地址
+    To    types.Address `json:&quot;to&quot;`    // 资金接收方账户地址
+    Value bn.Number     `json:&quot;value&quot;` // 转账金额（单位：`cong`）
+}
+</code></pre>
+</figure>
+<h2 id='c6c69cb0'><span class='bd-content-title'>5 sdk/IAccount<a class='anchorjs-link ' href='#c6c69cb0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IAccount</code> 封装了对某个账户地址的访问接口。</p>
+<h3 id='a003af51'><span class='bd-content-title'>5.1 func Address()<a class='anchorjs-link ' href='#a003af51' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) Address() types.Address'>Copy</button><pre><code>func (IAccount) Address() types.Address
+</code></pre>
+</figure>
+<p class='with-space'>返回账户对象的账户地址。</p>
+<h3 id='e5b9d48c'><span class='bd-content-title'>5.2 func PubKey()<a class='anchorjs-link ' href='#e5b9d48c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) PubKey() types.PubKey'>Copy</button><pre><code>func (IAccount) PubKey() types.PubKey
+</code></pre>
+</figure>
+<p class='with-space'>返回账户对象的公钥数据（可能为空）。</p>
+<h3 id='d0a528ab'><span class='bd-content-title'>5.3 func Balance()<a class='anchorjs-link ' href='#d0a528ab' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) Balance() bn.Number'>Copy</button><pre><code>func (IAccount) Balance() bn.Number
+</code></pre>
+</figure>
+<p class='with-space'>在发行代币的合约中，返回账户对象在本合约所发行的代币子账户的资金余额（单位： cong ）。在非代币合约中，返回 <code>0</code> 。</p>
+<h3 id='fce73f4c'><span class='bd-content-title'>5.4 func BalanceOfToken()<a class='anchorjs-link ' href='#fce73f4c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) BalanceOfToken(token types.Address) bn.Number'>Copy</button><pre><code>func (IAccount) BalanceOfToken(token types.Address) bn.Number
+</code></pre>
+</figure>
+<p class='with-space'>给定代币地址，返回账户对象在指定代币子账户的资金余额（单位： <code>cong</code> ）。如果指定的代币地址不是一个代币，直接返回余额为 0 。</p>
+<h3 id='a9a10d9a'><span class='bd-content-title'>5.5 func BalanceOfName()<a class='anchorjs-link ' href='#a9a10d9a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) BalanceOfName(name string) bn.Number'>Copy</button><pre><code>func (IAccount) BalanceOfName(name string) bn.Number
+</code></pre>
+</figure>
+<p class='with-space'>给定代币名称，返回账户对象在指定代币子账户的资金余额（单位： <code>cong</code> ）。如果指定的代币名称不是一个代币，直接返回余额为 0 。</p>
+<h3 id='d9721be1'><span class='bd-content-title'>5.6 func BalanceOfSymbol()<a class='anchorjs-link ' href='#d9721be1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) BalanceOfSymbol(symbol string) bn.Number'>Copy</button><pre><code>func (IAccount) BalanceOfSymbol(symbol string) bn.Number
+</code></pre>
+</figure>
+<p class='with-space'>给定代币符号，返回账户对象在指定代币子账户的资金余额（单位： <code>cong</code> ）。如果指定的代币符号不是一个代币，直接返回余额为 0 。</p>
+<h3 id='aceae44a'><span class='bd-content-title'>5.7 func Transfer()<a class='anchorjs-link ' href='#aceae44a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) Transfer(to types.Address, value bn.Number)'>Copy</button><pre><code>func (IAccount) Transfer(to types.Address, value bn.Number)
+</code></pre>
+</figure>
+<p class='with-space'>在代币合约中，将账户对象在本合约所发行的代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： cong ），在这里账户对象包括消息调用的发起人或当前合约账户。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当发生异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 to 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 to 与账户地址相同；</p></li>
+<li>
+<p class='with-space'>参数 value 小于 0；</p></li>
+<li>
+<p class='with-space'>账户的余额不够支付 value 的值；</p></li>
+<li>
+<p class='with-space'>如果当前合约没有发行过代币（因为该函数的参数中没有指定转移哪种代币）；</p></li>
+<li>
+<p class='with-space'>如果当前合约发行过代币，账户既不是消息调用的发起人也不是当前智能合约的合约账户。</p></li>
+</ul>
+</blockquote>
+<h3 id='b3ff53fb'><span class='bd-content-title'>5.8 func TransferWithNote()<a class='anchorjs-link ' href='#b3ff53fb' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) TransferWithNote(to types.Address, value bn.Number, note string)'>Copy</button><pre><code>func (IAccount) TransferWithNote(to types.Address, value bn.Number, note string)
+</code></pre>
+</figure>
+<p class='with-space'>在代币合约中，将账户对象在本合约所发行的代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： cong ），并在收据中返回 <code>note</code> 信息，在这里账户对象包括消息调用的发起人或当前合约账户。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当发生异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 to 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 to 与账户地址相同；</p></li>
+<li>
+<p class='with-space'>参数 value 小于 0；</p></li>
+<li>
+<p class='with-space'>账户的余额不够支付 value 的值；</p></li>
+<li>
+<p class='with-space'>如果当前合约没有发行过代币（因为该函数的参数中没有指定转移哪种代币）；</p></li>
+<li>
+<p class='with-space'>如果当前合约发行过代币，账户既不是消息调用的发起人也不是当前智能合约的合约账户。</p></li>
+</ul>
+</blockquote>
+<h3 id='aaec8de9'><span class='bd-content-title'>5.9 func TransferWithNoteEx()<a class='anchorjs-link ' href='#aaec8de9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) TransferWithNoteEx(to types.Address, value bn.Number, note string) types.Error'>Copy</button><pre><code>func (IAccount) TransferWithNoteEx(to types.Address, value bn.Number, note string) types.Error
+</code></pre>
+</figure>
+<p class='with-space'>在代币合约中，将账户对象在本合约所发行的代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： <code>cong</code> ），并在收据中返回 <code>note</code> 信息，在这里账户对象包括消息调用的发起人或当前合约账户。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当发生错误时，错误编码和信息在返回值中返回：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 to 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 to 与账户地址相同；</p></li>
+<li>
+<p class='with-space'>参数 value 小于 0；</p></li>
+<li>
+<p class='with-space'>账户的余额不够支付 value 的值；</p></li>
+<li>
+<p class='with-space'>如果当前合约没有发行过代币（因为该函数的参数中没有指定转移哪种代币）；</p></li>
+<li>
+<p class='with-space'>如果当前合约发行过代币，账户既不是消息调用的发起人也不是当前智能合约的合约账户。</p></li>
+</ul>
+</blockquote>
+<h3 id='fedddf44'><span class='bd-content-title'>5.10 func TransferByToken()<a class='anchorjs-link ' href='#fedddf44' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) TransferByToken(token types.Address, to types.Address, value bn.Number)'>Copy</button><pre><code>func (IAccount) TransferByToken(token types.Address, to types.Address, value bn.Number)
+</code></pre>
+</figure>
+<p class='with-space'>如果指定的代币地址为本合约所发行的代币，将账户对象在本合约所发行的代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： <code>cong</code> ），在这里账户对象包括消息调用的发起人或当前合约账户。</p>
+<p class='with-space'>如果指定的代币地址不是本合约所发行的代币，将账户对象的指定代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： <code>cong</code> ），在这里账户对象只能为当前合约账户。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当发生异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 token 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 token 不是一个代币；</p></li>
+<li>
+<p class='with-space'>参数 to 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 to 与账户地址相同；</p></li>
+<li>
+<p class='with-space'>参数 value 小于 0；</p></li>
+<li>
+<p class='with-space'>账户的余额不够支付 value 的值；</p></li>
+<li>
+<p class='with-space'>如果当前合约没有发行过代币，账户不是当前智能合约的合约账户；</p></li>
+<li>
+<p class='with-space'>如果当前合约发行过代币，账户不是消息发送者或当前智能合约的合约账户者。</p></li>
+</ul>
+</blockquote>
+<h3 id='fde8ff62'><span class='bd-content-title'>5.11 func TransferByTokenWithNote()<a class='anchorjs-link ' href='#fde8ff62' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) TransferByTokenWithNote(token types.Address, to types.Address, value bn.Number, note string)'>Copy</button><pre><code>func (IAccount) TransferByTokenWithNote(token types.Address, to types.Address, value bn.Number, note string)
+</code></pre>
+</figure>
+<p class='with-space'>如果指定的代币地址为本合约所发行的代币，将账户对象在本合约所发行的代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： <code>cong</code> ），并在收据中返回 note 信息，在这里账户对象包括消息调用的发起人或当前合约账户。</p>
+<p class='with-space'>如果指定的代币地址不是本合约所发行的代币，将账户对象的指定代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： cong ），并在收据中返回 <code>note</code> 信息，在这里账户对象只能为当前合约账户。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当发生异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 token 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 token 不是一个代币；</p></li>
+<li>
+<p class='with-space'>参数 to 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 to 与账户地址相同；</p></li>
+<li>
+<p class='with-space'>参数 value 小于 0；</p></li>
+<li>
+<p class='with-space'>账户的余额不够支付 value 的值；</p></li>
+<li>
+<p class='with-space'>如果当前合约没有发行过代币，账户不是当前智能合约的合约账户；</p></li>
+<li>
+<p class='with-space'>如果当前合约发行过代币，账户不是消息发送者或当前智能合约的合约账户者。</p></li>
+</ul>
+</blockquote>
+<h3 id='c01d682b'><span class='bd-content-title'>5.12 func TransferByName()<a class='anchorjs-link ' href='#c01d682b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) TransferByName(name string, to types.Address, value bn.Number)'>Copy</button><pre><code>func (IAccount) TransferByName(name string, to types.Address, value bn.Number)
+</code></pre>
+</figure>
+<p class='with-space'>如果指定的代币名称为本合约所发行的代币，将账户对象在本合约所发行的代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： <code>cong</code> ），在这里账户对象包括消息调用的发起人或当前合约账户。</p>
+<p class='with-space'>如果指定的代币地址不是本合约所发行的代币，将账户对象的指定代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： <code>cong</code> ），在这里账户对象只能为当前合约账户。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当发生异常时，将会自动触发SDK进行 panic ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 name 不是一个代币的名称；</p></li>
+<li>
+<p class='with-space'>参数 to 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 to 与账户地址相同；</p></li>
+<li>
+<p class='with-space'>参数 value 小于 0；</p></li>
+<li>
+<p class='with-space'>账户的余额不够支付 value 的值；</p></li>
+<li>
+<p class='with-space'>如果当前合约没有发行过代币，账户不是当前智能合约的合约账户；</p></li>
+<li>
+<p class='with-space'>如果当前合约发行过代币，账户不是消息发送者或当前智能合约的合约账户者。</p></li>
+</ul>
+</blockquote>
+<h3 id='b5b4f061'><span class='bd-content-title'>5.13 func TransferByNameWithNote()<a class='anchorjs-link ' href='#b5b4f061' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) TransferByNameWithNote(name string, to types.Address, value bn.Number, note string)'>Copy</button><pre><code>func (IAccount) TransferByNameWithNote(name string, to types.Address, value bn.Number, note string)
+</code></pre>
+</figure>
+<p class='with-space'>如果指定的代币名称为本合约所发行的代币，将账户对象在本合约所发行的代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： cong ），并在收据中返回 <code>note</code> 信息，在这里账户对象包括消息调用的发起人或当前合约账户。</p>
+<p class='with-space'>如果指定的代币地址不是本合约所发行的代币，将账户对象的指定代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： cong ），并在收据中返回 <code>note</code> 信息，在这里账户对象只能为当前合约账户。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当发生异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 name 不是一个代币的名称；</p></li>
+<li>
+<p class='with-space'>参数 to 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 to 与账户地址相同；</p></li>
+<li>
+<p class='with-space'>参数 value 小于 0；</p></li>
+<li>
+<p class='with-space'>账户的余额不够支付 value 的值；</p></li>
+<li>
+<p class='with-space'>如果当前合约没有发行过代币，账户不是当前智能合约的合约账户；</p></li>
+<li>
+<p class='with-space'>如果当前合约发行过代币，账户不是消息发送者或当前智能合约的合约账户者。</p></li>
+</ul>
+</blockquote>
+<h3 id='ecd5ac81'><span class='bd-content-title'>5.14 func TransferBySymbol()<a class='anchorjs-link ' href='#ecd5ac81' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) TransferBySymbol(symbol string, to types.Address, value bn.Number)'>Copy</button><pre><code>func (IAccount) TransferBySymbol(symbol string, to types.Address, value bn.Number)
+</code></pre>
+</figure>
+<p class='with-space'>如果指定的代币符号为本合约所发行的代币，将账户对象在本合约所发行的代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： cong ），在这里账户对象包括消息调用的发起人或当前合约账户。</p>
+<p class='with-space'>如果指定的代币地址不是本合约所发行的代币，将账户对象的指定代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： cong ），在这里账户对象只能为当前合约账户。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当发生异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 symbol 不是一个代币的符号；</p></li>
+<li>
+<p class='with-space'>参数 to 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 to 与账户地址相同；</p></li>
+<li>
+<p class='with-space'>参数 value 小于 0；</p></li>
+<li>
+<p class='with-space'>账户的余额不够支付 value 的值；</p></li>
+<li>
+<p class='with-space'>当前合约没有发行过代币，账户不是当前智能合约的合约账户；</p></li>
+<li>
+<p class='with-space'>如果当前合约发行过代币，账户不是消息发送者或当前智能合约的合约账户者。</p></li>
+</ul>
+</blockquote>
+<h3 id='bf04f600'><span class='bd-content-title'>5.15 func TransferBySymbolWithNote()<a class='anchorjs-link ' href='#bf04f600' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccount) TransferBySymbolWithNote(symbol string, to types.Address, value bn.Number, note string)'>Copy</button><pre><code>func (IAccount) TransferBySymbolWithNote(symbol string, to types.Address, value bn.Number, note string)
+</code></pre>
+</figure>
+<p class='with-space'>如果指定的代币符号为本合约所发行的代币，将账户对象在本合约所发行的代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： cong ），并在收据中返回 <code>note</code> 信息，在这里账户对象包括消息调用的发起人或当前合约账户。</p>
+<p class='with-space'>如果指定的代币地址不是本合约所发行的代币，将账户对象的指定代币子账户资金转给接收地址为 <code>to</code> 的账户（资金单位： <code>cong</code> ），并在收据中返回 note 信息，在这里账户对象只能为当前合约账户。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当发生异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 symbol 不是一个代币的符号；</p></li>
+<li>
+<p class='with-space'>参数 to 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 to 与账户地址相同；</p></li>
+<li>
+<p class='with-space'>参数 value 小于 0；</p></li>
+<li>
+<p class='with-space'>账户的余额不够支付 value 的值；</p></li>
+<li>
+<p class='with-space'>当前合约没有发行过代币，账户不是当前智能合约的合约账户；</p></li>
+<li>
+<p class='with-space'>如果当前合约发行过代币，账户不是消息发送者或当前智能合约的合约账户者。</p></li>
+</ul>
+</blockquote>
+<h2 id='dc71620c'><span class='bd-content-title'>6 sdk/IContract<a class='anchorjs-link ' href='#dc71620c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IContract</code> 封装了某个智能合约的所有信息以及操作智能合约的接口。</p>
+<h3 id='c2b12b90'><span class='bd-content-title'>6.1 func Address()<a class='anchorjs-link ' href='#c2b12b90' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) Address() types.Address'>Copy</button><pre><code>func (IContract) Address() types.Address
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约的地址。</p>
+<h3 id='f26b2384'><span class='bd-content-title'>6.2 func Account()<a class='anchorjs-link ' href='#f26b2384' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) Account() IAccount'>Copy</button><pre><code>func (IContract) Account() IAccount
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约的账户对象。</p>
+<p class='with-space'>智能合约的账户地址可用于接收转给合约的资金，智能合约账户地址的计算只与合约名称和组织ID相关，合约升级后合约地址发生变化但不会影响合约的账户地址，合约的账户地址没有私钥与之对应，合约账户上的资金只能通过合约进行操纵。</p>
+<h3 id='d38c254d'><span class='bd-content-title'>6.3 func Owner()<a class='anchorjs-link ' href='#d38c254d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) Owner() IAccount'>Copy</button><pre><code>func (IContract) Owner() IAccount
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约的拥有者的外部账户对象（外部账户地址有私钥与之对应）。</p>
+<h3 id='dd10c804'><span class='bd-content-title'>6.4 func Name()<a class='anchorjs-link ' href='#dd10c804' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) Name() string'>Copy</button><pre><code>func (IContract) Name() string
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约名称。</p>
+<h3 id='d39a3faa'><span class='bd-content-title'>6.5 func Version()<a class='anchorjs-link ' href='#d39a3faa' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) Version() string'>Copy</button><pre><code>func (IContract) Version() string
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约版本号。</p>
+<h3 id='d2c68d3d'><span class='bd-content-title'>6.6 func CodeHash()<a class='anchorjs-link ' href='#d2c68d3d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) CodeHash() types.Hash'>Copy</button><pre><code>func (IContract) CodeHash() types.Hash
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约代码所对应的哈希。</p>
+<h3 id='cfa6ea4e'><span class='bd-content-title'>6.7 func EffectHeigt()<a class='anchorjs-link ' href='#cfa6ea4e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) EffectHeight() int64'>Copy</button><pre><code>func (IContract) EffectHeight() int64
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约开始生效时的区块高度。</p>
+<h3 id='e27acc12'><span class='bd-content-title'>6.8 func LoseHeight()<a class='anchorjs-link ' href='#e27acc12' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) LoseHeight() int64'>Copy</button><pre><code>func (IContract) LoseHeight() int64
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约开始失效时的区块高度，0表示没有失效。</p>
+<h3 id='c93ce4d6'><span class='bd-content-title'>6.9 func KeyPrefix()<a class='anchorjs-link ' href='#c93ce4d6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) KeyPrefix() string'>Copy</button><pre><code>func (IContract) KeyPrefix() string
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约内所能访问的状态数据库KEY值的前缀（格式为 <code>/xxx/yyy</code> ），可用于进行智能合约之间数据的隔离保护。</p>
+<h3 id='bd8b34a5'><span class='bd-content-title'>6.10 func Methods()<a class='anchorjs-link ' href='#bd8b34a5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) Methods() []std.Method'>Copy</button><pre><code>func (IContract) Methods() []std.Method
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约所有公开方法的详细信息（可被用于级联消息调用合约）。 <code>std.Method</code> 结构定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package std
+
+type Method struct {
+    MethodID    string    // 方法ID
+    Gas         int64     // 方法在调用时需要消耗的燃料
+    ProtoType   string    // 方法原型
+}'>Copy</button><pre><code>package std
+
+type Method struct {
+    MethodID    string    // 方法ID
+    Gas         int64     // 方法在调用时需要消耗的燃料
+    ProtoType   string    // 方法原型
+}
+</code></pre>
+</figure>
+<h3 id='e115f86e'><span class='bd-content-title'>6.11 func Interfaces()<a class='anchorjs-link ' href='#e115f86e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) Interfaces() []std.Method'>Copy</button><pre><code>func (IContract) Interfaces() []std.Method
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约所有公开接口（可被用于跨合约调用）的详细信息。</p>
+<h3 id='bd978b16'><span class='bd-content-title'>6.12 func IBCs()<a class='anchorjs-link ' href='#bd978b16' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) IBCs() []std.Method'>Copy</button><pre><code>func (IContract) IBCs() []std.Method
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约所有公开跨链方法（可被用于执行跨链业务）的详细信息。</p>
+<h3 id='c5ff9a47'><span class='bd-content-title'>6.13 func Mine()<a class='anchorjs-link ' href='#c5ff9a47' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) Mine() []std.Method'>Copy</button><pre><code>func (IContract) Mine() []std.Method
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约公开的挖矿接口的详细信息。</p>
+<h3 id='d5f787ac'><span class='bd-content-title'>6.14 func Token()<a class='anchorjs-link ' href='#d5f787ac' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) Token() types.Address'>Copy</button><pre><code>func (IContract) Token() types.Address
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约所注册的代币地址，如果合约没有注册过代币，返回空地址。</p>
+<h3 id='bf612e3b'><span class='bd-content-title'>6.15 func OrgID()<a class='anchorjs-link ' href='#bf612e3b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) OrgID() string'>Copy</button><pre><code>func (IContract) OrgID() string
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约所属的组织标识。</p>
+<h3 id='f6b407c5'><span class='bd-content-title'>6.16 func ChainVersion()<a class='anchorjs-link ' href='#f6b407c5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) ChainVersion() string'>Copy</button><pre><code>func (IContract) ChainVersion() string
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约的链版本。</p>
+<h3 id='ed1d92ff'><span class='bd-content-title'>6.17 func SetOwner()<a class='anchorjs-link ' href='#ed1d92ff' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContract) SetOwner( newOwner types.Address)'>Copy</button><pre><code>func (IContract) SetOwner( newOwner types.Address)
+</code></pre>
+</figure>
+<p class='with-space'>设置智能合约新的拥有者。 newOwner 为智能合约新的拥有者的外部账户地址。函数 <code>SetOwner()</code> 只能由智能合约的原拥有者调用。如果智能合约发行了代币，该操作同时会将代币的拥有者设置给新的拥有者。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当发生异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>消息调用者不是合约的原拥有者；</p></li>
+<li>
+<p class='with-space'>参数 newOwner 不是一个地址；</p></li>
+<li>
+<p class='with-space'>参数 newOwner 是合约的原拥有者；</p></li>
+<li>
+<p class='with-space'>参数 newOwner 是合约的地址；</p></li>
+<li>
+<p class='with-space'>参数 newOwner 是合约的账户地址。</p></li>
+</ul>
+</blockquote>
+<h2 id='fc9feed1'><span class='bd-content-title'>7 sdk/IToken<a class='anchorjs-link ' href='#fc9feed1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IToken</code> 封装了某个代币的所有信息以及操作代币的接口。</p>
+<h3 id='b9c1ae26'><span class='bd-content-title'>7.1 func Address()<a class='anchorjs-link ' href='#b9c1ae26' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IToken) Address() types.Address'>Copy</button><pre><code>func (IToken) Address() types.Address
+</code></pre>
+</figure>
+<p class='with-space'>返回代币的地址。</p>
+<h3 id='b7051b9f'><span class='bd-content-title'>7.2 func Owner()<a class='anchorjs-link ' href='#b7051b9f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IToken) Owner() IAccount'>Copy</button><pre><code>func (IToken) Owner() IAccount
+</code></pre>
+</figure>
+<p class='with-space'>返回代币拥有者的外部账户对象。</p>
+<h3 id='f96ca3b6'><span class='bd-content-title'>7.3 func Name()<a class='anchorjs-link ' href='#f96ca3b6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IToken) Name() string'>Copy</button><pre><code>func (IToken) Name() string
+</code></pre>
+</figure>
+<p class='with-space'>返回代币的名称。</p>
+<h3 id='c214df57'><span class='bd-content-title'>7.4 func Symbol()<a class='anchorjs-link ' href='#c214df57' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IToken) Symbol() string'>Copy</button><pre><code>func (IToken) Symbol() string
+</code></pre>
+</figure>
+<p class='with-space'>返回代币的符号。</p>
+<h3 id='a1967e82'><span class='bd-content-title'>7.5 func TotalSupply()<a class='anchorjs-link ' href='#a1967e82' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IToken) TotalSupply() Number'>Copy</button><pre><code>func (IToken) TotalSupply() Number
+</code></pre>
+</figure>
+<p class='with-space'>返回代币的总供应量（单位： <code>cong</code> ）。</p>
+<h3 id='da24a133'><span class='bd-content-title'>7.6 func AddSupplyEnabled()<a class='anchorjs-link ' href='#da24a133' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IToken) AddSupplyEnabled() bool'>Copy</button><pre><code>func (IToken) AddSupplyEnabled() bool
+</code></pre>
+</figure>
+<p class='with-space'>返回代币是否允许增发。</p>
+<h3 id='d472ba46'><span class='bd-content-title'>7.7 func BurnEnabled()<a class='anchorjs-link ' href='#d472ba46' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IToken) BurnEnabled() bool'>Copy</button><pre><code>func (IToken) BurnEnabled() bool
+</code></pre>
+</figure>
+<p class='with-space'>返回代币是否允许燃烧。</p>
+<h3 id='d42b4ee3'><span class='bd-content-title'>7.8 func GasPrice()<a class='anchorjs-link ' href='#d42b4ee3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IToken) GasPrice() int64'>Copy</button><pre><code>func (IToken) GasPrice() int64
+</code></pre>
+</figure>
+<p class='with-space'>返回代币的燃料价格（单位： <code>cong</code> ）。</p>
+<h3 id='c7bfe657'><span class='bd-content-title'>7.9 func SetTotalSupply()<a class='anchorjs-link ' href='#c7bfe657' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IToken) SetTotalSupply(newTotalSupply bn.Number)'>Copy</button><pre><code>func (IToken) SetTotalSupply(newTotalSupply bn.Number)
+</code></pre>
+</figure>
+<p class='with-space'>设置代币新的总供应量。 <code>newTotalSupply</code> 为代币新的总供应量（单位： cong ），同时更新合约拥有者在该代币子账户上的余额。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当发生异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>消息调用者不是合约的拥有者；</p></li>
+<li>
+<p class='with-space'>参数 newTotalSupply 小于 1000000000(cong)；</p></li>
+<li>
+<p class='with-space'>参数 newTotalSupply 大于原供应量，但代币不允许增发；</p></li>
+<li>
+<p class='with-space'>参数 newTotalSupply 小于原供应量，但代币不允许燃烧；</p></li>
+<li>
+<p class='with-space'>合约拥有者在该代币子账户上的余额在更新后小于0。</p></li>
+</ul>
+</blockquote>
+<h3 id='d57af4c1'><span class='bd-content-title'>7.10 func SetGasPrice()<a class='anchorjs-link ' href='#d57af4c1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IToken) SetGasPrice(newGasPrice int64)'>Copy</button><pre><code>func (IToken) SetGasPrice(newGasPrice int64)
+</code></pre>
+</figure>
+<p class='with-space'>设置代币的燃料价格。 <code>newGasPrice</code> 为代币新的燃料价格（单位： cong ）。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当发生异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>消息调用者不是合约拥有者；</p></li>
+<li>
+<p class='with-space'>参数 newGasPrice 大于 1000000000(cong)；</p></li>
+<li>
+<p class='with-space'>参数 newGasPrice 小于基础燃料价格。</p></li>
+</ul>
+</blockquote>
+<h2 id='f739f81c'><span class='bd-content-title'>8 sdk/IHelper<a class='anchorjs-link ' href='#f739f81c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IHelper</code> 封装了SDK所有的帮助对象。</p>
+<h3 id='ff1d7664'><span class='bd-content-title'>8.1 func AccountHelper()<a class='anchorjs-link ' href='#ff1d7664' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IHelper) AccountHelper() IAccountHelper'>Copy</button><pre><code>func (IHelper) AccountHelper() IAccountHelper
+</code></pre>
+</figure>
+<p class='with-space'>返回账户相关的帮助对象。</p>
+<h3 id='f4605d3b'><span class='bd-content-title'>8.2 func BlockchainHelper()<a class='anchorjs-link ' href='#f4605d3b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IHelper) BlockChainHelper() IBlockChainHelper'>Copy</button><pre><code>func (IHelper) BlockChainHelper() IBlockChainHelper
+</code></pre>
+</figure>
+<p class='with-space'>返回区块链相关的帮助对象。</p>
+<h3 id='cd00c63e'><span class='bd-content-title'>8.3 func BuildHelper()<a class='anchorjs-link ' href='#cd00c63e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IHelper) BuildHelper() IBuildHelper'>Copy</button><pre><code>func (IHelper) BuildHelper() IBuildHelper
+</code></pre>
+</figure>
+<p class='with-space'>返回合约构建相关的帮助对象。</p>
+<h3 id='b5610fe5'><span class='bd-content-title'>8.4 func ContractHelper()<a class='anchorjs-link ' href='#b5610fe5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IHelper) ContractHelper() IContractHelper'>Copy</button><pre><code>func (IHelper) ContractHelper() IContractHelper
+</code></pre>
+</figure>
+<p class='with-space'>返回智能合约相关的帮助对象。</p>
+<h3 id='e0cd9192'><span class='bd-content-title'>8.5 func GenesisHelper()<a class='anchorjs-link ' href='#e0cd9192' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IHelper) GenesisHelper() IGenesisHelper'>Copy</button><pre><code>func (IHelper) GenesisHelper() IGenesisHelper
+</code></pre>
+</figure>
+<p class='with-space'>返回创世相关的帮助对象。</p>
+<h3 id='d8d944ce'><span class='bd-content-title'>8.6 func ReceiptHelper()<a class='anchorjs-link ' href='#d8d944ce' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IHelper) ReceiptHelper() IReceiptHelper'>Copy</button><pre><code>func (IHelper) ReceiptHelper() IReceiptHelper
+</code></pre>
+</figure>
+<p class='with-space'>返回收据相关的帮助对象。</p>
+<h3 id='a13cad02'><span class='bd-content-title'>8.7 func TokenHelper()<a class='anchorjs-link ' href='#a13cad02' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IHelper) TokenHelper() ITokenHelper'>Copy</button><pre><code>func (IHelper) TokenHelper() ITokenHelper
+</code></pre>
+</figure>
+<p class='with-space'>返回代币相关的帮助对象。</p>
+<h3 id='af91437a'><span class='bd-content-title'>8.8 func StateHelper()<a class='anchorjs-link ' href='#af91437a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IHelper) StateHelper() IStateHelper'>Copy</button><pre><code>func (IHelper) StateHelper() IStateHelper
+</code></pre>
+</figure>
+<p class='with-space'>返回状态存储相关的帮助对象。</p>
+<h3 id='ab4c6e66'><span class='bd-content-title'>8.9 func IBCHelper()<a class='anchorjs-link ' href='#ab4c6e66' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IHelper) IBCHelper() IIBCHelper'>Copy</button><pre><code>func (IHelper) IBCHelper() IIBCHelper
+</code></pre>
+</figure>
+<p class='with-space'>返回发起跨链相关的帮助对象。</p>
+<h3 id='bfd377e3'><span class='bd-content-title'>8.10 func IBCStubHelper()<a class='anchorjs-link ' href='#bfd377e3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IHelper) IBCStubHelper() IIBCStubHelper'>Copy</button><pre><code>func (IHelper) IBCStubHelper() IIBCStubHelper
+</code></pre>
+</figure>
+<p class='with-space'>返回处理跨链事务相关的帮助对象。</p>
+<h2 id='a6bcd99c'><span class='bd-content-title'>9 sdk/IAccountHelper<a class='anchorjs-link ' href='#a6bcd99c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IAccountHelper</code> 封装了对区块链账户进行访问的帮助对象。</p>
+<h3 id='f4374149'><span class='bd-content-title'>9.1 func AccountOf()<a class='anchorjs-link ' href='#f4374149' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccountHelper) AccountOf(addr types.Address) IAccount'>Copy</button><pre><code>func (IAccountHelper) AccountOf(addr types.Address) IAccount
+</code></pre>
+</figure>
+<p class='with-space'>根据账户地址构造一个账户对象，用来对账户进行一些操作。 <code>addr</code> 为账户地址。返回账户对象。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回 <code>nil</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 addr 不是地址。</p></li>
+</ul>
+</blockquote>
+<h3 id='ffd1cb04'><span class='bd-content-title'>9.2 func AccountOfPubKey()<a class='anchorjs-link ' href='#ffd1cb04' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IAccountHelper) AccountOfPubKey(pubkey types.PubKey) IAccount'>Copy</button><pre><code>func (IAccountHelper) AccountOfPubKey(pubkey types.PubKey) IAccount
+</code></pre>
+</figure>
+<p class='with-space'>根据账户公钥构造一个账户对象，用来对账户进行一些操作。pubkey 为账户公钥。返回账户对象。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回 nil：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 pubkey 不是公钥（长度不等于32字节）。</p></li>
+</ul>
+</blockquote>
+<h2 id='ec8b53ad'><span class='bd-content-title'>10 sdk/IBlockChainHelper<a class='anchorjs-link ' href='#ec8b53ad' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IBlockChainHelper</code> 封装了对区块链进行访问的帮助对象。</p>
+<h3 id='a102c231'><span class='bd-content-title'>10.1 func IsPeerChainAddress()<a class='anchorjs-link ' href='#a102c231' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockchainHelper) IsPeerChainAddress(address types.Address) bool'>Copy</button><pre><code>func (IBlockchainHelper) IsPeerChainAddress(address types.Address) bool
+</code></pre>
+</figure>
+<p class='with-space'>判断给定的地址 <code>address</code> 是否是外链地址，是则返回true，不是返回false。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>参数address不是合法的地址格式。</p>
+</blockquote>
+<h3 id='d877c9db'><span class='bd-content-title'>10.2 func IsSideChain()<a class='anchorjs-link ' href='#d877c9db' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockchainHelper) IsSideChain() bool'>Copy</button><pre><code>func (IBlockchainHelper) IsSideChain() bool
+</code></pre>
+</figure>
+<p class='with-space'>判断当前链是否为侧链。是则返回true，不是返回false。</p>
+<h3 id='b303b4e6'><span class='bd-content-title'>10.3 func CalcSideChainID()<a class='anchorjs-link ' href='#b303b4e6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockchainHelper) CalcSideChainID(chainName string) string'>Copy</button><pre><code>func (IBlockchainHelper) CalcSideChainID(chainName string) string
+</code></pre>
+</figure>
+<p class='with-space'>根据链名称计算链ID。 <code>chainName</code> 为链名称。返回计算得出的链ID。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>参数 chainName 不是合法的链名称格式。</p>
+</blockquote>
+<h3 id='e71aad63'><span class='bd-content-title'>10.4 func CalcAccountFromPubkey()<a class='anchorjs-link ' href='#e71aad63' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockchainHelper) CalcAccountFromPubkey(pubkey types.PubKey) types.Address'>Copy</button><pre><code>func (IBlockchainHelper) CalcAccountFromPubkey(pubkey types.PubKey) types.Address
+</code></pre>
+</figure>
+<p class='with-space'>根据公钥计算账户地址。 <code>pubkey</code> 为公钥。返回计算得出的地址。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回空地址：</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>参数 pubkey 不是公钥（长度不等于32字节）。</p>
+</blockquote>
+<h3 id='bab1a20c'><span class='bd-content-title'>10.5 func CalcAccountFromName()<a class='anchorjs-link ' href='#bab1a20c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockchainHelper) CalcAccountFromName(name string, orgID string) types.Address'>Copy</button><pre><code>func (IBlockchainHelper) CalcAccountFromName(name string, orgID string) types.Address
+</code></pre>
+</figure>
+<p class='with-space'>根据合约名称及其所属组织ID计算出合约的账户地址。 <code>name</code> 为合约名称， orgID 为组织ID。返回计算得出的合约账户地址。</p>
+<h3 id='ba716bcd'><span class='bd-content-title'>10.6 func CalcContractAddress()<a class='anchorjs-link ' href='#ba716bcd' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockchainHelper) CalcContractAddress(
+                                name string, 
+                                version string,
+                                orgID string) types.Address'>Copy</button><pre><code>func (IBlockchainHelper) CalcContractAddress(
+                                name string, 
+                                version string,
+                                orgID string) types.Address
+</code></pre>
+</figure>
+<p class='with-space'>根据给定的合约参数计算合约地址。 <code>name</code> 为合约名称。 <code>version</code> 为合约版本。 orgID 为合约所属组织的地址。返回计算得出的地址。</p>
+<h3 id='d06217b0'><span class='bd-content-title'>10.7 func RecalcAddress()<a class='anchorjs-link ' href='#d06217b0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockchainHelper) RecalcAddress(
+                                address types.Address, 
+                                chainID string) types.Address'>Copy</button><pre><code>func (IBlockchainHelper) RecalcAddress(
+                                address types.Address, 
+                                chainID string) types.Address
+</code></pre>
+</figure>
+<p class='with-space'>根据给定的地址参数计算新地址。 <code>address</code> 为新地址需要派生的旧地址。 chainID 为新地址的前缀链ID。返回计算得出的地址。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>参数 address 不是合法的地址格式。</p>
+</blockquote>
+<h3 id='a80590c2'><span class='bd-content-title'>10.8 func CalcOrgID()<a class='anchorjs-link ' href='#a80590c2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func CalcOrgID(name string) string'>Copy</button><pre><code>func CalcOrgID(name string) string
+</code></pre>
+</figure>
+<p class='with-space'>根据组织名称计算出组织标识。 <code>name</code> 为组织名称。返回计算得出的组织标识。</p>
+<h3 id='cfa522e1'><span class='bd-content-title'>10.9 func CheckAddress()<a class='anchorjs-link ' href='#cfa522e1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockchainHelper) CheckAddress(addr types.Address) error'>Copy</button><pre><code>func (IBlockchainHelper) CheckAddress(addr types.Address) error
+</code></pre>
+</figure>
+<p class='with-space'>校验地址格式的合法性。 <code>addr</code> 为地址。成功返回 <code>nil</code> 。</p>
+<h3 id='d9d71c36'><span class='bd-content-title'>10.10 func CheckAddressEx()<a class='anchorjs-link ' href='#d9d71c36' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockchainHelper) CheckAddressEx(chainID string, addr types.Address) error'>Copy</button><pre><code>func (IBlockchainHelper) CheckAddressEx(chainID string, addr types.Address) error
+</code></pre>
+</figure>
+<p class='with-space'>校验地址格式的合法性。 <code>chainID</code> 为链ID，地址必须以该链ID为前缀。 addr 为地址。成功返回 <code>nil</code> 。</p>
+<h3 id='dcda7117'><span class='bd-content-title'>10.11 func GetBlock()<a class='anchorjs-link ' href='#dcda7117' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockChainHelper) GetBlock(height int64) IBlock'>Copy</button><pre><code>func (IBlockChainHelper) GetBlock(height int64) IBlock
+</code></pre>
+</figure>
+<p class='with-space'>根据高度读取区块信息。 height 为指定的区块高度。返回区块信息对象。如果输入的高度小于等于 <code>0</code> ，则返回 <code>nil</code> ，如果输入的高度没有保存区块信息或区块数据不正常，则返回一个该高度的区块信息对象，其它参数全部为空值。</p>
+<h3 id='db97778e'><span class='bd-content-title'>10.12 func GetTx()<a class='anchorjs-link ' href='#db97778e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockChainHelper) GetTx(txHash string) *std.TxResult'>Copy</button><pre><code>func (IBlockChainHelper) GetTx(txHash string) *std.TxResult
+</code></pre>
+</figure>
+<p class='with-space'>根据交易哈希读取交易信息。 <code>txHash</code> 为指定的交易哈希。返回交易结果对象指针。如果输入的交易哈希为空或者没有对应的交易信息，则返回 nil 。</p>
+<h3 id='ee990b7d'><span class='bd-content-title'>10.13 func GetChainID()<a class='anchorjs-link ' href='#ee990b7d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockChainHelper) GetChainID(address types.Address) string'>Copy</button><pre><code>func (IBlockChainHelper) GetChainID(address types.Address) string
+</code></pre>
+</figure>
+<p class='with-space'>从地址信息中提取链ID并返回。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>参数 address 不是合法的地址格式。</p>
+</blockquote>
+<h3 id='a7a9b67c'><span class='bd-content-title'>10.14 func GetMainChainID()<a class='anchorjs-link ' href='#a7a9b67c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockChainHelper) GetMainChainID() string'>Copy</button><pre><code>func (IBlockChainHelper) GetMainChainID() string
+</code></pre>
+</figure>
+<p class='with-space'>从当前链ID中获取主链ID并返回。</p>
+<h3 id='dd0d0bb3'><span class='bd-content-title'>10.15 func FormatTime()<a class='anchorjs-link ' href='#dd0d0bb3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockChainHelper) FormatTime(seconds int64, layout string) string'>Copy</button><pre><code>func (IBlockChainHelper) FormatTime(seconds int64, layout string) string
+</code></pre>
+</figure>
+<p class='with-space'>根据时间秒数格式化输出时间字符串。 <code>seconds</code> 为时间秒数。 layout 为格式化字符串。返回格式化后的时间。</p>
+<h3 id='a5a8a940'><span class='bd-content-title'>10.16 func ParseTime()<a class='anchorjs-link ' href='#a5a8a940' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBlockChainHelper) ParseTime(layout, value string) (int64, error)'>Copy</button><pre><code>func (IBlockChainHelper) ParseTime(layout, value string) (int64, error)
+</code></pre>
+</figure>
+<p class='with-space'>根据时间格式化字符串，进行格式化解析给定的时间值。 <code>layout</code> 为格式化字符串。 <code>value</code> 为时间值。返回时间值对应的秒数或者错误信息。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回空地址：</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>参数 value 不是 layout 指定的格式。</p>
+</blockquote>
+<h2 id='e90093d7'><span class='bd-content-title'>11 sdk/IBuildHelper<a class='anchorjs-link ' href='#e90093d7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IBuildHelper</code> 封装了对智能合约进行构建的帮助对象。</p>
+<h3 id='b7b1ba7d'><span class='bd-content-title'>11.1 func Build()<a class='anchorjs-link ' href='#b7b1ba7d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IBuildHelper) Build(meta std.ContractMeta) std.BuildResult'>Copy</button><pre><code>func (IBuildHelper) Build(meta std.ContractMeta) std.BuildResult
+</code></pre>
+</figure>
+<p class='with-space'>构建合约。 <code>meta</code> 为输入的合约元数据， std.ContractMeta 结构定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package std
+
+type ContractMeta struct {
+    Name         string        //合约名称
+    ContractAddr types.Address //合约地址
+    OrgID        string        //合约所属组织ID
+    Version      string        //合约的版本
+    EffectHeight int64         //合约生效高度
+    LoseHeight   int64         //合约失效高度（固定为0）
+    CodeData     []byte        //合约代码压缩包数据
+    CodeHash     []byte        //合约代码的哈希
+    CodeDevSig   []byte        //合约开发者对合约代码压缩包的签名数据
+    CodeOrgSig   []byte        //组织对合约开发者的签名进行的签名数据
+}'>Copy</button><pre><code>package std
+
+type ContractMeta struct {
+    Name         string        //合约名称
+    ContractAddr types.Address //合约地址
+    OrgID        string        //合约所属组织ID
+    Version      string        //合约的版本
+    EffectHeight int64         //合约生效高度
+    LoseHeight   int64         //合约失效高度（固定为0）
+    CodeData     []byte        //合约代码压缩包数据
+    CodeHash     []byte        //合约代码的哈希
+    CodeDevSig   []byte        //合约开发者对合约代码压缩包的签名数据
+    CodeOrgSig   []byte        //组织对合约开发者的签名进行的签名数据
+}
+</code></pre>
+</figure>
+<p class='with-space'>返回构建结果的详细信息。 std.BuildResult 结构定义如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package std
+
+type Method struct {
+    MethodID     string        // 方法ID，方法ID的计算与方法原型相关
+    Gas          int64         // 方法在调用时消耗的燃料
+    ProtoType    string        // 方法原型
+}
+
+type BuildResult struct {
+    Code         uint32     
+    Error        string
+    Methods      []Method      // 公开的方法列表
+    Interfaces   []Method      // 公开的接口列表
+    Mine         []Method      // 公开的挖矿接口
+    OrgCodeHash  []byte        // 组织所有有效合约代码的哈希（编译以后的程序名称）
+}'>Copy</button><pre><code>package std
+
+type Method struct {
+    MethodID     string        // 方法ID，方法ID的计算与方法原型相关
+    Gas          int64         // 方法在调用时消耗的燃料
+    ProtoType    string        // 方法原型
+}
+
+type BuildResult struct {
+    Code         uint32     
+    Error        string
+    Methods      []Method      // 公开的方法列表
+    Interfaces   []Method      // 公开的接口列表
+    Mine         []Method      // 公开的挖矿接口
+    OrgCodeHash  []byte        // 组织所有有效合约代码的哈希（编译以后的程序名称）
+}
+</code></pre>
+</figure>
+<p class='with-space'>满足如下任意一条则导致失败，当失败时，返回 <code>BuildResult.Code != types.CodeOK (200)</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>当前合约不是合约管理合约；</p></li>
+<li>
+<p class='with-space'>当前合约所属组织不是创世组织；</p></li>
+<li>
+<p class='with-space'>合约编译过程失败。</p></li>
+</ul>
+</blockquote>
+<h2 id='f139deae'><span class='bd-content-title'>12 sdk/IContractHelper<a class='anchorjs-link ' href='#f139deae' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IContractHelper</code> 封装了对智能合约进行访问的帮助对象。</p>
+<h3 id='cf67a610'><span class='bd-content-title'>12.1 func ContractOfAddress()<a class='anchorjs-link ' href='#cf67a610' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContractHelper) ContractOfAddress(addr types.Address) IContract'>Copy</button><pre><code>func (IContractHelper) ContractOfAddress(addr types.Address) IContract
+</code></pre>
+</figure>
+<p class='with-space'>根据合约地址构造一个合约对象并读取合约信息，用来对合约进行一些操作。 addr 为合约地址。返回合约对象。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回 <code>nil</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 addr 不是地址；</p></li>
+<li>
+<p class='with-space'>参数 addr 不是合约。</p></li>
+</ul>
+</blockquote>
+<h3 id='e16519ad'><span class='bd-content-title'>12.2 func ContractOfToken()<a class='anchorjs-link ' href='#e16519ad' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContractHelper) ContractOfToken(tokenAddr types.Address) IContract'>Copy</button><pre><code>func (IContractHelper) ContractOfToken(tokenAddr types.Address) IContract
+</code></pre>
+</figure>
+<p class='with-space'>根据代币地址构造一个针对该代币的合约对象并读取当前有效版本的合约信息，用来对合约进行一些操作。 <code>tokenAddr</code> 为代币地址。返回合约对象。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回 <code>nil</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 tokenAddr 不是地址；</p></li>
+<li>
+<p class='with-space'>参数 tokenAddr 不是代币。</p></li>
+</ul>
+</blockquote>
+<h3 id='f6b4709f'><span class='bd-content-title'>12.3 func ContractOfName()<a class='anchorjs-link ' href='#f6b4709f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IContractHelper) ContractOfName(name string) IContract'>Copy</button><pre><code>func (IContractHelper) ContractOfName(name string) IContract
+</code></pre>
+</figure>
+<p class='with-space'>根据合约名称构造一个合约对象并读取合约信息，用来对合约进行一些操作。 <code>name</code> 为合约名称。返回合约对象。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回 <code>nil</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 name 为空串；</p></li>
+<li>
+<p class='with-space'>参数 name 不是合约。</p></li>
+</ul>
+</blockquote>
+<h2 id='a5998703'><span class='bd-content-title'>13 sdk/IReceiptHelper<a class='anchorjs-link ' href='#a5998703' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IReceiptHelper</code> 封装了对收据进行处理的帮助对象。</p>
+<h3 id='dc49b344'><span class='bd-content-title'>13.1 func Emit()<a class='anchorjs-link ' href='#dc49b344' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IReceiptHelper) Emit(interface Interface{})'>Copy</button><pre><code>func (IReceiptHelper) Emit(interface Interface{})
+</code></pre>
+</figure>
+<p class='with-space'>发送一个收据，SDK底层实现会自动将传入的收据对象进行序列化作为本次调用合约的输出收据集中的一员。 <code>interface</code> 为收据对象。</p>
+<p class='with-space'>SDK辅助工具会自动将智能合约定义的收据生成相关代码调用 <code>Emit()</code> 函数，合约代码中可以不用直接使用这个函数。示例如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//@:public:receipt
+type receipt interface {
+    emitTransferMyCoin(token, from, to types.Address, value bn.Number)
+}
+
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    .
+    .
+    .
+    mc.emitTransferMyCoin(
+      mc.sdk.Message().Contract().Address(),
+      sender,
+      receiver,
+      value,
+    )
+}'>Copy</button><pre><code>//@:public:receipt
+type receipt interface {
+    emitTransferMyCoin(token, from, to types.Address, value bn.Number)
+}
+
+func (mc *Mycoin) Transfer(to types.Address, value bn.Number) {
+    .
+    .
+    .
+    mc.emitTransferMyCoin(
+      mc.sdk.Message().Contract().Address(),
+      sender,
+      receiver,
+      value,
+    )
+}
+</code></pre>
+</figure>
+<h2 id='b13d05ff'><span class='bd-content-title'>14 sdk/IGenesisHelper<a class='anchorjs-link ' href='#b13d05ff' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IGenesisHelper</code> 封装了对创世信息进行访问的帮助对象。</p>
+<h3 id='ccc32985'><span class='bd-content-title'>14.1 func ChainID()<a class='anchorjs-link ' href='#ccc32985' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IGenesisHelper) ChainID() string'>Copy</button><pre><code>func (IGenesisHelper) ChainID() string
+</code></pre>
+</figure>
+<p class='with-space'>返回创世时指定的区块链ID。</p>
+<h3 id='b200b5e2'><span class='bd-content-title'>14.2 func OrgID()<a class='anchorjs-link ' href='#b200b5e2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IGenesisHelper) OrgID() string'>Copy</button><pre><code>func (IGenesisHelper) OrgID() string
+</code></pre>
+</figure>
+<p class='with-space'>返回创世时指定的创世组织ID。</p>
+<h3 id='e8392550'><span class='bd-content-title'>14.3 func Contracts()<a class='anchorjs-link ' href='#e8392550' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IGenesisHelper) Contracts() []IContract'>Copy</button><pre><code>func (IGenesisHelper) Contracts() []IContract
+</code></pre>
+</figure>
+<p class='with-space'>返回创世时部署的智能合约对象列表。</p>
+<h3 id='ad1a1eae'><span class='bd-content-title'>14.4 func Token()<a class='anchorjs-link ' href='#ad1a1eae' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IGenesisHelper) Token() IToken'>Copy</button><pre><code>func (IGenesisHelper) Token() IToken
+</code></pre>
+</figure>
+<p class='with-space'>返回创世时指定的创世通证对象。</p>
+<h3 id='ec3e7c65'><span class='bd-content-title'>14.5 func GasPriceRatio()<a class='anchorjs-link ' href='#ec3e7c65' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IGenesisHelper) GasPriceRatio() uint64'>Copy</button><pre><code>func (IGenesisHelper) GasPriceRatio() uint64
+</code></pre>
+</figure>
+<p class='with-space'>返回创世时指定的燃料价格比例值，默认返回1000（单位为：‰）。</p>
+<h2 id='ccf961e0'><span class='bd-content-title'>15 sdk/ITokenHelper<a class='anchorjs-link ' href='#ccf961e0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 sdk/ITokenHelper 封装了对 BRC20 标准代币进行访问的帮助对象。</p>
+<h3 id='b48d3850'><span class='bd-content-title'>15.1 func RegisterToken()<a class='anchorjs-link ' href='#b48d3850' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITokenHelper) RegisterToken(name string, 
+                                  symbol string, 
+                                  totalSupply Number,
+                                  addSupplyEnabled bool,
+                                  burnEnabled bool) IToken'>Copy</button><pre><code>func (ITokenHelper) RegisterToken(name string, 
+                                  symbol string, 
+                                  totalSupply Number,
+                                  addSupplyEnabled bool,
+                                  burnEnabled bool) IToken
+</code></pre>
+</figure>
+<p class='with-space'>向 BCBChain 区块链注册一个 <code>BRC20</code> 标准代币。 name 为代币名称， <code>symbol</code> 为代币符号， <code>totalSupply</code> 为总的供应量（单位： cong ）， addSupplyEnabled 为是否允许增发， <code>burnEnabled</code> 为是否允许燃烧。注册成功返回对应的代币对象。</p>
+<p class='with-space'>满足如下任意一条则注册失败，返回 nil ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>消息调用的发起人不是合约的拥有者；</p></li>
+<li>
+<p class='with-space'>参数 name 的长度不在 [3,40] 的范围内；</p></li>
+<li>
+<p class='with-space'>参数 name 对应的代币已经存在；</p></li>
+<li>
+<p class='with-space'>参数 symbol 的长度不在 [3,20] 的范围内；</p></li>
+<li>
+<p class='with-space'>参数 symbol 对应的代币已经存在；</p></li>
+<li>
+<p class='with-space'>参数 totalSupply 小于 1000000000(cong)；</p></li>
+<li>
+<p class='with-space'>合约以前已经注册过一个 BRC20 标准代币；</p></li>
+<li>
+<p class='with-space'>当前合约未定义标准转账方法或标准转账接口。</p></li>
+</ul>
+</blockquote>
+<h3 id='afad3553'><span class='bd-content-title'>15.2 func Token()<a class='anchorjs-link ' href='#afad3553' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITokenHelper) Token() IToken'>Copy</button><pre><code>func (ITokenHelper) Token() IToken
+</code></pre>
+</figure>
+<p class='with-space'>返回当前合约所注册的代币信息，用来对代币进行一些操作。返回代币对象。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回 <code>nil</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>当前合约没有注册代币。</p></li>
+</ul>
+</blockquote>
+<h3 id='a546297d'><span class='bd-content-title'>15.3 func TokenOfAddress()<a class='anchorjs-link ' href='#a546297d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITokenHelper) TokenOfAddress(tokenAddr types.Address) IToken'>Copy</button><pre><code>func (ITokenHelper) TokenOfAddress(tokenAddr types.Address) IToken
+</code></pre>
+</figure>
+<p class='with-space'>根据代币地址获取代币的信息，用来对代币进行一些操作。 <code>tokenAddr</code> 为代币地址。返回代币对象。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回 <code>nil</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 tokenAddr 不是地址；</p></li>
+<li>
+<p class='with-space'>参数 tokenAddr 不是代币。</p></li>
+</ul>
+</blockquote>
+<h3 id='cb440dc5'><span class='bd-content-title'>15.4 func TokenOfName()<a class='anchorjs-link ' href='#cb440dc5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITokenHelper) TokenOfName(name string) IToken'>Copy</button><pre><code>func (ITokenHelper) TokenOfName(name string) IToken
+</code></pre>
+</figure>
+<p class='with-space'>按代币名称获取代币的信息，用来对代币进行一些操作。 <code>name</code> 为代币名称。返回代币对象。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回 <code>nil</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 name 不是一个代币的名称。</p></li>
+</ul>
+</blockquote>
+<h3 id='e7282289'><span class='bd-content-title'>15.5 func TokenOfSymbol()<a class='anchorjs-link ' href='#e7282289' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITokenHelper) TokenOfSymbol(symbol string) IToken'>Copy</button><pre><code>func (ITokenHelper) TokenOfSymbol(symbol string) IToken
+</code></pre>
+</figure>
+<p class='with-space'>按代币符号获取代币的信息，用来对代币进行一些操作。 <code>symbol</code> 为代币符号。返回代币对象。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回 <code>nil</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 symbol 不是一个代币的符号。</p></li>
+</ul>
+</blockquote>
+<h3 id='c81f0030'><span class='bd-content-title'>15.6 func TokenOfContract()<a class='anchorjs-link ' href='#c81f0030' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITokenHelper) TokenOfContract(contractAddr types.Address) IToken'>Copy</button><pre><code>func (ITokenHelper) TokenOfContract(contractAddr types.Address) IToken
+</code></pre>
+</figure>
+<p class='with-space'>根据合约地址获取该合约所注册的代币的信息，用来对代币进行一些操作。 <code>contractAddr</code> 为合约地址。返回代币对象。</p>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回 <code>nil</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>参数 contractAddr 不是地址；</p></li>
+<li>
+<p class='with-space'>参数 contractAddr 不是一个合约；</p></li>
+<li>
+<p class='with-space'>参数 contractAddr 对应的合约没有注册代币。</p></li>
+</ul>
+</blockquote>
+<h3 id='d3f20bd0'><span class='bd-content-title'>15.7 func BaseGasPrice()<a class='anchorjs-link ' href='#d3f20bd0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITokenHelper) BaseGasPrice() int64'>Copy</button><pre><code>func (ITokenHelper) BaseGasPrice() int64
+</code></pre>
+</figure>
+<p class='with-space'>返回基础燃料价格（单位： <code>cong</code> ）。</p>
+<h3 id='c39a0579'><span class='bd-content-title'>15.7 func CheckActivate()<a class='anchorjs-link ' href='#c39a0579' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (ITokenHelper) CheckActivate(address types.Address) error'>Copy</button><pre><code>func (ITokenHelper) CheckActivate(address types.Address) error
+</code></pre>
+</figure>
+<p class='with-space'>判断指定地址对应的侧链是否已经激活当前合约代币。 <code>address</code> 为普通账户地址。已激活返回nil。</p>
+<p class='with-space'>满足如下任意一条则发生异常，当异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'>参数 address 不是合法的地址格式。</p>
+</blockquote>
+<p class='with-space'>满足如下任意一条则发生错误，当错误时，返回 对应的错误对象：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>当前合约没有发行代币，返回错误信息： this contract not exist token；</p></li>
+<li>
+<p class='with-space'>对应侧链未激活当前合约对应的代币，返回错误信息：chain:<em>chainName</em>never activate current token；</p></li>
+</ul>
+</blockquote>
+<h2 id='fcccba1a'><span class='bd-content-title'>16 sdk/IStateHelper<a class='anchorjs-link ' href='#fcccba1a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IStateHelper</code> 封装了对存储状态进行访问的帮助对象。</p>
+<h3 id='d2e883cd'><span class='bd-content-title'>16.1 func Check()<a class='anchorjs-link ' href='#d2e883cd' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) Check(key string) bool'>Copy</button><pre><code>func (IStateHelper) Check(key string) bool
+</code></pre>
+</figure>
+<p class='with-space'>根据给定的KEY值，检测在智能合约被许可的范围内是否存在KEY值指定的数据。 <code>key</code> 为KEY值。</p>
+<h3 id='f0691559'><span class='bd-content-title'>16.2 func Get()<a class='anchorjs-link ' href='#f0691559' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) Get(key string, defaultData Interface{}) Interface{}
+func (IStateHelper) GetEx(key string, defaultData Interface{}) Interface{}'>Copy</button><pre><code>func (IStateHelper) Get(key string, defaultData Interface{}) Interface{}
+func (IStateHelper) GetEx(key string, defaultData Interface{}) Interface{}
+</code></pre>
+</figure>
+<p class='with-space'>根据给定的KEY值，在智能合约被许可的范围内读取数据。 <code>key</code> 为KEY值， defaultData 为Value对应存储对象类型的模板或默认值。如果数据不存在则 <code>Get()</code> 返回 nil ， <code>GetEx()</code> s返回默认值。</p>
+<p class='with-space'>下面是一些对基础类型封装的简便读取函数：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) GetInt(key string) int
+func (IStateHelper) GetInt8(key string) int8
+func (IStateHelper) GetInt16(key string) int16
+func (IStateHelper) GetInt32(key string) int32
+func (IStateHelper) GetInt64(key string) int64
+func (IStateHelper) GetUint(key string) uint
+func (IStateHelper) GetUint8(key string) uint8
+func (IStateHelper) GetUint16(key string) uint16
+func (IStateHelper) GetUint32(key string) uint32
+func (IStateHelper) GetUint64(key string) uint64
+func (IStateHelper) GetByte(key string) byte
+func (IStateHelper) GetBool(key string) bool
+func (IStateHelper) GetString(key string) string
+
+func (IStateHelper) GetInts(key string) []int
+func (IStateHelper) GetInt8s(key string) []int8
+func (IStateHelper) GetInt16s(key string) []int16
+func (IStateHelper) GetInt32s(key string) []int32
+func (IStateHelper) GetInt64s(key string) []int64
+func (IStateHelper) GetUints(key string) []uint
+func (IStateHelper) GetUint8s(key string) []uint8
+func (IStateHelper) GetUint16s(key string) []uint16
+func (IStateHelper) GetUint32s(key string) []uint32
+func (IStateHelper) GetUint64s(key string) []uint64
+func (IStateHelper) GetBytes(key string) []byte
+func (IStateHelper) GetBools(key string) []bool
+func (IStateHelper) GetStrings(key string) []string'>Copy</button><pre><code>func (IStateHelper) GetInt(key string) int
+func (IStateHelper) GetInt8(key string) int8
+func (IStateHelper) GetInt16(key string) int16
+func (IStateHelper) GetInt32(key string) int32
+func (IStateHelper) GetInt64(key string) int64
+func (IStateHelper) GetUint(key string) uint
+func (IStateHelper) GetUint8(key string) uint8
+func (IStateHelper) GetUint16(key string) uint16
+func (IStateHelper) GetUint32(key string) uint32
+func (IStateHelper) GetUint64(key string) uint64
+func (IStateHelper) GetByte(key string) byte
+func (IStateHelper) GetBool(key string) bool
+func (IStateHelper) GetString(key string) string
+
+func (IStateHelper) GetInts(key string) []int
+func (IStateHelper) GetInt8s(key string) []int8
+func (IStateHelper) GetInt16s(key string) []int16
+func (IStateHelper) GetInt32s(key string) []int32
+func (IStateHelper) GetInt64s(key string) []int64
+func (IStateHelper) GetUints(key string) []uint
+func (IStateHelper) GetUint8s(key string) []uint8
+func (IStateHelper) GetUint16s(key string) []uint16
+func (IStateHelper) GetUint32s(key string) []uint32
+func (IStateHelper) GetUint64s(key string) []uint64
+func (IStateHelper) GetBytes(key string) []byte
+func (IStateHelper) GetBools(key string) []bool
+func (IStateHelper) GetStrings(key string) []string
+</code></pre>
+</figure>
+<p class='with-space'>以上函数如果从状态数据库中读不到数据，直接返回对应基础类型的默认值。</p>
+<h3 id='f250f9e8'><span class='bd-content-title'>16.3 func Set()<a class='anchorjs-link ' href='#f250f9e8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) Set(key string, data Interface{})'>Copy</button><pre><code>func (IStateHelper) Set(key string, data Interface{})
+</code></pre>
+</figure>
+<p class='with-space'>将输入的数据保存到状态数据库智能合约被允许的KEY值下。 <code>key</code> 为KEY值， data 为要保存的数据对象。</p>
+<p class='with-space'>下面是一些对基础类型封装的简便设置函数：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) SetInt(key string, v int)
+func (IStateHelper) SetInt8(key string, v int8)
+func (IStateHelper) SetInt16(key string, v int16)
+func (IStateHelper) SetInt32(key string, v int32)
+func (IStateHelper) SetInt64(key string, v int64)
+func (IStateHelper) SetUint(key string, v uint)
+func (IStateHelper) SetUint8(key string, v uint8)
+func (IStateHelper) SetUint16(key string, v uint16)
+func (IStateHelper) SetUint32(key string, v uint32)
+func (IStateHelper) SetUint64(key string, v uint64)
+func (IStateHelper) SetByte(key string, v byte)
+func (IStateHelper) SetBool(key string, v bool)
+func (IStateHelper) SetString(key string, v string)
+
+func (IStateHelper) SetInts( key string, v []int )
+func (IStateHelper) SetInt8s( key string, v []int8 )
+func (IStateHelper) SetInt16s( key string, v []int16 )
+func (IStateHelper) SetInt32s( key string, v []int32 )
+func (IStateHelper) SetInt64s( key string, v []int64 )
+func (IStateHelper) SetUints( key string, v []uint )
+func (IStateHelper) SetUint8s( key string, v []uint8 )
+func (IStateHelper) SetUint16s( key string, v []uint16 )
+func (IStateHelper) SetUint32s( key string, v []uint32 )
+func (IStateHelper) SetUint64s( key string, v []uint64 )
+func (IStateHelper) SetBytes(key string, v []byte)
+func (IStateHelper) SetBools( key string, v []bool )
+func (IStateHelper) SetStrings( key string, v []string )'>Copy</button><pre><code>func (IStateHelper) SetInt(key string, v int)
+func (IStateHelper) SetInt8(key string, v int8)
+func (IStateHelper) SetInt16(key string, v int16)
+func (IStateHelper) SetInt32(key string, v int32)
+func (IStateHelper) SetInt64(key string, v int64)
+func (IStateHelper) SetUint(key string, v uint)
+func (IStateHelper) SetUint8(key string, v uint8)
+func (IStateHelper) SetUint16(key string, v uint16)
+func (IStateHelper) SetUint32(key string, v uint32)
+func (IStateHelper) SetUint64(key string, v uint64)
+func (IStateHelper) SetByte(key string, v byte)
+func (IStateHelper) SetBool(key string, v bool)
+func (IStateHelper) SetString(key string, v string)
+
+func (IStateHelper) SetInts( key string, v []int )
+func (IStateHelper) SetInt8s( key string, v []int8 )
+func (IStateHelper) SetInt16s( key string, v []int16 )
+func (IStateHelper) SetInt32s( key string, v []int32 )
+func (IStateHelper) SetInt64s( key string, v []int64 )
+func (IStateHelper) SetUints( key string, v []uint )
+func (IStateHelper) SetUint8s( key string, v []uint8 )
+func (IStateHelper) SetUint16s( key string, v []uint16 )
+func (IStateHelper) SetUint32s( key string, v []uint32 )
+func (IStateHelper) SetUint64s( key string, v []uint64 )
+func (IStateHelper) SetBytes(key string, v []byte)
+func (IStateHelper) SetBools( key string, v []bool )
+func (IStateHelper) SetStrings( key string, v []string )
+</code></pre>
+</figure>
+<p class='with-space'>将输入的数据保存到状态数据库智能合约被允许的KEY值下。 <code>key</code> 为KEY值， v 为基础类型数据值。</p>
+<h3 id='f191bfcc'><span class='bd-content-title'>16.4 func Delete()<a class='anchorjs-link ' href='#f191bfcc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) Delete(key string)'>Copy</button><pre><code>func (IStateHelper) Delete(key string)
+</code></pre>
+</figure>
+<p class='with-space'>在状态数据库中删除 <code>key</code> 值对应的数据。</p>
+<h3 id='e8c4fdd6'><span class='bd-content-title'>16.5 func Flush()<a class='anchorjs-link ' href='#e8c4fdd6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) Flush()'>Copy</button><pre><code>func (IStateHelper) Flush()
+</code></pre>
+</figure>
+<p class='with-space'>将对状态数据库的更新刷新到数据库层，不关闭事务。</p>
+<h3 id='c7b93a82'><span class='bd-content-title'>16.6 func McCheck()<a class='anchorjs-link ' href='#c7b93a82' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (sh *StateHelper) McCheck(key string) bool'>Copy</button><pre><code>func (sh *StateHelper) McCheck(key string) bool
+</code></pre>
+</figure>
+<p class='with-space'>根据给定的KEY值，检测在智能合约被许可的范围内是否存在KEY值指定的数据，包括缓存与数据库。 <code>key</code> 为KEY值，如果存在将被自动加载到缓存中来。</p>
+<h3 id='b015abbe'><span class='bd-content-title'>16.7 func McGet()<a class='anchorjs-link ' href='#b015abbe' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) McGet(key string, defaultData Interface{}) Interface{}
+func (IStateHelper) McGetEx(key string, defaultData Interface{}) Interface{}'>Copy</button><pre><code>func (IStateHelper) McGet(key string, defaultData Interface{}) Interface{}
+func (IStateHelper) McGetEx(key string, defaultData Interface{}) Interface{}
+</code></pre>
+</figure>
+<p class='with-space'>根据给定的KEY值，在智能合约被许可的范围内读取数据，并将数据缓存在内存中，在后续智能合约的调用消息中可以直接从内存中读取，而不需要再次访问数据库。 <code>key</code> 为KEY值， defaultData 为Value对应存储对象类型的模板或默认值。如果数据不存在则 <code>McGet()</code> 返回 nil ， <code>McGetEx()</code> 返回默认值。</p>
+<p class='with-space'>下面是一些对基础类型封装的简便读取函数：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) McGetInt(key string) int
+func (IStateHelper) McGetInt8(key string) int8
+func (IStateHelper) McGetInt16(key string) int16
+func (IStateHelper) McGetInt32(key string) int32
+func (IStateHelper) McGetInt64(key string) int64
+func (IStateHelper) McGetUint(key string) uint
+func (IStateHelper) McGetUint8(key string) uint8
+func (IStateHelper) McGetUint16(key string) uint16
+func (IStateHelper) McGetUint32(key string) uint32
+func (IStateHelper) McGetUint64(key string) uint64
+func (IStateHelper) McGetByte(key string) byte
+func (IStateHelper) McGetBool(key string) bool
+func (IStateHelper) McGetString(key string) string
+
+func (IStateHelper) McGetInts(key string) []int
+func (IStateHelper) McGetInt8s(key string) []int8
+func (IStateHelper) McGetInt16s(key string) []int16
+func (IStateHelper) McGetInt32s(key string) []int32
+func (IStateHelper) McGetInt64s(key string) []int64
+func (IStateHelper) McGetUints(key string) []uint
+func (IStateHelper) McGetUint8s(key string) []uint8
+func (IStateHelper) McGetUint16s(key string) []uint16
+func (IStateHelper) McGetUint32s(key string) []uint32
+func (IStateHelper) McGetUint64s(key string) []uint64
+func (IStateHelper) McGetBytes(key string) []byte
+func (IStateHelper) McGetBools(key string) []bool
+func (IStateHelper) McGetStrings(key string) []string'>Copy</button><pre><code>func (IStateHelper) McGetInt(key string) int
+func (IStateHelper) McGetInt8(key string) int8
+func (IStateHelper) McGetInt16(key string) int16
+func (IStateHelper) McGetInt32(key string) int32
+func (IStateHelper) McGetInt64(key string) int64
+func (IStateHelper) McGetUint(key string) uint
+func (IStateHelper) McGetUint8(key string) uint8
+func (IStateHelper) McGetUint16(key string) uint16
+func (IStateHelper) McGetUint32(key string) uint32
+func (IStateHelper) McGetUint64(key string) uint64
+func (IStateHelper) McGetByte(key string) byte
+func (IStateHelper) McGetBool(key string) bool
+func (IStateHelper) McGetString(key string) string
+
+func (IStateHelper) McGetInts(key string) []int
+func (IStateHelper) McGetInt8s(key string) []int8
+func (IStateHelper) McGetInt16s(key string) []int16
+func (IStateHelper) McGetInt32s(key string) []int32
+func (IStateHelper) McGetInt64s(key string) []int64
+func (IStateHelper) McGetUints(key string) []uint
+func (IStateHelper) McGetUint8s(key string) []uint8
+func (IStateHelper) McGetUint16s(key string) []uint16
+func (IStateHelper) McGetUint32s(key string) []uint32
+func (IStateHelper) McGetUint64s(key string) []uint64
+func (IStateHelper) McGetBytes(key string) []byte
+func (IStateHelper) McGetBools(key string) []bool
+func (IStateHelper) McGetStrings(key string) []string
+</code></pre>
+</figure>
+<p class='with-space'>以上函数如果从状态数据库中读不到数据，直接返回对应基础类型的默认值。</p>
+<h3 id='fbf500cc'><span class='bd-content-title'>16.8 func McSet()<a class='anchorjs-link ' href='#fbf500cc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) McSet(key string, data Interface{})'>Copy</button><pre><code>func (IStateHelper) McSet(key string, data Interface{})
+</code></pre>
+</figure>
+<p class='with-space'>将输入的数据保存到状态数据库智能合约被允许的KEY值下，同时更新内存缓存，在后续智能合约的调用消息中可以直接从内存中读取，而不需要再次访问数据库。 <code>key</code> 为KEY值， data 为要保存的数据对象。</p>
+<p class='with-space'>下面是一些对基础类型封装的简便设置函数：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) McSetInt(key string, v int)
+func (IStateHelper) McSetInt8(key string, v int8)
+func (IStateHelper) McSetInt16(key string, v int16)
+func (IStateHelper) McSetInt32(key string, v int32)
+func (IStateHelper) McSetInt64(key string, v int64)
+func (IStateHelper) McSetUint(key string, v uint)
+func (IStateHelper) McSetUint8(key string, v uint8)
+func (IStateHelper) McSetUint16(key string, v uint16)
+func (IStateHelper) McSetUint32(key string, v uint32)
+func (IStateHelper) McSetUint64(key string, v uint64)
+func (IStateHelper) McSetByte(key string, v byte)
+func (IStateHelper) McSetBool(key string, v bool)
+func (IStateHelper) McSetString(key string, v string)
+
+func (IStateHelper) McSetInts( key string, v []int )
+func (IStateHelper) McSetInt8s( key string, v []int8 )
+func (IStateHelper) McSetInt16s( key string, v []int16 )
+func (IStateHelper) McSetInt32s( key string, v []int32 )
+func (IStateHelper) McSetInt64s( key string, v []int64 )
+func (IStateHelper) McSetUints( key string, v []uint )
+func (IStateHelper) McSetUint8s( key string, v []uint8 )
+func (IStateHelper) McSetUint16s( key string, v []uint16 )
+func (IStateHelper) McSetUint32s( key string, v []uint32 )
+func (IStateHelper) McSetUint64s( key string, v []uint64 )
+func (IStateHelper) McSetBytes(key string, v []byte)
+func (IStateHelper) McSetBools( key string, v []bool )
+func (IStateHelper) McSetStrings( key string, v []string )'>Copy</button><pre><code>func (IStateHelper) McSetInt(key string, v int)
+func (IStateHelper) McSetInt8(key string, v int8)
+func (IStateHelper) McSetInt16(key string, v int16)
+func (IStateHelper) McSetInt32(key string, v int32)
+func (IStateHelper) McSetInt64(key string, v int64)
+func (IStateHelper) McSetUint(key string, v uint)
+func (IStateHelper) McSetUint8(key string, v uint8)
+func (IStateHelper) McSetUint16(key string, v uint16)
+func (IStateHelper) McSetUint32(key string, v uint32)
+func (IStateHelper) McSetUint64(key string, v uint64)
+func (IStateHelper) McSetByte(key string, v byte)
+func (IStateHelper) McSetBool(key string, v bool)
+func (IStateHelper) McSetString(key string, v string)
+
+func (IStateHelper) McSetInts( key string, v []int )
+func (IStateHelper) McSetInt8s( key string, v []int8 )
+func (IStateHelper) McSetInt16s( key string, v []int16 )
+func (IStateHelper) McSetInt32s( key string, v []int32 )
+func (IStateHelper) McSetInt64s( key string, v []int64 )
+func (IStateHelper) McSetUints( key string, v []uint )
+func (IStateHelper) McSetUint8s( key string, v []uint8 )
+func (IStateHelper) McSetUint16s( key string, v []uint16 )
+func (IStateHelper) McSetUint32s( key string, v []uint32 )
+func (IStateHelper) McSetUint64s( key string, v []uint64 )
+func (IStateHelper) McSetBytes(key string, v []byte)
+func (IStateHelper) McSetBools( key string, v []bool )
+func (IStateHelper) McSetStrings( key string, v []string )
+</code></pre>
+</figure>
+<p class='with-space'>将输入的数据保存到状态数据库智能合约被允许的KEY值下，同时更新内存缓存，在后续智能合约的调用消息中可以直接从内存中读取，而不需要再次访问数据库。 <code>key</code> 为KEY值， v 为基础类型数据值。</p>
+<h3 id='b08e7816'><span class='bd-content-title'>16.9 func McClear()<a class='anchorjs-link ' href='#b08e7816' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) McClear(key string)'>Copy</button><pre><code>func (IStateHelper) McClear(key string)
+</code></pre>
+</figure>
+<p class='with-space'>清除内存缓存中指定的数据（保留状态数据库中的数据）。 <code>key</code> 为KEY值。</p>
+<h3 id='a4d3322a'><span class='bd-content-title'>16.10 func McDelete()<a class='anchorjs-link ' href='#a4d3322a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IStateHelper) McDelete(key string)'>Copy</button><pre><code>func (IStateHelper) McDelete(key string)
+</code></pre>
+</figure>
+<p class='with-space'>在状态数据库中删除 <code>key</code> 值对应的数据，同时从缓存中清除 key 值对应的数据。</p>
+<h2 id='b5c11852'><span class='bd-content-title'>17 sdk/IIBCHelper<a class='anchorjs-link ' href='#b5c11852' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IIBCHelper</code> 封装了发起跨链交易或通知的帮助对象。</p>
+<h3 id='a672c789'><span class='bd-content-title'>17.1 func IbcHash()<a class='anchorjs-link ' href='#a672c789' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IIBCHelper) IbcHash(toChainID string) types.Hash'>Copy</button><pre><code>func (IIBCHelper) IbcHash(toChainID string) types.Hash
+</code></pre>
+</figure>
+<p class='with-space'>根据目标链ID、当前链ID和当前交易Hash计算跨链事务Hash。 <code>toChainID</code> 为目标链ID。</p>
+<h3 id='f7224826'><span class='bd-content-title'>17.2 func Run()<a class='anchorjs-link ' href='#f7224826' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IIBCHelper) Run(f func()) IIBCHelper'>Copy</button><pre><code>func (IIBCHelper) Run(f func()) IIBCHelper
+</code></pre>
+</figure>
+<p class='with-space'>执行需要产生跨链收据的代码段，返回当前对象。 <code>f</code> 为封装代码段的函数。</p>
+<h3 id='a8d7430c'><span class='bd-content-title'>17.3 func Register()<a class='anchorjs-link ' href='#a8d7430c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IIBCHelper) Register(toChainID string)'>Copy</button><pre><code>func (IIBCHelper) Register(toChainID string)
+</code></pre>
+</figure>
+<p class='with-space'>注册跨链事务。 <code>toChainID</code> 为目标链ID值。</p>
+<p class='with-space'>当满足如下任一条件时产生异常，当异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>调用该接口的合约接口被跨合约调用。</p></li>
+<li>
+<p class='with-space'>链未部署IBC合约或IBC合约未生效。</p></li>
+<li>
+<p class='with-space'>IBC合约的事务注册接口处理产生错误。</p></li>
+</ul>
+</blockquote>
+<h3 id='c2f07214'><span class='bd-content-title'>17.4 func Notify()<a class='anchorjs-link ' href='#c2f07214' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IIBCHelper) Notify(toChainIDs []string)'>Copy</button><pre><code>func (IIBCHelper) Notify(toChainIDs []string)
+</code></pre>
+</figure>
+<p class='with-space'>发起跨链通知。 <code>toChainIDs</code> 为目标链ID列表值。</p>
+<p class='with-space'>当满足如下任一条件时产生异常，当异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>调用该接口的合约接口被跨合约调用。</p></li>
+<li>
+<p class='with-space'>目标链ID列表中的所有元素都为无效链ID。</p></li>
+<li>
+<p class='with-space'>链未部署IBC合约或IBC合约未生效。</p></li>
+<li>
+<p class='with-space'>IBC合约的事务注册接口处理产生错误。</p></li>
+</ul>
+</blockquote>
+<h3 id='f2dcd48b'><span class='bd-content-title'>17.5 func Broadcast()<a class='anchorjs-link ' href='#f2dcd48b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IIBCHelper) Broadcast() types.Hash'>Copy</button><pre><code>func (IIBCHelper) Broadcast() types.Hash
+</code></pre>
+</figure>
+<p class='with-space'>发起跨链广播。</p>
+<p class='with-space'>当满足如下任一条件时产生异常，当异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>调用该接口的合约接口被跨合约调用。</p></li>
+<li>
+<p class='with-space'>链未部署IBC合约或IBC合约未生效。</p></li>
+<li>
+<p class='with-space'>IBC合约的事务注册接口处理产生错误。</p></li>
+</ul>
+</blockquote>
+<h3 id='d0931d38'><span class='bd-content-title'>17.6 func CalcBlockHash()<a class='anchorjs-link ' href='#d0931d38' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IIBCHelper) CalcBlockHash(h *ibc.Header) types.Hash'>Copy</button><pre><code>func (IIBCHelper) CalcBlockHash(h *ibc.Header) types.Hash
+</code></pre>
+</figure>
+<p class='with-space'>根据区块头计算区块Hash。 <code>h</code> 为区块头对象。</p>
+<p class='with-space'>当满足如下任一条件时产生异常，当异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>区块头对象为nil。</p></li>
+<li>
+<p class='with-space'>区块头中的时间字符串不是正确的格式。</p></li>
+</ul>
+</blockquote>
+<h3 id='acd5818f'><span class='bd-content-title'>17.7 func CalcQueueHash()<a class='anchorjs-link ' href='#acd5818f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IIBCHelper) CalcQueueHash(packet ibc.Packet, lastQueueHash types.Hash) types.Hash'>Copy</button><pre><code>func (IIBCHelper) CalcQueueHash(packet ibc.Packet, lastQueueHash types.Hash) types.Hash
+</code></pre>
+</figure>
+<p class='with-space'>根据消息数据及上一个队列Hash计算队列当前节点Hash。 <code>packet</code> 为当前消息值。 lastQueueHash 为上一个Hash队列节点。</p>
+<h3 id='be6fc7bd'><span class='bd-content-title'>17.8 func VerifyPrecommit()<a class='anchorjs-link ' href='#be6fc7bd' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func (IIBCHelper) VerifyPrecommit(
+                            pubKey types.PubKey, 
+                            precommit ibc.Precommit, 
+                            chainID string, 
+                            height int64) bool'>Copy</button><pre><code>func (IIBCHelper) VerifyPrecommit(
+                            pubKey types.PubKey, 
+                            precommit ibc.Precommit, 
+                            chainID string, 
+                            height int64) bool
+</code></pre>
+</figure>
+<p class='with-space'>校验区块证明数据。 <code>pubKey</code> 为发起链验证者节点公钥值。 precommit 为发起链验证者节点投票数据。 <code>chainID</code> 为发起链ID。 height 为发起链发起跨链事务证明数据的区块高度。</p>
+<p class='with-space'>当满足如下任一条件时产生异常，当异常时，将会自动触发SDK进行 <code>panic</code> ：</p>
+<blockquote class='bd-callout with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>投票信息中的时间字符串不是正确的格式。</p></li>
+</ul>
+</blockquote>
+<h2 id='cfabbbf7'><span class='bd-content-title'>18 sdk/IIBCStubHelper<a class='anchorjs-link ' href='#cfabbbf7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>接口 <code>sdk/IIBCStubHelper</code> 封装了处理跨链事务的帮助对象，理论上合约中并不需要使用该对象。</p>
+<h3 id='bdfc64ef'><span class='bd-content-title'>18.1 func Recast()<a class='anchorjs-link ' href='#bdfc64ef' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Recast(ibcHash types.HexBytes, 
+            orgID, contractName string, 
+            receipts []types.KVPair) (bool, []types.KVPair, types.Error)'>Copy</button><pre><code>func Recast(ibcHash types.HexBytes, 
+            orgID, contractName string, 
+            receipts []types.KVPair) (bool, []types.KVPair, types.Error)
+</code></pre>
+</figure>
+<p class='with-space'>资产重铸接口。 <code>ibcHash</code> 为跨链事务Hash值。 orgID 为应用合约所属组织。 <code>contractName</code> 为应用合约名称。 receipts 为跨链收据信息。</p>
+<h3 id='b5abdd41'><span class='bd-content-title'>18.2 func Confirm()<a class='anchorjs-link ' href='#b5abdd41' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Confirm(   ibcHash types.HexBytes, 
+                orgID, contractName string, 
+                receipts []types.KVPair) ([]types.KVPair, types.Error)'>Copy</button><pre><code>func Confirm(   ibcHash types.HexBytes, 
+                orgID, contractName string, 
+                receipts []types.KVPair) ([]types.KVPair, types.Error)
+</code></pre>
+</figure>
+<p class='with-space'>跨链事务确认接口。 <code>ibcHash</code> 为跨链事务Hash值。 orgID 为应用合约所属组织。 <code>contractName</code> 为应用合约名称。 receipts 为跨链收据信息。</p>
+<h3 id='b3663820'><span class='bd-content-title'>18.3 func Cancel()<a class='anchorjs-link ' href='#b3663820' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Cancel(ibcHash types.HexBytes, 
+            orgID, contractName string, 
+            receipts []types.KVPair) ([]types.KVPair, types.Error)'>Copy</button><pre><code>func Cancel(ibcHash types.HexBytes, 
+            orgID, contractName string, 
+            receipts []types.KVPair) ([]types.KVPair, types.Error)
+</code></pre>
+</figure>
+<p class='with-space'>跨链事务取消接口。 <code>ibcHash</code> 为跨链事务Hash值。 orgID 为应用合约所属组织。 <code>contractName</code> 为应用合约名称。 receipts 为跨链收据信息。</p>
+<h3 id='f4b8b305'><span class='bd-content-title'>18.4 func TryRecast()<a class='anchorjs-link ' href='#f4b8b305' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func TryRecast( ibcHash types.HexBytes, 
+                orgID, contractName string, 
+                receipts []types.KVPair) (bool, []types.KVPair, types.Error)'>Copy</button><pre><code>func TryRecast( ibcHash types.HexBytes, 
+                orgID, contractName string, 
+                receipts []types.KVPair) (bool, []types.KVPair, types.Error)
+</code></pre>
+</figure>
+<p class='with-space'>跨链资产预重铸接口。 <code>ibcHash</code> 为跨链事务Hash值。 orgID 为应用合约所属组织。 <code>contractName</code> 为应用合约名称。 receipts 为跨链收据信息。</p>
+<h3 id='a0bd10d0'><span class='bd-content-title'>18.5 func ConfirmRecast()<a class='anchorjs-link ' href='#a0bd10d0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func ConfirmRecast( ibcHash types.HexBytes, 
+                    orgID, contractName string, 
+                    receipts []types.KVPair) ([]types.KVPair, types.Error)'>Copy</button><pre><code>func ConfirmRecast( ibcHash types.HexBytes, 
+                    orgID, contractName string, 
+                    receipts []types.KVPair) ([]types.KVPair, types.Error)
+</code></pre>
+</figure>
+<p class='with-space'>跨链事务中转确认接口。 <code>ibcHash</code> 为跨链事务Hash值。 orgID 为应用合约所属组织。 <code>contractName</code> 为应用合约名称。 receipts 为跨链收据信息。</p>
+<h3 id='b1ff0584'><span class='bd-content-title'>18.6 func CancelRecast()<a class='anchorjs-link ' href='#b1ff0584' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func CancelRecast(  ibcHash types.HexBytes, 
+                    orgID, contractName string, 
+                    receipts []types.KVPair) ([]types.KVPair, types.Error)'>Copy</button><pre><code>func CancelRecast(  ibcHash types.HexBytes, 
+                    orgID, contractName string, 
+                    receipts []types.KVPair) ([]types.KVPair, types.Error)
+</code></pre>
+</figure>
+<p class='with-space'>跨链事务中转取消接口。 <code>ibcHash</code> 为跨链事务Hash值。 orgID 为应用合约所属组织。 <code>contractName</code> 为应用合约名称。 receipts 为跨链收据信息。</p>
+<h3 id='e46e7650'><span class='bd-content-title'>18.7 func Notify()<a class='anchorjs-link ' href='#e46e7650' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>函数原型：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func Notify(ibcHash types.HexBytes, 
+            orgID, contractName string, 
+            receipts []types.KVPair) ([]types.KVPair, types.Error)'>Copy</button><pre><code>func Notify(ibcHash types.HexBytes, 
+            orgID, contractName string, 
+            receipts []types.KVPair) ([]types.KVPair, types.Error)
+</code></pre>
+</figure>
+<p class='with-space'>跨链通知接口。 <code>ibcHash</code> 为跨链事务Hash值。 orgID 为应用合约所属组织。 <code>contractName</code> 为应用合约名称。 receipts 为跨链收据信息。</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/bcbchain/docs/blob/master/docs/zh-cn/06-开发参考\02-智能合约API\08-Interfaces.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#c52e45f1'>Interfaces</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#db7629c4'>1 sdk/ISmartContract</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#f80ed4d2'>1.1 func Block()</a>
+<a class='ml-2 my-1 nav-link' href='#fd8a79b7'>1.2 func Tx()</a>
+<a class='ml-2 my-1 nav-link' href='#b285cdb6'>1.3 func Message()</a>
+<a class='ml-2 my-1 nav-link' href='#abc28d68'>1.4 func Helper()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#c9d46820'>2 sdk/IBlock</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#f2304512'>2.1 func ChainID()</a>
+<a class='ml-2 my-1 nav-link' href='#b0243e98'>2.2 func BlockHash()</a>
+<a class='ml-2 my-1 nav-link' href='#ccc4084f'>2.3 func Height()</a>
+<a class='ml-2 my-1 nav-link' href='#af64f8a6'>2.4 func Time()</a>
+<a class='ml-2 my-1 nav-link' href='#b9614065'>2.5 func Now()</a>
+<a class='ml-2 my-1 nav-link' href='#f27df790'>2.6 func NumTxs()</a>
+<a class='ml-2 my-1 nav-link' href='#cb5e1f85'>2.7 func DataHash()</a>
+<a class='ml-2 my-1 nav-link' href='#cf20199e'>2.8 func ProposerAddress()</a>
+<a class='ml-2 my-1 nav-link' href='#c2a807e1'>2.9 func RewardAddress()</a>
+<a class='ml-2 my-1 nav-link' href='#c32b8f44'>2.10 func RandomNumber()</a>
+<a class='ml-2 my-1 nav-link' href='#a30b4ae5'>2.11 func Version()</a>
+<a class='ml-2 my-1 nav-link' href='#ba58919e'>2.12 func LastBlockHash()</a>
+<a class='ml-2 my-1 nav-link' href='#ce09bc48'>2.13 func LastCommitHash()</a>
+<a class='ml-2 my-1 nav-link' href='#d088c6e2'>2.14 func LastAppHash()</a>
+<a class='ml-2 my-1 nav-link' href='#b982857d'>2.15 func LastFee()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#b53ee134'>3 sdk/ITx</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#e827d73b'>3.1 func Note()</a>
+<a class='ml-2 my-1 nav-link' href='#fbd2101b'>3.2 func GasLimit()</a>
+<a class='ml-2 my-1 nav-link' href='#fbf06f37'>3.3 func GasLeft()</a>
+<a class='ml-2 my-1 nav-link' href='#c81448ee'>3.4 func Signer()</a>
+<a class='ml-2 my-1 nav-link' href='#ac899803'>3.5 func TxHash()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#a8e78ae1'>4 sdk/IMessage</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#d39e172d'>4.1 func Contract()</a>
+<a class='ml-2 my-1 nav-link' href='#fca1c395'>4.2 func MethodID()</a>
+<a class='ml-2 my-1 nav-link' href='#a9df7cd9'>4.3 func Items()</a>
+<a class='ml-2 my-1 nav-link' href='#ec146c8f'>4.4 func GasPrice()</a>
+<a class='ml-2 my-1 nav-link' href='#ca40d1fa'>4.5 func Sender()</a>
+<a class='ml-2 my-1 nav-link' href='#ab27cb16'>4.6 func Payer()</a>
+<a class='ml-2 my-1 nav-link' href='#d2d226fc'>4.7 func Origins()</a>
+<a class='ml-2 my-1 nav-link' href='#f07af95c'>4.8 func InputReceipts()</a>
+<a class='ml-2 my-1 nav-link' href='#c4794d8a'>4.9 func GetTransferToMe()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#c6c69cb0'>5 sdk/IAccount</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#a003af51'>5.1 func Address()</a>
+<a class='ml-2 my-1 nav-link' href='#e5b9d48c'>5.2 func PubKey()</a>
+<a class='ml-2 my-1 nav-link' href='#d0a528ab'>5.3 func Balance()</a>
+<a class='ml-2 my-1 nav-link' href='#fce73f4c'>5.4 func BalanceOfToken()</a>
+<a class='ml-2 my-1 nav-link' href='#a9a10d9a'>5.5 func BalanceOfName()</a>
+<a class='ml-2 my-1 nav-link' href='#d9721be1'>5.6 func BalanceOfSymbol()</a>
+<a class='ml-2 my-1 nav-link' href='#aceae44a'>5.7 func Transfer()</a>
+<a class='ml-2 my-1 nav-link' href='#b3ff53fb'>5.8 func TransferWithNote()</a>
+<a class='ml-2 my-1 nav-link' href='#aaec8de9'>5.9 func TransferWithNoteEx()</a>
+<a class='ml-2 my-1 nav-link' href='#fedddf44'>5.10 func TransferByToken()</a>
+<a class='ml-2 my-1 nav-link' href='#fde8ff62'>5.11 func TransferByTokenWithNote()</a>
+<a class='ml-2 my-1 nav-link' href='#c01d682b'>5.12 func TransferByName()</a>
+<a class='ml-2 my-1 nav-link' href='#b5b4f061'>5.13 func TransferByNameWithNote()</a>
+<a class='ml-2 my-1 nav-link' href='#ecd5ac81'>5.14 func TransferBySymbol()</a>
+<a class='ml-2 my-1 nav-link' href='#bf04f600'>5.15 func TransferBySymbolWithNote()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#dc71620c'>6 sdk/IContract</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#c2b12b90'>6.1 func Address()</a>
+<a class='ml-2 my-1 nav-link' href='#f26b2384'>6.2 func Account()</a>
+<a class='ml-2 my-1 nav-link' href='#d38c254d'>6.3 func Owner()</a>
+<a class='ml-2 my-1 nav-link' href='#dd10c804'>6.4 func Name()</a>
+<a class='ml-2 my-1 nav-link' href='#d39a3faa'>6.5 func Version()</a>
+<a class='ml-2 my-1 nav-link' href='#d2c68d3d'>6.6 func CodeHash()</a>
+<a class='ml-2 my-1 nav-link' href='#cfa6ea4e'>6.7 func EffectHeigt()</a>
+<a class='ml-2 my-1 nav-link' href='#e27acc12'>6.8 func LoseHeight()</a>
+<a class='ml-2 my-1 nav-link' href='#c93ce4d6'>6.9 func KeyPrefix()</a>
+<a class='ml-2 my-1 nav-link' href='#bd8b34a5'>6.10 func Methods()</a>
+<a class='ml-2 my-1 nav-link' href='#e115f86e'>6.11 func Interfaces()</a>
+<a class='ml-2 my-1 nav-link' href='#bd978b16'>6.12 func IBCs()</a>
+<a class='ml-2 my-1 nav-link' href='#c5ff9a47'>6.13 func Mine()</a>
+<a class='ml-2 my-1 nav-link' href='#d5f787ac'>6.14 func Token()</a>
+<a class='ml-2 my-1 nav-link' href='#bf612e3b'>6.15 func OrgID()</a>
+<a class='ml-2 my-1 nav-link' href='#f6b407c5'>6.16 func ChainVersion()</a>
+<a class='ml-2 my-1 nav-link' href='#ed1d92ff'>6.17 func SetOwner()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#fc9feed1'>7 sdk/IToken</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#b9c1ae26'>7.1 func Address()</a>
+<a class='ml-2 my-1 nav-link' href='#b7051b9f'>7.2 func Owner()</a>
+<a class='ml-2 my-1 nav-link' href='#f96ca3b6'>7.3 func Name()</a>
+<a class='ml-2 my-1 nav-link' href='#c214df57'>7.4 func Symbol()</a>
+<a class='ml-2 my-1 nav-link' href='#a1967e82'>7.5 func TotalSupply()</a>
+<a class='ml-2 my-1 nav-link' href='#da24a133'>7.6 func AddSupplyEnabled()</a>
+<a class='ml-2 my-1 nav-link' href='#d472ba46'>7.7 func BurnEnabled()</a>
+<a class='ml-2 my-1 nav-link' href='#d42b4ee3'>7.8 func GasPrice()</a>
+<a class='ml-2 my-1 nav-link' href='#c7bfe657'>7.9 func SetTotalSupply()</a>
+<a class='ml-2 my-1 nav-link' href='#d57af4c1'>7.10 func SetGasPrice()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#f739f81c'>8 sdk/IHelper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#ff1d7664'>8.1 func AccountHelper()</a>
+<a class='ml-2 my-1 nav-link' href='#f4605d3b'>8.2 func BlockchainHelper()</a>
+<a class='ml-2 my-1 nav-link' href='#cd00c63e'>8.3 func BuildHelper()</a>
+<a class='ml-2 my-1 nav-link' href='#b5610fe5'>8.4 func ContractHelper()</a>
+<a class='ml-2 my-1 nav-link' href='#e0cd9192'>8.5 func GenesisHelper()</a>
+<a class='ml-2 my-1 nav-link' href='#d8d944ce'>8.6 func ReceiptHelper()</a>
+<a class='ml-2 my-1 nav-link' href='#a13cad02'>8.7 func TokenHelper()</a>
+<a class='ml-2 my-1 nav-link' href='#af91437a'>8.8 func StateHelper()</a>
+<a class='ml-2 my-1 nav-link' href='#ab4c6e66'>8.9 func IBCHelper()</a>
+<a class='ml-2 my-1 nav-link' href='#bfd377e3'>8.10 func IBCStubHelper()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#a6bcd99c'>9 sdk/IAccountHelper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#f4374149'>9.1 func AccountOf()</a>
+<a class='ml-2 my-1 nav-link' href='#ffd1cb04'>9.2 func AccountOfPubKey()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#ec8b53ad'>10 sdk/IBlockChainHelper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#a102c231'>10.1 func IsPeerChainAddress()</a>
+<a class='ml-2 my-1 nav-link' href='#d877c9db'>10.2 func IsSideChain()</a>
+<a class='ml-2 my-1 nav-link' href='#b303b4e6'>10.3 func CalcSideChainID()</a>
+<a class='ml-2 my-1 nav-link' href='#e71aad63'>10.4 func CalcAccountFromPubkey()</a>
+<a class='ml-2 my-1 nav-link' href='#bab1a20c'>10.5 func CalcAccountFromName()</a>
+<a class='ml-2 my-1 nav-link' href='#ba716bcd'>10.6 func CalcContractAddress()</a>
+<a class='ml-2 my-1 nav-link' href='#d06217b0'>10.7 func RecalcAddress()</a>
+<a class='ml-2 my-1 nav-link' href='#a80590c2'>10.8 func CalcOrgID()</a>
+<a class='ml-2 my-1 nav-link' href='#cfa522e1'>10.9 func CheckAddress()</a>
+<a class='ml-2 my-1 nav-link' href='#d9d71c36'>10.10 func CheckAddressEx()</a>
+<a class='ml-2 my-1 nav-link' href='#dcda7117'>10.11 func GetBlock()</a>
+<a class='ml-2 my-1 nav-link' href='#db97778e'>10.12 func GetTx()</a>
+<a class='ml-2 my-1 nav-link' href='#ee990b7d'>10.13 func GetChainID()</a>
+<a class='ml-2 my-1 nav-link' href='#a7a9b67c'>10.14 func GetMainChainID()</a>
+<a class='ml-2 my-1 nav-link' href='#dd0d0bb3'>10.15 func FormatTime()</a>
+<a class='ml-2 my-1 nav-link' href='#a5a8a940'>10.16 func ParseTime()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#e90093d7'>11 sdk/IBuildHelper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#b7b1ba7d'>11.1 func Build()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#f139deae'>12 sdk/IContractHelper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#cf67a610'>12.1 func ContractOfAddress()</a>
+<a class='ml-2 my-1 nav-link' href='#e16519ad'>12.2 func ContractOfToken()</a>
+<a class='ml-2 my-1 nav-link' href='#f6b4709f'>12.3 func ContractOfName()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#a5998703'>13 sdk/IReceiptHelper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#dc49b344'>13.1 func Emit()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#b13d05ff'>14 sdk/IGenesisHelper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#ccc32985'>14.1 func ChainID()</a>
+<a class='ml-2 my-1 nav-link' href='#b200b5e2'>14.2 func OrgID()</a>
+<a class='ml-2 my-1 nav-link' href='#e8392550'>14.3 func Contracts()</a>
+<a class='ml-2 my-1 nav-link' href='#ad1a1eae'>14.4 func Token()</a>
+<a class='ml-2 my-1 nav-link' href='#ec3e7c65'>14.5 func GasPriceRatio()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#ccf961e0'>15 sdk/ITokenHelper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#b48d3850'>15.1 func RegisterToken()</a>
+<a class='ml-2 my-1 nav-link' href='#afad3553'>15.2 func Token()</a>
+<a class='ml-2 my-1 nav-link' href='#a546297d'>15.3 func TokenOfAddress()</a>
+<a class='ml-2 my-1 nav-link' href='#cb440dc5'>15.4 func TokenOfName()</a>
+<a class='ml-2 my-1 nav-link' href='#e7282289'>15.5 func TokenOfSymbol()</a>
+<a class='ml-2 my-1 nav-link' href='#c81f0030'>15.6 func TokenOfContract()</a>
+<a class='ml-2 my-1 nav-link' href='#d3f20bd0'>15.7 func BaseGasPrice()</a>
+<a class='ml-2 my-1 nav-link' href='#c39a0579'>15.7 func CheckActivate()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#fcccba1a'>16 sdk/IStateHelper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#d2e883cd'>16.1 func Check()</a>
+<a class='ml-2 my-1 nav-link' href='#f0691559'>16.2 func Get()</a>
+<a class='ml-2 my-1 nav-link' href='#f250f9e8'>16.3 func Set()</a>
+<a class='ml-2 my-1 nav-link' href='#f191bfcc'>16.4 func Delete()</a>
+<a class='ml-2 my-1 nav-link' href='#e8c4fdd6'>16.5 func Flush()</a>
+<a class='ml-2 my-1 nav-link' href='#c7b93a82'>16.6 func McCheck()</a>
+<a class='ml-2 my-1 nav-link' href='#b015abbe'>16.7 func McGet()</a>
+<a class='ml-2 my-1 nav-link' href='#fbf500cc'>16.8 func McSet()</a>
+<a class='ml-2 my-1 nav-link' href='#b08e7816'>16.9 func McClear()</a>
+<a class='ml-2 my-1 nav-link' href='#a4d3322a'>16.10 func McDelete()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#b5c11852'>17 sdk/IIBCHelper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#a672c789'>17.1 func IbcHash()</a>
+<a class='ml-2 my-1 nav-link' href='#f7224826'>17.2 func Run()</a>
+<a class='ml-2 my-1 nav-link' href='#a8d7430c'>17.3 func Register()</a>
+<a class='ml-2 my-1 nav-link' href='#c2f07214'>17.4 func Notify()</a>
+<a class='ml-2 my-1 nav-link' href='#f2dcd48b'>17.5 func Broadcast()</a>
+<a class='ml-2 my-1 nav-link' href='#d0931d38'>17.6 func CalcBlockHash()</a>
+<a class='ml-2 my-1 nav-link' href='#acd5818f'>17.7 func CalcQueueHash()</a>
+<a class='ml-2 my-1 nav-link' href='#be6fc7bd'>17.8 func VerifyPrecommit()</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#cfabbbf7'>18 sdk/IIBCStubHelper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#bdfc64ef'>18.1 func Recast()</a>
+<a class='ml-2 my-1 nav-link' href='#b5abdd41'>18.2 func Confirm()</a>
+<a class='ml-2 my-1 nav-link' href='#b3663820'>18.3 func Cancel()</a>
+<a class='ml-2 my-1 nav-link' href='#f4b8b305'>18.4 func TryRecast()</a>
+<a class='ml-2 my-1 nav-link' href='#a0bd10d0'>18.5 func ConfirmRecast()</a>
+<a class='ml-2 my-1 nav-link' href='#b1ff0584'>18.6 func CancelRecast()</a>
+<a class='ml-2 my-1 nav-link' href='#e46e7650'>18.7 func Notify()</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js?v=20191106"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>
