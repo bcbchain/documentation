@@ -55,7 +55,7 @@
 
   hdWallet_rpc服务程序提供的RPC接口列表如下所示（支持HTTPS，默认端口为37657）:
 
-![hdWallet_rpc](https://github.com/bcbchain/documentation/blob/master/zh-cn/05-交易所对接指南/p10/hdWallet_rpc.png))
+![hdWallet_rpc](https://github.com/bcbchain/documentation/blob/master/zh-cn/05-交易所对接指南/p10/hdWallet_rpc.png)
 
 ## 2.2 URI over HTTP
 
