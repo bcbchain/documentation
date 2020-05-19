@@ -36,12 +36,12 @@
 
 上述组件之间的基本关系由下图进行描绘。
 
-![](picture/basic2.png)
+
 
 
 <div STYLE="page-break-after: always;"></div>
 <div STYLE="page-break-after: always;"></div>
-# 2通讯协议
+# 2通讯协议![basic2](D:\SVN资料存储\trunk\doc\20-bcchain-docs\docs-dev\BCB\docs\documentation\zh-cn\05-交易所对接指南\p10\basic2.png)
 
 ## 2.1 协议概览
 
@@ -55,11 +55,9 @@
 
   hdWallet_rpc服务程序提供的RPC接口列表如下所示（支持HTTPS，默认端口为37657）:
 
-![](picture/hdWallet_rpc.png)
 
-<div STYLE="page-break-after: always;"></div>
-<div STYLE="page-break-after: always;"></div>
-## 2.2 URI over HTTP
+
+## 2.2 UR![hdWallet_rpc](D:\SVN资料存储\trunk\doc\20-bcchain-docs\docs-dev\BCB\docs\documentation\zh-cn\05-交易所对接指南\p10\hdWallet_rpc.png)I over HTTP
 
 ​	采用HTTP协议GET方法进行RPC请求时，参数必须采用URI编码，所有RPC调用的URL格式参见上表，具体业务及参数描述参见本章后续小节。
 
@@ -981,9 +979,9 @@ Example：
 
 具体集成流程如下图：
 
-![](picture/1.地址标签方案.png)
 
 
+![1.地址标签方案](D:\SVN资料存储\trunk\doc\20-bcchain-docs\docs-dev\BCB\docs\documentation\zh-cn\05-交易所对接指南\p10\1.地址标签方案.png)
 
 ## 6.2 无地址标签方案
 
@@ -1002,9 +1000,9 @@ Example：
 
 具体步骤如下图：
 
-![](picture/2.无地址标签方案.png)
 
 
+![2.无地址标签方案](D:\SVN资料存储\trunk\doc\20-bcchain-docs\docs-dev\BCB\docs\documentation\zh-cn\05-交易所对接指南\p10\2.无地址标签方案.png)
 
 ## 6.3 冷钱包向热钱包转账方案
 
@@ -1016,6 +1014,6 @@ Example：
 
 具体步骤如下图：
 
-![](picture/3.冷钱包向热钱包转账方案.png)
 
- 
+
+ ![3.冷钱包向热钱包转账方案](D:\SVN资料存储\trunk\doc\20-bcchain-docs\docs-dev\BCB\docs\documentation\zh-cn\05-交易所对接指南\p10\3.冷钱包向热钱包转账方案.png)
