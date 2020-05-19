@@ -55,9 +55,9 @@
 
   hdWallet_rpc服务程序提供的RPC接口列表如下所示（支持HTTPS，默认端口为37657）:
 
+![hdWallet_rpc](D:\SVN资料存储\trunk\doc\20-bcchain-docs\docs-dev\BCB\docs\documentation\zh-cn\05-交易所对接指南\p10\hdWallet_rpc.png)
 
-
-## 2.2 UR![hdWallet_rpc](D:\SVN资料存储\trunk\doc\20-bcchain-docs\docs-dev\BCB\docs\documentation\zh-cn\05-交易所对接指南\p10\hdWallet_rpc.png)I over HTTP
+## 2.2 URI over HTTP
 
 ​	采用HTTP协议GET方法进行RPC请求时，参数必须采用URI编码，所有RPC调用的URL格式参见上表，具体业务及参数描述参见本章后续小节。
 
@@ -1016,4 +1016,4 @@ Example：
 
 
 
- ![3.冷钱包向热钱包转账方案](D:\SVN资料存储\trunk\doc\20-bcchain-docs\docs-dev\BCB\docs\documentation\zh-cn\05-交易所对接指南\p10\3.冷钱包向热钱包转账方案.png)
+ 
