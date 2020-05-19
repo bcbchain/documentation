@@ -1002,7 +1002,7 @@ Example：
 
 
 
-![2.无地址标签方案](github.com/bcbchain/documentation/blob/master/zh-cn/05-交易所对接指南/p10/2.无地址标签方案.png)
+![2.无地址标签方案](https://github.com/bcbchain/documentation/blob/master/zh-cn/05-交易所对接指南/p10/2.无地址标签方案.png)
 
 ## 6.3 冷钱包向热钱包转账方案
 
@@ -1014,6 +1014,6 @@ Example：
 
 具体步骤如下图：
 
-![3.冷钱包向热钱包转账方案](github.com/bcbchain/documentation/blob/master/zh-cn/05-交易所对接指南/p10/3.冷钱包向热钱包转账方案.png)
+![3.冷钱包向热钱包转账方案](https://github.com/bcbchain/documentation/blob/master/zh-cn/05-交易所对接指南/p10/3.冷钱包向热钱包转账方案.png)
 
  
