@@ -36,7 +36,7 @@
 
 上述组件之间的基本关系由下图进行描绘。
 
-![basic2]([https://github.com/bcbchain/documentation/blob/master/zh-cn/05-%E4%BA%A4%E6%98%93%E6%89%80%E5%AF%B9%E6%8E%A5%E6%8C%87%E5%8D%97/p10/basic2.png](https://github.com/bcbchain/documentation/blob/master/zh-cn/05-交易所对接指南/p10/basic2.png))
+![basic2]([https://github.com/bcbchain/documentation/blob/master/zh-cn/05-%E4%BA%A4%E6%98%93%E6%89%80%E5%AF%B9%E6%8E%A5%E6%8C%87%E5%8D%97/p10/basic2.png]
 
 
 <div STYLE="page-break-after: always;"></div>
