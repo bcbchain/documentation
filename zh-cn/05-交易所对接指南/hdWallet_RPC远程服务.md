@@ -36,12 +36,12 @@
 
 上述组件之间的基本关系由下图进行描绘。
 
-
+![basic2](D:\SVN资料存储\trunk\doc\20-bcchain-docs\docs-dev\BCB\docs\documentation\zh-cn\05-交易所对接指南\p10\basic2.png)
 
 
 <div STYLE="page-break-after: always;"></div>
 <div STYLE="page-break-after: always;"></div>
-# 2通讯协议![basic2](D:\SVN资料存储\trunk\doc\20-bcchain-docs\docs-dev\BCB\docs\documentation\zh-cn\05-交易所对接指南\p10\basic2.png)
+# 2通讯协议
 
 ## 2.1 协议概览
 
@@ -1014,6 +1014,6 @@ Example：
 
 具体步骤如下图：
 
-
+![3.冷钱包向热钱包转账方案](D:\SVN资料存储\trunk\doc\20-bcchain-docs\docs-dev\BCB\docs\documentation\zh-cn\05-交易所对接指南\p10\3.冷钱包向热钱包转账方案.png)
 
  
